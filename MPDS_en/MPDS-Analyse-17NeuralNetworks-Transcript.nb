@@ -1,0 +1,1447 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     66138,       1439]
+NotebookOptionsPosition[     46169,       1119]
+NotebookOutlinePosition[     55305,       1303]
+CellTagsIndexPosition[     55233,       1298]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Assemble a Multiparadigm Toolset", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.7550187405549192`*^9, 3.755018745149918*^9}, {
+   3.7591638606642447`*^9, 3.759163886002613*^9}, 3.759164210011063*^9, {
+   3.759164301100876*^9, 3.7591643044495583`*^9}, {3.759164377421114*^9, 
+   3.759164377845544*^9}, {3.759167251656486*^9, 3.759167252750435*^9}, 
+   3.7594988327022038`*^9, {3.7600982572670107`*^9, 3.760098267473927*^9}, {
+   3.762883551242763*^9, 3.762883554328678*^9}, {3.764006742662427*^9, 
+   3.764006750852619*^9}, {3.766946233765916*^9, 3.766946235641965*^9}, 
+   3.7671135141159887`*^9},
+ CounterAssignments->{{"Section", 3}, {"Subsection", 0}, {
+   "Subsubsection", 0}, {
+   "Exercise", 0}},ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27"],
+
+Cell[CellGroupData[{
+
+Cell["Neural Networks", "Subsection",
+ CellChangeTimes->{{3.76107050681248*^9, 3.761070522683797*^9}, {
+   3.76107058461234*^9, 3.7610705946430264`*^9}, {3.7628835574485292`*^9, 
+   3.7628835673684397`*^9}, {3.762883693478266*^9, 3.76288369844493*^9}, {
+   3.764006753900371*^9, 3.764006757316087*^9}, {3.766148341983994*^9, 
+   3.766148381653051*^9}, {3.766516930027422*^9, 3.7665169538264923`*^9}, {
+   3.7669220030863867`*^9, 3.766922005094008*^9}, {3.7669359684938107`*^9, 
+   3.766935971092455*^9}, 
+   3.766946294896534*^9},ExpressionUUID->"a58b9082-aba4-41b6-98a6-\
+4f08b7bc39dd"],
+
+Cell["[00:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"f3f3da9a-428f-475f-98cd-c839d630a571"],
+
+Cell["\<\
+Multiparadigm Data Science with the Wolfram Language, Section 4: Assembling a \
+Multiparadigm Toolset. \
+\>", "Text",
+ CellChangeTimes->{{3.766154901492436*^9, 3.7661549225366793`*^9}, {
+  3.7663226957957754`*^9, 
+  3.7663227002857757`*^9}},ExpressionUUID->"16e5c0dd-a7b9-48ae-9166-\
+77f4de425156"],
+
+Cell["\<\
+A review of tools available for assembling a multiparadigm project workflow \
+cannot be complete without the most popular machine learning technique of the \
+recent times, the neural network. \
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549014999447`*^9, {3.766322790877283*^9, 
+   3.7663227928054757`*^9}},ExpressionUUID->"fb55b684-d303-4f6b-8ff0-\
+9dd6b07d00f7"],
+
+Cell["\<\
+And we have good news and bad news on this account.
+The good news is that the Wolfram Neural Net Repository and the Neural Net \
+Framework in the Wolfram Language makes it really easy to incorporate this \
+powerful technology into our project workflow.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901586718*^9, {3.7663227989810934`*^9, 
+   3.766322818839079*^9}},ExpressionUUID->"41871e29-29e1-4d36-bb2f-\
+3af277e7f664"],
+
+Cell["\<\
+The bad news is that we could never do justice to covering this topic in just \
+10 minutes. \
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154901593422*^9},ExpressionUUID->"2cd6abe0-23bf-4a7f-8df9-\
+5eba5e4ec466"],
+
+Cell["\<\
+But we could look at the resources we have available to incorporate neural \
+networks into our multiparadigm project workflow. \
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154901631777*^9},ExpressionUUID->"09538db1-d297-4b42-8d68-\
+b103450586d1"],
+
+Cell["[00:51]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"dd2b3193-7b02-4108-8724-18fa0f48aa69"],
+
+Cell["\<\
+The Wolfram Neural Net Repository provides access to tried-and-tested \
+pre-trained models, and we can use them as-is 
+or modify them as required with what is known as net surgery. This is \
+definitely the recommended way to get started with neural nets. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901638736*^9, {3.7663228514713416`*^9, 3.76632286145534*^9}, {
+   3.7663229191136847`*^9, 
+   3.7663229638511577`*^9}},ExpressionUUID->"ef232a0f-907e-4819-a4e9-\
+11fde89c7356"],
+
+Cell["\<\
+However, if we need to to build neural nets from scratch, we can do that as \
+well using the symbolic architecture provided by the Wolfram Neural Net \
+Framework.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901661313*^9, {3.7663229625400267`*^9, 
+   3.7663229873005023`*^9}},ExpressionUUID->"8059f93f-7713-4182-b028-\
+c4a31e43c847"],
+
+Cell["[01:20]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.766960338696601*^9, 3.766960341192293*^9}},
+ CellTags->"Timecode",ExpressionUUID->"8c5e993c-e61a-4f14-a7b0-8da7ac2937ab"],
+
+Cell["The Wolfram Language Neural Net Framework is built on MXNet.", "Text",
+ CellChangeTimes->{{3.766154901668836*^9, 3.766154931656371*^9}, 
+   3.7663227295960183`*^9, {3.766323000236796*^9, 
+   3.7663230104848204`*^9}},ExpressionUUID->"253ebe78-be12-4d85-aada-\
+4d417131bd6f"],
+
+Cell["\<\
+Apache MXNet is an open-source, deep-learning software framework. 
+It is portable, scalable and allows for fast model training on multiple GPUs. \
+
+It is supported by Amazon Web Services, Microsoft Azure, NVIDIA GPU Cloud, \
+and it can be used either directly or via an interface like the Wolfram \
+Language, as well as other languages like C++, Python, etc.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901708063*^9, {3.766323065574763*^9, 
+   3.7663231273289375`*^9}},ExpressionUUID->"1ed0d405-0446-416d-915b-\
+6266f7fe7409"],
+
+Cell["[01:53]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"db143856-f8f2-43f7-849e-6f6752af1177"],
+
+Cell["\<\
+The usefulness of frameworks is in the common features they provide to allow \
+us to build and customize neural nets easily.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154901718111*^9},ExpressionUUID->"39186f39-a421-4aee-a9f6-\
+f16d44857123"],
+
+Cell["\<\
+With frameworks, we can build networks as chains or acyclic graphs of layers. \
+
+The layers process arrays of numbers, kind of like neural activities. 
+Encoders convert input to numerical arrays, and decoders convert numeric \
+results to desired outputs like class labels or images. 
+The frameworks provide implementations of loss functions, backpropagation and \
+stochastic gradient descent algorithms and so on, and are highly optimized to \
+run on specialized hardware like GPUs.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901750577*^9, {3.7663234204751835`*^9, 
+   3.76632350834297*^9}},ExpressionUUID->"fb885cf6-b203-4bd1-8a1c-\
+e03449e5989b"],
+
+Cell["[02:38]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960435756184*^9, 
+   3.766960438669532*^9}},
+ CellTags->"Timecode",ExpressionUUID->"21ee2ebd-13e5-40de-9db6-e02c3a86e29f"],
+
+Cell["\<\
+Now, neural nets can be used to perform tasks like classification or \
+regression. They can be used for image processing, audio analysis, language \
+modeling and lots of other different things.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901818643*^9, {3.766326293179467*^9, 
+   3.7663263330574675`*^9}},ExpressionUUID->"2cc13aea-3cc6-4b4c-ab28-\
+ca2d06beb0d7"],
+
+Cell["\<\
+The Wolfram Neural Net Repository is a public resource worth exploring for \
+the neural net models and examples of their application.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901825698*^9, {3.7663330660008173`*^9, 
+   3.7663330665368176`*^9}},ExpressionUUID->"38142617-04f3-4008-b538-\
+c808ecc22132"],
+
+Cell["[03:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}},
+ CellTags->"Timecode",ExpressionUUID->"445df6a1-88e3-43c6-9518-f422aafd721f"],
+
+Cell["\<\
+For example, this is The Wolfram ImageIdentify Net V1, which is the power \
+behind the Wolfram Language function ImageIdentify. It can identify the main \
+object in an image, which is an image classification task.\
+\>", "Text",
+ CellChangeTimes->{
+  3.76615490184648*^9, 3.7663227317870617`*^9, {3.7663263519444675`*^9, 
+   3.7663263819024677`*^9}},ExpressionUUID->"27806246-5d53-4e4c-97e6-\
+7e1c487afc44"],
+
+Cell["\<\
+The pre-trained neural net model can be downloaded from the repo and used on \
+new images.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.76615490185378*^9},ExpressionUUID->"fc001397-29b1-4547-b23b-7fa9b4d99eb4"],
+
+Cell["[03:22]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669604984476643`*^9, 3.766960498663588*^9}},
+ CellTags->"Timecode",ExpressionUUID->"a7681824-682c-4e38-b866-058f009c480d"],
+
+Cell["\<\
+The Vanilla CNN for Facial Landmark Regression determines the locations of \
+the eyes, nose and mouth from a facial image. \
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154901897408*^9},ExpressionUUID->"efc26023-4ebc-422a-9dc2-\
+31da04d8ff59"],
+
+Cell["\<\
+It outputs numbers representing the coordinates of these points on the image, \
+and can be used by other functions to highlight the points on the image.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549019044943`*^9, {3.766326408580467*^9, 
+   3.766326412028467*^9}},ExpressionUUID->"cd047dbd-6e08-4187-8429-\
+d499f67f438d"],
+
+Cell["[03:41]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.766960535657559*^9, 3.766960535809553*^9}},
+ CellTags->"Timecode",ExpressionUUID->"7a80233f-fdc3-4054-9884-5a27d1d794cf"],
+
+Cell["\<\
+Neural nets are being increasingly used for various image processing \
+applications\[LongDash]for example, to solve the problem of segmenting an \
+image of a driving scenario into semantic component classes, as done by the \
+Dilated ResNet-105 neural net model.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901927415*^9, {3.766326417587467*^9, 
+   3.766326478120467*^9}},ExpressionUUID->"06a0d8d9-51ac-4a18-b8b3-\
+7c78da491bdc"],
+
+Cell["\<\
+To use this model, we need an evaluation function to handle net reshaping and \
+resampling of the input and output.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901976863*^9, {3.766326483311467*^9, 
+   3.7663264953364677`*^9}},ExpressionUUID->"bd4f9bb6-9801-419a-9433-\
+354d86a439e2"],
+
+Cell["\<\
+Integers from the model\[CloseCurlyQuote]s output can be mapped to labels for \
+each segment in the image, and thus be used to obtain a segmentation mask for \
+the given image.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154901985461*^9, {3.766326508542467*^9, 
+   3.766326516542467*^9}},ExpressionUUID->"0253d524-1eba-4f3e-8fa5-\
+7d8f1a0ca5d4"],
+
+Cell["[04:18]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}},
+ CellTags->"Timecode",ExpressionUUID->"8994d4db-0a8e-457f-bf3b-5c0c16e467f1"],
+
+Cell["\<\
+The colorful image colorization model, as the name suggests, can be used to \
+colorize a grayscale image. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902007083*^9, {3.766326547822104*^9, 
+   3.766326561261448*^9}},ExpressionUUID->"031e9ef7-2478-4802-80d9-\
+5ccd7ff3de37"],
+
+Cell["\<\
+It recasts image colorization into a classification problem by dividing the \
+AB color space into a number of bins and picking the final color for each \
+pixel according to its probability distribution over the bins.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902016468*^9, 3.766154949897154*^9, {3.7663265810464263`*^9, 
+   3.766326581422464*^9}},ExpressionUUID->"8f4ca45b-a997-47ff-be8a-\
+45af0be256ee"],
+
+Cell["\<\
+The model takes a grayscale image as input and outputs the A and B channels \
+in the LAB color space, so it needs an evaluation function to merge the \
+output with the luminance of the input.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549020595284`*^9, {3.7663314154555674`*^9, 
+   3.766331436415663*^9}},ExpressionUUID->"2d8df6b4-6c45-4c42-8255-\
+ac2fe61e3128"],
+
+Cell["\<\
+Here is the output of using this function to colorize a grayscale image.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902066712*^9, {3.766331423095331*^9, 
+   3.7663314421122327`*^9}},ExpressionUUID->"45f73375-b265-4919-b550-\
+0f0d134183f1"],
+
+Cell["[04:58]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, 
+   3.766960632094516*^9},
+ CellTags->"Timecode",ExpressionUUID->"aaa660a1-44cf-49d2-b278-2fa6f68da24d"],
+
+Cell["\<\
+The AdaIN-Style is an image stylization model that can transfer the style of \
+one image to another.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549020895767`*^9, {3.766331463039325*^9, 
+   3.76633147828885*^9}},ExpressionUUID->"c9e5fe5a-9034-4bb0-b7e5-\
+42906a66ea65"],
+
+Cell["Here is an example of the model at work.", "Text",
+ CellChangeTimes->{3.766154902096278*^9, 
+  3.7663314818332043`*^9},ExpressionUUID->"8def7137-6226-4add-bfa4-\
+a8091ef790b5"],
+
+Cell["\<\
+And here is the output from Wolfram Language function ImageRestyle, which, as \
+we can guess, uses a neural net internally.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902137843*^9, {3.766331492842305*^9, 
+   3.7663315047064915`*^9}},ExpressionUUID->"2dba3f9d-1662-4e08-9f8d-\
+94c252e8425b"],
+
+Cell["[05:16]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.76696065500772*^9, 3.766960657055241*^9}},
+ CellTags->"Timecode",ExpressionUUID->"59a48c2f-559a-48c3-8edf-8b21329bc698"],
+
+Cell["\<\
+Among other examples of models in the repository is Baidu Research\
+\[CloseCurlyQuote]s Deep Speech 2 model, which converts speech to text\
+\[LongDash]an end-to-end model which takes as input normalized sound \
+spectrograms and produces as output a sequence of characters. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902158304*^9, {3.766331544076428*^9, 3.766331551828203*^9}, {
+   3.7663332121518173`*^9, 
+   3.7663332133598175`*^9}},ExpressionUUID->"0213ac93-8477-4dde-8bee-\
+83cb58a63195"],
+
+Cell["[05:32]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960693548793*^9, 3.766960696092539*^9}},
+ CellTags->"Timecode",ExpressionUUID->"0dfb6088-2e64-4bba-b6cd-e1d5fefa056a"],
+
+Cell["\<\
+For text input, there is the collection of GloVe Word Vector models from the \
+CS department at Stanford, which provide vector representations for words.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.76615490216565*^9},ExpressionUUID->"13eef70d-0539-4907-bc7d-a79b7496062b"],
+
+Cell["\<\
+Here\[CloseCurlyQuote]s an example of using the GloVe 300-Dimensional Word \
+Vector model as a feature extractor with the FeatureSpacePlot function to \
+visualize words in 2D feature space.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902211402*^9, {3.7663315852935495`*^9, 
+   3.7663316362786474`*^9}},ExpressionUUID->"bec3fcbd-5b46-4be9-9dc6-\
+bcf507b3cd1a"],
+
+Cell["\<\
+Incidentally, this model is also used for word embeddings in the Wolfram \
+Language function FindTextualAnswer, which itself is a neural net trained \
+using the Wolfram Neural Net Framework. \
+\>", "Text",
+ CellChangeTimes->{3.766154902218583*^9, 
+  3.7663316484148607`*^9},ExpressionUUID->"8c89ed5f-e40c-47a8-bcfb-\
+f7ca8aee6009"],
+
+Cell["\<\
+It answers questions by quoting the most appropriate excerpts of a text that \
+is presumed to contain the relevant information.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154902239316*^9},ExpressionUUID->"9efdd290-e648-48bf-960a-\
+28e1f91a6e7f"],
+
+Cell["[06:13]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960743788988*^9, 3.766960745812478*^9}},
+ CellTags->"Timecode",ExpressionUUID->"c68e9e6d-95d1-4076-8d38-285b87f4d719"],
+
+Cell["\<\
+The current consensus in the neural net community is that building your own \
+net architecture is unnecessary for the majority of applications, and such \
+attempts can even hurt performance. \
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154902290515*^9},ExpressionUUID->"c113a9dd-a596-42cc-9619-\
+4390dcf64f3a"],
+
+Cell["\<\
+Rather, adapting a pre-trained net to your own problem is almost always a \
+better approach in terms of performance. \
+\>", "Text",
+ CellChangeTimes->{3.766154902300199*^9, 
+  3.7661550656173983`*^9},ExpressionUUID->"430d51ae-9662-47ad-849b-\
+3f637451072e"],
+
+Cell["\<\
+Now we have access to carefully designed and trained models in the neural net \
+repo. 
+So instead of going through the difficult and laborious task of building good \
+net architectures from individual layers, 
+we can transfer knowledge from nets trained on different domains to our own \
+problems\[LongDash]a great application of the multiparadigm approach to data \
+science.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902323402*^9, 3.766155070378277*^9, {3.766331705041523*^9, 
+   3.7663317260906277`*^9}},ExpressionUUID->"5957c48d-83d6-474c-aa83-\
+b06942e02b77"],
+
+Cell["[06:57]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}},
+ CellTags->"Timecode",ExpressionUUID->"634ced40-f8b0-4dbd-8ed4-8982ab1f7276"],
+
+Cell["\<\
+We start off by looking for a net close to the problem we need to solve, then \
+download the model, perform minimal amounts of surgery on the net to adapt it \
+to the specific problem and train it on our data.\
+\>", "Text",
+ CellChangeTimes->{
+  3.76615490233115*^9, {3.7663317325942783`*^9, 
+   3.7663317546744857`*^9}},ExpressionUUID->"450ee391-444c-464d-9bdf-\
+593dfd8e363a"],
+
+Cell["\<\
+Say we have a problem of classifying old movie posters according to the genre \
+of the film.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.7661549023722687`*^9},ExpressionUUID->"1219fef0-da06-47b3-a389-\
+accd50c8a247"],
+
+Cell["\<\
+First, let\[CloseCurlyQuote]s find a net suitable to our problem. Let\
+\[CloseCurlyQuote]s try the Wolfram ImageIdentify Net V1.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902395576*^9, {3.7663317700840263`*^9, 
+   3.766331772940312*^9}},ExpressionUUID->"c04e5e46-cea1-4ea4-bea9-\
+0cb9c81b19b3"],
+
+Cell["\<\
+Now the last two layers are really specialized for ImageIdentify, so we can \
+remove these layers using NetDrop.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902402504*^9, {3.766155079578204*^9, 3.766155080425305*^9}, {
+   3.766331775931611*^9, 
+   3.766331796868705*^9}},ExpressionUUID->"75e1a183-4496-46c4-baf0-\
+a804f5e22831"],
+
+Cell["[07:30]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669608812236757`*^9, 
+   3.766960884013023*^9}},
+ CellTags->"Timecode",ExpressionUUID->"aa689705-45e9-4000-a38f-8a6f99a99a96"],
+
+Cell["\<\
+It is really easy doing net surgery in the Wolfram Language since the nets \
+are symbolic expressions that can be manipulated using a large set of \
+functions, like NetTake, NetDrop, NetAppend, NetJoin, etc.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902442814*^9, {3.76633180202122*^9, 
+   3.7663318204140587`*^9}},ExpressionUUID->"13ec6447-b3ad-4c1e-b24e-\
+81ab6ac13ef4"],
+
+Cell["\<\
+So we can use NetJoin to combine the part of the pre-trained net with a chain \
+of two new layers and our specific decoder.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549024518213`*^9, {3.7663318353735547`*^9, 
+   3.766331835613579*^9}},ExpressionUUID->"7f65f602-6f89-49d6-951e-\
+0841a7b032c8"],
+
+Cell["\<\
+We train this net on our training dataset, freezing all the weights except \
+for those in the new classifier layer.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902472176*^9, {3.766331840046022*^9, 
+   3.7663318569027076`*^9}},ExpressionUUID->"a4872ede-cf02-402f-acd4-\
+fd4e94e93589"],
+
+Cell["\<\
+Now we can try it on our test set to see how the classifier labels the four \
+test posters.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549024788723`*^9, {3.766331867358753*^9, 
+   3.766331870008018*^9}},ExpressionUUID->"a432f2ff-5ba4-4d15-9993-\
+6c9f88c04783"],
+
+Cell["[08:06]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.766960918795891*^9, 
+   3.766960921365774*^9}},
+ CellTags->"Timecode",ExpressionUUID->"51160152-3cc0-4307-b07f-996e511eec2f"],
+
+Cell["\<\
+One of the most powerful applications of trained nets is to use the knowledge \
+they have gained on one problem to improve the performance of learning \
+algorithms on a different problem. This is known as transfer learning, and it \
+can significantly improve performance when you are training on small datasets.\
+\>", "Text",
+ CellChangeTimes->{
+  3.76615490252035*^9, {3.766331894423459*^9, 
+   3.766331905640581*^9}},ExpressionUUID->"b06b6c5a-c0cd-4d64-b406-\
+fef50acc686b"],
+
+Cell["[08:21]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.766960944496253*^9, 
+   3.7669609475915747`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"de820a00-43f3-41a8-bcc7-c63690966804"],
+
+Cell["\<\
+Okay. Now let\[CloseCurlyQuote]s try to build a neural net using the building \
+blocks provided by the framework.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902542048*^9, {3.766331908672884*^9, 
+   3.766331910897106*^9}},ExpressionUUID->"a7795e9d-0bc6-4b21-9523-\
+6cc9f85c8eec"],
+
+Cell["\<\
+The LeNet was a pioneer neural net model that was released in 1998 to solve \
+the task of image classification using convolutional neural nets. \
+\>", "Text",
+ CellChangeTimes->{3.766154902550003*^9, 3.766322734208111*^9, 
+  3.766331921496166*^9},ExpressionUUID->"9b11120f-a354-4a12-8390-\
+cf18fccde220"],
+
+Cell["\<\
+It used the MNIST database of handwritten digits, which contained 60,000 \
+training and 10,000 test grayscale images of handwritten digits. The LeNet \
+model was trained to identify the digit from the image.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902594775*^9, {3.7663227363781557`*^9, 3.7663227398542256`*^9}, {
+   3.7663319560729647`*^9, 3.766331962748103*^9}, {3.7663334302837067`*^9, 
+   3.766333432305909*^9}},ExpressionUUID->"3e0d5453-13e8-4321-ac8d-\
+2cd774dc8e3e"],
+
+Cell["[08:53]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669609859389267`*^9, 
+   3.76696098767787*^9}},
+ CellTags->"Timecode",ExpressionUUID->"ed29e036-816d-477e-975f-c4d84feec72e"],
+
+Cell["\<\
+Here\[CloseCurlyQuote]s the pre-trained model from the Wolfram Neural Net \
+Repository.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902602844*^9, {3.7663319782983956`*^9, 
+   3.7663319810426702`*^9}},ExpressionUUID->"d9bae184-b79f-4e2a-87ac-\
+171da6bf722a"],
+
+Cell["\<\
+We can construct a neural net similar to the LeNet model by putting together \
+different layers.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549026235523`*^9, {3.7663319844190073`*^9, 
+   3.7663319870272684`*^9}},ExpressionUUID->"309117a2-9b53-4497-9cab-\
+c446cd37ccf8"],
+
+Cell["\<\
+This network takes as input a 28 by 28 grayscale image of a handwritten \
+digit, and outputs an integer between 0 and 9, the class label for that image.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549026325893`*^9, {3.7663319926348295`*^9, 3.7663320054361095`*^9}, {
+   3.7663334748607745`*^9, 
+   3.7663334755398426`*^9}},ExpressionUUID->"05cd3e6c-5568-470c-816a-\
+cabce8c607e3"],
+
+Cell["[09:18]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669610185535383`*^9, 
+   3.766961022325068*^9}},
+ CellTags->"Timecode",ExpressionUUID->"c159a8b6-55b2-41d0-b80d-34a13a40383d"],
+
+Cell["\<\
+Now a neural network\[CloseCurlyQuote]s performance really depends on the \
+parameters of the network. During the training process, we need to fit all \
+these parameters with the help of the training data.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902678754*^9, {3.7663320143239975`*^9, 
+   3.7663320333566513`*^9}},ExpressionUUID->"11f4b784-0c6a-4b31-8527-\
+d9adb5db4180"],
+
+Cell["\<\
+Initially, the network parameters are unknown and set to random values.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902685964*^9, {3.766332043980714*^9, 
+   3.7663320442687426`*^9}},ExpressionUUID->"51018da7-8f14-447c-bf05-\
+9f7a538cc474"],
+
+Cell["In this state, the network will return some random result.", "Text",
+ CellChangeTimes->{
+  3.766154902707226*^9, {3.7661550965535593`*^9, 
+   3.766155097544299*^9}},ExpressionUUID->"41c4207d-50a6-4d49-8a6f-\
+9b7a58822c37"],
+
+Cell["\<\
+So we train the network from scratch. NetTrain takes care of many details \
+automatically, such as selecting an appropriate loss function, attaching \
+encoders and decoders, initializing the weights and biases, choosing the \
+optimizer and the batch size, and running the backpropagation algorithm.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902717407*^9, 3.7663227418742666`*^9, {3.766332053396655*^9, 
+   3.766332109880226*^9}, {3.766333514526741*^9, 
+   3.766333515349823*^9}},ExpressionUUID->"6aeac9d0-8fc4-47bb-8a11-\
+eac3f53f4a96"],
+
+Cell["[10:01]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669610185535383`*^9, 
+   3.766961022325068*^9}, {3.7669610704385633`*^9, 3.766961073870455*^9}},
+ CellTags->"Timecode",ExpressionUUID->"dc4674be-ad4d-4809-8ff2-1c3b7305eb53"],
+
+Cell["Let\[CloseCurlyQuote]s test the trained net.", "Text",
+ CellChangeTimes->{
+  3.7661549027603683`*^9, {3.766332119885225*^9, 
+   3.766332121052991*^9}},ExpressionUUID->"a0cd4802-7694-467f-b40a-\
+c881d1856cd7"],
+
+Cell["\<\
+We can evaluate the performance of the trained network using NetMeasurements.\
+\
+\>", "Text",
+ CellChangeTimes->{3.766154902768548*^9, 
+  3.76633212845951*^9},ExpressionUUID->"cf50e4f3-e332-472c-a4c1-daceb4ab0b43"],
+
+Cell["\<\
+We can also export the trained model to save it in the Wolfram-developed \
+WLNet format and import it back\[LongDash]either the whole net or its \
+elements\[LongDash]for use later.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549027902813`*^9, {3.766332136328935*^9, 3.7663321392083592`*^9}, {
+   3.7663321763999195`*^9, 
+   3.766332179086382*^9}},ExpressionUUID->"bb09f192-dc41-4092-bd6a-\
+7de42996a41d"],
+
+Cell["[10:27]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669610185535383`*^9, 
+   3.766961022325068*^9}, {3.766961107367816*^9, 3.7669611092692137`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"03131994-d262-4060-9253-a251b935aec1"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s take a more detailed look at the building blocks of a \
+neural network.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154902842037*^9},ExpressionUUID->"4e7f8ea4-a253-4381-8028-\
+4b3a5943638d"],
+
+Cell["A layer is the simplest component of a network. ", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154902851159*^9},ExpressionUUID->"6188bfa9-0dec-48f8-a0b6-\
+9d1c46777962"],
+
+Cell["Layers only act on numeric tensors.", "Text",
+ CellChangeTimes->{
+  3.766154902872382*^9, {3.7663322050781827`*^9, 
+   3.7663322052791424`*^9}},ExpressionUUID->"86b53e2d-4cbd-46d2-9871-\
+917867b0441a"],
+
+Cell["\<\
+They are differentiable\[LongDash]differentiability being a key property that \
+allows the efficient training of the nets.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549028790207`*^9, {3.7663322117898397`*^9, 3.766332229993199*^9}, {
+   3.766333561351423*^9, 
+   3.7663335667109585`*^9}},ExpressionUUID->"e8abdb94-1b8c-4f8b-9c58-\
+9b22a07c2cfd"],
+
+Cell["\<\
+Layers can run on GPUs and CPUs, and they can do shape inference.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549029199753`*^9, {3.766332239925212*^9, 
+   3.76633226567906*^9}},ExpressionUUID->"56b62557-9bc0-4a07-a5cd-\
+bb7f8e6ab5a9"],
+
+Cell["\<\
+Certain layers have learnable parameters, and this is what makes learning \
+possible while training the net.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154902950458*^9, {3.7663323435144434`*^9, 
+   3.766332352320682*^9}},ExpressionUUID->"5eb4f4cf-9287-4152-a03f-\
+1bfd367ae8d2"],
+
+Cell["The LinearLayer is the simplest learnable layer.", "Text",
+ CellChangeTimes->{3.766154902958397*^9, 
+  3.7663323580225415`*^9},ExpressionUUID->"2d2358f1-caf9-43d8-b40a-\
+2b1f3d86e57a"],
+
+Cell["\<\
+It computes a linear combination of the input, given some weights and bias\
+\[LongDash]something that a function like this would do.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549030000353`*^9, {3.7663323639252357`*^9, 
+   3.7663323716382356`*^9}},ExpressionUUID->"26e77814-b205-4247-8662-\
+0af508dab8df"],
+
+Cell["\<\
+Here is a LinearLayer with three input nodes and two output nodes, and we can \
+initialize the parameters for this layer.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903007262*^9, {3.766332380140236*^9, 
+   3.7663323942122355`*^9}},ExpressionUUID->"abcae580-0aad-420f-bc2d-\
+99b4b2724871"],
+
+Cell["\<\
+Here we can compare the results of our own linear function using the weights \
+and biases from the initialized linear layer. The Wolfram Neural Net \
+Framework provides a huge list of layers to incorporate into your neural net \
+model.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903028404*^9, {3.766332409147083*^9, 
+   3.7663324541690826`*^9}},ExpressionUUID->"e40ed677-c074-4a39-8e06-\
+450ebc6f85b1"],
+
+Cell["[11:30]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669610185535383`*^9, 
+   3.766961022325068*^9}, {3.766961107367816*^9, 3.7669611092692137`*^9}, {
+   3.7669611813258963`*^9, 3.766961182843302*^9}},
+ CellTags->"Timecode",ExpressionUUID->"8fd64c21-63ab-49b1-8f28-eafc0a81ce4c"],
+
+Cell["\<\
+Containers. 
+We usually need to combine multiple layers together to do something \
+interesting. This is where containers become useful.\
+\>", "Text",
+ CellChangeTimes->{3.7661549031133423`*^9, 
+  3.766332498804854*^9},ExpressionUUID->"35f79cb3-9589-4e94-abff-\
+07749abe8353"],
+
+Cell["\<\
+Chains are the simplest containers, and NetChain can be used to chain \
+together two or more layers.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903154169*^9, {3.766332506804854*^9, 
+   3.766332512764854*^9}},ExpressionUUID->"c6ceba7a-008a-414b-adc0-\
+9dd4d6f04f1d"],
+
+Cell["\<\
+This function is really the computation that the chain here accomplishes.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903161543*^9, {3.766332524195854*^9, 
+   3.766332531114854*^9}},ExpressionUUID->"395d255b-c3b7-44fb-8f78-\
+123db199d6f1"],
+
+Cell["\<\
+Since NetChain cannot really take more than one input, NetGraph is used to \
+build more complex networks.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903184815*^9, 3.766322744045311*^9, {3.766332537522854*^9, 
+   3.766332545809854*^9}},ExpressionUUID->"ac2af7b2-06cd-4eb6-bacb-\
+a4f6e7a3f76b"],
+
+Cell["\<\
+To accomplish something that this function would compute, we need to create a \
+NetGraph.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903191679*^9, {3.766332551033854*^9, 
+   3.766332560929854*^9}},ExpressionUUID->"e695493f-ff7f-4916-8fae-\
+157049a6d810"],
+
+Cell["\<\
+All of the layers are differentiable, and so are the containers.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661549032435513`*^9, {3.766332569664854*^9, 
+   3.766332577855854*^9}},ExpressionUUID->"516ca15b-fb54-4b3a-a165-\
+3955a539458d"],
+
+Cell["Containers can be nested, just like normal layers.", "Text",
+ CellChangeTimes->{
+  3.7661549032660933`*^9, 3.766322746870368*^9, {3.766332580671854*^9, 
+   3.766332588382854*^9}},ExpressionUUID->"2957e311-00ea-4f32-b07a-\
+d66bf2a97144"],
+
+Cell["\<\
+The models in the repository are almost all in some form of a container.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903273631*^9, {3.766332632612854*^9, 
+   3.766332640396854*^9}},ExpressionUUID->"331bbd62-e512-4711-af97-\
+efd96bf305ee"],
+
+Cell["[12:18]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669610185535383`*^9, 
+   3.766961022325068*^9}, {3.766961107367816*^9, 3.7669611092692137`*^9}, {
+   3.766961240154244*^9, 3.766961244655035*^9}},
+ CellTags->"Timecode",ExpressionUUID->"9e12387e-a122-47a6-a58c-7cf93e83baf7"],
+
+Cell["\<\
+Neural net layers require as input numeric tensors. 
+To train and use nets on images, audio, text, etc., we need to use a \
+NetEncoder to translate the data to numeric tensors. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903321085*^9, {3.7663227507964487`*^9, 3.766322753050495*^9}, {
+   3.766332645027854*^9, 
+   3.766332651651854*^9}},ExpressionUUID->"ed3d03e3-2a45-4f47-a8d7-\
+defd38a114e8"],
+
+Cell["This encoder produces a 1 x 12 x 12 tensor from an image.", "Text",
+ CellChangeTimes->{
+  3.76615490332803*^9, {3.766332663402854*^9, 
+   3.766332671849854*^9}},ExpressionUUID->"3f106109-1d8e-453a-aaa2-\
+9d8a7ffbc0c2"],
+
+Cell["It can be used on an image directly or on a file.", "Text",
+ CellChangeTimes->{
+  3.7661549033516273`*^9, {3.7663326786498537`*^9, 
+   3.766332679736854*^9}},ExpressionUUID->"15edf262-2fec-4286-81c2-\
+db57640e6e5f"],
+
+Cell["\<\
+A large collection of encoders are available for different data types.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903358603*^9, {3.7663326854248543`*^9, 
+   3.7663327065758543`*^9}},ExpressionUUID->"0d1860d2-4773-48d3-81f9-\
+227ad15623ee"],
+
+Cell["[12:46]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669610185535383`*^9, 
+   3.766961022325068*^9}, {3.766961107367816*^9, 3.7669611092692137`*^9}, {
+   3.766961323745098*^9, 3.76696132637365*^9}},
+ CellTags->"Timecode",ExpressionUUID->"9f289496-9da6-4af9-af24-03cc3edab3f0"],
+
+Cell["\<\
+The output of a neural net is also a numeric tensor, but for a task like \
+classification, we would want class labels as output.  The NetDecoder \
+converts numbers to non-numeric outputs for the net.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903442737*^9, {3.766332719414854*^9, 
+   3.766332741368854*^9}},ExpressionUUID->"35d2fb4c-93d1-4d8a-80f0-\
+bccb0d86f0f1"],
+
+Cell["\<\
+This decoder will interpret a vector of probabilities over classes as a class \
+label.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903478223*^9, {3.7663327494768543`*^9, 
+   3.766332749764854*^9}},ExpressionUUID->"9863a026-7ab3-4334-9cd6-\
+5b8c0e02889d"],
+
+Cell["The probabilities themselves can also be obtained.", "Text",
+ CellChangeTimes->{
+  3.766154903485433*^9, {3.766332752572854*^9, 
+   3.766332752780854*^9}},ExpressionUUID->"6bd55654-0556-43da-bbda-\
+eeafe386b740"],
+
+Cell["[13:14]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766960267614655*^9, 
+   3.7669602679142323`*^9}, {3.766960302007688*^9, 3.7669603025990257`*^9}, {
+   3.7669603803000526`*^9, 3.7669603841236963`*^9}, {3.766960465372504*^9, 
+   3.766960467960887*^9}, {3.7669605813040524`*^9, 3.766960583694387*^9}, {
+   3.766960795820641*^9, 3.766960798111464*^9}, {3.7669610185535383`*^9, 
+   3.766961022325068*^9}, {3.766961107367816*^9, 3.7669611092692137`*^9}, {
+   3.766961362309289*^9, 3.766961366762581*^9}},
+ CellTags->"Timecode",ExpressionUUID->"9b1ec873-2b4f-4862-845e-a7edbbeb435a"],
+
+Cell["\<\
+In this whirlwind tour of neural networks, we learned about the Wolfram \
+Neural Net Framework and the features it offers.
+We looked at examples of pre-trained neural net models in the Wolfram Neural \
+Net Repository and how to use net surgery to customize and adapt the models \
+for use in different tasks for transfer learning.
+We put together a simple neural net according to the LeNet model to recognize \
+handwritten digits of images.
+We also looked at the various building blocks provided by the Neural Net \
+Framework to understand how they can be used to design, build and customize \
+neural net models.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154903800667*^9, 3.7663227555315447`*^9, {3.766332800770854*^9, 
+   3.7663328522548456`*^9}},ExpressionUUID->"5e476758-ddf3-4f17-b515-\
+4b3dc6d15b1c"]
+}, Open  ]]
+},
+WindowSize->{819, 1035},
+WindowMargins->{{Automatic, 112}, {900, Automatic}},
+ShowCellTags->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (October 15, 2018)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+       StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+       CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> False, 
+       LineSpacing -> {1, 4}, LanguageCategory -> "NaturalLanguage", 
+       CounterIncrements -> "Title", 
+       CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+         "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+         "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+         "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, MenuSortingValue -> 
+       1100, MenuCommandKey -> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+       45, FontTracking -> -0.5, FontColor -> RGBColor[0.8, 0.043, 0.008]], 
+      Cell[
+       StyleData["Section"], CellFrame -> {{0, 0}, {0, 0}}, CellDingbat -> 
+       Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{67, Inherited}, {34, 54}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionDoubleDigit"], CellFrame -> {{0, 0}, {0, 0}}, 
+       CellDingbat -> Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{112, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionNumber"], CellBaseline -> Baseline, FontFamily -> 
+       "Source Sans Pro", FontSize -> 36, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionInline"], FontFamily -> "Source Sans Pro", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionNoDingbat"], 
+       CellMargins -> {{64, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 25, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Subsubsection"], CellMargins -> {{27, Inherited}, {6, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 20, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Text"], CellMargins -> {{27, 10}, {7, 8}}, 
+       LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+       "Text", MenuSortingValue -> 1400, MenuCommandKey -> "7", FontFamily -> 
+       "Source Sans Pro", FontSize -> 15], 
+      Cell[
+       StyleData["Link"], 
+       CellChangeTimes -> {{3.747057645225031*^9, 3.747057645432509*^9}, {
+        3.747057679800942*^9, 3.747057679968298*^9}}, FontFamily -> 
+       "WolframCodeSans", FontSize :> If[CurrentValue[
+           EvaluationCell[], "FontFamily"] === "Source Sans Pro", Inherited, 
+         If[CurrentValue[
+            EvaluationCell[], "FontFamily"] === "WolframCodeSans", Inherited, 
+          Inherited 0.9]], FontColor -> 
+       RGBColor[
+        0.4285191119249256, 0.45610742351415273`, 0.560845349813077]]}, 
+     Closed]]}, Visible -> False, FrontEndVersion -> 
+  "12.0 for Mac OS X x86 (64-bit) (October 15, 2018)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Timecode"->{
+  Cell[1945, 47, 360, 6, 45, "Text",ExpressionUUID->"f3f3da9a-428f-475f-98cd-c839d630a571",
+   CellTags->"Timecode"],
+  Cell[4000, 105, 460, 7, 45, "Text",ExpressionUUID->"dd2b3193-7b02-4108-8724-18fa0f48aa69",
+   CellTags->"Timecode"],
+  Cell[5297, 136, 510, 8, 45, "Text",ExpressionUUID->"8c5e993c-e61a-4f14-a7b0-8da7ac2937ab",
+   CellTags->"Timecode"],
+  Cell[6631, 165, 514, 8, 45, "Text",ExpressionUUID->"db143856-f8f2-43f7-849e-6f6752af1177",
+   CellTags->"Timecode"],
+  Cell[8111, 200, 564, 9, 45, "Text",ExpressionUUID->"21ee2ebd-13e5-40de-9db6-e02c3a86e29f",
+   CellTags->"Timecode"],
+  Cell[9368, 230, 564, 9, 45, "Text",ExpressionUUID->"445df6a1-88e3-43c6-9518-f422aafd721f",
+   CellTags->"Timecode"],
+  Cell[10618, 260, 612, 9, 45, "Text",ExpressionUUID->"a7681824-682c-4e38-b866-058f009c480d",
+   CellTags->"Timecode"],
+  Cell[11866, 290, 610, 9, 45, "Text",ExpressionUUID->"7a80233f-fdc3-4054-9884-5a27d1d794cf",
+   CellTags->"Timecode"],
+  Cell[13570, 331, 612, 9, 45, "Text",ExpressionUUID->"8994d4db-0a8e-457f-bf3b-5c0c16e467f1",
+   CellTags->"Timecode"],
+  Cell[15516, 379, 638, 10, 45, "Text",ExpressionUUID->"aaa660a1-44cf-49d2-b278-2fa6f68da24d",
+   CellTags->"Timecode"],
+  Cell[16926, 414, 661, 10, 45, "Text",ExpressionUUID->"59a48c2f-559a-48c3-8edf-8b21329bc698",
+   CellTags->"Timecode"],
+  Cell[18096, 438, 662, 10, 45, "Text",ExpressionUUID->"0dfb6088-2e64-4bba-b6cd-e1d5fefa056a",
+   CellTags->"Timecode"],
+  Cell[20108, 488, 662, 10, 45, "Text",ExpressionUUID->"c68e9e6d-95d1-4076-8d38-285b87f4d719",
+   CellTags->"Timecode"],
+  Cell[21989, 533, 662, 10, 45, "Text",ExpressionUUID->"634ced40-f8b0-4dbd-8ed4-8982ab1f7276",
+   CellTags->"Timecode"],
+  Cell[23966, 584, 714, 11, 45, "Text",ExpressionUUID->"aa689705-45e9-4000-a38f-8a6f99a99a96",
+   CellTags->"Timecode"],
+  Cell[25944, 634, 712, 11, 45, "Text",ExpressionUUID->"51160152-3cc0-4307-b07f-996e511eec2f",
+   CellTags->"Timecode"],
+  Cell[27148, 658, 714, 11, 45, "Text",ExpressionUUID->"de820a00-43f3-41a8-bcc7-c63690966804",
+   CellTags->"Timecode"],
+  Cell[28964, 699, 713, 11, 45, "Text",ExpressionUUID->"ed29e036-816d-477e-975f-c4d84feec72e",
+   CellTags->"Timecode"],
+  Cell[30622, 740, 714, 11, 45, "Text",ExpressionUUID->"c159a8b6-55b2-41d0-b80d-34a13a40383d",
+   CellTags->"Timecode"],
+  Cell[32761, 789, 762, 11, 45, "Text",ExpressionUUID->"dc4674be-ad4d-4809-8ff2-1c3b7305eb53",
+   CellTags->"Timecode"],
+  Cell[34385, 826, 762, 11, 45, "Text",ExpressionUUID->"03131994-d262-4060-9253-a251b935aec1",
+   CellTags->"Timecode"],
+  Cell[37967, 923, 814, 12, 45, "Text",ExpressionUUID->"8fd64c21-63ab-49b1-8f28-eafc0a81ce4c",
+   CellTags->"Timecode"],
+  Cell[40918, 1003, 812, 12, 56, "Text",ExpressionUUID->"9e12387e-a122-47a6-a58c-7cf93e83baf7",
+   CellTags->"Timecode"],
+  Cell[42845, 1048, 811, 12, 56, "Text",ExpressionUUID->"9f289496-9da6-4af9-af24-03cc3edab3f0",
+   CellTags->"Timecode"],
+  Cell[44525, 1087, 812, 12, 56, "Text",ExpressionUUID->"9b1ec873-2b4f-4862-845e-a7edbbeb435a",
+   CellTags->"Timecode"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Timecode", 52197, 1244}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 772, 12, 135, "Section",ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27",
+ Evaluatable->False,
+ CounterAssignments->{{"Section", 3}, {"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}}],
+Cell[CellGroupData[{
+Cell[1355, 36, 587, 9, 48, "Subsection",ExpressionUUID->"a58b9082-aba4-41b6-98a6-4f08b7bc39dd"],
+Cell[1945, 47, 360, 6, 45, "Text",ExpressionUUID->"f3f3da9a-428f-475f-98cd-c839d630a571",
+ CellTags->"Timecode"],
+Cell[2308, 55, 308, 7, 35, "Text",ExpressionUUID->"16e5c0dd-a7b9-48ae-9166-77f4de425156"],
+Cell[2619, 64, 372, 8, 58, "Text",ExpressionUUID->"fb55b684-d303-4f6b-8ff0-9dd6b07d00f7"],
+Cell[2994, 74, 430, 9, 81, "Text",ExpressionUUID->"41871e29-29e1-4d36-bb2f-3af277e7f664"],
+Cell[3427, 85, 266, 8, 35, "Text",ExpressionUUID->"2cd6abe0-23bf-4a7f-8df9-5eba5e4ec466"],
+Cell[3696, 95, 301, 8, 58, "Text",ExpressionUUID->"09538db1-d297-4b42-8d68-b103450586d1"],
+Cell[4000, 105, 460, 7, 45, "Text",ExpressionUUID->"dd2b3193-7b02-4108-8724-18fa0f48aa69",
+ CellTags->"Timecode"],
+Cell[4463, 114, 486, 10, 81, "Text",ExpressionUUID->"ef232a0f-907e-4819-a4e9-11fde89c7356"],
+Cell[4952, 126, 342, 8, 58, "Text",ExpressionUUID->"8059f93f-7713-4182-b028-c4a31e43c847"],
+Cell[5297, 136, 510, 8, 45, "Text",ExpressionUUID->"8c5e993c-e61a-4f14-a7b0-8da7ac2937ab",
+ CellTags->"Timecode"],
+Cell[5810, 146, 279, 4, 35, "Text",ExpressionUUID->"253ebe78-be12-4d85-aada-4d417131bd6f"],
+Cell[6092, 152, 536, 11, 104, "Text",ExpressionUUID->"1ed0d405-0446-416d-915b-6266f7fe7409"],
+Cell[6631, 165, 514, 8, 45, "Text",ExpressionUUID->"db143856-f8f2-43f7-849e-6f6752af1177",
+ CellTags->"Timecode"],
+Cell[7148, 175, 298, 8, 58, "Text",ExpressionUUID->"39186f39-a421-4aee-a9f6-f16d44857123"],
+Cell[7449, 185, 659, 13, 150, "Text",ExpressionUUID->"fb885cf6-b203-4bd1-8a1c-e03449e5989b"],
+Cell[8111, 200, 564, 9, 45, "Text",ExpressionUUID->"21ee2ebd-13e5-40de-9db6-e02c3a86e29f",
+ CellTags->"Timecode"],
+Cell[8678, 211, 371, 8, 58, "Text",ExpressionUUID->"2cc13aea-3cc6-4b4c-ab28-ca2d06beb0d7"],
+Cell[9052, 221, 313, 7, 58, "Text",ExpressionUUID->"38142617-04f3-4008-b538-c808ecc22132"],
+Cell[9368, 230, 564, 9, 45, "Text",ExpressionUUID->"445df6a1-88e3-43c6-9518-f422aafd721f",
+ CellTags->"Timecode"],
+Cell[9935, 241, 416, 8, 58, "Text",ExpressionUUID->"27806246-5d53-4e4c-97e6-7e1c487afc44"],
+Cell[10354, 251, 261, 7, 35, "Text",ExpressionUUID->"fc001397-29b1-4547-b23b-7fa9b4d99eb4"],
+Cell[10618, 260, 612, 9, 45, "Text",ExpressionUUID->"a7681824-682c-4e38-b866-058f009c480d",
+ CellTags->"Timecode"],
+Cell[11233, 271, 297, 8, 58, "Text",ExpressionUUID->"efc26023-4ebc-422a-9dc2-31da04d8ff59"],
+Cell[11533, 281, 330, 7, 58, "Text",ExpressionUUID->"cd047dbd-6e08-4187-8429-d499f67f438d"],
+Cell[11866, 290, 610, 9, 45, "Text",ExpressionUUID->"7a80233f-fdc3-4054-9884-5a27d1d794cf",
+ CellTags->"Timecode"],
+Cell[12479, 301, 437, 9, 81, "Text",ExpressionUUID->"06a0d8d9-51ac-4a18-b8b3-7c78da491bdc"],
+Cell[12919, 312, 293, 7, 35, "Text",ExpressionUUID->"bd4f9bb6-9801-419a-9433-354d86a439e2"],
+Cell[13215, 321, 352, 8, 58, "Text",ExpressionUUID->"0253d524-1eba-4f3e-8fa5-7d8f1a0ca5d4"],
+Cell[13570, 331, 612, 9, 45, "Text",ExpressionUUID->"8994d4db-0a8e-457f-bf3b-5c0c16e467f1",
+ CellTags->"Timecode"],
+Cell[14185, 342, 282, 7, 35, "Text",ExpressionUUID->"031e9ef7-2478-4802-80d9-5ccd7ff3de37"],
+Cell[14470, 351, 416, 8, 58, "Text",ExpressionUUID->"8f4ca45b-a997-47ff-be8a-45af0be256ee"],
+Cell[14889, 361, 371, 8, 58, "Text",ExpressionUUID->"2d8df6b4-6c45-4c42-8255-ac2fe61e3128"],
+Cell[15263, 371, 250, 6, 35, "Text",ExpressionUUID->"45f73375-b265-4919-b550-0f0d134183f1"],
+Cell[15516, 379, 638, 10, 45, "Text",ExpressionUUID->"aaa660a1-44cf-49d2-b278-2fa6f68da24d",
+ CellTags->"Timecode"],
+Cell[16157, 391, 277, 7, 35, "Text",ExpressionUUID->"c9e5fe5a-9034-4bb0-b7e5-42906a66ea65"],
+Cell[16437, 400, 182, 3, 35, "Text",ExpressionUUID->"8def7137-6226-4add-bfa4-a8091ef790b5"],
+Cell[16622, 405, 301, 7, 58, "Text",ExpressionUUID->"2dba3f9d-1662-4e08-9f8d-94c252e8425b"],
+Cell[16926, 414, 661, 10, 45, "Text",ExpressionUUID->"59a48c2f-559a-48c3-8edf-8b21329bc698",
+ CellTags->"Timecode"],
+Cell[17590, 426, 503, 10, 81, "Text",ExpressionUUID->"0213ac93-8477-4dde-8bee-83cb58a63195"],
+Cell[18096, 438, 662, 10, 45, "Text",ExpressionUUID->"0dfb6088-2e64-4bba-b6cd-e1d5fefa056a",
+ CellTags->"Timecode"],
+Cell[18761, 450, 324, 7, 58, "Text",ExpressionUUID->"13eef70d-0539-4907-bc7d-a79b7496062b"],
+Cell[19088, 459, 369, 8, 58, "Text",ExpressionUUID->"bec3fcbd-5b46-4be9-9dc6-bcf507b3cd1a"],
+Cell[19460, 469, 341, 7, 58, "Text",ExpressionUUID->"8c89ed5f-e40c-47a8-bcfb-f7ca8aee6009"],
+Cell[19804, 478, 301, 8, 58, "Text",ExpressionUUID->"9efdd290-e648-48bf-960a-28e1f91a6e7f"],
+Cell[20108, 488, 662, 10, 45, "Text",ExpressionUUID->"c68e9e6d-95d1-4076-8d38-285b87f4d719",
+ CellTags->"Timecode"],
+Cell[20773, 500, 365, 9, 58, "Text",ExpressionUUID->"c113a9dd-a596-42cc-9619-4390dcf64f3a"],
+Cell[21141, 511, 267, 6, 35, "Text",ExpressionUUID->"430d51ae-9662-47ad-849b-3f637451072e"],
+Cell[21411, 519, 575, 12, 104, "Text",ExpressionUUID->"5957c48d-83d6-474c-aa83-b06942e02b77"],
+Cell[21989, 533, 662, 10, 45, "Text",ExpressionUUID->"634ced40-f8b0-4dbd-8ed4-8982ab1f7276",
+ CellTags->"Timecode"],
+Cell[22654, 545, 388, 8, 58, "Text",ExpressionUUID->"450ee391-444c-464d-9bdf-593dfd8e363a"],
+Cell[23045, 555, 268, 8, 35, "Text",ExpressionUUID->"1219fef0-da06-47b3-a389-accd50c8a247"],
+Cell[23316, 565, 306, 7, 35, "Text",ExpressionUUID->"c04e5e46-cea1-4ea4-bea9-0cb9c81b19b3"],
+Cell[23625, 574, 338, 8, 35, "Text",ExpressionUUID->"75e1a183-4496-46c4-baf0-a804f5e22831"],
+Cell[23966, 584, 714, 11, 45, "Text",ExpressionUUID->"aa689705-45e9-4000-a38f-8a6f99a99a96",
+ CellTags->"Timecode"],
+Cell[24683, 597, 384, 8, 58, "Text",ExpressionUUID->"13ec6447-b3ad-4c1e-b24e-81ab6ac13ef4"],
+Cell[25070, 607, 303, 7, 58, "Text",ExpressionUUID->"7f65f602-6f89-49d6-951e-0841a7b032c8"],
+Cell[25376, 616, 293, 7, 35, "Text",ExpressionUUID->"a4872ede-cf02-402f-acd4-fd4e94e93589"],
+Cell[25672, 625, 269, 7, 35, "Text",ExpressionUUID->"a432f2ff-5ba4-4d15-9993-6c9f88c04783"],
+Cell[25944, 634, 712, 11, 45, "Text",ExpressionUUID->"51160152-3cc0-4307-b07f-996e511eec2f",
+ CellTags->"Timecode"],
+Cell[26659, 647, 486, 9, 81, "Text",ExpressionUUID->"b06b6c5a-c0cd-4d64-b406-fef50acc686b"],
+Cell[27148, 658, 714, 11, 45, "Text",ExpressionUUID->"de820a00-43f3-41a8-bcc7-c63690966804",
+ CellTags->"Timecode"],
+Cell[27865, 671, 289, 7, 35, "Text",ExpressionUUID->"a7795e9d-0bc6-4b21-9523-6cc9f85c8eec"],
+Cell[28157, 680, 314, 6, 58, "Text",ExpressionUUID->"9b11120f-a354-4a12-8390-cf18fccde220"],
+Cell[28474, 688, 487, 9, 58, "Text",ExpressionUUID->"3e0d5453-13e8-4321-ac8d-2cd774dc8e3e"],
+Cell[28964, 699, 713, 11, 45, "Text",ExpressionUUID->"ed29e036-816d-477e-975f-c4d84feec72e",
+ CellTags->"Timecode"],
+Cell[29680, 712, 267, 7, 35, "Text",ExpressionUUID->"d9bae184-b79f-4e2a-87ac-171da6bf722a"],
+Cell[29950, 721, 278, 7, 35, "Text",ExpressionUUID->"309117a2-9b53-4497-9cab-c446cd37ccf8"],
+Cell[30231, 730, 388, 8, 58, "Text",ExpressionUUID->"05cd3e6c-5568-470c-816a-cabce8c607e3"],
+Cell[30622, 740, 714, 11, 45, "Text",ExpressionUUID->"c159a8b6-55b2-41d0-b80d-34a13a40383d",
+ CellTags->"Timecode"],
+Cell[31339, 753, 385, 8, 58, "Text",ExpressionUUID->"11f4b784-0c6a-4b31-8527-d9adb5db4180"],
+Cell[31727, 763, 249, 6, 35, "Text",ExpressionUUID->"51018da7-8f14-447c-bf05-9f7a538cc474"],
+Cell[31979, 771, 228, 4, 35, "Text",ExpressionUUID->"41c4207d-50a6-4d49-8a6f-9b7a58822c37"],
+Cell[32210, 777, 548, 10, 81, "Text",ExpressionUUID->"6aeac9d0-8fc4-47bb-8a11-eac3f53f4a96"],
+Cell[32761, 789, 762, 11, 45, "Text",ExpressionUUID->"dc4674be-ad4d-4809-8ff2-1c3b7305eb53",
+ CellTags->"Timecode"],
+Cell[33526, 802, 214, 4, 35, "Text",ExpressionUUID->"a0cd4802-7694-467f-b40a-c881d1856cd7"],
+Cell[33743, 808, 224, 5, 35, "Text",ExpressionUUID->"cf50e4f3-e332-472c-a4c1-daceb4ab0b43"],
+Cell[33970, 815, 412, 9, 58, "Text",ExpressionUUID->"bb09f192-dc41-4092-bd6a-7de42996a41d"],
+Cell[34385, 826, 762, 11, 45, "Text",ExpressionUUID->"03131994-d262-4060-9253-a251b935aec1",
+ CellTags->"Timecode"],
+Cell[35150, 839, 268, 8, 35, "Text",ExpressionUUID->"4e7f8ea4-a253-4381-8028-4b3a5943638d"],
+Cell[35421, 849, 214, 5, 35, "Text",ExpressionUUID->"6188bfa9-0dec-48f8-a0b6-9d1c46777962"],
+Cell[35638, 856, 207, 4, 35, "Text",ExpressionUUID->"86b53e2d-4cbd-46d2-9871-917867b0441a"],
+Cell[35848, 862, 354, 8, 35, "Text",ExpressionUUID->"e8abdb94-1b8c-4f8b-9c58-9b22a07c2cfd"],
+Cell[36205, 872, 242, 6, 35, "Text",ExpressionUUID->"56b62557-9bc0-4a07-a5cd-bb7f8e6ab5a9"],
+Cell[36450, 880, 286, 7, 35, "Text",ExpressionUUID->"5eb4f4cf-9287-4152-a03f-1bfd367ae8d2"],
+Cell[36739, 889, 190, 3, 35, "Text",ExpressionUUID->"2d2358f1-caf9-43d8-b40a-2b1f3d86e57a"],
+Cell[36932, 894, 314, 7, 58, "Text",ExpressionUUID->"26e77814-b205-4247-8662-0af508dab8df"],
+Cell[37249, 903, 299, 7, 35, "Text",ExpressionUUID->"abcae580-0aad-420f-bc2d-99b4b2724871"],
+Cell[37551, 912, 413, 9, 58, "Text",ExpressionUUID->"e40ed677-c074-4a39-8e06-450ebc6f85b1"],
+Cell[37967, 923, 814, 12, 45, "Text",ExpressionUUID->"8fd64c21-63ab-49b1-8f28-eafc0a81ce4c",
+ CellTags->"Timecode"],
+Cell[38784, 937, 285, 7, 81, "Text",ExpressionUUID->"35f79cb3-9589-4e94-abff-07749abe8353"],
+Cell[39072, 946, 276, 7, 35, "Text",ExpressionUUID->"c6ceba7a-008a-414b-adc0-9dd4d6f04f1d"],
+Cell[39351, 955, 249, 6, 35, "Text",ExpressionUUID->"395d255b-c3b7-44fb-8f78-123db199d6f1"],
+Cell[39603, 963, 303, 7, 35, "Text",ExpressionUUID->"ac2af7b2-06cd-4eb6-bacb-a4f6e7a3f76b"],
+Cell[39909, 972, 265, 7, 35, "Text",ExpressionUUID->"e695493f-ff7f-4916-8fae-157049a6d810"],
+Cell[40177, 981, 242, 6, 35, "Text",ExpressionUUID->"516ca15b-fb54-4b3a-a165-3955a539458d"],
+Cell[40422, 989, 242, 4, 35, "Text",ExpressionUUID->"2957e311-00ea-4f32-b07a-d66bf2a97144"],
+Cell[40667, 995, 248, 6, 35, "Text",ExpressionUUID->"331bbd62-e512-4711-af97-efd96bf305ee"],
+Cell[40918, 1003, 812, 12, 56, "Text",ExpressionUUID->"9e12387e-a122-47a6-a58c-7cf93e83baf7",
+ CellTags->"Timecode"],
+Cell[41733, 1017, 405, 9, 58, "Text",ExpressionUUID->"ed3d03e3-2a45-4f47-a8d7-defd38a114e8"],
+Cell[42141, 1028, 224, 4, 35, "Text",ExpressionUUID->"3f106109-1d8e-453a-aaa2-9d8a7ffbc0c2"],
+Cell[42368, 1034, 221, 4, 35, "Text",ExpressionUUID->"15edf262-2fec-4286-81c2-db57640e6e5f"],
+Cell[42592, 1040, 250, 6, 35, "Text",ExpressionUUID->"0d1860d2-4773-48d3-81f9-227ad15623ee"],
+Cell[42845, 1048, 811, 12, 56, "Text",ExpressionUUID->"9f289496-9da6-4af9-af24-03cc3edab3f0",
+ CellTags->"Timecode"],
+Cell[43659, 1062, 375, 8, 58, "Text",ExpressionUUID->"35d2fb4c-93d1-4d8a-80f0-bccb0d86f0f1"],
+Cell[44037, 1072, 264, 7, 35, "Text",ExpressionUUID->"9863a026-7ab3-4334-9cd6-5b8c0e02889d"],
+Cell[44304, 1081, 218, 4, 35, "Text",ExpressionUUID->"6bd55654-0556-43da-bbda-eeafe386b740"],
+Cell[44525, 1087, 812, 12, 56, "Text",ExpressionUUID->"9b1ec873-2b4f-4862-845e-a7edbbeb435a",
+ CellTags->"Timecode"],
+Cell[45340, 1101, 813, 15, 173, "Text",ExpressionUUID->"5e476758-ddf3-4f17-b515-4b3dc6d15b1c"]
+}, Open  ]]
+}
+]
+*)
+

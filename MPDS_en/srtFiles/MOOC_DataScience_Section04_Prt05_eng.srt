@@ -1,0 +1,1330 @@
+﻿1
+00:00:00,000 --> 00:00:03,300
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,300 --> 00:00:07,300
+Section 4: Assembling
+a Multiparadigm Toolset.
+
+3
+00:00:07,300 --> 00:00:09,300
+A review of tools available
+
+4
+00:00:09,300 --> 00:00:12,400
+for assembling
+a multiparadigm project workflow
+
+5
+00:00:12,400 --> 00:00:14,000
+cannot be complete without
+
+6
+00:00:14,000 --> 00:00:16,300
+the most popular
+machine learning technique
+
+7
+00:00:16,300 --> 00:00:19,500
+of the recent times,
+the neural network.
+
+8
+00:00:19,500 --> 00:00:22,500
+And we have good news
+and bad news on this account.
+
+9
+00:00:22,500 --> 00:00:26,400
+The good news is that
+the Wolfram Neural Net Repository
+
+10
+00:00:26,400 --> 00:00:29,000
+and the neural net framework
+in the Wolfram Language
+
+11
+00:00:29,000 --> 00:00:30,700
+makes it really easy
+
+12
+00:00:30,700 --> 00:00:33,400
+to incorporate
+this powerful technology
+
+13
+00:00:33,400 --> 00:00:35,600
+into our project workflow.
+
+14
+00:00:35,600 --> 00:00:38,500
+The bad news is that
+we could never do justice
+
+15
+00:00:38,500 --> 00:00:41,900
+to covering this topic
+in just ten minutes.
+
+16
+00:00:41,900 --> 00:00:46,000
+But we could look at
+the resources we have available
+
+17
+00:00:46,000 --> 00:00:48,000
+to incorporate neural networks
+
+18
+00:00:48,000 --> 00:00:51,000
+into our multiparadigm
+project workflow.
+
+19
+00:00:51,000 --> 00:00:54,800
+The Wolfram Neural Net Repository
+provides access
+
+20
+00:00:54,800 --> 00:00:57,600
+to tried-and-tested
+pre-trained models,
+
+21
+00:00:57,600 --> 00:01:02,000
+and we can use them as is
+or modify them as required
+
+22
+00:01:02,000 --> 00:01:05,000
+with what is known
+as net surgery.
+
+23
+00:01:05,000 --> 00:01:07,600
+This is definitely
+the recommended way
+
+24
+00:01:07,600 --> 00:01:10,000
+to get started with neural nets.
+
+25
+00:01:10,000 --> 00:01:13,400
+However, if we need to to build
+neural nets from scratch,
+
+26
+00:01:13,400 --> 00:01:16,500
+we can do that as well
+using the symbolic architecture
+
+27
+00:01:16,500 --> 00:01:19,500
+provided by
+the Wolfram Neural Net Framework.
+
+28
+00:01:19,500 --> 00:01:23,900
+The Wolfram Language Neural Net
+Framework is built on MXNet.
+
+29
+00:01:23,900 --> 00:01:29,000
+Apache MXNet is an open-source,
+deep-learning software framework.
+
+30
+00:01:29,000 --> 00:01:31,500
+It is portable, scalable
+
+31
+00:01:31,500 --> 00:01:35,500
+and allows for fast model training
+on multiple GPUs.
+
+32
+00:01:35,500 --> 00:01:38,300
+It is supported
+by Amazon Web Services,
+
+33
+00:01:38,300 --> 00:01:42,000
+Microsoft Azure,
+NVIDIA GPU Cloud,
+
+34
+00:01:42,000 --> 00:01:45,900
+and it can be used either
+directly or via an interface
+
+35
+00:01:45,900 --> 00:01:47,500
+like the Wolfram Language,
+
+36
+00:01:47,500 --> 00:01:51,300
+as well as other languages
+like C++, Python, et cetera.
+
+37
+00:01:53,000 --> 00:01:54,800
+The usefulness of frameworks
+
+38
+00:01:54,800 --> 00:01:57,400
+is in the common features
+they provide
+
+39
+00:01:57,400 --> 00:02:01,600
+to allow us to build
+and customize neural nets easily.
+
+40
+00:02:01,600 --> 00:02:03,800
+With frameworks,
+we can build networks
+
+41
+00:02:03,800 --> 00:02:07,300
+as chains
+or acyclic graphs of layers.
+
+42
+00:02:07,300 --> 00:02:10,000
+The layers process
+arrays of numbers,
+
+43
+00:02:10,000 --> 00:02:12,300
+kind of like neural activities.
+
+44
+00:02:12,300 --> 00:02:15,800
+Encoders convert input
+to numerical arrays,
+
+45
+00:02:15,800 --> 00:02:19,400
+and decoders convert
+numeric results to desired outputs
+
+46
+00:02:19,400 --> 00:02:22,000
+like class labels or images.
+
+47
+00:02:22,000 --> 00:02:26,400
+The frameworks provide
+implementations of loss functions,
+
+48
+00:02:26,400 --> 00:02:28,000
+backpropagation,
+
+49
+00:02:28,000 --> 00:02:31,800
+stochastic gradient descent
+algorithms and so on,
+
+50
+00:02:31,800 --> 00:02:36,000
+and are highly optimized to run
+on specialized hardware like GPUs.
+
+51
+00:02:37,000 --> 00:02:41,000
+Now, neural nets can be used
+to perform tasks
+
+52
+00:02:41,000 --> 00:02:43,400
+like classification or regression.
+
+53
+00:02:43,400 --> 00:02:45,300
+They can be used
+for image processing,
+
+54
+00:02:45,300 --> 00:02:48,000
+audio analysis,
+language modeling
+
+55
+00:02:48,000 --> 00:02:50,500
+and lots of other
+different things.
+
+56
+00:02:50,500 --> 00:02:53,900
+The Wolfram Neural Net Repository
+is a public resource
+
+57
+00:02:53,900 --> 00:02:56,000
+worth exploring
+for the neural net models
+
+58
+00:02:56,000 --> 00:02:59,000
+and examples
+of their application.
+
+59
+00:02:59,000 --> 00:03:03,400
+For example, this is
+the Wolfram ImageIdentify Net V1,
+
+60
+00:03:03,400 --> 00:03:04,600
+which is the power
+
+61
+00:03:04,600 --> 00:03:07,800
+behind the Wolfram Language
+function ImageIdentify.
+
+62
+00:03:07,800 --> 00:03:11,000
+It can identify
+the main object in an image,
+
+63
+00:03:11,000 --> 00:03:13,000
+which is an image
+classification task.
+
+64
+00:03:14,000 --> 00:03:17,500
+The pre-trained neural net model
+can be downloaded from the repo
+
+65
+00:03:17,500 --> 00:03:19,500
+and used on new images.
+
+66
+00:03:22,000 --> 00:03:25,000
+The Vanilla CNN
+for Facial Landmark Regression
+
+67
+00:03:25,000 --> 00:03:26,300
+determines the locations
+
+68
+00:03:26,300 --> 00:03:30,000
+of the eyes, nose and mouth
+from a facial image.
+
+69
+00:03:30,000 --> 00:03:33,000
+It outputs numbers
+representing the coordinates
+
+70
+00:03:33,000 --> 00:03:35,000
+of these points on the image,
+
+71
+00:03:35,000 --> 00:03:37,400
+and can be used
+by other functions
+
+72
+00:03:37,400 --> 00:03:40,300
+to highlight the points
+on the image.
+
+73
+00:03:40,300 --> 00:03:42,700
+Neural nets are being
+increasingly used
+
+74
+00:03:42,700 --> 00:03:45,000
+for various image processing
+applications—
+
+75
+00:03:45,000 --> 00:03:49,000
+for example, to solve the problem
+of segmenting an image
+
+76
+00:03:49,000 --> 00:03:53,000
+of a driving scenario
+into semantic component classes,
+
+77
+00:03:53,000 --> 00:03:56,700
+as done by the Dilated ResNet-105
+neural net model.
+
+78
+00:03:58,000 --> 00:04:00,900
+To use this model,
+we need an evaluation function
+
+79
+00:04:00,900 --> 00:04:03,100
+to handle net reshaping
+and resampling
+
+80
+00:04:03,100 --> 00:04:05,000
+of the input and output.
+
+81
+00:04:06,400 --> 00:04:09,800
+Integers from the model's output
+can be mapped to labels
+
+82
+00:04:09,800 --> 00:04:11,500
+for each segment in the image,
+
+83
+00:04:11,500 --> 00:04:13,000
+and thus be used to obtain
+
+84
+00:04:13,000 --> 00:04:16,000
+a segmentation mask
+for the given image.
+
+85
+00:04:17,600 --> 00:04:20,000
+The colorful image
+colorization model,
+
+86
+00:04:20,000 --> 00:04:21,300
+as the name suggests,
+
+87
+00:04:21,300 --> 00:04:23,800
+can be used to colorize
+a grayscale image.
+
+88
+00:04:23,800 --> 00:04:29,000
+It recasts image colorization
+into a classification problem
+
+89
+00:04:29,000 --> 00:04:32,000
+by dividing the AB color space
+into a number of bins
+
+90
+00:04:32,000 --> 00:04:35,300
+and picking the final color
+for each pixel
+
+91
+00:04:35,300 --> 00:04:39,500
+according to its probability
+distribution over the bins.
+
+92
+00:04:39,500 --> 00:04:42,600
+The model takes
+a grayscale image as input
+
+93
+00:04:42,600 --> 00:04:46,000
+and outputs the A and B channels
+in the LAB color space,
+
+94
+00:04:46,000 --> 00:04:49,800
+so it needs an evaluation function
+to merge the output
+
+95
+00:04:49,800 --> 00:04:52,000
+with the luminance of the input.
+
+96
+00:04:52,000 --> 00:04:54,000
+Here is the output
+of using this function
+
+97
+00:04:54,000 --> 00:04:56,000
+to colorize a grayscale image.
+
+98
+00:04:57,000 --> 00:05:00,500
+The AdaIN-Style
+is an image stylization model
+
+99
+00:05:00,500 --> 00:05:04,300
+that can transfer the style
+of one image to another.
+
+100
+00:05:04,300 --> 00:05:07,000
+Here is an example
+of the model at work.
+
+101
+00:05:07,000 --> 00:05:08,600
+And here is the output
+
+102
+00:05:08,600 --> 00:05:11,300
+of the Wolfram Language function
+ImageRestyle,
+
+103
+00:05:11,300 --> 00:05:15,500
+which, as we can guess,
+uses a neural net internally.
+
+104
+00:05:15,500 --> 00:05:18,500
+Among other examples
+of models in the repository
+
+105
+00:05:18,500 --> 00:05:22,000
+is Baidu Research's
+Deep Speech 2 model,
+
+106
+00:05:22,000 --> 00:05:25,000
+which converts speech to text—
+an end-to-end model
+
+107
+00:05:25,000 --> 00:05:28,400
+which takes as input
+normalized sound spectrograms
+
+108
+00:05:28,400 --> 00:05:31,800
+and produces as output
+a sequence of characters.
+
+109
+00:05:31,800 --> 00:05:32,800
+For text input,
+
+110
+00:05:32,800 --> 00:05:36,000
+there is the collection
+of GloVe Word Vector models
+
+111
+00:05:36,000 --> 00:05:38,000
+from the CS department
+at Stanford,
+
+112
+00:05:38,000 --> 00:05:41,000
+which provide vector
+representations for words.
+
+113
+00:05:41,000 --> 00:05:42,600
+Here's an example of using
+
+114
+00:05:42,600 --> 00:05:45,600
+the GloVe 300-Dimensional Word
+Vector model
+
+115
+00:05:45,600 --> 00:05:49,500
+as a feature extractor
+with the FeatureSpacePlot function
+
+116
+00:05:49,500 --> 00:05:52,000
+to visualize words
+in 2D feature space.
+
+117
+00:05:53,000 --> 00:05:56,000
+Incidentally, this model is also
+used for word embeddings
+
+118
+00:05:56,000 --> 00:05:59,000
+in the Wolfram Language function
+FindTextualAnswer,
+
+119
+00:05:59,000 --> 00:06:01,000
+which itself is a neural net
+
+120
+00:06:01,000 --> 00:06:03,600
+trained using
+the Wolfram Neural Net Framework.
+
+121
+00:06:03,600 --> 00:06:05,000
+It answers questions
+
+122
+00:06:05,000 --> 00:06:08,800
+by quoting the most appropriate
+excerpts of a text
+
+123
+00:06:08,800 --> 00:06:11,500
+that is presumed to contain
+the relevant information.
+
+124
+00:06:13,000 --> 00:06:15,800
+The current consensus
+in the neural net community
+
+125
+00:06:15,800 --> 00:06:18,900
+is that building
+your own net architecture
+
+126
+00:06:18,900 --> 00:06:22,500
+is unnecessary
+for the majority of applications,
+
+127
+00:06:22,500 --> 00:06:25,900
+and such attempts
+can even hurt performance.
+
+128
+00:06:25,900 --> 00:06:29,000
+Rather, adapting a pre-trained net
+to your own problem
+
+129
+00:06:29,000 --> 00:06:33,800
+is almost always a better approach
+in terms of performance.
+
+130
+00:06:33,800 --> 00:06:37,300
+Now we have access to carefully
+designed and trained models
+
+131
+00:06:37,300 --> 00:06:38,900
+in the neural net repo.
+
+132
+00:06:38,900 --> 00:06:40,800
+So instead of going
+through the difficult
+
+133
+00:06:40,800 --> 00:06:45,000
+and laborious task of building
+good net architectures
+
+134
+00:06:45,000 --> 00:06:48,500
+from individual layers,
+we can transfer knowledge
+
+135
+00:06:48,500 --> 00:06:50,400
+from nets trained
+on different domains
+
+136
+00:06:50,400 --> 00:06:52,000
+to our own problems—
+
+137
+00:06:52,000 --> 00:06:54,500
+a great application
+of the multiparadigm approach
+
+138
+00:06:54,500 --> 00:06:56,300
+to data science.
+
+139
+00:06:56,300 --> 00:06:58,000
+We start off by looking for a net
+
+140
+00:06:58,000 --> 00:07:00,500
+close to the problem
+we need to solve,
+
+141
+00:07:00,500 --> 00:07:02,000
+then download the model,
+
+142
+00:07:02,000 --> 00:07:04,700
+perform minimal amounts
+of surgery on the net
+
+143
+00:07:04,700 --> 00:07:07,000
+to adapt it
+to the specific problem
+
+144
+00:07:07,000 --> 00:07:08,900
+and train it on our data.
+
+145
+00:07:08,900 --> 00:07:13,000
+Say we have a problem
+of classifying old movie posters
+
+146
+00:07:13,000 --> 00:07:15,300
+according to the genre
+of the film.
+
+147
+00:07:15,300 --> 00:07:18,800
+First, let's find a net
+suitable to our problem.
+
+148
+00:07:18,800 --> 00:07:22,600
+Let's try
+the Wolfram ImageIdentify Net V1.
+
+149
+00:07:22,600 --> 00:07:24,000
+Now the last two layers
+
+150
+00:07:24,000 --> 00:07:26,700
+are really specialized
+for ImageIdentify,
+
+151
+00:07:26,700 --> 00:07:29,500
+so we can remove these layers
+using NetDrop.
+
+152
+00:07:29,500 --> 00:07:32,000
+It is really easy doing net
+surgery in the Wolfram Language
+
+153
+00:07:32,000 --> 00:07:34,600
+since the nets
+are symbolic expressions
+
+154
+00:07:34,600 --> 00:07:38,000
+that can be manipulated
+using a large set of functions,
+
+155
+00:07:38,000 --> 00:07:42,000
+like NetTake, NetDrop,
+NetAppend, NetJoin, et cetera.
+
+156
+00:07:43,000 --> 00:07:46,400
+So we can use NetJoin to combine
+the part of the pre-trained net
+
+157
+00:07:46,400 --> 00:07:50,800
+with a chain of two new layers
+and our specific decoder.
+
+158
+00:07:50,800 --> 00:07:53,000
+We train this net
+on our training dataset,
+
+159
+00:07:53,000 --> 00:07:54,000
+freezing all the weight
+
+160
+00:07:54,000 --> 00:07:57,000
+except for those
+in the new classifier layer.
+
+161
+00:07:57,000 --> 00:07:59,000
+Now we can try it on our test set
+
+162
+00:07:59,000 --> 00:08:03,000
+to see how the classifier
+labels the four test posters.
+
+163
+00:08:03,000 --> 00:08:05,500
+One of the most powerful
+applications of trained nets
+
+164
+00:08:05,500 --> 00:08:08,200
+is to use the knowledge
+they have gained on one problem
+
+165
+00:08:08,200 --> 00:08:10,800
+to improve the performance
+of learning algorithms
+
+166
+00:08:10,800 --> 00:08:12,200
+on a different problem.
+
+167
+00:08:12,200 --> 00:08:14,400
+This is known
+as transfer learning,
+
+168
+00:08:14,400 --> 00:08:17,600
+and it can significantly
+improve performance
+
+169
+00:08:17,600 --> 00:08:20,000
+when you are training
+on small datasets.
+
+170
+00:08:21,000 --> 00:08:23,500
+Okay, now let's try to build
+a neural net
+
+171
+00:08:23,500 --> 00:08:27,400
+using the building blocks
+provided by the framework.
+
+172
+00:08:27,400 --> 00:08:30,100
+The LeNet was a pioneer
+neural net model
+
+173
+00:08:30,100 --> 00:08:31,900
+that was released in 1998
+
+174
+00:08:31,900 --> 00:08:34,300
+to solve the task
+of image classification
+
+175
+00:08:34,300 --> 00:08:36,800
+using convolutional neural nets.
+
+176
+00:08:36,800 --> 00:08:39,800
+It used the MNIST database
+of handwritten digits,
+
+177
+00:08:39,800 --> 00:08:44,700
+which contained 60,000 training
+and 10,000 test grayscale images
+
+178
+00:08:44,700 --> 00:08:46,000
+of handwritten digits.
+
+179
+00:08:47,000 --> 00:08:51,000
+The LeNet model was trained
+to identify the digit
+
+180
+00:08:51,000 --> 00:08:52,500
+from the image.
+
+181
+00:08:52,500 --> 00:08:54,800
+Here's the pre-trained model
+
+182
+00:08:54,800 --> 00:08:57,400
+from the Wolfram Neural
+Net Repository.
+
+183
+00:08:57,400 --> 00:09:01,500
+We can construct a neural net
+similar to the LeNet model
+
+184
+00:09:01,500 --> 00:09:04,000
+by putting together
+different layers.
+
+185
+00:09:05,000 --> 00:09:08,000
+This network takes as input
+
+186
+00:09:08,000 --> 00:09:11,600
+a 28 by 28 grayscale image
+of a handwritten digit,
+
+187
+00:09:11,600 --> 00:09:15,300
+and outputs an integer
+between 0 and 9,
+
+188
+00:09:15,300 --> 00:09:18,000
+the class label for that image.
+
+189
+00:09:18,000 --> 00:09:20,000
+Now a neural network's performance
+
+190
+00:09:20,000 --> 00:09:23,000
+really depends on the parameters
+of the network.
+
+191
+00:09:23,000 --> 00:09:24,200
+During the training process,
+
+192
+00:09:24,200 --> 00:09:26,300
+we need to fit
+all these parameters
+
+193
+00:09:26,300 --> 00:09:29,000
+with the help
+of the training data.
+
+194
+00:09:29,000 --> 00:09:31,800
+Initially, the network parameters
+are unknown
+
+195
+00:09:31,800 --> 00:09:34,000
+and set to random values.
+
+196
+00:09:34,000 --> 00:09:38,200
+In this state, the network will
+just return some random result.
+
+197
+00:09:38,200 --> 00:09:41,900
+So we train the network
+from scratch.
+
+198
+00:09:41,900 --> 00:09:45,800
+NetTrain takes care
+of many details automatically,
+
+199
+00:09:45,800 --> 00:09:49,000
+such as selecting
+an appropriate loss function,
+
+200
+00:09:49,000 --> 00:09:51,800
+attaching encoders and decoders,
+
+201
+00:09:51,800 --> 00:09:54,200
+initializing the weights
+and biases,
+
+202
+00:09:54,200 --> 00:09:57,600
+choosing the optimizer
+and the batch size,
+
+203
+00:09:57,600 --> 00:10:00,000
+and running
+the backpropagation algorithm.
+
+204
+00:10:01,000 --> 00:10:03,500
+Let's test the trained net.
+
+205
+00:10:03,500 --> 00:10:07,000
+We can evaluate the performance
+of the trained network
+
+206
+00:10:07,000 --> 00:10:08,900
+using NetMeasurements.
+
+207
+00:10:12,900 --> 00:10:15,300
+We can also export
+the trained model
+
+208
+00:10:15,300 --> 00:10:19,000
+to save it in the
+Wolfram-developed WLNet format
+
+209
+00:10:19,000 --> 00:10:20,500
+and import it back—
+
+210
+00:10:20,500 --> 00:10:23,000
+either the whole net
+or its elements—
+
+211
+00:10:23,000 --> 00:10:24,000
+for use later.
+
+212
+00:10:25,800 --> 00:10:27,000
+Let's take a more detailed look
+
+213
+00:10:27,000 --> 00:10:30,400
+at the building blocks
+of a neural network.
+
+214
+00:10:30,400 --> 00:10:34,000
+A layer is the simplest component
+of a network.
+
+215
+00:10:34,000 --> 00:10:37,300
+Layers only act on
+numeric tensors.
+
+216
+00:10:37,300 --> 00:10:38,900
+They are differentiable—
+
+217
+00:10:38,900 --> 00:10:41,000
+differentiability being
+a key property
+
+218
+00:10:41,000 --> 00:10:44,800
+that allows the efficient training
+of the nets.
+
+219
+00:10:44,800 --> 00:10:49,500
+Layers can run on GPUs and CPUs,
+and they can do shape inference.
+
+220
+00:10:49,500 --> 00:10:51,700
+Certain layers have
+learnable parameters,
+
+221
+00:10:51,700 --> 00:10:53,700
+and this is
+what makes learning possible
+
+222
+00:10:53,700 --> 00:10:55,000
+while training the net.
+
+223
+00:10:55,000 --> 00:10:57,800
+The LinearLayer is
+the simplest learnable layer.
+
+224
+00:10:57,800 --> 00:11:00,500
+It computes a linear combination
+of the input,
+
+225
+00:11:00,500 --> 00:11:02,500
+given some weights and bias—
+
+226
+00:11:02,500 --> 00:11:04,300
+something that a function
+like this would do.
+
+227
+00:11:05,800 --> 00:11:06,800
+Here is a LinearLayer
+
+228
+00:11:06,800 --> 00:11:09,300
+with three input nodes
+and two output nodes,
+
+229
+00:11:09,300 --> 00:11:13,000
+and we can initialize
+the parameters for this layer.
+
+230
+00:11:13,000 --> 00:11:16,700
+Here we can compare the results
+of our own linear function
+
+231
+00:11:16,700 --> 00:11:20,200
+using the weights and biases
+from the initialized LinearLayer.
+
+232
+00:11:21,800 --> 00:11:26,400
+The Wolfram Neural Net Framework
+provides a huge list of layers
+
+233
+00:11:26,400 --> 00:11:29,500
+to incorporate
+into your neural net model.
+
+234
+00:11:29,500 --> 00:11:30,500
+Containers.
+
+235
+00:11:30,500 --> 00:11:33,500
+We usually need to combine
+multiple layers together
+
+236
+00:11:33,500 --> 00:11:35,600
+to do something interesting.
+
+237
+00:11:35,600 --> 00:11:38,000
+This is where containers
+become useful.
+
+238
+00:11:38,000 --> 00:11:39,800
+Chains are
+the simplest containers,
+
+239
+00:11:39,800 --> 00:11:44,000
+and NetChain can be used to
+chain together two or more layers.
+
+240
+00:11:44,000 --> 00:11:46,000
+This function
+is really the computation
+
+241
+00:11:46,000 --> 00:11:49,200
+that the chain here accomplishes.
+
+242
+00:11:49,200 --> 00:11:53,000
+Since NetChain cannot really take
+more than one input,
+
+243
+00:11:53,000 --> 00:11:56,800
+NetGraph is used to build
+more complex networks.
+
+244
+00:11:56,800 --> 00:12:00,900
+To accomplish something
+that this function would compute,
+
+245
+00:12:00,900 --> 00:12:03,500
+we need to create a NetGraph.
+
+246
+00:12:03,500 --> 00:12:05,500
+All of the layers
+are differentiable,
+
+247
+00:12:05,500 --> 00:12:07,800
+and so are the containers.
+
+248
+00:12:07,800 --> 00:12:11,000
+Containers can be nested,
+just like normal layers.
+
+249
+00:12:11,000 --> 00:12:12,400
+The models in the repository
+
+250
+00:12:12,400 --> 00:12:16,500
+are almost all
+in some form of a container.
+
+251
+00:12:16,500 --> 00:12:20,000
+Neural net layers require as input
+numeric tensors.
+
+252
+00:12:20,000 --> 00:12:24,300
+To train and use nets
+on images, audio, text, et cetera,
+
+253
+00:12:24,300 --> 00:12:26,600
+we need to use a NetEncoder
+
+254
+00:12:26,600 --> 00:12:29,500
+to translate the data
+to numeric tensors.
+
+255
+00:12:29,500 --> 00:12:35,000
+This encoder produces a
+1 x 12 x 12 tensor from an image.
+
+256
+00:12:35,000 --> 00:12:38,900
+It can be used on an image
+directly or on a file.
+
+257
+00:12:40,500 --> 00:12:42,400
+A large collection of encoders
+
+258
+00:12:42,400 --> 00:12:44,600
+are available
+for different data types.
+
+259
+00:12:45,800 --> 00:12:50,000
+The output of a neural net
+is also a numeric tensor,
+
+260
+00:12:50,000 --> 00:12:52,400
+but for a task
+like classification,
+
+261
+00:12:52,400 --> 00:12:55,100
+we would want
+class labels as output.
+
+262
+00:12:55,100 --> 00:12:57,300
+The NetDecoder converts numbers
+
+263
+00:12:57,300 --> 00:13:00,300
+to non-numeric outputs
+for the net.
+
+264
+00:13:00,300 --> 00:13:03,700
+This decoder will interpret
+a vector of probabilities
+
+265
+00:13:03,700 --> 00:13:06,700
+over classes as a class label.
+
+266
+00:13:06,700 --> 00:13:10,200
+The probabilities themselves
+can also be obtained.
+
+267
+00:13:12,700 --> 00:13:15,800
+In this whirlwind tour
+of neural networks,
+
+268
+00:13:15,800 --> 00:13:18,900
+we learned about
+the Wolfram Neural Net Framework
+
+269
+00:13:18,900 --> 00:13:20,800
+and the features it offers.
+
+270
+00:13:20,800 --> 00:13:23,900
+We looked at examples
+of pre-trained neural net models
+
+271
+00:13:23,900 --> 00:13:26,600
+in the Wolfram Neural
+Net Repository
+
+272
+00:13:26,600 --> 00:13:31,000
+and how to use net surgery
+to customize and adapt the models
+
+273
+00:13:31,000 --> 00:13:34,600
+for use in different tasks
+for transfer learning.
+
+274
+00:13:34,600 --> 00:13:36,800
+We put together
+a simple neural net
+
+275
+00:13:36,800 --> 00:13:38,800
+according to the LeNet model
+
+276
+00:13:38,800 --> 00:13:41,800
+to recognize
+handwritten digits of images.
+
+277
+00:13:41,800 --> 00:13:44,100
+We also looked
+at the various building blocks
+
+278
+00:13:44,100 --> 00:13:46,300
+provided by
+the neural net framework
+
+279
+00:13:46,300 --> 00:13:48,600
+to understand
+how they can be used
+
+280
+00:13:48,600 --> 00:13:53,000
+to design, build and customize
+neural net models.
+

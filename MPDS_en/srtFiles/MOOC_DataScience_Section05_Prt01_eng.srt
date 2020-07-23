@@ -1,0 +1,740 @@
+﻿1
+00:00:00,000 --> 00:00:03,900
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,900 --> 00:00:07,000
+Section 5:
+Get the Message Across.
+
+3
+00:00:07,000 --> 00:00:09,300
+We have covered
+the first four stages
+
+4
+00:00:09,300 --> 00:00:11,900
+of the multiparadigm
+project workflow—
+
+5
+00:00:11,900 --> 00:00:15,200
+question, wrangle,
+explore, analyze—
+
+6
+00:00:15,200 --> 00:00:17,100
+and now we are in the last stage,
+
+7
+00:00:17,100 --> 00:00:20,500
+ready to communicate
+the results of our analysis.
+
+8
+00:00:20,500 --> 00:00:22,800
+Hopefully we've found answers
+
+9
+00:00:22,800 --> 00:00:25,500
+to the questions we set up
+in the very first stage,
+
+10
+00:00:25,500 --> 00:00:28,200
+whether expected or unexpected.
+
+11
+00:00:28,200 --> 00:00:31,200
+These answers now
+need to be communicated clearly.
+
+12
+00:00:31,200 --> 00:00:33,600
+We have to tell a story
+with these answers
+
+13
+00:00:33,600 --> 00:00:38,000
+in a manner that the audience
+appreciates and finds useful.
+
+14
+00:00:38,000 --> 00:00:41,200
+Visualizations form
+an integral part
+
+15
+00:00:41,200 --> 00:00:43,600
+of this stage of the workflow.
+
+16
+00:00:43,600 --> 00:00:47,500
+Pictures can communicate
+a lot more than tables of numbers.
+
+17
+00:00:47,500 --> 00:00:48,800
+Let's look at a few examples
+
+18
+00:00:48,800 --> 00:00:51,300
+of creating
+interesting visualizations
+
+19
+00:00:51,300 --> 00:00:53,800
+in the Wolfram Language.
+
+20
+00:00:53,800 --> 00:00:57,000
+These are the populations
+of the G8 countries.
+
+21
+00:00:57,000 --> 00:01:00,450
+Hard to decipher anything
+from a bunch of numbers like this,
+
+22
+00:01:00,450 --> 00:01:02,100
+but seeing them in a bar chart
+
+23
+00:01:02,100 --> 00:01:05,000
+helps us compare the numbers
+much better.
+
+24
+00:01:05,000 --> 00:01:08,100
+Let's go through a few steps
+to annotate this picture
+
+25
+00:01:08,100 --> 00:01:11,800
+so that it can convey
+all the required information
+
+26
+00:01:11,800 --> 00:01:13,600
+in one glance,
+
+27
+00:01:13,600 --> 00:01:16,400
+starting out with labels
+for the bars.
+
+28
+00:01:16,400 --> 00:01:19,650
+Now we know which bar
+represents which country,
+
+29
+00:01:19,650 --> 00:01:23,000
+but the labels are too crowded
+here at the bottom.
+
+30
+00:01:23,000 --> 00:01:25,900
+Let's place them above the bars.
+
+31
+00:01:25,900 --> 00:01:29,000
+Actually, it might look neater
+to place them in callouts.
+
+32
+00:01:30,800 --> 00:01:33,900
+Okay, but what do these bars
+really represent?
+
+33
+00:01:33,900 --> 00:01:36,800
+We know we've charted
+the population of these countries,
+
+34
+00:01:36,800 --> 00:01:39,500
+but to make sure
+our audience knows it too,
+
+35
+00:01:39,500 --> 00:01:42,000
+we need to label the axes.
+
+36
+00:01:42,000 --> 00:01:44,200
+We could provide
+a frame for the chart
+
+37
+00:01:44,200 --> 00:01:45,700
+and use the frame label
+
+38
+00:01:45,700 --> 00:01:48,700
+as an alternate way
+to label the axes.
+
+39
+00:01:48,700 --> 00:01:51,000
+Let's remove the top
+and the right frames—
+
+40
+00:01:51,000 --> 00:01:52,000
+they look a little crowded—
+
+41
+00:01:52,000 --> 00:01:54,300
+and let's also set a PlotLabel
+
+42
+00:01:54,300 --> 00:01:57,600
+to provide a caption
+for this chart.
+
+43
+00:01:57,600 --> 00:02:00,000
+This chart conveys
+the information well enough,
+
+44
+00:02:00,000 --> 00:02:02,500
+but if we want to stylize it
+a little more,
+
+45
+00:02:02,500 --> 00:02:04,200
+a PlotTheme is a quick way
+
+46
+00:02:04,200 --> 00:02:07,600
+to use prebuilt collections
+of style features
+
+47
+00:02:07,600 --> 00:02:09,300
+to customize the chart.
+
+48
+00:02:09,300 --> 00:02:11,600
+ChartStyle can be used
+to change the colors
+
+49
+00:02:11,600 --> 00:02:15,700
+and specify other styles
+for the chart elements.
+
+50
+00:02:15,700 --> 00:02:17,300
+Lastly we can set the ImageSize
+
+51
+00:02:17,300 --> 00:02:20,200
+to view our picture
+with just the right dimensions.
+
+52
+00:02:21,600 --> 00:02:23,000
+That was a simple example.
+
+53
+00:02:23,000 --> 00:02:25,500
+Now let's try another one:
+
+54
+00:02:25,500 --> 00:02:27,800
+adding another feature
+to the dataset,
+
+55
+00:02:27,800 --> 00:02:32,000
+GDP per capita
+in addition to population.
+
+56
+00:02:32,000 --> 00:02:34,000
+The RectangleChart
+can help us visualize
+
+57
+00:02:34,000 --> 00:02:38,200
+both pieces of information
+simultaneously for each country,
+
+58
+00:02:38,200 --> 00:02:40,300
+the width of the bar
+showing the population
+
+59
+00:02:40,300 --> 00:02:43,700
+and the height showing
+the GDP per capita.
+
+60
+00:02:43,700 --> 00:02:46,600
+And we know a chart
+has no use without labels,
+
+61
+00:02:46,600 --> 00:02:48,500
+so we label
+all the relevant pieces
+
+62
+00:02:48,500 --> 00:02:52,000
+to ensure that the chart
+is interpreted as intended.
+
+63
+00:02:54,400 --> 00:02:57,300
+Suppose we have
+a third feature in our dataset
+
+64
+00:02:57,300 --> 00:03:00,800
+that needs to be represented
+in the chart, life expectancy,
+
+65
+00:03:00,800 --> 00:03:04,400
+in addition to GDP per capita
+and population.
+
+66
+00:03:04,400 --> 00:03:06,700
+This is a good place
+to use a BubbleChart
+
+67
+00:03:06,700 --> 00:03:09,900
+with the GDP per capita
+and the life expectancy
+
+68
+00:03:09,900 --> 00:03:13,500
+on the <i>x</i> and the <i>y</i> axes,
+respectively,
+
+69
+00:03:13,500 --> 00:03:17,000
+and the size of the bubbles
+representing the population.
+
+70
+00:03:18,000 --> 00:03:20,100
+The bubbles are colored
+according to their sizes,
+
+71
+00:03:20,100 --> 00:03:23,800
+but it is easier to understand
+the scale of numbers represented
+
+72
+00:03:23,800 --> 00:03:26,500
+by using the colors in a legend.
+
+73
+00:03:28,000 --> 00:03:31,100
+The tooltip, by default,
+provides the information
+
+74
+00:03:31,100 --> 00:03:32,900
+corresponding to the size
+of the bubble—
+
+75
+00:03:32,900 --> 00:03:35,300
+in this case, the population.
+
+76
+00:03:35,300 --> 00:03:37,800
+But it is easy customize
+the tooltips
+
+77
+00:03:37,800 --> 00:03:40,500
+to provide more information.
+
+78
+00:03:40,500 --> 00:03:43,800
+For example, we can create
+a little table
+
+79
+00:03:43,800 --> 00:03:47,000
+out of the information available
+for each data point
+
+80
+00:03:47,000 --> 00:03:49,100
+and add this table to the tooltip.
+
+81
+00:03:49,100 --> 00:03:52,000
+So now we have packed
+a lot more information
+
+82
+00:03:52,000 --> 00:03:55,500
+into this simple chart
+without making it crowded
+
+83
+00:03:55,500 --> 00:03:58,600
+and without compromising
+the aesthetics of the chart.
+
+84
+00:04:00,300 --> 00:04:02,300
+The Wolfram Language
+makes it really easy
+
+85
+00:04:02,300 --> 00:04:05,000
+to make simple visualizations
+more engaging
+
+86
+00:04:05,000 --> 00:04:06,900
+by adding interactivity.
+
+87
+00:04:06,900 --> 00:04:08,900
+The Manipulate is
+a powerful function
+
+88
+00:04:08,900 --> 00:04:11,200
+that is actually
+pretty easy to use.
+
+89
+00:04:11,200 --> 00:04:14,000
+We can wrap a Manipulate
+around this expression,
+
+90
+00:04:14,000 --> 00:04:15,600
+and now we have the ability
+
+91
+00:04:15,600 --> 00:04:18,600
+to choose the information
+we would like to see.
+
+92
+00:04:18,600 --> 00:04:20,300
+For the example
+we were working with,
+
+93
+00:04:20,300 --> 00:04:23,600
+we can use Manipulate to choose
+between different continents,
+
+94
+00:04:23,600 --> 00:04:25,800
+and for each continent,
+we can then compare
+
+95
+00:04:25,800 --> 00:04:29,000
+the life expectancy,
+GDP per capita and population
+
+96
+00:04:29,000 --> 00:04:31,500
+for the countries
+in that continent.
+
+97
+00:04:38,700 --> 00:04:40,400
+One last thing about these charts.
+
+98
+00:04:40,400 --> 00:04:44,700
+It's important to pay attention
+to the axes themselves.
+
+99
+00:04:46,000 --> 00:04:49,100
+As you may have guessed by now,
+these bubble charts were inspired
+
+100
+00:04:49,100 --> 00:04:51,300
+by the famous bubble charts
+of Hans Rosling.
+
+101
+00:04:51,300 --> 00:04:54,800
+At gapminder.org, we can see
+the World Health Chart
+
+102
+00:04:54,800 --> 00:04:57,800
+comparing health
+and wealth of different nations.
+
+103
+00:04:57,800 --> 00:05:01,100
+However, comparing that chart
+to our chart,
+
+104
+00:05:01,100 --> 00:05:04,900
+we see the spread of the countries
+is not quite the same.
+
+105
+00:05:04,900 --> 00:05:06,800
+Of course
+we could take away the outliers
+
+106
+00:05:06,800 --> 00:05:07,800
+to focus on the range
+
+107
+00:05:07,800 --> 00:05:09,600
+within which
+most of the countries fall
+
+108
+00:05:09,600 --> 00:05:12,500
+with their national income
+per person,
+
+109
+00:05:12,500 --> 00:05:17,200
+but it is only when we examine
+the <i>x</i> axis in the original chart
+
+110
+00:05:17,200 --> 00:05:19,300
+we see that it is plotted
+in the log scale.
+
+111
+00:05:19,300 --> 00:05:20,350
+We make the adjustment,
+
+112
+00:05:20,350 --> 00:05:24,700
+and now we see more clearly
+the main message of this chart—
+
+113
+00:05:24,700 --> 00:05:26,900
+that really, most countries
+are in the middle
+
+114
+00:05:26,900 --> 00:05:28,400
+of the health-wealth scale.
+
+115
+00:05:31,000 --> 00:05:34,200
+Here are a few other examples
+of visualizations.
+
+116
+00:05:34,200 --> 00:05:37,800
+Electricity production by country
+for the G6 counties.
+
+117
+00:05:37,800 --> 00:05:39,500
+For each country,
+the breakup is shown
+
+118
+00:05:39,500 --> 00:05:41,900
+across the different sources
+of production.
+
+119
+00:05:43,650 --> 00:05:44,650
+This example shows
+
+120
+00:05:44,650 --> 00:05:47,100
+the top petroleum-producing
+countries of the world
+
+121
+00:05:47,100 --> 00:05:50,700
+using a geographic visualization
+function, GeoBubbleChart.
+
+122
+00:05:53,100 --> 00:05:55,600
+Graphs are a great tool
+for visualizing relationships
+
+123
+00:05:55,600 --> 00:05:56,800
+between data samples.
+
+124
+00:05:56,800 --> 00:05:59,200
+This graph shows the words
+nearest to "wolf",
+
+125
+00:05:59,200 --> 00:06:02,000
+connecting each word
+with the two words nearest to it.
+
+126
+00:06:03,600 --> 00:06:06,500
+This graph shows
+how letters in a word occur
+
+127
+00:06:06,500 --> 00:06:08,150
+one after the other,
+
+128
+00:06:08,150 --> 00:06:09,600
+or in the case of a sentence,
+
+129
+00:06:09,600 --> 00:06:12,100
+how words are linked
+to subsequent words
+
+130
+00:06:12,100 --> 00:06:13,800
+in order in the sentence.
+
+131
+00:06:16,000 --> 00:06:17,900
+The Wolfram Language offers
+
+132
+00:06:17,900 --> 00:06:21,500
+a large variety
+of visualization functions.
+
+133
+00:06:21,500 --> 00:06:23,400
+For data visualization itself,
+
+134
+00:06:23,400 --> 00:06:26,500
+there are many specialized
+functions that can be used
+
+135
+00:06:26,500 --> 00:06:30,000
+for visualizing
+specific types of data.
+
+136
+00:06:30,000 --> 00:06:33,200
+Across these functions, a number
+of different styling options
+
+137
+00:06:33,200 --> 00:06:35,400
+can be used to customize
+the look and feel
+
+138
+00:06:35,400 --> 00:06:38,000
+of the charts, plots and graphs.
+
+139
+00:06:38,000 --> 00:06:39,700
+PlotTheme,
+as we mentioned earlier,
+
+140
+00:06:39,700 --> 00:06:42,800
+is a way to leverage
+some prebuilt themes
+
+141
+00:06:42,800 --> 00:06:46,600
+to quickly set the style
+across multiple options.
+
+142
+00:06:46,600 --> 00:06:49,800
+PlotStyle and ChartStyles
+are other useful options
+
+143
+00:06:49,800 --> 00:06:51,700
+for customizing
+the individual elements
+
+144
+00:06:51,700 --> 00:06:52,800
+in the charts.
+
+145
+00:06:54,300 --> 00:06:56,800
+There are many different ways
+to combine pictures
+
+146
+00:06:56,800 --> 00:06:59,700
+and arrange them
+in a custom layout,
+
+147
+00:06:59,700 --> 00:07:01,900
+annotate them effectively
+
+148
+00:07:01,900 --> 00:07:07,100
+and add interactivity
+to create engaging infographics.
+
+149
+00:07:07,100 --> 00:07:09,800
+To learn more about creating
+beautiful visualizations
+
+150
+00:07:09,800 --> 00:07:10,900
+in the Wolfram Language,
+
+151
+00:07:10,900 --> 00:07:13,800
+please refer to the detailed
+hands-on tutorials
+
+152
+00:07:13,800 --> 00:07:16,700
+linked from
+the documentation pages.
+
+153
+00:07:16,700 --> 00:07:20,100
+Wolfram U also offers
+a full-length, instructor-led course
+
+154
+00:07:20,100 --> 00:07:23,000
+on data visualization
+in the Wolfram Language,
+
+155
+00:07:23,000 --> 00:07:25,400
+as well as many other resources
+
+156
+00:07:25,400 --> 00:07:29,000
+for learning about visualization
+and graphics.
+

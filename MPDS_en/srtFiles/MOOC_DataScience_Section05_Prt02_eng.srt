@@ -1,0 +1,363 @@
+﻿1
+00:00:00,000 --> 00:00:03,000
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,000 --> 00:00:06,000
+Section 5:
+Get the Message Across.
+
+3
+00:00:07,300 --> 00:00:10,300
+Once we have
+the cool visualizations
+
+4
+00:00:10,300 --> 00:00:13,500
+that can tell the story
+of our analysis,
+
+5
+00:00:13,500 --> 00:00:18,100
+we need to put together a report
+or a computational essay
+
+6
+00:00:18,100 --> 00:00:20,600
+that weaves the story together
+
+7
+00:00:20,600 --> 00:00:24,100
+to communicate our message
+to the audience.
+
+8
+00:00:24,100 --> 00:00:26,100
+While we can create,
+edit and work
+
+9
+00:00:26,100 --> 00:00:29,800
+with Wolfram Notebooks
+manually pretty comfortably,
+
+10
+00:00:29,800 --> 00:00:33,500
+sometimes we need to automate
+the process of creating notebooks
+
+11
+00:00:33,500 --> 00:00:35,300
+in form of reports.
+
+12
+00:00:35,300 --> 00:00:36,800
+A report can be created
+
+13
+00:00:36,800 --> 00:00:40,600
+with the CreateDocument function
+in the Wolfram Language.
+
+14
+00:00:40,600 --> 00:00:44,300
+Style elements can be added
+to the content of the reports
+
+15
+00:00:44,300 --> 00:00:47,600
+by specifying the type of cell
+we want to include
+
+16
+00:00:47,600 --> 00:00:49,670
+in the document.
+
+17
+00:00:49,670 --> 00:00:53,300
+The layout and display
+of the contents in the report
+
+18
+00:00:53,300 --> 00:00:56,600
+can be customized using
+Grid, Row, Column,
+
+19
+00:00:56,600 --> 00:01:00,900
+GraphicsRow, GraphicsColumn
+or many other such functions
+
+20
+00:01:00,900 --> 00:01:03,600
+available in the Wolfram Language.
+
+21
+00:01:03,600 --> 00:01:05,600
+Here is an example of a report
+
+22
+00:01:05,600 --> 00:01:07,400
+on the population of the countries
+
+23
+00:01:07,400 --> 00:01:11,500
+in the South Asian Association
+for Regional Cooperation.
+
+24
+00:01:11,500 --> 00:01:14,300
+It shows
+the ten most populous cities
+
+25
+00:01:14,300 --> 00:01:19,100
+and the increase in population
+of the country since 1900.
+
+26
+00:01:19,100 --> 00:01:23,400
+The script helps repetitively
+generate the same report
+
+27
+00:01:23,400 --> 00:01:25,300
+for each country in the group.
+
+28
+00:01:26,800 --> 00:01:29,800
+To automate the process
+of report generation,
+
+29
+00:01:29,800 --> 00:01:34,000
+the Wolfram Language provides
+the use of report templates.
+
+30
+00:01:34,000 --> 00:01:36,800
+Let's create one from scratch.
+
+31
+00:01:36,800 --> 00:01:41,000
+We can add a slot that will accept
+the value for the country variable
+
+32
+00:01:44,000 --> 00:01:46,500
+and an expression
+that will get evaluated
+
+33
+00:01:46,500 --> 00:01:48,000
+when the report is generated.
+
+34
+00:01:49,000 --> 00:01:50,400
+Here's more code to compute
+
+35
+00:01:50,400 --> 00:01:52,700
+things that will show up
+in the report.
+
+36
+00:01:57,400 --> 00:01:59,000
+The cell behavior can be changed
+
+37
+00:01:59,000 --> 00:02:01,700
+to control the appearance
+of the final notebook.
+
+38
+00:02:03,300 --> 00:02:05,900
+We can preview a copy
+of the report,
+
+39
+00:02:05,900 --> 00:02:10,800
+which is generated using
+the default values in the slots.
+
+40
+00:02:10,800 --> 00:02:14,500
+Here's a template
+similar to the one we created.
+
+41
+00:02:14,500 --> 00:02:17,600
+We can generate a document
+from the template
+
+42
+00:02:17,600 --> 00:02:20,000
+by supplying new values
+for the slots.
+
+43
+00:02:22,300 --> 00:02:26,200
+For repetitive analysis
+over a list of inputs,
+
+44
+00:02:26,200 --> 00:02:30,000
+we can use repeating blocks
+that allow a template to loop
+
+45
+00:02:30,000 --> 00:02:33,600
+over a list
+of supplied slot values.
+
+46
+00:02:35,300 --> 00:02:37,000
+This template
+with the repeating blocks
+
+47
+00:02:37,000 --> 00:02:40,300
+will accept a continent
+and then loop over the countries
+
+48
+00:02:40,300 --> 00:02:41,600
+in the continent,
+
+49
+00:02:41,600 --> 00:02:43,470
+creating a block
+or section in the report
+
+50
+00:02:43,470 --> 00:02:46,200
+for each country
+in the final report.
+
+51
+00:02:47,600 --> 00:02:51,500
+Document generators
+can be deployed with driver code
+
+52
+00:02:51,500 --> 00:02:55,100
+that computes the values needed
+to fill in the templates.
+
+53
+00:02:55,100 --> 00:02:59,500
+We can deploy and run a generator
+that produces a daily report
+
+54
+00:02:59,500 --> 00:03:03,200
+on the performance
+over the past seven days
+
+55
+00:03:03,200 --> 00:03:06,950
+of the three stocks
+with the highest trading volumes
+
+56
+00:03:06,950 --> 00:03:11,100
+on the previous day
+for a specific industry sector.
+
+57
+00:03:13,600 --> 00:03:16,200
+We create the driver here,
+
+58
+00:03:16,200 --> 00:03:20,000
+and then we can deploy it
+to the cloud.
+
+59
+00:03:20,000 --> 00:03:24,000
+The generation of the report
+is done by the driver,
+
+60
+00:03:24,000 --> 00:03:28,400
+and it is triggered every weekday—
+
+61
+00:03:28,400 --> 00:03:31,000
+actually, from Tuesday
+to Saturday—
+
+62
+00:03:31,000 --> 00:03:34,900
+for the previous business day
+at a certain time.
+
+63
+00:03:34,900 --> 00:03:37,600
+The generation of the report
+takes a long time,
+
+64
+00:03:37,600 --> 00:03:39,500
+so this is an example of a case
+
+65
+00:03:39,500 --> 00:03:43,500
+where asynchronous evaluation
+is preferable.
+
+66
+00:03:43,500 --> 00:03:47,000
+A notification email will arrive
+at the Wolfram ID of the user
+
+67
+00:03:47,000 --> 00:03:49,100
+once the report
+has been generated.
+
+68
+00:03:50,600 --> 00:03:52,650
+In summary, we looked
+at various options
+
+69
+00:03:52,650 --> 00:03:54,300
+for creating reports.
+
+70
+00:03:54,300 --> 00:03:57,500
+We looked at basic commands
+to script a report
+
+71
+00:03:57,500 --> 00:04:00,400
+and generate it repeatedly
+for different data.
+
+72
+00:04:00,400 --> 00:04:03,300
+We also looked at creating
+report template notebooks—
+
+73
+00:04:03,300 --> 00:04:05,900
+simple ones
+and ones with repeating blocks—
+
+74
+00:04:05,900 --> 00:04:08,900
+and using them automatically
+to generate reports.
+
+75
+00:04:08,900 --> 00:04:12,500
+Finally we looked at deploying
+drivers to the cloud
+
+76
+00:04:12,500 --> 00:04:17,000
+that would trigger automatic
+report generation and delivery.
+

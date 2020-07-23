@@ -1,0 +1,1071 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     48628,       1063]
+NotebookOptionsPosition[     33074,        799]
+NotebookOutlinePosition[     41478,        971]
+CellTagsIndexPosition[     41407,        966]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Assemble a Multiparadigm Toolset", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.7550187405549192`*^9, 3.755018745149918*^9}, {
+   3.7591638606642447`*^9, 3.759163886002613*^9}, 3.759164210011063*^9, {
+   3.759164301100876*^9, 3.7591643044495583`*^9}, {3.759164377421114*^9, 
+   3.759164377845544*^9}, {3.759167251656486*^9, 3.759167252750435*^9}, 
+   3.7594988327022038`*^9, {3.7600982572670107`*^9, 3.760098267473927*^9}, {
+   3.762883551242763*^9, 3.762883554328678*^9}, {3.764006742662427*^9, 
+   3.764006750852619*^9}, {3.7669462237147284`*^9, 3.766946225457403*^9}, 
+   3.767111684490355*^9},
+ CounterAssignments->{{"Section", 3}, {"Subsection", 0}, {
+   "Subsubsection", 0}, {
+   "Exercise", 0}},ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27"],
+
+Cell[CellGroupData[{
+
+Cell["Clustering", "Subsection",
+ CellChangeTimes->{{3.76107050681248*^9, 3.761070522683797*^9}, {
+   3.76107058461234*^9, 3.7610705946430264`*^9}, {3.7628835574485292`*^9, 
+   3.7628835673684397`*^9}, {3.762883693478266*^9, 3.76288369844493*^9}, {
+   3.764006753900371*^9, 3.764006757316087*^9}, {3.766148341983994*^9, 
+   3.766148381653051*^9}, {3.766516930027422*^9, 3.7665169538264923`*^9}, {
+   3.7669220030863867`*^9, 3.766922005094008*^9}, {3.7669359684938107`*^9, 
+   3.766935971092455*^9}, 
+   3.7669462734247437`*^9},ExpressionUUID->"12dc94a5-a35d-44ce-9fa3-\
+2a28ac7c61c9"],
+
+Cell["[00:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"e9eb5865-383b-4543-9288-c18ff6dd0386"],
+
+Cell["\<\
+Multiparadigm Data Science with the Wolfram Language, Section 4: Assembling a \
+Multiparadigm Toolset. \
+\>", "Text",
+ CellChangeTimes->{{3.766154073516801*^9, 3.766154090086186*^9}, {
+  3.7662456544434614`*^9, 
+  3.766245660548072*^9}},ExpressionUUID->"d889d188-8ded-4b26-bf7b-\
+7e0914bdfb9e"],
+
+Cell["\<\
+We started the course with the central idea of developing a multiparadigm \
+project workflow, incorporating ideas, algorithms and techniques from across \
+disciplines at different stages of the workflow to ensure it aims to answer \
+data-driven questions. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154073553485*^9, {3.76624811719611*^9, 
+   3.7662481203964295`*^9}},ExpressionUUID->"90299579-4fe0-4a09-9735-\
+d3421ba516af"],
+
+Cell["\<\
+We've already looked at machine learning superfunctions like Classify and \
+Predict to answer classification questions like is this A or B, or regression \
+questions like how many or how much.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154073561348*^9, {3.766245780913107*^9, 
+   3.76624578504852*^9}},ExpressionUUID->"01afd6f6-5ee6-4ba9-9780-\
+4a83e5ea1350"],
+
+Cell["[00:40]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}},
+ CellTags->"Timecode",ExpressionUUID->"c1a9e544-0116-497d-b53d-a2a910d7d4b6"],
+
+Cell["\<\
+Now let's move on to unsupervised machine learning to answer questions like: \
+\
+\>", "Text",
+ CellChangeTimes->{{3.7661540736470633`*^9, 3.766154098958806*^9}, 
+   3.7662457936563807`*^9},ExpressionUUID->"8ef8adb8-470f-411f-bd77-\
+96cfcbb41a85"],
+
+Cell["\<\
+How is the data organized?
+Does the data have some inherent structure?
+Do the samples sort themselves out into different groups and subgroups?\
+\>", "Text",
+ CellChangeTimes->{{3.7662461976094055`*^9, 
+  3.7662462246201057`*^9}},ExpressionUUID->"3d8e443c-4ca8-4bc2-ae59-\
+a43c2a035139"],
+
+Cell["\<\
+Unsupervised learning functions attempt to automatically discover patterns in \
+unlabelled data.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154073653966*^9},ExpressionUUID->"339189b5-f91f-4a20-ad73-\
+75ed520d2f71"],
+
+Cell["\<\
+Clustering is one of the most common unsupervised learning tasks, which \
+attempts to partition the data into groups or clusters. \
+\>", "Text",
+ CellChangeTimes->{
+  3.76615407370539*^9, {3.76624582004902*^9, 3.7662458620912237`*^9}, 
+   3.7662481584212313`*^9},ExpressionUUID->"f06be1b2-8c53-46cc-a865-\
+ce687e592377"],
+
+Cell["\<\
+Elements within a cluster are closer to each other than to other elements \
+outside the cluster.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.7661540737127028`*^9},ExpressionUUID->"c4ca6a2f-b341-4453-93e5-\
+8eee663d7c67"],
+
+Cell["[01:17]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958311432838*^9, 3.7669583161770267`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"ba3f9048-8d35-4c3e-a8b6-14d59f3dff8e"],
+
+Cell["\<\
+For Fisher's Iris Data, if we cluster based on the numerical features of \
+petal length and petal width, the clusters coincide very nicely with the \
+species of the flower, the blue dots being Setosa in a two-cluster partition, \
+and in a three-cluster partition, the orange dots are Versicolor and green \
+dots are Virginica\[LongDash]mostly.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154073734413*^9, {3.7662458780038147`*^9, 3.7662458999010043`*^9}, {
+   3.766246272076851*^9, 3.766246335088152*^9}, {3.7662481811425037`*^9, 
+   3.7662481824226313`*^9}, {3.766251227799449*^9, 
+   3.766251254234092*^9}},ExpressionUUID->"bb6eb32c-7127-4afd-8dff-\
+9bdb47310444"],
+
+Cell["[01:39]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958346951531*^9, 3.7669583499913673`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"3c2f887e-166a-486d-9765-29e7372b0980"],
+
+Cell["\<\
+In the Wolfram Language, FindClusters can be used to partition a dataset into \
+clusters of similar elements.
+It works on all sorts of data: numerical, text, image, as well as dates and \
+times.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540737935534`*^9, {3.7662463582794704`*^9, 
+   3.7662463585755*^9}},ExpressionUUID->"e082f0ea-2e04-4032-8ed8-\
+53e9d3dafa51"],
+
+Cell["\<\
+To cluster any type of data, what we need is a measure of how far apart each \
+sample is from other samples in the data\[LongDash]a way to measure the \
+distance between.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154073832963*^9, 3.7662456691799345`*^9, {3.766246377608403*^9, 
+   3.7662463815848007`*^9}},ExpressionUUID->"3c54f3b4-f714-4861-b6f6-\
+a59c9891cdcd"],
+
+Cell["[02:03]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958387754225*^9, 3.7669583909059896`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"f812bed1-4a68-4a94-977f-ad1c7a5450c6"],
+
+Cell["\<\
+For this we need a distance function. A distance function f satisfies the \
+following requirements.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540739173203`*^9, {3.766154171905396*^9, 3.766154175186489*^9}, {
+   3.766246399817624*^9, 3.766246401697812*^9}, {3.766246769669293*^9, 
+   3.7662467698773136`*^9}},ExpressionUUID->"97c2b460-9bda-468f-8ff2-\
+2bd0e2e1d931"],
+
+Cell["\<\
+So identical element pairs have zero distance, and all others have positive \
+distance. 
+The greater the distance, the less the similarity between them.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074004381*^9, {3.7662456751485314`*^9, 3.766245677156732*^9}, 
+   3.7662464166333055`*^9},ExpressionUUID->"42673778-0353-4068-bb5b-\
+063aa84d25f2"],
+
+Cell["\<\
+FindClusters automatically picks up a distance function depending on the type \
+of data. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074026932*^9, {3.766246436474289*^9, 3.766246457459388*^9}, 
+   3.7671125945174227`*^9},ExpressionUUID->"ad4b618e-843c-47e3-927d-\
+18b49c364546"],
+
+Cell["[02:22]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}},
+ CellTags->"Timecode",ExpressionUUID->"b10d23e2-1e4c-471c-b1de-a49d0e2a8c9c"],
+
+Cell[TextData[{
+ "If the ",
+ Cell[BoxData[
+  SubscriptBox["e", "i"]],ExpressionUUID->
+  "c68545bc-7088-4886-9d8d-06cbd6369afa"],
+ "are vectors of numbers, FindClusters by default uses squared Euclidean \
+distance."
+}], "Text",
+ CellChangeTimes->{
+  3.766154074026932*^9, {3.767112597637052*^9, 3.767112630209106*^9}, {
+   3.767112694857769*^9, 
+   3.767112698476103*^9}},ExpressionUUID->"35d810a6-fa25-4a0b-80f7-\
+28cc6c2d0787"],
+
+Cell[TextData[{
+ "If ",
+ Cell[BoxData[
+  SubscriptBox["e", "i"]],ExpressionUUID->
+  "f766cd6c-0fd5-4f90-98c6-80ae12d4380d"],
+ " are lists of Boolean true and false elements, then FindClusters uses a \
+dissimilarity based on the normalized fraction of elements that disagree\
+\[LongDash]for example, Jaccard dissimilarity."
+}], "Text",
+ CellChangeTimes->{
+  3.766154074034161*^9, {3.766246464467088*^9, 3.7662465205896997`*^9}, {
+   3.76711270574292*^9, 
+   3.767112706513114*^9}},ExpressionUUID->"6931a6d3-3edd-4880-83a4-\
+b054b8bbf8bf"],
+
+Cell[TextData[{
+ "If the ",
+ Cell[BoxData[
+  SubscriptBox["e", "i"]],ExpressionUUID->
+  "cf6c687a-a3a4-43db-a5f7-83b821389f4d"],
+ "are strings, then FindClusters by default uses a distance function based on \
+the number of point changes needed to get from one string to another\
+\[LongDash]for example, edit distance."
+}], "Text",
+ CellChangeTimes->{
+  3.766154074085105*^9, {3.7662466080954514`*^9, 3.7662466606987114`*^9}, 
+   3.767112709601622*^9},ExpressionUUID->"c6186043-a929-496a-ad46-\
+2675563c12d6"],
+
+Cell["[02:56]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}},
+ CellTags->"Timecode",ExpressionUUID->"c831721a-d2b0-4872-a242-cd0a6489e1f1"],
+
+Cell["\<\
+We can also explicitly specify an appropriate distance function depending on \
+the data.\
+\>", "Text",
+ CellChangeTimes->{
+  3.76615407411932*^9, {3.7662467308194084`*^9, 
+   3.7662467354918756`*^9}},ExpressionUUID->"b30e7489-1291-4e9e-a0cb-\
+a7c08b8a9b2b"],
+
+Cell["\<\
+Here are some useful distance functions for numeric data, Boolean data and \
+string data.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074182617*^9, {3.7661541926750593`*^9, 3.766154200897705*^9}, {
+   3.766245682588275*^9, 
+   3.766245684276444*^9}},ExpressionUUID->"16439108-b798-4cb7-98ec-\
+c39f7c282891"],
+
+Cell["\<\
+The choice of distance function is definitely important in finding the right \
+kind of clusters. Here is an example with synthetic data, where changing the \
+distance function from Euclidean to Cosine allows the algorithm to find the \
+clusters which are obvious to the human eye.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540741897993`*^9, {3.766154206153852*^9, 3.766154209277443*^9}, {
+   3.766246757764103*^9, 3.766246757917118*^9}, {3.7662468070390296`*^9, 
+   3.766246808232149*^9}},ExpressionUUID->"d9108ea9-bc06-4831-9a7b-\
+0c394bcc2f16"],
+
+Cell["[03:26]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"2c9966bf-77c0-4bdb-88aa-1aec5c022f45"],
+
+Cell["\<\
+The other important choice for identifying clusters is the clustering \
+algorithm itself. By default, FindClusters tries different methods and \
+selects the best for clustering.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074282667*^9, {3.766154227522049*^9, 3.766154227937592*^9}, {
+   3.7662468225585814`*^9, 
+   3.766246832703596*^9}},ExpressionUUID->"7dc9e84b-2ea2-464e-95ec-\
+62df8a410366"],
+
+Cell["\<\
+KMeans and KMedoids determine how to cluster the data for a particular number \
+of clusters. 
+DBSCAN, JarvisPatrick, MeanShift, SpanningTree, NeighborhoodContraction and \
+GaussianMixture determine how to cluster the data without assuming a \
+particular number of clusters.
+Agglomerate and Spectral can be used in both cases.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540743161287`*^9, {3.766154226298835*^9, 3.7661542402964497`*^9}, {
+   3.766246855943611*^9, 3.766246856128629*^9}, {3.766246974388454*^9, 
+   3.766247015461561*^9}, 
+   3.7662510224336977`*^9},ExpressionUUID->"061d94b9-3797-40c8-9dc0-\
+f12d0a8eff78"],
+
+Cell["\<\
+Certain clustering algorithms perform better than others, depending on the \
+natural clusters in the data. \
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540743161287`*^9, {3.766154226298835*^9, 
+   3.766154234440844*^9}},ExpressionUUID->"e6ecf026-3f5f-4636-8875-\
+ba0c2ac51f46"],
+
+Cell["[04:03]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958706328065*^9, 3.766958709567935*^9}},
+ CellTags->"Timecode",ExpressionUUID->"486c2dac-3c67-4e07-b30f-75b572534e7c"],
+
+Cell["\<\
+In this synthetic data, we humans can clearly identify the cluster embedded \
+in the center of what appears uniformly distributed noise. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074323223*^9, {3.7662468830413203`*^9, 
+   3.76624688753677*^9}},ExpressionUUID->"9936fcbc-ff1a-4531-8368-\
+5b21f4dfa75e"],
+
+Cell["\<\
+The KMeans clustering algorithm, however, attempts to find two clusters, and \
+does not work very well in this case.
+But the density-based spatial clustering algorithm DBSCAN can easily identify \
+the cluster in the center. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074375946*^9, {3.7662468993779535`*^9, 3.7662469707400894`*^9}, {
+   3.766248269585347*^9, 
+   3.7662482703944283`*^9}},ExpressionUUID->"7f8b6015-c8b4-438c-b8f8-\
+026735f21768"],
+
+Cell["[04:28]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}},
+ CellTags->"Timecode",ExpressionUUID->"0507df71-6934-4dc1-b5dc-1ca861d7e8ba"],
+
+Cell["\<\
+For more control on the clustering algorithm, we can specify Method \
+suboptions like NeighborhoodRadius and NeighborsNumber for DBSCAN, \
+InitialCentroids for KMeans and KMediods, and ClusterDissimilarityFunction, \
+which specifies the intercluster dissimilarity for the Agglomerate method.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540743835173`*^9, 3.7661542463454742`*^9, 3.766245690005017*^9, {
+   3.7662470363906536`*^9, 
+   3.766247040895104*^9}},ExpressionUUID->"5f1f81bb-8938-4ad8-8bcf-\
+448e761d5da6"],
+
+Cell["\<\
+The specified CriterionFunction is used to evaluate the clusters obtained to \
+decide on the best number clusters. \
+\>", "Text",
+ CellChangeTimes->{3.7661540744054317`*^9, 
+  3.76624704995901*^9},ExpressionUUID->"dfe8d065-b139-4165-8d85-c45c9be7e977"],
+
+Cell["\<\
+In this dataset, using StandardDeviation as a criterion function results in \
+unnecessarily breaking up the outer ring cluster into multiple smaller \
+clusters.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074413308*^9, {3.7662470588789024`*^9, 
+   3.766247066823697*^9}},ExpressionUUID->"1c369e73-f3b6-4691-b7e6-\
+c38b07fcda60"],
+
+Cell["\<\
+However, using the RSquared criterion function, only two clusters are \
+established.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540744563*^9, {3.7662470720402184`*^9, 
+   3.766247073799394*^9}},ExpressionUUID->"fdbe5cba-e86b-4793-a937-\
+80afe30ba776"],
+
+Cell["[05:10]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.7669588230266247`*^9, 3.766958825232881*^9}},
+ CellTags->"Timecode",ExpressionUUID->"bc1b2fa2-370b-4cfe-baad-a44c2be57aed"],
+
+Cell["\<\
+There are other Wolfram Language functions that use the notion of distance \
+function and can be used to group samples based on their similarity. \
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154074463565*^9},ExpressionUUID->"c8c8315d-0592-413b-97cb-\
+526001719a70"],
+
+Cell["\<\
+Both ClusteringTree and Dendrogram hierarchically create clusters and \
+visualize them as well.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540744825583`*^9, 3.766245696444661*^9, {3.76624708616063*^9, 
+   3.7662470895759716`*^9}},ExpressionUUID->"bf4f6bcb-6242-4a64-afda-\
+6ebe18474759"],
+
+Cell["[05:26]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.76695885004277*^9, 3.766958856884687*^9}},
+ CellTags->"Timecode",ExpressionUUID->"58737ddc-f0cb-499e-8e6a-354aa84851ab"],
+
+Cell["\<\
+While FindClusters returns the separate lists of samples corresponding to \
+each cluster, ClusteringComponents returns the indices of the clusters to \
+which each sample belongs.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074489904*^9, 3.7662457015011663`*^9, {3.7662471076737814`*^9, 
+   3.76624711456147*^9}},ExpressionUUID->"5daf3694-f9f7-4350-898f-\
+5ad8d2a45e8c"],
+
+Cell["\<\
+The Nearest function uses the notion of distance function internally to find \
+elements closest to a given sample.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540745383244`*^9, 3.7662457065416703`*^9, 3.766247120913105*^9, {
+   3.766251073090763*^9, 
+   3.7662510740988636`*^9}},ExpressionUUID->"4e46b54b-4443-4fc0-b48c-\
+c1ea71ee293a"],
+
+Cell["[05:44]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.766958896210165*^9, 3.766958899034536*^9}},
+ CellTags->"Timecode",ExpressionUUID->"147ca904-e995-4ab2-ae58-b177fb888062"],
+
+Cell["\<\
+While working with samples in the feature space, FeatureNearest can be used \
+to create a NearestFunction that can be used to find a sample from the \
+training data that is the closest match to a new test sample.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074573846*^9, 3.766245711629179*^9, {3.7662471317861924`*^9, 
+   3.7662471342184353`*^9}},ExpressionUUID->"c8b14f68-77b8-4de6-b901-\
+699cc4a25741"],
+
+Cell["\<\
+We looked FeatureSpacePlot before briefly during exploratory data analysis. 
+Given any collection of objects, FeatureSpacePlot attempts to lay them out in \
+an appropriate feature space, without the need for fine-tuning details like \
+converting data from one format to another, projecting to lower dimensions or \
+choosing algorithms and parameter values.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540746252327`*^9, {3.766247152218235*^9, 
+   3.766247191059928*^9}},ExpressionUUID->"7625cad4-824a-4599-85a9-\
+c73689f19318"],
+
+Cell["\<\
+FeatureSpacePlot can handle different types of data like photographs, texts, \
+etc., and uses sophisticated pre-trained feature extractors internally.\
+\>", "Text",
+ CellChangeTimes->{3.76615407463352*^9, 
+  3.7662472658948994`*^9},ExpressionUUID->"a4b8eafc-3918-4580-ba2a-\
+2ea4f02ef62b"],
+
+Cell["[06:31]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.766958952795843*^9, 3.766958955240221*^9}},
+ CellTags->"Timecode",ExpressionUUID->"a6ef4abb-40cf-4978-9702-b7c94e808d70"],
+
+Cell["\<\
+Labeled training data is expensive since an expert has to manually label each \
+sample. However, unlabeled training data is abundant and easy to come by. 
+If we view clusters found in unlabeled data as potential classes, then we can \
+use clustering to build a classifier that will assign labels to new samples \
+based on the clusters it has identified in the existing data.\
+\>", "Text",
+ CellChangeTimes->{
+  3.76615407465247*^9, {3.7662472779261026`*^9, 
+   3.766247295942904*^9}},ExpressionUUID->"f5ccbb71-8b27-454a-a0d3-\
+63b9524153e7"],
+
+Cell["[07:01]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.766958992722414*^9, 3.7669589951062202`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"6c3c31ff-9b39-403f-9454-d651c8d92e46"],
+
+Cell["\<\
+Here is a breast cancer dataset from the UCI Machine Learning Repository \
+consisting of benign and malignant samples with numerical features extracted \
+from original images of the cells.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074662788*^9, {3.766247312255535*^9, 
+   3.766247315311841*^9}},ExpressionUUID->"1fcee86b-399b-4e5d-a4a9-\
+bd431be620f5"],
+
+Cell["\<\
+These are the feature descriptions, and we see the first column is the ID and \
+the last column is the class.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074706612*^9, {3.7662473319045*^9, 
+   3.766247336945004*^9}},ExpressionUUID->"503c6054-d068-4e73-a641-\
+3d2b3dbe0220"],
+
+Cell["There are 458 benign and 241 malignant samples.", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154074715804*^9},ExpressionUUID->"ba91551d-50f7-4115-9613-\
+a74518836585"],
+
+Cell["\<\
+Let's ignore the ID and class columns. Let's just focus on columns 2 to 10. \
+We can use these features and attempt to cluster the data, and then build a \
+classifier based on that clustering. Now that we have the classifier, we can \
+use it on new samples to predict a potential class label, malignant or \
+benign, for a new sample.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540747381077`*^9, {3.7662473484331527`*^9, 
+   3.7662474565819664`*^9}},ExpressionUUID->"12b300c8-e245-4d05-b39f-\
+fb5f8f3b1a2c"],
+
+Cell["[07:38]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.766959056769902*^9, 3.766959058913121*^9}},
+ CellTags->"Timecode",ExpressionUUID->"dd34e813-7d60-4433-8bba-4f40621e1b68"],
+
+Cell["\<\
+Going back to the samples and applying our classifier, we find two class \
+assignments where the first class has 385 samples, which look mostly like the \
+benign samples, and the second class has 312 samples, which has 73 benign, \
+but 239 of the malignant samples. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074747355*^9, {3.766247463669675*^9, 3.766247558697177*^9}, {
+   3.7662476007792487`*^9, 3.766247637276898*^9}, {3.7671128536521807`*^9, 
+   3.767112854777452*^9}},ExpressionUUID->"f60ab324-120f-44b9-977d-\
+b0334a05e412"],
+
+Cell["\<\
+And so we see that sometimes cheaper computational methods can serve as a \
+screen for classifying samples that otherwise require expensive experimental \
+methods for accurately classify them. Of course we can always use the \
+experimental method to confirm the classification suggested by the \
+computational method.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074747355*^9, {3.766247463669675*^9, 3.766247558697177*^9}, {
+   3.7662476007792487`*^9, 
+   3.766247637276898*^9}},ExpressionUUID->"2f1cb3c8-2d21-4f7b-b2b1-\
+30d8d3032854"],
+
+Cell["[08:40]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.766959138197979*^9, 3.7669591401656*^9}},
+ CellTags->"Timecode",ExpressionUUID->"b145df77-a7ee-40bc-811c-e752be7667a7"],
+
+Cell["\<\
+Given a large amount of data, is it possible to create a simple interpretable \
+model of how the data was generated.  \
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.7661540747929173`*^9},ExpressionUUID->"df13f02c-4d7f-402c-827a-\
+607b1e354f74"],
+
+Cell["\<\
+The Wolfram Language function LearnDistribution learns a distribution from \
+the data that attempts to represent an underlying process from which the \
+examples might have been generated.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.7661540748001432`*^9},ExpressionUUID->"0c553de2-6193-49b3-b94d-\
+7494eb796257"],
+
+Cell["\<\
+Back to Fisher's Iris Data. We can train a distribution directly from this \
+dataset and use it to generate random samples.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154074822288*^9, {3.766154276095664*^9, 3.7661542827118273`*^9}, {
+   3.7662476674519153`*^9, 
+   3.7662476876049304`*^9}},ExpressionUUID->"251f7fa5-c258-4c34-8821-\
+f75032e03c11"],
+
+Cell["\<\
+Here is a comparison of the generated random samples in red against the \
+original samples in green.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661540749592857`*^9, {3.7662476951896887`*^9, 
+   3.766247698053975*^9}},ExpressionUUID->"bd801f89-3716-4438-be40-\
+946f4b0d3ff2"],
+
+Cell["[09:22]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.7669591924605627`*^9, 3.766959194372292*^9}},
+ CellTags->"Timecode",ExpressionUUID->"faffd11b-5704-4d35-a31d-f23e375247ae"],
+
+Cell["\<\
+For the simpler case of univariate data, the related function \
+FindDistribution attempts to learn a continuous or discrete distribution from \
+the data itself.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.766154074997017*^9},ExpressionUUID->"f99c6964-e381-4af3-83be-\
+3b11c51be664"],
+
+Cell["\<\
+Here is a histogram of data points generated from a mixture of a \
+NormalDistribution and ExponentialDistribution.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154075050806*^9, {3.7662477244306126`*^9, 
+   3.7662477453607054`*^9}},ExpressionUUID->"e1369f9e-483b-49b6-8776-\
+992f9b1277f4"],
+
+Cell["\<\
+FindDistribution suggests this mixture distribution to fit the data, and we \
+can see how the fit compares with the histogram itself.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154075079174*^9, {3.766247749127082*^9, 
+   3.766247777896959*^9}},ExpressionUUID->"75e4b0d5-6ed2-4af9-a134-\
+eb4681c421f8"],
+
+Cell["[09:46]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669582661081123`*^9, 
+   3.766958266291918*^9}, {3.766958543329815*^9, 3.76695854582582*^9}, {
+   3.766958594820595*^9, 3.766958595036355*^9}, {3.766958638286625*^9, 
+   3.7669586403514433`*^9}, {3.766958771683401*^9, 3.766958774671101*^9}, {
+   3.7669591924605627`*^9, 3.766959194372292*^9}, {3.76695922611819*^9, 
+   3.766959226567213*^9}},
+ CellTags->"Timecode",ExpressionUUID->"ce4e6bf5-3b18-4942-b1ca-160e9b81fe2e"],
+
+Cell["\<\
+In summary, we looked at FindClusters as the primary workhorse for cluster \
+analysis in the Wolfram Language. We looked at choices of DistanceFunction \
+and algorithms that can be used with FindClusters, and we also looked \
+CriterionFunction as an option to evaluate clusters and select the right \
+number of clusters automatically. 
+
+Other functions that can be used to visualise clusters in the data or to find \
+samples closer to a specific data point are ClusteringTree, Dendrogram, \
+ClusteringComponents, FeatureSpacePlot, Nearest and FeatureNearest.
+
+In the absence of labeled training samples, ClusterClassify can be used to \
+build a classifier from a clustering of unlabeled samples using the clusters \
+as potential classes.
+
+Finally we looked at LearnDistribution and FindDistribution as ways for \
+learning a distribution from the data itself to represent the underlying \
+process that generated the samples.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766154075188889*^9, 3.7662457191819344`*^9, {3.766247804097578*^9, 
+   3.7662478904472127`*^9}, {3.7662480560569963`*^9, 3.7662480677691674`*^9}, 
+   3.766251286755344*^9},ExpressionUUID->"b15ef7a6-e113-4fa2-b982-\
+80e13ceaef62"]
+}, Open  ]]
+},
+WindowSize->{808, 1026},
+WindowMargins->{{Automatic, 112}, {900, Automatic}},
+ShowCellTags->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (October 15, 2018)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+       StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+       CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> False, 
+       LineSpacing -> {1, 4}, LanguageCategory -> "NaturalLanguage", 
+       CounterIncrements -> "Title", 
+       CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+         "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+         "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+         "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, MenuSortingValue -> 
+       1100, MenuCommandKey -> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+       45, FontTracking -> -0.5, FontColor -> RGBColor[0.8, 0.043, 0.008]], 
+      Cell[
+       StyleData["Section"], CellFrame -> {{0, 0}, {0, 0}}, CellDingbat -> 
+       Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{67, Inherited}, {34, 54}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionDoubleDigit"], CellFrame -> {{0, 0}, {0, 0}}, 
+       CellDingbat -> Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{112, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionNumber"], CellBaseline -> Baseline, FontFamily -> 
+       "Source Sans Pro", FontSize -> 36, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionInline"], FontFamily -> "Source Sans Pro", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionNoDingbat"], 
+       CellMargins -> {{64, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 25, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Subsubsection"], CellMargins -> {{27, Inherited}, {6, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 20, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Text"], CellMargins -> {{27, 10}, {7, 8}}, 
+       LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+       "Text", MenuSortingValue -> 1400, MenuCommandKey -> "7", FontFamily -> 
+       "Source Sans Pro", FontSize -> 15], 
+      Cell[
+       StyleData["Link"], 
+       CellChangeTimes -> {{3.747057645225031*^9, 3.747057645432509*^9}, {
+        3.747057679800942*^9, 3.747057679968298*^9}}, FontFamily -> 
+       "WolframCodeSans", FontSize :> If[CurrentValue[
+           EvaluationCell[], "FontFamily"] === "Source Sans Pro", Inherited, 
+         If[CurrentValue[
+            EvaluationCell[], "FontFamily"] === "WolframCodeSans", Inherited, 
+          Inherited 0.9]], FontColor -> 
+       RGBColor[
+        0.4285191119249256, 0.45610742351415273`, 0.560845349813077]]}, 
+     Closed]]}, Visible -> False, FrontEndVersion -> 
+  "12.0 for Mac OS X x86 (64-bit) (October 15, 2018)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Timecode"->{
+  Cell[1942, 47, 360, 6, 45, "Text",ExpressionUUID->"e9eb5865-383b-4543-9288-c18ff6dd0386",
+   CellTags->"Timecode"],
+  Cell[3418, 85, 412, 7, 45, "Text",ExpressionUUID->"c1a9e544-0116-497d-b53d-a2a910d7d4b6",
+   CellTags->"Timecode"],
+  Cell[5272, 140, 460, 7, 45, "Text",ExpressionUUID->"ba3f9048-8d35-4c3e-a8b6-14d59f3dff8e",
+   CellTags->"Timecode"],
+  Cell[6411, 163, 460, 7, 45, "Text",ExpressionUUID->"3c2f887e-166a-486d-9765-29e7372b0980",
+   CellTags->"Timecode"],
+  Cell[7624, 193, 460, 7, 45, "Text",ExpressionUUID->"f812bed1-4a68-4a94-977f-ad1c7a5450c6",
+   CellTags->"Timecode"],
+  Cell[9114, 231, 457, 7, 45, "Text",ExpressionUUID->"b10d23e2-1e4c-471c-b1de-a49d0e2a8c9c",
+   CellTags->"Timecode"],
+  Cell[11056, 283, 507, 8, 45, "Text",ExpressionUUID->"c831721a-d2b0-4872-a242-cd0a6489e1f1",
+   CellTags->"Timecode"],
+  Cell[12715, 324, 559, 9, 45, "Text",ExpressionUUID->"2c9966bf-77c0-4bdb-88aa-1aec5c022f45",
+   CellTags->"Timecode"],
+  Cell[14605, 370, 605, 9, 45, "Text",ExpressionUUID->"486c2dac-3c67-4e07-b30f-75b572534e7c",
+   CellTags->"Timecode"],
+  Cell[15989, 402, 605, 9, 45, "Text",ExpressionUUID->"0507df71-6934-4dc1-b5dc-1ca861d7e8ba",
+   CellTags->"Timecode"],
+  Cell[17990, 451, 657, 10, 45, "Text",ExpressionUUID->"bc1b2fa2-370b-4cfe-baad-a44c2be57aed",
+   CellTags->"Timecode"],
+  Cell[19272, 482, 654, 10, 45, "Text",ExpressionUUID->"58737ddc-f0cb-499e-8e6a-354aa84851ab",
+   CellTags->"Timecode"],
+  Cell[20658, 514, 655, 10, 45, "Text",ExpressionUUID->"147ca904-e995-4ab2-ae58-b177fb888062",
+   CellTags->"Timecode"],
+  Cell[22572, 556, 655, 10, 45, "Text",ExpressionUUID->"a6ef4abb-40cf-4978-9702-b7c94e808d70",
+   CellTags->"Timecode"],
+  Cell[23784, 580, 657, 10, 45, "Text",ExpressionUUID->"6c3c31ff-9b39-403f-9454-d651c8d92e46",
+   CellTags->"Timecode"],
+  Cell[25831, 630, 655, 10, 45, "Text",ExpressionUUID->"dd34e813-7d60-4433-8bba-4f40621e1b68",
+   CellTags->"Timecode"],
+  Cell[27582, 667, 653, 10, 56, "Text",ExpressionUUID->"b145df77-a7ee-40bc-811c-e752be7667a7",
+   CellTags->"Timecode"],
+  Cell[29542, 719, 657, 10, 56, "Text",ExpressionUUID->"faffd11b-5704-4d35-a31d-f23e375247ae",
+   CellTags->"Timecode"],
+  Cell[31148, 760, 706, 11, 56, "Text",ExpressionUUID->"ce4e6bf5-3b18-4942-b1ca-160e9b81fe2e",
+   CellTags->"Timecode"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Timecode", 39102, 924}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 772, 12, 135, "Section",ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27",
+ Evaluatable->False,
+ CounterAssignments->{{"Section", 3}, {"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}}],
+Cell[CellGroupData[{
+Cell[1355, 36, 584, 9, 48, "Subsection",ExpressionUUID->"12dc94a5-a35d-44ce-9fa3-2a28ac7c61c9"],
+Cell[1942, 47, 360, 6, 45, "Text",ExpressionUUID->"e9eb5865-383b-4543-9288-c18ff6dd0386",
+ CellTags->"Timecode"],
+Cell[2305, 55, 304, 7, 35, "Text",ExpressionUUID->"d889d188-8ded-4b26-bf7b-7e0914bdfb9e"],
+Cell[2612, 64, 433, 9, 81, "Text",ExpressionUUID->"90299579-4fe0-4a09-9735-d3421ba516af"],
+Cell[3048, 75, 367, 8, 58, "Text",ExpressionUUID->"01afd6f6-5ee6-4ba9-9780-4a83e5ea1350"],
+Cell[3418, 85, 412, 7, 45, "Text",ExpressionUUID->"c1a9e544-0116-497d-b53d-a2a910d7d4b6",
+ CellTags->"Timecode"],
+Cell[3833, 94, 256, 6, 35, "Text",ExpressionUUID->"8ef8adb8-470f-411f-bd77-96cfcbb41a85"],
+Cell[4092, 102, 296, 7, 81, "Text",ExpressionUUID->"3d8e443c-4ca8-4bc2-ae59-a43c2a035139"],
+Cell[4391, 111, 270, 8, 35, "Text",ExpressionUUID->"339189b5-f91f-4a20-ad73-75ed520d2f71"],
+Cell[4664, 121, 330, 7, 58, "Text",ExpressionUUID->"f06be1b2-8c53-46cc-a865-ce687e592377"],
+Cell[4997, 130, 272, 8, 35, "Text",ExpressionUUID->"c4ca6a2f-b341-4453-93e5-8eee663d7c67"],
+Cell[5272, 140, 460, 7, 45, "Text",ExpressionUUID->"ba3f9048-8d35-4c3e-a8b6-14d59f3dff8e",
+ CellTags->"Timecode"],
+Cell[5735, 149, 673, 12, 81, "Text",ExpressionUUID->"bb6eb32c-7127-4afd-8dff-9bdb47310444"],
+Cell[6411, 163, 460, 7, 45, "Text",ExpressionUUID->"3c2f887e-166a-486d-9765-29e7372b0980",
+ CellTags->"Timecode"],
+Cell[6874, 172, 372, 9, 58, "Text",ExpressionUUID->"e082f0ea-2e04-4032-8ed8-53e9d3dafa51"],
+Cell[7249, 183, 372, 8, 58, "Text",ExpressionUUID->"3c54f3b4-f714-4861-b6f6-a59c9891cdcd"],
+Cell[7624, 193, 460, 7, 45, "Text",ExpressionUUID->"f812bed1-4a68-4a94-977f-ad1c7a5450c6",
+ CellTags->"Timecode"],
+Cell[8087, 202, 375, 8, 35, "Text",ExpressionUUID->"97c2b460-9bda-468f-8ff2-2bd0e2e1d931"],
+Cell[8465, 212, 354, 8, 58, "Text",ExpressionUUID->"42673778-0353-4068-bb5b-063aa84d25f2"],
+Cell[8822, 222, 289, 7, 35, "Text",ExpressionUUID->"ad4b618e-843c-47e3-927d-18b49c364546"],
+Cell[9114, 231, 457, 7, 45, "Text",ExpressionUUID->"b10d23e2-1e4c-471c-b1de-a49d0e2a8c9c",
+ CellTags->"Timecode"],
+Cell[9574, 240, 428, 12, 35, "Text",ExpressionUUID->"35d810a6-fa25-4a0b-80f7-28cc6c2d0787"],
+Cell[10005, 254, 537, 13, 58, "Text",ExpressionUUID->"6931a6d3-3edd-4880-83a4-b054b8bbf8bf"],
+Cell[10545, 269, 508, 12, 58, "Text",ExpressionUUID->"c6186043-a929-496a-ad46-2675563c12d6"],
+Cell[11056, 283, 507, 8, 45, "Text",ExpressionUUID->"c831721a-d2b0-4872-a242-cd0a6489e1f1",
+ CellTags->"Timecode"],
+Cell[11566, 293, 267, 7, 35, "Text",ExpressionUUID->"b30e7489-1291-4e9e-a0cb-a7c08b8a9b2b"],
+Cell[11836, 302, 317, 8, 35, "Text",ExpressionUUID->"16439108-b798-4cb7-98ec-c39f7c282891"],
+Cell[12156, 312, 556, 10, 81, "Text",ExpressionUUID->"d9108ea9-bc06-4831-9a7b-0c394bcc2f16"],
+Cell[12715, 324, 559, 9, 45, "Text",ExpressionUUID->"2c9966bf-77c0-4bdb-88aa-1aec5c022f45",
+ CellTags->"Timecode"],
+Cell[13277, 335, 405, 9, 58, "Text",ExpressionUUID->"7dc9e84b-2ea2-464e-95ec-62df8a410366"],
+Cell[13685, 346, 629, 13, 104, "Text",ExpressionUUID->"061d94b9-3797-40c8-9dc0-f12d0a8eff78"],
+Cell[14317, 361, 285, 7, 35, "Text",ExpressionUUID->"e6ecf026-3f5f-4636-8875-ba0c2ac51f46"],
+Cell[14605, 370, 605, 9, 45, "Text",ExpressionUUID->"486c2dac-3c67-4e07-b30f-75b572534e7c",
+ CellTags->"Timecode"],
+Cell[15213, 381, 314, 7, 58, "Text",ExpressionUUID->"9936fcbc-ff1a-4531-8368-5b21f4dfa75e"],
+Cell[15530, 390, 456, 10, 58, "Text",ExpressionUUID->"7f8b6015-c8b4-438c-b8f8-026735f21768"],
+Cell[15989, 402, 605, 9, 45, "Text",ExpressionUUID->"0507df71-6934-4dc1-b5dc-1ca861d7e8ba",
+ CellTags->"Timecode"],
+Cell[16597, 413, 521, 10, 81, "Text",ExpressionUUID->"5f1f81bb-8938-4ad8-8bcf-448e761d5da6"],
+Cell[17121, 425, 262, 5, 35, "Text",ExpressionUUID->"dfe8d065-b139-4165-8d85-c45c9be7e977"],
+Cell[17386, 432, 338, 8, 58, "Text",ExpressionUUID->"1c369e73-f3b6-4691-b7e6-c38b07fcda60"],
+Cell[17727, 442, 260, 7, 35, "Text",ExpressionUUID->"fdbe5cba-e86b-4793-a937-80afe30ba776"],
+Cell[17990, 451, 657, 10, 45, "Text",ExpressionUUID->"bc1b2fa2-370b-4cfe-baad-a44c2be57aed",
+ CellTags->"Timecode"],
+Cell[18650, 463, 320, 8, 58, "Text",ExpressionUUID->"c8c8315d-0592-413b-97cb-526001719a70"],
+Cell[18973, 473, 296, 7, 35, "Text",ExpressionUUID->"bf4f6bcb-6242-4a64-afda-6ebe18474759"],
+Cell[19272, 482, 654, 10, 45, "Text",ExpressionUUID->"58737ddc-f0cb-499e-8e6a-354aa84851ab",
+ CellTags->"Timecode"],
+Cell[19929, 494, 379, 8, 58, "Text",ExpressionUUID->"5daf3694-f9f7-4350-898f-5ad8d2a45e8c"],
+Cell[20311, 504, 344, 8, 35, "Text",ExpressionUUID->"4e46b54b-4443-4fc0-b48c-c1ea71ee293a"],
+Cell[20658, 514, 655, 10, 45, "Text",ExpressionUUID->"147ca904-e995-4ab2-ae58-b177fb888062",
+ CellTags->"Timecode"],
+Cell[21316, 526, 414, 8, 58, "Text",ExpressionUUID->"c8b14f68-77b8-4de6-b901-699cc4a25741"],
+Cell[21733, 536, 534, 10, 104, "Text",ExpressionUUID->"7625cad4-824a-4599-85a9-c73689f19318"],
+Cell[22270, 548, 299, 6, 58, "Text",ExpressionUUID->"a4b8eafc-3918-4580-ba2a-2ea4f02ef62b"],
+Cell[22572, 556, 655, 10, 45, "Text",ExpressionUUID->"a6ef4abb-40cf-4978-9702-b7c94e808d70",
+ CellTags->"Timecode"],
+Cell[23230, 568, 551, 10, 104, "Text",ExpressionUUID->"f5ccbb71-8b27-454a-a0d3-63b9524153e7"],
+Cell[23784, 580, 657, 10, 45, "Text",ExpressionUUID->"6c3c31ff-9b39-403f-9454-d651c8d92e46",
+ CellTags->"Timecode"],
+Cell[24444, 592, 364, 8, 58, "Text",ExpressionUUID->"1fcee86b-399b-4e5d-a4a9-bd431be620f5"],
+Cell[24811, 602, 283, 7, 35, "Text",ExpressionUUID->"503c6054-d068-4e73-a641-3d2b3dbe0220"],
+Cell[25097, 611, 213, 5, 35, "Text",ExpressionUUID->"ba91551d-50f7-4115-9613-a74518836585"],
+Cell[25313, 618, 515, 10, 81, "Text",ExpressionUUID->"12b300c8-e245-4d05-b39f-fb5f8f3b1a2c"],
+Cell[25831, 630, 655, 10, 45, "Text",ExpressionUUID->"dd34e813-7d60-4433-8bba-4f40621e1b68",
+ CellTags->"Timecode"],
+Cell[26489, 642, 542, 10, 81, "Text",ExpressionUUID->"f60ab324-120f-44b9-977d-b0334a05e412"],
+Cell[27034, 654, 545, 11, 81, "Text",ExpressionUUID->"2f1cb3c8-2d21-4f7b-b2b1-30d8d3032854"],
+Cell[27582, 667, 653, 10, 56, "Text",ExpressionUUID->"b145df77-a7ee-40bc-811c-e752be7667a7",
+ CellTags->"Timecode"],
+Cell[28238, 679, 294, 8, 35, "Text",ExpressionUUID->"df13f02c-4d7f-402c-827a-607b1e354f74"],
+Cell[28535, 689, 363, 9, 58, "Text",ExpressionUUID->"0c553de2-6193-49b3-b94d-7494eb796257"],
+Cell[28901, 700, 355, 8, 35, "Text",ExpressionUUID->"251f7fa5-c258-4c34-8821-f75032e03c11"],
+Cell[29259, 710, 280, 7, 35, "Text",ExpressionUUID->"bd801f89-3716-4438-be40-946f4b0d3ff2"],
+Cell[29542, 719, 657, 10, 56, "Text",ExpressionUUID->"faffd11b-5704-4d35-a31d-f23e375247ae",
+ CellTags->"Timecode"],
+Cell[30202, 731, 334, 9, 58, "Text",ExpressionUUID->"f99c6964-e381-4af3-83be-3b11c51be664"],
+Cell[30539, 742, 294, 7, 35, "Text",ExpressionUUID->"e1369f9e-483b-49b6-8776-992f9b1277f4"],
+Cell[30836, 751, 309, 7, 58, "Text",ExpressionUUID->"75e4b0d5-6ed2-4af9-a134-eb4681c421f8"],
+Cell[31148, 760, 706, 11, 56, "Text",ExpressionUUID->"ce4e6bf5-3b18-4942-b1ca-160e9b81fe2e",
+ CellTags->"Timecode"],
+Cell[31857, 773, 1201, 23, 288, "Text",ExpressionUUID->"b15ef7a6-e113-4fa2-b982-80e13ceaef62"]
+}, Open  ]]
+}
+]
+*)
+

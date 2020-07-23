@@ -1,0 +1,949 @@
+﻿1
+00:00:00,000 --> 00:00:03,600
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,600 --> 00:00:08,100
+Section 4: Assembling
+a Multiparadigm Toolset.
+
+3
+00:00:08,100 --> 00:00:10,500
+In navigating the analyze stage
+
+4
+00:00:10,500 --> 00:00:13,800
+of our question-driven
+multiparadigm workflow,
+
+5
+00:00:13,800 --> 00:00:15,800
+we've looked at questions
+of the type:
+
+6
+00:00:15,800 --> 00:00:18,600
+Is this A or B?
+
+7
+00:00:18,600 --> 00:00:23,000
+How much of something
+or how many items can we expect?
+
+8
+00:00:23,000 --> 00:00:24,500
+How is the data structured?
+
+9
+00:00:24,500 --> 00:00:28,300
+Are there inherent groups
+to which the data samples belong?
+
+10
+00:00:28,300 --> 00:00:29,700
+And so on.
+
+11
+00:00:29,700 --> 00:00:34,800
+Next, let's take on the question
+is this weird or unusual?
+
+12
+00:00:34,800 --> 00:00:37,100
+You know,
+when faced with some data,
+
+13
+00:00:37,100 --> 00:00:40,000
+can we identify the samples
+that seem to stand out
+
+14
+00:00:40,000 --> 00:00:42,100
+for whatever reason?
+
+15
+00:00:42,100 --> 00:00:44,450
+The unsupervised
+machine learning technique
+
+16
+00:00:44,450 --> 00:00:46,000
+of anomaly detection
+
+17
+00:00:46,000 --> 00:00:49,100
+is what we would use
+in such a case.
+
+18
+00:00:49,100 --> 00:00:52,300
+So anomaly detection would be
+the tool to use
+
+19
+00:00:52,300 --> 00:00:55,500
+if we were attempting
+to spot an attack
+
+20
+00:00:55,500 --> 00:00:58,100
+amidst regular network traffic
+
+21
+00:00:58,100 --> 00:01:01,100
+or identify
+a fraudulent transaction
+
+22
+00:01:01,100 --> 00:01:02,600
+on a stolen credit card
+
+23
+00:01:02,600 --> 00:01:06,000
+amidst the usual transactions
+of a regular customer
+
+24
+00:01:06,000 --> 00:01:08,500
+or spot
+the unusual characteristics
+
+25
+00:01:08,500 --> 00:01:12,500
+of a diseased cell
+amidst healthy tissue samples.
+
+26
+00:01:14,700 --> 00:01:17,400
+Outliers, or anomalies,
+are data points
+
+27
+00:01:17,400 --> 00:01:20,800
+that are very different
+from most other data points.
+
+28
+00:01:20,800 --> 00:01:22,500
+They are rarer.
+
+29
+00:01:22,500 --> 00:01:25,400
+We can find
+such anomalous elements in data
+
+30
+00:01:25,400 --> 00:01:27,000
+using FindAnomalies.
+
+31
+00:01:31,300 --> 00:01:34,000
+Internally, FindAnomalies
+depends on
+
+32
+00:01:34,000 --> 00:01:35,400
+the LearnDistribution function
+
+33
+00:01:35,400 --> 00:01:37,500
+we covered
+in the previous segment,
+
+34
+00:01:37,500 --> 00:01:39,600
+which tries to learn
+the underlying distribution
+
+35
+00:01:39,600 --> 00:01:42,600
+of the data,
+given a set of examples.
+
+36
+00:01:42,600 --> 00:01:45,500
+LearnDistribution
+and FindAnomalies
+
+37
+00:01:45,500 --> 00:01:48,800
+work with any type of data,
+not just numbers
+
+38
+00:01:48,800 --> 00:01:51,400
+Given the underlying distribution
+of the data,
+
+39
+00:01:51,400 --> 00:01:55,300
+FindAnomalies finds
+the data points that are outliers
+
+40
+00:01:55,300 --> 00:01:56,500
+in the sense that
+
+41
+00:01:56,500 --> 00:01:59,200
+they should occur
+only with very low probability
+
+42
+00:01:59,200 --> 00:02:02,200
+according to
+the learned distribution.
+
+43
+00:02:02,200 --> 00:02:05,900
+RarerProbability computes
+the probability for a distribution
+
+44
+00:02:05,900 --> 00:02:08,600
+to generate a sample
+with a lower PDF
+
+45
+00:02:08,600 --> 00:02:11,000
+than the examples provided.
+
+46
+00:02:11,000 --> 00:02:15,800
+The AcceptanceThreshold option
+can be used with FindAnomalies
+
+47
+00:02:15,800 --> 00:02:19,800
+to specify the value
+of RarerProbability
+
+48
+00:02:19,800 --> 00:02:21,800
+that should be considered
+very small,
+
+49
+00:02:21,800 --> 00:02:26,000
+and therefore cause samples
+being labeled as anomalies.
+
+50
+00:02:26,000 --> 00:02:29,000
+Let's revisit
+the Fisher's iris dataset
+
+51
+00:02:29,000 --> 00:02:32,400
+and try to use anomaly detection
+on the samples.
+
+52
+00:02:32,400 --> 00:02:34,200
+The detector function can be used
+
+53
+00:02:34,200 --> 00:02:37,300
+to identify outliers
+from a dataset,
+
+54
+00:02:37,300 --> 00:02:39,900
+or it can be used
+to provide a verdict—
+
+55
+00:02:39,900 --> 00:02:43,600
+anomaly or not—
+for individual samples.
+
+56
+00:02:43,600 --> 00:02:49,300
+RarerProbability is used to decide
+which examples are outliers.
+
+57
+00:02:49,300 --> 00:02:52,000
+By default, any example
+with a rarer probability
+
+58
+00:02:52,000 --> 00:02:56,000
+smaller than 0.001
+is considered an outlier.
+
+59
+00:02:56,000 --> 00:02:58,000
+But we can change this threshold
+
+60
+00:02:58,000 --> 00:03:01,900
+and thus change the outlier
+decision boundary for the data.
+
+61
+00:03:03,400 --> 00:03:04,600
+Here is another example
+
+62
+00:03:04,600 --> 00:03:07,300
+demonstrating how
+anomaly detection can be used
+
+63
+00:03:07,300 --> 00:03:09,000
+on a classic dataset
+
+64
+00:03:09,000 --> 00:03:13,500
+containing both numerical
+and nominal variables.
+
+65
+00:03:13,500 --> 00:03:17,100
+We have to use dimension reduction
+to allow us to visualize
+
+66
+00:03:17,100 --> 00:03:20,600
+both the data and the anomalies
+in a scatter plot.
+
+67
+00:03:20,600 --> 00:03:23,200
+Observe how the decision
+of whether a sample
+
+68
+00:03:23,200 --> 00:03:25,500
+is an anomaly or not
+
+69
+00:03:25,500 --> 00:03:28,900
+changes with the change
+in the acceptance threshold
+
+70
+00:03:28,900 --> 00:03:30,500
+for FindAnomalies.
+
+71
+00:03:36,300 --> 00:03:40,500
+Anomaly detection can easily work
+on time series data as well.
+
+72
+00:03:40,500 --> 00:03:44,500
+For example, here is a time series
+of dates and daily closing values
+
+73
+00:03:44,500 --> 00:03:50,000
+of the S&P 500 index
+since January 1, 2015.
+
+74
+00:03:50,000 --> 00:03:54,100
+We can partition this data
+into a list of consecutive windows
+
+75
+00:03:54,100 --> 00:03:56,000
+and use FindAnomalies to detect
+
+76
+00:03:56,000 --> 00:03:59,100
+unexpected changes
+in the sequence.
+
+77
+00:03:59,100 --> 00:04:01,100
+Here are the detected anomalies
+
+78
+00:04:01,100 --> 00:04:04,300
+overlaid
+on the original time series.
+
+79
+00:04:04,300 --> 00:04:07,500
+If we are worried
+about outliers or anomalies
+
+80
+00:04:07,500 --> 00:04:10,700
+throwing the entire analysis
+off track,
+
+81
+00:04:10,700 --> 00:04:14,300
+DeleteAnomalies can be used
+to both find and remove
+
+82
+00:04:14,300 --> 00:04:17,400
+the anomalous samples
+from the data in one step.
+
+83
+00:04:19,700 --> 00:04:21,800
+In the wrangle stage
+of the workflow,
+
+84
+00:04:21,800 --> 00:04:23,600
+we looked at dealing
+with messy data
+
+85
+00:04:23,600 --> 00:04:25,500
+and briefly discussed
+the possibility
+
+86
+00:04:25,500 --> 00:04:27,300
+of using machine learning
+
+87
+00:04:27,300 --> 00:04:30,500
+to compute replacements
+for missing data.
+
+88
+00:04:30,500 --> 00:04:32,300
+The unsupervised learning task
+
+89
+00:04:32,300 --> 00:04:34,600
+of learning a distribution
+from the data
+
+90
+00:04:34,600 --> 00:04:39,100
+can be used to synthesize
+replacements for missing values.
+
+91
+00:04:39,100 --> 00:04:42,000
+In this example,
+we can use SynthesizeMissingValues
+
+92
+00:04:42,000 --> 00:04:44,700
+as a custom image in-painter.
+
+93
+00:04:44,700 --> 00:04:47,900
+We can first learn a distribution
+for the pixel values
+
+94
+00:04:47,900 --> 00:04:49,700
+from the available images,
+
+95
+00:04:49,700 --> 00:04:52,900
+and then use it
+to generate replacement values
+
+96
+00:04:52,900 --> 00:04:55,100
+for the missing data
+in new samples.
+
+97
+00:05:00,800 --> 00:05:03,900
+Along with the different questions
+we've looked at so far
+
+98
+00:05:03,900 --> 00:05:05,000
+in the analysis stage
+
+99
+00:05:05,000 --> 00:05:08,300
+of the question-driven
+multiparadigm project workflow,
+
+100
+00:05:08,300 --> 00:05:13,500
+there is one we need to consider
+specifically for sequential data.
+
+101
+00:05:13,500 --> 00:05:17,600
+Given a sequence of observations
+adhering to an imposed order,
+
+102
+00:05:17,600 --> 00:05:21,700
+we may want to know
+what comes next in the sequence.
+
+103
+00:05:23,900 --> 00:05:27,300
+For example, say we want to create
+a text generator
+
+104
+00:05:27,300 --> 00:05:30,100
+that writes in the style
+of a particular author—
+
+105
+00:05:30,100 --> 00:05:32,400
+maybe Charles Dickens.
+
+106
+00:05:32,400 --> 00:05:35,700
+The way to do this would be
+to train a sequence predictor
+
+107
+00:05:35,700 --> 00:05:40,500
+on the works of Charles Dickens—
+say, <i>Tale of Two Cities</i>.
+
+108
+00:05:40,500 --> 00:05:41,800
+And then once trained,
+
+109
+00:05:41,800 --> 00:05:44,100
+we can give a starting sequence
+to the predictor
+
+110
+00:05:44,100 --> 00:05:45,800
+and ask it to generate text
+
+111
+00:05:45,800 --> 00:05:49,100
+that is most likely to come next
+in the sequence.
+
+112
+00:05:56,000 --> 00:05:57,800
+Of course the predictions
+completely depend
+
+113
+00:05:57,800 --> 00:05:59,500
+on the training data.
+
+114
+00:05:59,500 --> 00:06:02,800
+If we train our text generator
+on <i>Pride and Prejudice</i>
+
+115
+00:06:02,800 --> 00:06:04,300
+instead of <i>Tale of Two Cities</i>,
+
+116
+00:06:04,300 --> 00:06:06,000
+we can expect it to generate
+
+117
+00:06:06,000 --> 00:06:09,200
+text sequences
+in Ms. Austen's style of writing.
+
+118
+00:06:10,800 --> 00:06:12,900
+SequencePredict
+in the Wolfram Language
+
+119
+00:06:12,900 --> 00:06:15,000
+internally uses the Markov model,
+
+120
+00:06:15,000 --> 00:06:17,300
+and we can set the order
+of the Markov model
+
+121
+00:06:17,300 --> 00:06:19,200
+in the Method suboption.
+
+122
+00:06:19,200 --> 00:06:22,600
+Here the order was set
+to three automatically.
+
+123
+00:06:22,600 --> 00:06:25,800
+Increasing it to five
+does not necessarily
+
+124
+00:06:25,800 --> 00:06:28,000
+seem to improve
+the quality of the prose.
+
+125
+00:06:30,100 --> 00:06:33,600
+The Wolfram Language also has
+a few built-in sequence predictors
+
+126
+00:06:33,600 --> 00:06:35,950
+trained on text
+in various languages
+
+127
+00:06:35,950 --> 00:06:39,200
+that can generate pseudo text
+in these languages.
+
+128
+00:06:40,200 --> 00:06:43,800
+Here is one example
+for the German sequence predictor.
+
+129
+00:06:45,900 --> 00:06:48,200
+Sequence prediction works
+just not for text,
+
+130
+00:06:48,200 --> 00:06:50,200
+but also for other data.
+
+131
+00:06:50,200 --> 00:06:52,100
+SequencePredict allows
+the modeling
+
+132
+00:06:52,100 --> 00:06:53,700
+of any kind of a sequence
+
+133
+00:06:53,700 --> 00:06:56,800
+in order to predict
+its future evolution.
+
+134
+00:06:56,800 --> 00:06:58,950
+For example,
+here is a dataset with samples
+
+135
+00:06:58,950 --> 00:07:03,700
+of sequences of a player's moves
+in rock paper scissors.
+
+136
+00:07:03,700 --> 00:07:05,200
+SequencePredict can be used
+
+137
+00:07:05,200 --> 00:07:07,800
+to predict the next action
+of the player—
+
+138
+00:07:07,800 --> 00:07:10,950
+whether they are going to play
+rock or paper or scissors,
+
+139
+00:07:10,950 --> 00:07:12,600
+given his previous actions.
+
+140
+00:07:18,000 --> 00:07:20,900
+Now let's look at a special type
+of sequential data
+
+141
+00:07:20,900 --> 00:07:23,600
+which have
+an imposed order in time,
+
+142
+00:07:23,600 --> 00:07:25,200
+generally known as a time series.
+
+143
+00:07:25,200 --> 00:07:28,200
+We've looked a few examples
+of time series data
+
+144
+00:07:28,200 --> 00:07:30,100
+earlier in this course.
+
+145
+00:07:30,100 --> 00:07:33,200
+The FinancialData function
+in the Wolfram Language
+
+146
+00:07:33,200 --> 00:07:37,500
+returns such time series objects
+which are really time-value pairs
+
+147
+00:07:37,500 --> 00:07:41,100
+of stock prices
+or exchange rates of currencies
+
+148
+00:07:41,100 --> 00:07:42,800
+along with
+the corresponding dates,
+
+149
+00:07:42,800 --> 00:07:45,400
+so the data is ordered in time.
+
+150
+00:07:46,400 --> 00:07:50,050
+These are the daily exchange rates
+of the Euro to USD
+
+151
+00:07:50,050 --> 00:07:54,400
+from October 2018 to March 2019.
+
+152
+00:07:54,400 --> 00:07:56,800
+Since the rates are available
+only for business days,
+
+153
+00:07:56,800 --> 00:07:57,950
+we need to resample
+
+154
+00:07:57,950 --> 00:08:01,800
+to ensure the time increment
+is indeed a business day
+
+155
+00:08:01,800 --> 00:08:04,200
+and there are no gaps in the data
+for the weekends.
+
+156
+00:08:05,500 --> 00:08:08,800
+We can fit
+an auto-regressive process
+
+157
+00:08:08,800 --> 00:08:10,700
+on the time series data
+from the past
+
+158
+00:08:10,700 --> 00:08:12,800
+and use it to forecast the rates
+
+159
+00:08:12,800 --> 00:08:15,700
+for 20 business days
+in the future.
+
+160
+00:08:15,700 --> 00:08:19,200
+Here is a comparison
+of the training data, the forecast
+
+161
+00:08:19,200 --> 00:08:22,600
+and the actual values for
+the dates used for the forecast.
+
+162
+00:08:24,000 --> 00:08:25,500
+Let's look at another example
+
+163
+00:08:25,500 --> 00:08:27,600
+attempting to forecast
+the temperature
+
+164
+00:08:27,600 --> 00:08:30,800
+in Champaign, Illinois,
+based on the monthly temperatures
+
+165
+00:08:30,800 --> 00:08:32,600
+of the past 10 years.
+
+166
+00:08:32,600 --> 00:08:34,600
+Instead of estimating a process,
+
+167
+00:08:34,600 --> 00:08:39,000
+we can directly try to fit
+a time series model on the data.
+
+168
+00:08:39,000 --> 00:08:40,600
+This is the temperature
+in Champaign
+
+169
+00:08:40,600 --> 00:08:42,700
+as predicted by the model today.
+
+170
+00:08:42,700 --> 00:08:45,000
+By the way, this is really
+the temperature for today.
+
+171
+00:08:45,000 --> 00:08:48,700
+Here are the forecasted
+temperatures for 2019.
+
+172
+00:08:50,600 --> 00:08:53,400
+We can use the various properties
+of the model
+
+173
+00:08:53,400 --> 00:08:55,000
+to get more information.
+
+174
+00:08:57,600 --> 00:09:00,300
+In summary,
+we looked at two more questions
+
+175
+00:09:00,300 --> 00:09:01,500
+that could drive
+
+176
+00:09:01,500 --> 00:09:04,400
+our multiparadigm project workflow
+in this segment:
+
+177
+00:09:04,400 --> 00:09:06,600
+1. Is this unusual?
+
+178
+00:09:06,600 --> 00:09:08,800
+2. What comes next?
+
+179
+00:09:08,800 --> 00:09:12,400
+To find out if a data point
+is unusual, an anomaly
+
+180
+00:09:12,400 --> 00:09:14,950
+or an outlier,
+we can use FindAnomalies,
+
+181
+00:09:14,950 --> 00:09:17,600
+which internally uses
+LearnDistribution.
+
+182
+00:09:17,600 --> 00:09:20,400
+We looked at a few examples
+of using FindAnomalies
+
+183
+00:09:20,400 --> 00:09:22,800
+for numeric and time series data.
+
+184
+00:09:22,800 --> 00:09:24,500
+We also looked at DeleteAnomalies
+
+185
+00:09:24,500 --> 00:09:26,600
+for finding
+and deleting anomalies.
+
+186
+00:09:26,600 --> 00:09:29,600
+As a quick aside, we also
+looked at SyntehizeMissingValues
+
+187
+00:09:29,600 --> 00:09:32,000
+as another use
+of the LearnDistribution function
+
+188
+00:09:32,000 --> 00:09:35,500
+to generate replacement values
+for missing data.
+
+189
+00:09:35,500 --> 00:09:37,600
+To answer the question
+what comes next,
+
+190
+00:09:37,600 --> 00:09:41,200
+we looked at sequence prediction
+and time series forecasting.
+
+191
+00:09:41,200 --> 00:09:42,500
+So in all, we have looked at
+
+192
+00:09:42,500 --> 00:09:45,000
+a few different questions
+we can ask to get started
+
+193
+00:09:45,000 --> 00:09:47,600
+with a multiparadigm
+data science project
+
+194
+00:09:47,600 --> 00:09:49,950
+and the associated
+multiparadigm tools
+
+195
+00:09:49,950 --> 00:09:52,800
+that can help us
+answer these questions.
+
+196
+00:09:52,800 --> 00:09:55,900
+After looking at one more tool
+that has become very popular
+
+197
+00:09:55,900 --> 00:09:59,400
+for applying machine learning
+in data science, neural networks,
+
+198
+00:09:59,400 --> 00:10:01,800
+we will be ready to move on
+to the last stage
+
+199
+00:10:01,800 --> 00:10:03,200
+of our project workflow,
+
+200
+00:10:03,200 --> 00:10:06,650
+communicate to get
+the message across,
+
+201
+00:10:06,650 --> 00:10:09,000
+at the end
+of the project workflow.
+

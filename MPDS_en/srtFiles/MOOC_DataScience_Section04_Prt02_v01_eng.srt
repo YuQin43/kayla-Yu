@@ -1,0 +1,933 @@
+﻿1
+00:00:00,000 --> 00:00:01,600
+Hello and welcome
+
+2
+00:00:01,600 --> 00:00:04,800
+to Multiparadigm Data Science
+with the Wolfram Language,
+
+3
+00:00:04,800 --> 00:00:08,500
+Section 4: Assembling
+a Multiparadigm Toolset.
+
+4
+00:00:08,500 --> 00:00:09,500
+In this section,
+
+5
+00:00:09,500 --> 00:00:12,300
+we are looking at various
+algorithms and techniques
+
+6
+00:00:12,300 --> 00:00:15,000
+that allow us to analyze the data
+
+7
+00:00:15,000 --> 00:00:18,500
+from the perspective
+of multiparadigm data science,
+
+8
+00:00:18,500 --> 00:00:21,900
+maintaining a workflow
+driven by questions.
+
+9
+00:00:23,300 --> 00:00:25,800
+We've looked at classification
+as a technique
+
+10
+00:00:25,800 --> 00:00:28,000
+to answer questions of the type:
+
+11
+00:00:28,000 --> 00:00:30,300
+Is this A or B?
+
+12
+00:00:30,300 --> 00:00:33,500
+Does the sample belong
+to class 1 or class 2?
+
+13
+00:00:33,500 --> 00:00:38,000
+For example: Is the image of
+a healthy or a cancerous tissue?
+
+14
+00:00:38,000 --> 00:00:40,800
+Is an individual
+high credit risk or low?
+
+15
+00:00:40,800 --> 00:00:42,500
+And so on.
+
+16
+00:00:42,500 --> 00:00:45,400
+Now let's look at
+predictive modeling techniques
+
+17
+00:00:45,400 --> 00:00:50,000
+that allow us to answer questions
+like how much or how many.
+
+18
+00:00:50,000 --> 00:00:51,000
+For example:
+
+19
+00:00:51,000 --> 00:00:53,500
+How much should
+the price of a home be?
+
+20
+00:00:53,500 --> 00:00:57,500
+How many runs will a baseball
+player score in the season?
+
+21
+00:00:57,500 --> 00:01:00,450
+What will be the yield
+of a power plant this month?
+
+22
+00:01:00,450 --> 00:01:02,000
+And so on.
+
+23
+00:01:02,000 --> 00:01:05,800
+Regression is the task that
+seeks to answer such questions.
+
+24
+00:01:05,800 --> 00:01:08,300
+While classification
+attempts to predict
+
+25
+00:01:08,300 --> 00:01:11,600
+a discrete class label
+for the sample,
+
+26
+00:01:11,600 --> 00:01:13,400
+regression aims to compute
+
+27
+00:01:13,400 --> 00:01:16,500
+a continuous target value
+or number,
+
+28
+00:01:16,500 --> 00:01:18,700
+given the features
+of the sample.
+
+29
+00:01:18,700 --> 00:01:22,300
+Just like classification, it is
+a supervised machine learning task
+
+30
+00:01:22,300 --> 00:01:25,200
+that uses training examples
+to learn.
+
+31
+00:01:26,300 --> 00:01:27,700
+Here's some training data
+
+32
+00:01:27,700 --> 00:01:30,600
+where each sample
+has two features,
+
+33
+00:01:30,600 --> 00:01:34,500
+age and income,
+and a prerecorded credit score.
+
+34
+00:01:34,500 --> 00:01:39,400
+This is the target value we'd
+like to predict for new samples.
+
+35
+00:01:39,400 --> 00:01:41,500
+Using this data,
+we'd like to infer a function
+
+36
+00:01:41,500 --> 00:01:45,400
+to map from the feature values
+to the numeric target,
+
+37
+00:01:45,400 --> 00:01:48,400
+and once we have that function,
+we can use it to predict a target
+
+38
+00:01:48,400 --> 00:01:51,400
+when given the feature values
+of a new data point.
+
+39
+00:01:52,800 --> 00:01:54,800
+In linear regression,
+the model or function
+
+40
+00:01:54,800 --> 00:01:57,300
+which predicts the target
+or response variable—
+
+41
+00:01:57,300 --> 00:02:01,200
+that is, the score in this case—
+uses a linear combination
+
+42
+00:02:01,200 --> 00:02:03,500
+of the predictor variables
+or features—
+
+43
+00:02:03,500 --> 00:02:05,600
+in this case, age and income.
+
+44
+00:02:05,600 --> 00:02:08,400
+Here is the predicted credit score
+for a new sample
+
+45
+00:02:08,400 --> 00:02:11,200
+with age 35 and income 65,000,
+
+46
+00:02:11,200 --> 00:02:13,400
+and this is the fitted model
+against the data points,
+
+47
+00:02:13,400 --> 00:02:16,000
+showing the credit score
+for an income of 50,000
+
+48
+00:02:16,000 --> 00:02:18,900
+across an age range of 20 to 60.
+
+49
+00:02:18,900 --> 00:02:21,700
+While linear regression is
+a commonly used technique,
+
+50
+00:02:21,700 --> 00:02:24,000
+it is far from being the only one.
+
+51
+00:02:24,000 --> 00:02:25,000
+The Wolfram Language has
+
+52
+00:02:25,000 --> 00:02:27,500
+a machine learning superfunction
+Predict,
+
+53
+00:02:27,500 --> 00:02:31,000
+which facilitates
+the multiparadigm project workflow
+
+54
+00:02:31,000 --> 00:02:34,500
+by automating the process
+of learning a PredictorFunction,
+
+55
+00:02:34,500 --> 00:02:38,800
+selecting the optimal algorithm
+according to the available data.
+
+56
+00:02:38,800 --> 00:02:42,000
+Using this dataset with height,
+gender and age,
+
+57
+00:02:42,000 --> 00:02:44,500
+we can use Predict
+to create a function
+
+58
+00:02:44,500 --> 00:02:47,900
+that will predict the age
+from height and gender.
+
+59
+00:02:49,100 --> 00:02:51,500
+Predict is able to handle
+different types of data,
+
+60
+00:02:51,500 --> 00:02:55,000
+including numerical, textual,
+sounds and images.
+
+61
+00:02:55,000 --> 00:02:57,000
+Here's another example
+where the input is
+
+62
+00:02:57,000 --> 00:02:59,200
+the image of a gauge reading
+
+63
+00:02:59,200 --> 00:03:01,950
+and the output is
+the actual numeric value
+
+64
+00:03:01,950 --> 00:03:03,500
+of the reading.
+
+65
+00:03:03,500 --> 00:03:05,800
+The predictor function
+can predict a value
+
+66
+00:03:05,800 --> 00:03:10,300
+given a single new input
+or a list of inputs.
+
+67
+00:03:10,300 --> 00:03:13,500
+And while it provides
+the predicted value by default,
+
+68
+00:03:13,500 --> 00:03:15,100
+it can also be asked
+
+69
+00:03:15,100 --> 00:03:17,500
+for a distribution
+of the predicted value
+
+70
+00:03:17,500 --> 00:03:19,000
+conditioned on the input.
+
+71
+00:03:20,000 --> 00:03:22,100
+We can get
+more detailed information
+
+72
+00:03:22,100 --> 00:03:23,000
+about the predictor function
+
+73
+00:03:23,000 --> 00:03:25,400
+to understand
+what is actually going on
+
+74
+00:03:25,400 --> 00:03:28,000
+behind the automated
+machine learning.
+
+75
+00:03:28,000 --> 00:03:30,800
+Let's look at another example
+of training a predictor
+
+76
+00:03:30,800 --> 00:03:33,400
+to predict the mean value
+of properties
+
+77
+00:03:33,400 --> 00:03:35,500
+in a neighborhood of Boston,
+
+78
+00:03:35,500 --> 00:03:38,300
+given certain features
+of the neighborhood.
+
+79
+00:03:38,300 --> 00:03:41,500
+It's not enough to just create
+the predictor function.
+
+80
+00:03:41,500 --> 00:03:44,500
+We need to evaluate
+the performance of this function
+
+81
+00:03:44,500 --> 00:03:46,500
+to see if it is
+really making sense—
+
+82
+00:03:46,500 --> 00:03:51,300
+if it will predict reasonable
+values for real-world samples—
+
+83
+00:03:51,300 --> 00:03:53,500
+so we test and measure
+its performance
+
+84
+00:03:53,500 --> 00:03:58,300
+against some test data
+with actual known target values.
+
+85
+00:03:58,300 --> 00:03:59,700
+A comparison plot shows
+
+86
+00:03:59,700 --> 00:04:03,000
+the predicted values
+against the actual values,
+
+87
+00:04:03,000 --> 00:04:04,000
+the dashed straight line
+
+88
+00:04:04,000 --> 00:04:06,600
+representing
+the perfect predictions.
+
+89
+00:04:06,600 --> 00:04:07,600
+And the standard deviation
+
+90
+00:04:07,600 --> 00:04:10,900
+gives the root mean square
+of the residuals.
+
+91
+00:04:10,900 --> 00:04:13,700
+Here is a complete report
+on the predictor's performance.
+
+92
+00:04:15,200 --> 00:04:16,600
+While Predict provides
+
+93
+00:04:16,600 --> 00:04:19,600
+the convenience
+of automated machine learning,
+
+94
+00:04:19,600 --> 00:04:22,900
+it also allows the freedom
+to customize the training process
+
+95
+00:04:22,900 --> 00:04:27,300
+by selecting the method as well as
+setting its hyperparameters.
+
+96
+00:04:27,300 --> 00:04:29,700
+This dataset has
+the average daily wind speed
+
+97
+00:04:29,700 --> 00:04:34,400
+at 12 meteorological stations
+in the Republic of Ireland
+
+98
+00:04:34,400 --> 00:04:37,000
+from 1961 to '78.
+
+99
+00:04:37,000 --> 00:04:41,000
+Let's use the data from January
+of each year from '61 to '77
+
+100
+00:04:41,000 --> 00:04:42,000
+for training
+
+101
+00:04:42,000 --> 00:04:47,500
+and reserve the data
+from January of 1978 for testing.
+
+102
+00:04:47,500 --> 00:04:49,000
+We will try to learn a predictor
+
+103
+00:04:49,000 --> 00:04:51,700
+to compute the value
+of the wind speed at Dublin
+
+104
+00:04:51,700 --> 00:04:54,700
+as a function of the wind speeds
+at other places
+
+105
+00:04:54,700 --> 00:04:55,700
+and also the date.
+
+106
+00:04:56,800 --> 00:05:00,200
+The gradient-boosted trees method
+produces a prediction model
+
+107
+00:05:00,200 --> 00:05:03,800
+in the form of an ensemble
+of decision trees.
+
+108
+00:05:03,800 --> 00:05:07,400
+The trees are trained sequentially
+with the goal of compensating
+
+109
+00:05:07,400 --> 00:05:10,000
+for the weaknesses
+of previous trees.
+
+110
+00:05:10,000 --> 00:05:12,850
+We are using it for regression
+in this example.
+
+111
+00:05:12,850 --> 00:05:13,850
+Here's a comparison
+
+112
+00:05:13,850 --> 00:05:16,300
+of the predicted values
+for the test data
+
+113
+00:05:16,300 --> 00:05:18,500
+with the actual values
+of wind speed.
+
+114
+00:05:18,500 --> 00:05:21,450
+The residual plot
+and the residual histogram
+
+115
+00:05:21,450 --> 00:05:24,700
+show the predictions are mostly
+trailing the actual values.
+
+116
+00:05:26,000 --> 00:05:28,200
+These are the hyperparameters
+
+117
+00:05:28,200 --> 00:05:31,400
+selected by the automated
+machine learning procedure.
+
+118
+00:05:31,400 --> 00:05:33,600
+We can choose
+to retrain the classifier
+
+119
+00:05:33,600 --> 00:05:35,200
+and tune the hyperparameters.
+
+120
+00:05:35,200 --> 00:05:38,500
+For example, let's set the value
+of the BoostingMethod
+
+121
+00:05:38,500 --> 00:05:42,400
+to GradientOneSideSampling
+and retrain the classifier.
+
+122
+00:05:42,400 --> 00:05:44,200
+We can see
+how the predictions change
+
+123
+00:05:44,200 --> 00:05:46,500
+for the new classifier
+on the test set.
+
+124
+00:05:48,500 --> 00:05:49,500
+As mentioned earlier,
+
+125
+00:05:49,500 --> 00:05:52,500
+Predict attempts to optimize
+the choice of an algorithm
+
+126
+00:05:52,500 --> 00:05:54,000
+based on the input.
+
+127
+00:05:54,000 --> 00:05:56,200
+It can choose from among
+
+128
+00:05:56,200 --> 00:05:59,000
+LinearRegression,
+NearestNeighbors,
+
+129
+00:05:59,000 --> 00:06:02,000
+DecisionTrees,
+GradientBoostedTrees,
+
+130
+00:06:02,000 --> 00:06:06,000
+NeuralNetwork, RandomForest
+and GaussianProcess.
+
+131
+00:06:06,000 --> 00:06:07,000
+For this dataset,
+
+132
+00:06:07,000 --> 00:06:11,700
+let's train a random forest
+and a Gaussian process predictor.
+
+133
+00:06:11,700 --> 00:06:14,900
+Random forest is an ensemble
+learning method, again,
+
+134
+00:06:14,900 --> 00:06:17,600
+that can be used for both
+classification and regression.
+
+135
+00:06:17,600 --> 00:06:21,500
+It operates by constructing
+a multitude of decision trees.
+
+136
+00:06:21,500 --> 00:06:23,200
+The forest prediction is obtained
+
+137
+00:06:23,200 --> 00:06:28,000
+by taking the most common class,
+or mean value, tree predictions.
+
+138
+00:06:28,000 --> 00:06:29,600
+Each decision tree is trained
+
+139
+00:06:29,600 --> 00:06:32,400
+on a random subset
+of the training set,
+
+140
+00:06:32,400 --> 00:06:35,800
+and also uses a random subset
+of the features
+
+141
+00:06:35,800 --> 00:06:38,500
+with a bootstrap
+aggregating algorithm.
+
+142
+00:06:38,500 --> 00:06:42,300
+The Gaussian process method
+assumes the data was generated
+
+143
+00:06:42,300 --> 00:06:44,000
+from a Gaussian process.
+
+144
+00:06:44,000 --> 00:06:47,800
+In the training phase,
+the method tries to estimate
+
+145
+00:06:47,800 --> 00:06:50,400
+the parameters
+of the covariance function.
+
+146
+00:06:50,400 --> 00:06:53,800
+The Gaussian process is then
+conditioned on the training data
+
+147
+00:06:53,800 --> 00:06:57,300
+and used to infer the value
+of a new example
+
+148
+00:06:57,300 --> 00:06:59,800
+using Bayesian inference.
+
+149
+00:06:59,800 --> 00:07:00,800
+As we can see here,
+
+150
+00:07:00,800 --> 00:07:03,200
+the Gaussian process predictor
+is smoother
+
+151
+00:07:03,200 --> 00:07:07,300
+and handles small datasets
+better than the random forest,
+
+152
+00:07:07,300 --> 00:07:10,200
+and we can also see
+the difference in training times.
+
+153
+00:07:11,500 --> 00:07:14,300
+Among other ways to customize
+the Predict function
+
+154
+00:07:14,300 --> 00:07:16,700
+to have more control
+over the training process,
+
+155
+00:07:16,700 --> 00:07:19,900
+we can specify
+the UtilityFunction.
+
+156
+00:07:19,900 --> 00:07:22,000
+The default utility function
+for Predict
+
+157
+00:07:22,000 --> 00:07:24,000
+is the Dirac delta
+utility function,
+
+158
+00:07:24,000 --> 00:07:26,000
+which corresponds with the value
+
+159
+00:07:26,000 --> 00:07:28,600
+for the highest
+probability density
+
+160
+00:07:28,600 --> 00:07:30,500
+being predicted as the target.
+
+161
+00:07:30,500 --> 00:07:33,400
+We can define
+a different utility function
+
+162
+00:07:33,400 --> 00:07:35,500
+that penalizes
+the predicted values
+
+163
+00:07:35,500 --> 00:07:37,300
+smaller than the actual value,
+
+164
+00:07:38,500 --> 00:07:40,600
+and now we have
+a different predicted value
+
+165
+00:07:40,600 --> 00:07:41,600
+for the same input.
+
+166
+00:07:42,800 --> 00:07:44,700
+The performance
+of the predictor function
+
+167
+00:07:44,700 --> 00:07:47,400
+can be optimized
+for training speed,
+
+168
+00:07:47,400 --> 00:07:49,700
+actual runtime speed,
+memory usage
+
+169
+00:07:49,700 --> 00:07:52,000
+or accuracy of the predictions.
+
+170
+00:07:52,000 --> 00:07:55,200
+This can be done by setting
+the PerformanceGoal option.
+
+171
+00:07:55,200 --> 00:07:57,400
+By default,
+it tries to balance
+
+172
+00:07:57,400 --> 00:07:59,950
+between the prediction speed
+and performance.
+
+173
+00:08:00,950 --> 00:08:03,500
+For a really simple
+interpretable model,
+
+174
+00:08:03,500 --> 00:08:06,000
+the Wolfram Language
+offers FindFormula
+
+175
+00:08:06,000 --> 00:08:09,600
+to find a function or formula
+that approximates the data.
+
+176
+00:08:09,600 --> 00:08:12,700
+Say you want a formula
+to calculate prime numbers.
+
+177
+00:08:12,700 --> 00:08:15,100
+Here are
+the first 100 prime numbers.
+
+178
+00:08:15,100 --> 00:08:17,600
+We can find a formula
+to fit the data
+
+179
+00:08:17,600 --> 00:08:19,300
+and use it to compute estimates
+
+180
+00:08:19,300 --> 00:08:23,000
+approximating
+the next five prime numbers.
+
+181
+00:08:23,000 --> 00:08:24,500
+Here is a comparison of the fit
+
+182
+00:08:24,500 --> 00:08:27,500
+with the data
+for the first 300 primes.
+
+183
+00:08:29,000 --> 00:08:30,500
+In summary,
+
+184
+00:08:30,500 --> 00:08:33,000
+we looked at some
+predictive modeling techniques
+
+185
+00:08:33,000 --> 00:08:35,500
+for regression tasks
+to predict target values
+
+186
+00:08:35,500 --> 00:08:36,800
+for unseen samples
+
+187
+00:08:36,800 --> 00:08:39,800
+based on values
+of previously seen samples.
+
+188
+00:08:39,800 --> 00:08:42,500
+We looked at the machine learning
+superfunction Predict
+
+189
+00:08:42,500 --> 00:08:46,000
+and some of the algorithms
+it can use internally.
+
+190
+00:08:46,000 --> 00:08:47,800
+We also looked at evaluating
+
+191
+00:08:47,800 --> 00:08:49,900
+the performance
+of the predictor function
+
+192
+00:08:49,900 --> 00:08:54,000
+and retraining the function after
+setting model hyperparameters.
+
+193
+00:08:54,000 --> 00:08:57,500
+Early on in the segment, we took
+a brief look at linear model fit
+
+194
+00:08:57,500 --> 00:09:00,900
+as a quick way to build
+a linear model for regression.
+
+195
+00:09:00,900 --> 00:09:03,600
+And we concluded with FindFormula,
+
+196
+00:09:03,600 --> 00:09:06,500
+which builds
+a simple interpretable model
+
+197
+00:09:06,500 --> 00:09:09,000
+for univariate
+or time series data.
+

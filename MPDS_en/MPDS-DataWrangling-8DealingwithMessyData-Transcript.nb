@@ -1,0 +1,611 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     28364,        603]
+NotebookOptionsPosition[     17847,        410]
+NotebookOutlinePosition[     24917,        559]
+CellTagsIndexPosition[     24846,        554]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Get your Data into Shape", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.7550187405549192`*^9, 3.755018745149918*^9}, {
+   3.7591638606642447`*^9, 3.759163886002613*^9}, 3.759164210011063*^9, {
+   3.759164301100876*^9, 3.7591643044495583`*^9}, {3.759164377421114*^9, 
+   3.759164377845544*^9}, {3.759167251656486*^9, 3.759167252750435*^9}, 
+   3.7594988327022038`*^9, {3.7600982572670107`*^9, 3.760098267473927*^9}},
+ CounterAssignments->{{"Section", 1}, {"Subsection", 0}, {
+   "Subsubsection", 0}, {
+   "Exercise", 0}},ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27"],
+
+Cell[CellGroupData[{
+
+Cell["Dealing With Messy Data", "Subsection",
+ CellChangeTimes->{{3.76107050681248*^9, 3.761070522683797*^9}, {
+   3.76107058461234*^9, 3.7610705946430264`*^9}, {3.7628835574485292`*^9, 
+   3.7628835673684397`*^9}, {3.762883693478266*^9, 3.76288369844493*^9}, {
+   3.764006753900371*^9, 3.764006757316087*^9}, {3.766148341983994*^9, 
+   3.766148381653051*^9}, {3.766516930027422*^9, 3.7665169538264923`*^9}, {
+   3.7669220030863867`*^9, 3.766922005094008*^9}, {3.76692250042992*^9, 
+   3.766922506205824*^9}, 
+   3.766924158103202*^9},ExpressionUUID->"f895d812-ecd8-46e0-879b-\
+556b20985e9e"],
+
+Cell["[00:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"f7c54fe9-3cfe-4d7d-a7d8-8a506fd2b321"],
+
+Cell["\<\
+Multiparadigm Data Science with the Wolfram Language, Section 2: Getting Your \
+Data into Shape. \
+\>", "Text",
+ CellChangeTimes->{
+  3.76692300706341*^9, 3.766925477633429*^9, {3.7670105893130856`*^9, 
+   3.7670106069500856`*^9}},ExpressionUUID->"5353120d-b609-49fd-9ebe-\
+bdc2a4d00970"],
+
+Cell["\<\
+Real-world data can be messy. It is not enough to simply get hold of data. A \
+multiparadigm workflow must be able to deal with incomplete or inaccurate \
+data containing items that may be even irrelevant. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007070264*^9, {3.766925494656828*^9, 3.766925497524269*^9}, {
+   3.7670106581900854`*^9, 
+   3.7670106650700855`*^9}},ExpressionUUID->"1fb29f76-5fa7-48fa-9eed-\
+1aba68f4edc9"],
+
+Cell["\<\
+Data cleaning is the process of replacing, modifying or removing errors from \
+the data. A data cleaning checklist to deal with these various problems is a \
+good idea for repeated use at this stage of the project workflow.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230071127663`*^9, {3.7669255038386917`*^9, 3.766925514243342*^9}, 
+   3.7670106735890856`*^9},ExpressionUUID->"5da51431-bb02-4bd2-9635-\
+fa32ef38a422"],
+
+Cell["[00:35]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934195038239*^9, 
+   3.766934195317932*^9}},
+ CellTags->"Timecode",ExpressionUUID->"98c64922-c8c5-4e94-bd17-5c743a623925"],
+
+Cell["\<\
+We can start out by checking for consistent formatting across each row and \
+also across each column. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007169829*^9, {3.7669255468357563`*^9, 3.766925583218351*^9}, {
+   3.7669327582131157`*^9, 3.76693276013838*^9}, 3.766932806452091*^9, 
+   3.767010629512686*^9, {3.7670107040210857`*^9, 
+   3.7670107268700857`*^9}},ExpressionUUID->"70bfbbfd-df04-45de-8a31-\
+0e939014890e"],
+
+Cell["\<\
+We can also check if the feature values are reasonable and informative\
+\[LongDash]free of obvious errors. All feature values must be within a \
+permissible range, and we can check with experts for a reasonable range. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007169829*^9, {3.7669255468357563`*^9, 3.766925583218351*^9}, {
+   3.7669327582131157`*^9, 3.76693276013838*^9}, {3.766932814360861*^9, 
+   3.766932832607706*^9}, 3.7670106317448854`*^9, {3.767010730967086*^9, 
+   3.767010762268258*^9}},ExpressionUUID->"47188f27-c9ab-42ae-a114-\
+8a7faaf70d9c"],
+
+Cell["\<\
+Finally we need to check if there are indications of missing data. And once \
+we've identified missing data, we must decide how we are going to deal with \
+it.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007169829*^9, {3.7669255468357563`*^9, 3.766925583218351*^9}, {
+   3.7669327582131157`*^9, 3.76693276013838*^9}, {3.766932814360861*^9, 
+   3.766932829127429*^9}, {3.7670107753911786`*^9, 3.7670107814365788`*^9}, 
+   3.7670166546890326`*^9},ExpressionUUID->"b44717e0-1fbc-475a-b9a5-\
+17f8f72120fb"],
+
+Cell["[01:07]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934195038239*^9, 
+   3.766934195317932*^9}, {3.766934236507519*^9, 3.766934239056522*^9}},
+ CellTags->"Timecode",ExpressionUUID->"615e5916-c2b5-449e-98ae-ba5d0c4eed6a"],
+
+Cell["\<\
+With the checklist in hand, let\[CloseCurlyQuote]s look at ways to clean the \
+data one variable at a time.\
+\>", "Text",
+ CellChangeTimes->{3.7669230072710543`*^9, 
+  3.767010784499885*^9},ExpressionUUID->"9c7b0f18-d5a6-4a7b-b465-\
+5083de83998c"],
+
+Cell["\<\
+We can look at each variable feature in the dataset to identify erroneous \
+values. \
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230073067093`*^9, {3.766925602548032*^9, 3.766925602873135*^9}, {
+   3.767010795142203*^9, 
+   3.767010795602207*^9}},ExpressionUUID->"b1e30193-8771-40ef-bd04-\
+f3be5e17d3fb"],
+
+Cell["\<\
+If you were expecting only numeric values, then there should not be strings \
+in a particular column.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007313098*^9, 3.7669256076838913`*^9, {3.767010805443901*^9, 
+   3.767010805748931*^9}},ExpressionUUID->"875308d8-9d9d-4eb8-8d1c-\
+0985f4231b38"],
+
+Cell["\<\
+If all values in a column are the same, the feature is unlikely to be \
+discriminatory or useful. Informative features usually span a range of \
+values. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007364223*^9, {3.766932853870946*^9, 
+   3.766932857367861*^9}},ExpressionUUID->"54fca8d1-7a5f-4d9f-bc8e-\
+dfdf059aa13f"],
+
+Cell["\<\
+If the observed range of values appears less than expected, an unexpected \
+cutoff may have been applied across the data. If the range of values is \
+different from what is expected, some form of unit conversion may be \
+required, like metric to imperial. The maximum and minimum of a numeric \
+feature should not be outside the permissible range of values. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007364223*^9, {3.766932853870946*^9, 3.766932877684853*^9}, 
+   3.766934300792551*^9, {3.7670108407422857`*^9, 
+   3.7670108656067047`*^9}},ExpressionUUID->"ed25665d-add6-4880-ab7e-\
+dcf9f07dcd6d"],
+
+Cell["[02:06]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934195038239*^9, 
+   3.766934195317932*^9}, {3.766934236507519*^9, 3.766934239056522*^9}, {
+   3.7669343351963577`*^9, 3.76693433711412*^9}},
+ CellTags->"Timecode",ExpressionUUID->"d2ca097a-bdc0-43c0-a0f6-73adcffb8034"],
+
+Cell["\<\
+Cardinality of a feature should conform to expectations. For example, there \
+should be only two possible values for a Boolean feature\[LongDash]true or \
+false. If we find samples with values other than true and false, that is an \
+indication of a problem.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007407295*^9, {3.7670108827083197`*^9, 3.7670109124312944`*^9}, {
+   3.7670167313717003`*^9, 
+   3.7670167325878215`*^9}},ExpressionUUID->"5fb34a72-a887-4e2a-a240-\
+452959fbf245"],
+
+Cell["\<\
+If the data points come from a known statistical distributions, then they \
+should conform to the parameters of those distributions. For a normal \
+distribution of, say, mean 5 and standard deviation of 2, 12 would be a \
+suspicious value.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230074140387`*^9, {3.7669329128111134`*^9, 3.766932913574236*^9}, {
+   3.767010947340379*^9, 3.767010965802638*^9}, {3.7670167375083137`*^9, 
+   3.767016737691332*^9}},ExpressionUUID->"dbf57547-1824-4fba-abf0-\
+bb7ac6b22e22"],
+
+Cell["\<\
+Any known or common sense relationship between features should be verified \
+with numerical or logical consistency checks.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230074624434`*^9, {3.767010968395771*^9, 
+   3.767010983850933*^9}},ExpressionUUID->"b57d8901-f113-4ce6-b856-\
+c84d489465fb"],
+
+Cell["\<\
+Misspellings are a common source of errors. Sorting nominal features can \
+bring misspelled values next to correctly spelled values and make it easy to \
+spot the error.\
+\>", "Text",
+ GeneratedCell->True,
+ CellAutoOverwrite->True,
+ CellChangeTimes->{
+  3.76692300746906*^9},ExpressionUUID->"5c95a54b-623b-4f81-89ed-ada897cef218"],
+
+Cell["[03:02]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934195038239*^9, 
+   3.766934195317932*^9}, {3.766934236507519*^9, 3.766934239056522*^9}, {
+   3.7669343351963577`*^9, 3.76693433711412*^9}, {3.766934410342978*^9, 
+   3.76693441454242*^9}, {3.766934480264007*^9, 3.7669344823952503`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"8f333ea2-0503-45b9-946c-ee0daf64eee8"],
+
+Cell["\<\
+So how do we deal with missing data? We can do it in a number of ways. For \
+starters, we can simply ignore the samples with missing values. That\
+\[CloseCurlyQuote]s easy, but in a real-life scenario, you may only have few \
+samples to work with. So instead of throwing away some of the data that was \
+collected with a lot of hard work, it might help to find reasonable \
+substitutes for the missing values.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230075049973`*^9, {3.766932928123266*^9, 3.766932945853331*^9}, {
+   3.766934426979719*^9, 3.7669344570052853`*^9}, {3.766934498176255*^9, 
+   3.7669344992998457`*^9}, 3.7670106340540857`*^9, {3.7670110067242203`*^9, 
+   3.7670110735624437`*^9}},ExpressionUUID->"03ba262b-5599-4152-8273-\
+e20d17bedb90"],
+
+Cell["\<\
+One candidate for replacing missing values is the most commonly occurring \
+value for that particular feature, or the mean of all the available feature \
+values in that particular column.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230075927477`*^9, {3.76693301817446*^9, 3.766933021349725*^9}, 
+   3.7670106364518857`*^9, {3.7670110979816504`*^9, 3.7670111037599583`*^9}, {
+   3.767016812334796*^9, 
+   3.7670168191024723`*^9}},ExpressionUUID->"afefe3c3-05d1-44cd-9260-\
+2968ea492d5c"],
+
+Cell["\<\
+In certain cases, it might make more sense to replace the missing value with \
+the mean of samples belonging to the same class as the corrupt sample instead \
+of the mean of all the samples. It doesn\[CloseCurlyQuote]t always have to be \
+the mean; it can be the median or commonest value in the class. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007636056*^9, {3.766933032475937*^9, 3.7669330468621197`*^9}, 
+   3.7669345557622833`*^9, {3.7670111081302247`*^9, 
+   3.7670111391147504`*^9}},ExpressionUUID->"14eedb76-2dc8-40fd-8ca6-\
+c7a8883b6251"],
+
+Cell["\<\
+We can even pick a random value to replace the missing value. Here's an \
+example where we compute the mean and standard deviation to model a normal \
+distribution and then pick a random value from it. We could even attempt to \
+learn a distribution from the good data and use it to generate a random \
+replacement value.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007636056*^9, {3.766933032475937*^9, 3.7669330468621197`*^9}, {
+   3.766934560477604*^9, 3.766934561957337*^9}, {3.767011170914209*^9, 
+   3.7670111854101143`*^9}},ExpressionUUID->"fac21e38-4222-42a9-95db-\
+b3d0cefd615a"],
+
+Cell["[04:18]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934195038239*^9, 
+   3.766934195317932*^9}, {3.766934236507519*^9, 3.766934239056522*^9}, {
+   3.7669343351963577`*^9, 3.76693433711412*^9}, {3.766934410342978*^9, 
+   3.76693441454242*^9}, {3.766934480264007*^9, 3.7669344823952503`*^9}, {
+   3.766934574076724*^9, 3.766934576836282*^9}},
+ CellTags->"Timecode",ExpressionUUID->"23f7ee1e-76a0-4291-811e-e5639ad507c4"],
+
+Cell["\<\
+In hot-deck imputation, we pick a good sample\[LongDash]one with no missing \
+features\[LongDash]that is most similar to the bad sample\[LongDash]the one \
+with a missing value\[LongDash]then copy the good sample\[CloseCurlyQuote]s \
+feature value to replace the missing value in the bad sample.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007729938*^9, 3.76693336885738*^9, {3.767011195571032*^9, 
+   3.76701125321291*^9}, {3.7670168619847603`*^9, 
+   3.7670168631998816`*^9}},ExpressionUUID->"e6b06760-9080-4087-973b-\
+8da2cf3c989f"],
+
+Cell["\<\
+If the situation demands, it is not unheard of data scientists employing a \
+full-blown classification or regression model to predict the missing values.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007736587*^9, {3.767011260443633*^9, 
+   3.7670112607566643`*^9}},ExpressionUUID->"028fdf54-9157-49f1-92c2-\
+51ce396e1174"],
+
+Cell["\<\
+If we do not really want to make any changes to the data, changes like \
+removing or replacing sample values, we could just leave Missing as a special \
+feature value, and the Wolfram Language would be able to handle it easily.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007787241*^9, {3.766933057196636*^9, 3.766933065332424*^9}, {
+   3.767011275132102*^9, 
+   3.7670112821168003`*^9}},ExpressionUUID->"9285d7a3-5f94-45b1-b57d-\
+fd23ce43482a"],
+
+Cell["[05:05]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934195038239*^9, 
+   3.766934195317932*^9}, {3.766934236507519*^9, 3.766934239056522*^9}, {
+   3.7669343351963577`*^9, 3.76693433711412*^9}, {3.766934410342978*^9, 
+   3.76693441454242*^9}, {3.766934480264007*^9, 3.7669344823952503`*^9}, {
+   3.766934574076724*^9, 3.766934576836282*^9}, {3.766934641888302*^9, 
+   3.766934644408988*^9}},
+ CellTags->"Timecode",ExpressionUUID->"00049862-7adf-4ed1-a4ce-280681f9d303"],
+
+Cell["\<\
+Before concluding this segment, let\[CloseCurlyQuote]s look at some useful \
+Wolfram Language functions for sifting through the data. Specific samples can \
+be identified in a list with the help of Cases. Samples can be filtered out \
+according to various conditions using Select. Various types of Delete \
+functions can be used to remove unwanted samples from the data. Pattern \
+matching along with Replace can be used to replace missing values or delete \
+them.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007794313*^9, {3.76693306971704*^9, 3.766933077268256*^9}, {
+   3.7670112855181403`*^9, 3.7670113109096794`*^9}, {3.767016904755037*^9, 
+   3.7670169053300943`*^9}},ExpressionUUID->"fcd57261-d686-45b7-bf13-\
+0a9a2455d893"],
+
+Cell["[05:38]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934195038239*^9, 
+   3.766934195317932*^9}, {3.766934236507519*^9, 3.766934239056522*^9}, {
+   3.7669343351963577`*^9, 3.76693433711412*^9}, {3.766934410342978*^9, 
+   3.76693441454242*^9}, {3.766934480264007*^9, 3.7669344823952503`*^9}, {
+   3.766934574076724*^9, 3.766934576836282*^9}, {3.766934641888302*^9, 
+   3.766934644408988*^9}, {3.766934685747603*^9, 3.7669346860916777`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"679757ab-5d99-4dc4-b1e9-e7415593b569"],
+
+Cell["\<\
+In summary, we looked at a few thumb rules for systematically going through \
+the data, checking for inconsistencies. We looked at a few different ways of \
+dealing with missing data. We also looked at some Wolfram Language functions \
+that can be used for sifting through messy data.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007829705*^9, {3.766933081052476*^9, 3.766933086595858*^9}, {
+   3.7670113255261407`*^9, 
+   3.7670113296155496`*^9}},ExpressionUUID->"ac534b38-faf2-4b66-9695-\
+6f0e4e15df00"],
+
+Cell["\<\
+In the next and final segment, we will look at feature extraction and \
+dimensionality reduction as the possible final steps of Getting Your Data \
+into Shape.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007836577*^9, {3.7670106386030855`*^9, 3.7670106408040857`*^9}, {
+   3.7670113368632746`*^9, 
+   3.7670113495101404`*^9}},ExpressionUUID->"7aec4eca-b81f-40f2-9b21-\
+aa851c4dafa3"]
+}, Open  ]]
+},
+WindowSize->{737, 993},
+WindowMargins->{{Automatic, 221}, {936, Automatic}},
+ShowCellTags->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (October 15, 2018)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+       StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+       CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> False, 
+       LineSpacing -> {1, 4}, LanguageCategory -> "NaturalLanguage", 
+       CounterIncrements -> "Title", 
+       CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+         "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+         "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+         "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, MenuSortingValue -> 
+       1100, MenuCommandKey -> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+       45, FontTracking -> -0.5, FontColor -> RGBColor[0.8, 0.043, 0.008]], 
+      Cell[
+       StyleData["Section"], CellFrame -> {{0, 0}, {0, 0}}, CellDingbat -> 
+       Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{67, Inherited}, {34, 54}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]
+        , InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionDoubleDigit"], CellFrame -> {{0, 0}, {0, 0}}, 
+       CellDingbat -> Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{112, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionNumber"], CellBaseline -> Baseline, FontFamily -> 
+       "Source Sans Pro", FontSize -> 36, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionInline"], FontFamily -> "Source Sans Pro", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionNoDingbat"], 
+       CellMargins -> {{64, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 25, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Subsubsection"], CellMargins -> {{27, Inherited}, {6, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 20, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Text"], CellMargins -> {{27, 10}, {7, 8}}, 
+       LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+       "Text", MenuSortingValue -> 1400, MenuCommandKey -> "7", FontFamily -> 
+       "Source Sans Pro", FontSize -> 15], 
+      Cell[
+       StyleData["Link"], 
+       CellChangeTimes -> {{3.747057645225031*^9, 3.747057645432509*^9}, {
+        3.747057679800942*^9, 3.747057679968298*^9}}, FontFamily -> 
+       "WolframCodeSans", FontSize :> If[CurrentValue[
+           EvaluationCell[], "FontFamily"] === "Source Sans Pro", Inherited, 
+         If[CurrentValue[
+            EvaluationCell[], "FontFamily"] === "WolframCodeSans", Inherited, 
+          Inherited 0.9]], FontColor -> 
+       RGBColor[
+        0.4285191119249256, 0.45610742351415273`, 0.560845349813077]]}, 
+     Closed]]}, Visible -> False, FrontEndVersion -> 
+  "12.0 for Mac OS X x86 (64-bit) (October 15, 2018)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Timecode"->{
+  Cell[1768, 44, 360, 6, 56, "Text",ExpressionUUID->"f7c54fe9-3cfe-4d7d-a7d8-8a506fd2b321",
+   CellTags->"Timecode"],
+  Cell[3301, 82, 410, 7, 56, "Text",ExpressionUUID->"98c64922-c8c5-4e94-bd17-5c743a623925",
+   CellTags->"Timecode"],
+  Cell[5231, 126, 456, 7, 56, "Text",ExpressionUUID->"615e5916-c2b5-449e-98ae-ba5d0c4eed6a",
+   CellTags->"Timecode"],
+  Cell[7514, 185, 507, 8, 56, "Text",ExpressionUUID->"d2ca097a-bdc0-43c0-a0f6-73adcffb8034",
+   CellTags->"Timecode"],
+  Cell[9684, 238, 604, 9, 56, "Text",ExpressionUUID->"8f333ea2-0503-45b9-946c-ee0daf64eee8",
+   CellTags->"Timecode"],
+  Cell[12718, 301, 654, 10, 56, "Text",ExpressionUUID->"23f7ee1e-76a0-4291-811e-e5639ad507c4",
+   CellTags->"Timecode"],
+  Cell[14715, 345, 704, 11, 56, "Text",ExpressionUUID->"00049862-7adf-4ed1-a4ce-280681f9d303",
+   CellTags->"Timecode"],
+  Cell[16166, 373, 752, 11, 56, "Text",ExpressionUUID->"679757ab-5d99-4dc4-b1e9-e7415593b569",
+   CellTags->"Timecode"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Timecode", 23866, 534}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 590, 9, 135, "Section",ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27",
+ Evaluatable->False,
+ CounterAssignments->{{"Section", 1}, {"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}}],
+Cell[CellGroupData[{
+Cell[1173, 33, 592, 9, 48, "Subsection",ExpressionUUID->"f895d812-ecd8-46e0-879b-556b20985e9e"],
+Cell[1768, 44, 360, 6, 56, "Text",ExpressionUUID->"f7c54fe9-3cfe-4d7d-a7d8-8a506fd2b321",
+ CellTags->"Timecode"],
+Cell[2131, 52, 298, 7, 35, "Text",ExpressionUUID->"5353120d-b609-49fd-9ebe-bdc2a4d00970"],
+Cell[2432, 61, 436, 9, 58, "Text",ExpressionUUID->"1fb29f76-5fa7-48fa-9eed-1aba68f4edc9"],
+Cell[2871, 72, 427, 8, 81, "Text",ExpressionUUID->"5da51431-bb02-4bd2-9635-fa32ef38a422"],
+Cell[3301, 82, 410, 7, 56, "Text",ExpressionUUID->"98c64922-c8c5-4e94-bd17-5c743a623925",
+ CellTags->"Timecode"],
+Cell[3714, 91, 429, 9, 35, "Text",ExpressionUUID->"70bfbbfd-df04-45de-8a31-0e939014890e"],
+Cell[4146, 102, 567, 10, 58, "Text",ExpressionUUID->"47188f27-c9ab-42ae-a114-8a7faaf70d9c"],
+Cell[4716, 114, 512, 10, 58, "Text",ExpressionUUID->"b44717e0-1fbc-475a-b9a5-17f8f72120fb"],
+Cell[5231, 126, 456, 7, 56, "Text",ExpressionUUID->"615e5916-c2b5-449e-98ae-ba5d0c4eed6a",
+ CellTags->"Timecode"],
+Cell[5690, 135, 257, 6, 35, "Text",ExpressionUUID->"9c7b0f18-d5a6-4a7b-b465-5083de83998c"],
+Cell[5950, 143, 312, 8, 35, "Text",ExpressionUUID->"b1e30193-8771-40ef-bd04-f3be5e17d3fb"],
+Cell[6265, 153, 301, 7, 35, "Text",ExpressionUUID->"875308d8-9d9d-4eb8-8d1c-0985f4231b38"],
+Cell[6569, 162, 329, 8, 58, "Text",ExpressionUUID->"54fca8d1-7a5f-4d9f-bc8e-dfdf059aa13f"],
+Cell[6901, 172, 610, 11, 104, "Text",ExpressionUUID->"ed25665d-add6-4880-ab7e-dcf9f07dcd6d"],
+Cell[7514, 185, 507, 8, 56, "Text",ExpressionUUID->"d2ca097a-bdc0-43c0-a0f6-73adcffb8034",
+ CellTags->"Timecode"],
+Cell[8024, 195, 491, 10, 81, "Text",ExpressionUUID->"5fb34a72-a887-4e2a-a240-452959fbf245"],
+Cell[8518, 207, 517, 10, 81, "Text",ExpressionUUID->"dbf57547-1824-4fba-abf0-bb7ac6b22e22"],
+Cell[9038, 219, 300, 7, 58, "Text",ExpressionUUID->"b57d8901-f113-4ce6-b856-c84d489465fb"],
+Cell[9341, 228, 340, 8, 58, "Text",ExpressionUUID->"5c95a54b-623b-4f81-89ed-ada897cef218"],
+Cell[9684, 238, 604, 9, 56, "Text",ExpressionUUID->"8f333ea2-0503-45b9-946c-ee0daf64eee8",
+ CellTags->"Timecode"],
+Cell[10291, 249, 765, 13, 104, "Text",ExpressionUUID->"03ba262b-5599-4152-8273-e20d17bedb90"],
+Cell[11059, 264, 494, 10, 58, "Text",ExpressionUUID->"afefe3c3-05d1-44cd-9260-2968ea492d5c"],
+Cell[11556, 276, 559, 10, 81, "Text",ExpressionUUID->"14eedb76-2dc8-40fd-8ca6-c7a8883b6251"],
+Cell[12118, 288, 597, 11, 104, "Text",ExpressionUUID->"fac21e38-4222-42a9-95db-b3d0cefd615a"],
+Cell[12718, 301, 654, 10, 56, "Text",ExpressionUUID->"23f7ee1e-76a0-4291-811e-e5639ad507c4",
+ CellTags->"Timecode"],
+Cell[13375, 313, 545, 10, 81, "Text",ExpressionUUID->"e6b06760-9080-4087-973b-8da2cf3c989f"],
+Cell[13923, 325, 331, 7, 58, "Text",ExpressionUUID->"028fdf54-9157-49f1-92c2-51ce396e1174"],
+Cell[14257, 334, 455, 9, 81, "Text",ExpressionUUID->"9285d7a3-5f94-45b1-b57d-fd23ce43482a"],
+Cell[14715, 345, 704, 11, 56, "Text",ExpressionUUID->"00049862-7adf-4ed1-a4ce-280681f9d303",
+ CellTags->"Timecode"],
+Cell[15422, 358, 741, 13, 127, "Text",ExpressionUUID->"fcd57261-d686-45b7-bf13-0a9a2455d893"],
+Cell[16166, 373, 752, 11, 56, "Text",ExpressionUUID->"679757ab-5d99-4dc4-b1e9-e7415593b569",
+ CellTags->"Timecode"],
+Cell[16921, 386, 514, 10, 81, "Text",ExpressionUUID->"ac534b38-faf2-4b66-9695-6f0e4e15df00"],
+Cell[17438, 398, 393, 9, 58, "Text",ExpressionUUID->"7aec4eca-b81f-40f2-9b21-aa851c4dafa3"]
+}, Open  ]]
+}
+]
+*)
+

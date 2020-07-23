@@ -1,0 +1,160 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6063,        152]
+NotebookOptionsPosition[      5218,        129]
+NotebookOutlinePosition[      5574,        145]
+CellTagsIndexPosition[      5531,        142]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"path", "=", 
+   RowBox[{"SetDirectory", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
+       "\"\<MPDS_en\>\""}], "}"}], "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8038630519615555`*^9, 3.803863097253076*^9}, 
+   3.80386323610279*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"b7fffb05-f2d6-49d0-bbf6-cac5bf09172c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringJoin", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\"\<- [ ] \>\"", "<>", "#", "<>", "\"\<\\n\>\""}], "&"}], "/@", 
+   RowBox[{"(", 
+    RowBox[{"FileBaseName", "/@", 
+     RowBox[{"FileNames", "[", 
+      RowBox[{"All", ",", "path"}], "]"}]}], ")"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8038630803222847`*^9, 3.803863169439006*^9}, 
+   3.8038639308992405`*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"cf3fd283-2d7a-4198-962c-702f6b4faf18"],
+
+Cell[BoxData["\<\"- [ ] MPDS-Analyse-13Classification-Transcript\\n- [ ] \
+MPDS-Analyse-14Regression-Transcript\\n- [ ] \
+MPDS-Analyse-15Clustering-Transcript\\n- [ ] \
+MPDS-Analyse-16AnomalyDetection-Transcript\\n- [ ] \
+MPDS-Analyse-17NeuralNetworks-Transcript\\n- [ ] \
+MPDS-Communicate-18Visualizations-Transcript\\n- [ ] \
+MPDS-Communicate-19AutomatedReports-Transcript\\n- [ ] \
+MPDS-Communicate-20Microsites-Transcript\\n- [ ] \
+MPDS-Communicate-21ReproducibleResearchCheckList-Transcript\\n- [ ] \
+MPDS-DataWrangling-6HandlingDifferentDataSources-Transcript\\n- [ ] \
+MPDS-DataWrangling-7RestructuringData-Transcript\\n- [ ] \
+MPDS-DataWrangling-8DealingwithMessyData-Transcript\\n- [ ] \
+MPDS-DataWrangling-9FeatureExtractionDimensionalityReduction-Transcript\\n- [ \
+] MPDS-Explore-10VisualExploration-Transcript\\n- [ ] \
+MPDS-Explore-11LookingAtDataDifferently-Transcript\\n- [ ] \
+MPDS-Explore-12StatisticalTools-Transcript\\n- [ ] \
+MPDS-ProjectWorkflow-1Question-Transcript\\n- [ ] \
+MPDS-ProjectWorkflow-2Wrangle-Transcript\\n- [ ] \
+MPDS-ProjectWorkflow-3Explore-Transcript\\n- [ ] \
+MPDS-ProjectWorkflow-4Analyse-Transcript\\n- [ ] \
+MPDS-ProjectWorkflow-5Communicate-Transcript\\n\"\>"], "Output",
+ CellChangeTimes->{{3.8038630831597233`*^9, 3.8038630938222103`*^9}, {
+   3.80386313127906*^9, 3.8038631716740065`*^9}, 3.8038632456592283`*^9, 
+   3.8038639331951013`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"07195607-d4ca-4619-8269-888a655cba8a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"path", "=", 
+   RowBox[{"SetDirectory", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", ",", 
+       "\"\<MPDS_en\>\"", ",", "\"\<srtFiles\>\""}], "}"}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8038630519615555`*^9, 3.803863097253076*^9}, 
+   3.80386323610279*^9, {3.8039578661557245`*^9, 3.803957868952764*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"71e4820c-15d8-4a1b-b5a6-4dfb56eeb749"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringJoin", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\"\<- [ ] \>\"", "<>", "#", "<>", "\"\<\\n\>\""}], "&"}], "/@", 
+   RowBox[{"(", 
+    RowBox[{"FileBaseName", "/@", 
+     RowBox[{"FileNames", "[", 
+      RowBox[{"All", ",", "path"}], "]"}]}], ")"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8038630803222847`*^9, 3.803863169439006*^9}, 
+   3.8038639308992405`*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"054ebe71-8f96-48f5-bcd7-b154e454adf6"],
+
+Cell[BoxData["\<\"- [ ] MOOC_DataScience_Section01_Prt01_v02_eng\\n- [ ] \
+MOOC_DataScience_Section01_Prt02_v02_eng\\n- [ ] \
+MOOC_DataScience_Section01_Prt03_v02_eng\\n- [ ] \
+MOOC_DataScience_Section01_Prt04_v02_eng\\n- [ ] \
+MOOC_DataScience_Section01_Prt05_v02_eng\\n- [ ] \
+MOOC_DataScience_Section02_Prt01_eng\\n- [ ] \
+MOOC_DataScience_Section02_Prt02_eng\\n- [ ] \
+MOOC_DataScience_Section02_Prt03_eng\\n- [ ] \
+MOOC_DataScience_Section02_Prt04_eng\\n- [ ] \
+MOOC_DataScience_Section03_Prt01_eng\\n- [ ] \
+MOOC_DataScience_Section03_Prt02_eng\\n- [ ] \
+MOOC_DataScience_Section03_Prt03_eng\\n- [ ] \
+MOOC_DataScience_Section04_Prt01_eng\\n- [ ] \
+MOOC_DataScience_Section04_Prt02_v01_eng\\n- [ ] \
+MOOC_DataScience_Section04_Prt03_eng\\n- [ ] \
+MOOC_DataScience_Section04_Prt04_eng\\n- [ ] \
+MOOC_DataScience_Section04_Prt05_eng\\n- [ ] \
+MOOC_DataScience_Section05_Prt01_eng\\n- [ ] \
+MOOC_DataScience_Section05_Prt02_eng\\n- [ ] \
+MOOC_DataScience_Section05_Prt03_eng\\n- [ ] \
+MOOC_DataScience_Section05_Prt04_eng\\n\"\>"], "Output",
+ CellChangeTimes->{3.8039578718686695`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"e7563f7a-0623-4149-9aa0-1d351e13ea6a"]
+}, Open  ]]
+},
+WindowSize->{775, 872},
+WindowMargins->{{532, Automatic}, {42, Automatic}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (2019\:5e744\:67088\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 460, 11, 28, "Input",ExpressionUUID->"b7fffb05-f2d6-49d0-bbf6-cac5bf09172c"],
+Cell[CellGroupData[{
+Cell[1043, 35, 472, 11, 28, "Input",ExpressionUUID->"cf3fd283-2d7a-4198-962c-702f6b4faf18"],
+Cell[1518, 48, 1467, 24, 432, "Output",ExpressionUUID->"07195607-d4ca-4619-8269-888a655cba8a"]
+}, Open  ]],
+Cell[3000, 75, 536, 12, 28, "Input",ExpressionUUID->"71e4820c-15d8-4a1b-b5a6-4dfb56eeb749"],
+Cell[CellGroupData[{
+Cell[3561, 91, 472, 11, 28, "Input",ExpressionUUID->"054ebe71-8f96-48f5-bcd7-b154e454adf6"],
+Cell[4036, 104, 1166, 22, 464, "Output",ExpressionUUID->"e7563f7a-0623-4149-9aa0-1d351e13ea6a"]
+}, Open  ]]
+}
+]
+*)
+

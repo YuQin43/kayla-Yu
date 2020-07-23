@@ -1,0 +1,1213 @@
+﻿1
+00:00:00,000 --> 00:00:03,600
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,600 --> 00:00:06,600
+Section 1: The Project Workflow.
+
+3
+00:00:06,600 --> 00:00:09,400
+We are working on an example
+data science project,
+
+4
+00:00:09,400 --> 00:00:11,800
+looking at the Twitter feed
+of Wolfram Research
+
+5
+00:00:11,800 --> 00:00:15,500
+and trying to capture
+some insights from the tweets.
+
+6
+00:00:15,500 --> 00:00:18,000
+We are trying
+to execute this project
+
+7
+00:00:18,000 --> 00:00:20,700
+by building a workflow in stages.
+
+8
+00:00:20,700 --> 00:00:23,200
+We have worked through
+the first three stages,
+
+9
+00:00:23,200 --> 00:00:27,400
+where we set up questions,
+wrangled the data and explored it.
+
+10
+00:00:27,400 --> 00:00:31,700
+And now we are at the fourth stage
+of the workflow, analyze.
+
+11
+00:00:31,700 --> 00:00:35,300
+The analysis stage is really where
+the multiparadigm approach
+
+12
+00:00:35,300 --> 00:00:37,100
+becomes so very helpful.
+
+13
+00:00:37,100 --> 00:00:39,500
+We don't have to
+restrict ourselves
+
+14
+00:00:39,500 --> 00:00:40,700
+to a particular technique
+
+15
+00:00:40,700 --> 00:00:44,800
+associated with a specific
+kind of data or field of study.
+
+16
+00:00:44,800 --> 00:00:48,600
+The Wolfram Language provides
+a large computational toolset
+
+17
+00:00:48,600 --> 00:00:50,500
+for multiparadigm data science,
+
+18
+00:00:50,500 --> 00:00:52,900
+and we can pick
+a few different tools
+
+19
+00:00:52,900 --> 00:00:57,300
+to see which one provides
+the best answers to our questions.
+
+20
+00:00:57,300 --> 00:01:00,300
+At the beginning of the project,
+we framed questions of the type:
+
+21
+00:01:00,300 --> 00:01:01,000
+How many?
+
+22
+00:01:01,000 --> 00:01:01,700
+What?
+
+23
+00:01:01,700 --> 00:01:02,500
+Who?
+
+24
+00:01:02,500 --> 00:01:03,400
+And so on.
+
+25
+00:01:03,400 --> 00:01:07,400
+For each of these questions,
+we can pick an algorithm
+
+26
+00:01:07,400 --> 00:01:11,300
+or technique that helps to provide
+a meaningful answer.
+
+27
+00:01:11,300 --> 00:01:13,500
+Let's start out with how many.
+
+28
+00:01:13,500 --> 00:01:16,000
+Comparison charts can help
+answer questions
+
+29
+00:01:16,000 --> 00:01:18,000
+about the number of tweets.
+
+30
+00:01:18,000 --> 00:01:19,400
+Here is a date histogram
+
+31
+00:01:19,400 --> 00:01:21,700
+from the exploration stage
+of the workflow
+
+32
+00:01:21,700 --> 00:01:24,400
+showing the number of tweets
+by year.
+
+33
+00:01:24,400 --> 00:01:27,600
+The code you see here is available
+in the lecture notebook.
+
+34
+00:01:27,600 --> 00:01:29,800
+We will not go into
+the details of the code
+
+35
+00:01:29,800 --> 00:01:31,600
+in this particular section,
+
+36
+00:01:31,600 --> 00:01:35,000
+because the aim is to get
+a high-level overview
+
+37
+00:01:35,000 --> 00:01:36,500
+of a project workflow
+
+38
+00:01:36,500 --> 00:01:39,300
+that embraces
+the multiparadigm concept.
+
+39
+00:01:39,300 --> 00:01:41,200
+Most of the functionality
+shown here
+
+40
+00:01:41,200 --> 00:01:44,500
+will be covered in more details
+in later sections.
+
+41
+00:01:45,500 --> 00:01:49,300
+This chart shows all the tweets
+ever made by Wolfram Research.
+
+42
+00:01:49,300 --> 00:01:52,600
+But in this same way,
+we can compare the numbers
+
+43
+00:01:52,600 --> 00:01:57,300
+of tweets on a particular topic
+with a specific hashtag—
+
+44
+00:01:57,300 --> 00:02:00,200
+for example, #DataScience.
+
+45
+00:02:00,200 --> 00:02:01,900
+Comparing the two histograms,
+
+46
+00:02:01,900 --> 00:02:05,300
+we see that while the total number
+of tweets went down
+
+47
+00:02:05,300 --> 00:02:10,800
+from 2017 to 2018, the number
+of tweets on data science went up,
+
+48
+00:02:10,800 --> 00:02:12,900
+and that might be a good thing
+to report
+
+49
+00:02:12,900 --> 00:02:16,300
+to a team planning a Twitter
+campaign on data science.
+
+50
+00:02:16,300 --> 00:02:18,500
+In fact, we can compare
+the number of tweets
+
+51
+00:02:18,500 --> 00:02:22,500
+by month for the past two years,
+highlighting for each month
+
+52
+00:02:22,500 --> 00:02:26,200
+the number of tweets tagged
+with a focus keyword or hashtag.
+
+53
+00:02:26,200 --> 00:02:30,000
+A few things we observe here
+are the number of tweets—
+
+54
+00:02:30,000 --> 00:02:33,200
+they were comparable
+at the beginning of the year,
+
+55
+00:02:33,200 --> 00:02:38,300
+but the 2018 numbers went down
+over the summer months.
+
+56
+00:02:38,300 --> 00:02:41,500
+Also there was a peak
+during October of both years,
+
+57
+00:02:41,500 --> 00:02:43,400
+and that makes sense
+when you remember
+
+58
+00:02:43,400 --> 00:02:47,000
+that's when the Wolfram Technology
+Conference takes place.
+
+59
+00:02:47,000 --> 00:02:50,300
+The focus hashtag
+in this example, #DataScience,
+
+60
+00:02:50,300 --> 00:02:55,300
+has been featured steadily
+every month in more tweets in 2018
+
+61
+00:02:55,300 --> 00:02:58,000
+compared to the previous year.
+
+62
+00:02:58,000 --> 00:03:01,600
+Here is the total number of tweets
+made by Wolfram Research
+
+63
+00:03:01,600 --> 00:03:04,000
+and the number of days
+over which they span,
+
+64
+00:03:04,000 --> 00:03:07,000
+so we can get the average number
+of tweets per day.
+
+65
+00:03:08,700 --> 00:03:12,400
+During the exploration phase,
+we saw date histograms
+
+66
+00:03:12,400 --> 00:03:15,500
+that showed the number of tweets
+by day of the week
+
+67
+00:03:15,500 --> 00:03:17,100
+or hour of the day.
+
+68
+00:03:17,100 --> 00:03:19,100
+But if we wanted a quick snapshot
+
+69
+00:03:19,100 --> 00:03:21,200
+of the hourly numbers
+by day of the week,
+
+70
+00:03:21,200 --> 00:03:22,900
+we would need a comparison chart
+
+71
+00:03:22,900 --> 00:03:25,700
+showing seven groups
+of 24 numbers—
+
+72
+00:03:25,700 --> 00:03:29,500
+something like this
+for the 24 hours in one day,
+
+73
+00:03:29,500 --> 00:03:31,900
+or this for all the seven
+days of the week,
+
+74
+00:03:31,900 --> 00:03:35,800
+with the days in rows
+and the hours in columns.
+
+75
+00:03:35,800 --> 00:03:39,600
+This is what the number of tweets
+from last week looks like.
+
+76
+00:03:39,600 --> 00:03:41,500
+Again, the code
+to create this chart
+
+77
+00:03:41,500 --> 00:03:43,500
+is there
+in the lecture notebook,
+
+78
+00:03:43,500 --> 00:03:46,500
+and we will also discuss
+the associated functionality
+
+79
+00:03:46,500 --> 00:03:49,000
+in more detail
+later in on the course.
+
+80
+00:03:49,000 --> 00:03:50,200
+Here are the number of retweets
+
+81
+00:03:50,200 --> 00:03:54,000
+garnered by tweets published
+during a specific hour of the day,
+
+82
+00:03:54,000 --> 00:03:55,300
+to check if
+
+83
+00:03:55,300 --> 00:03:58,800
+it makes sense to favor
+a particular time over others
+
+84
+00:03:58,800 --> 00:04:00,500
+when sending out tweets.
+
+85
+00:04:00,500 --> 00:04:02,600
+We see different levels
+of engagement
+
+86
+00:04:02,600 --> 00:04:04,600
+for tweets made
+at different hours,
+
+87
+00:04:04,600 --> 00:04:07,200
+but we can't be sure if this was
+
+88
+00:04:07,200 --> 00:04:09,000
+the time or the content
+of the tweet,
+
+89
+00:04:09,000 --> 00:04:12,600
+or even some specific user
+mentioned in the tweet
+
+90
+00:04:12,600 --> 00:04:14,800
+that sparked the engagement.
+
+91
+00:04:14,800 --> 00:04:17,900
+We could try to predict
+the popularity of the tweet
+
+92
+00:04:17,900 --> 00:04:20,200
+in terms of the number
+of retweets it gets
+
+93
+00:04:20,200 --> 00:04:22,000
+based on its features.
+
+94
+00:04:22,000 --> 00:04:25,400
+Predictive analytics, another tool
+from the multiparadigm stack,
+
+95
+00:04:25,400 --> 00:04:27,200
+can be helpful here.
+
+96
+00:04:27,200 --> 00:04:29,100
+Supervised machine
+learning algorithms
+
+97
+00:04:29,100 --> 00:04:31,900
+like LinearRegression
+or DecisionTrees
+
+98
+00:04:31,900 --> 00:04:33,000
+could be used to predict
+
+99
+00:04:33,000 --> 00:04:36,700
+the number of retweets,
+given the features of a tweet.
+
+100
+00:04:36,700 --> 00:04:38,800
+As usually required
+in machine learning,
+
+101
+00:04:38,800 --> 00:04:41,000
+let's split the entire collection
+of tweets
+
+102
+00:04:41,000 --> 00:04:43,500
+into a training and a test set.
+
+103
+00:04:43,500 --> 00:04:45,900
+We can train a model
+on the training set
+
+104
+00:04:45,900 --> 00:04:49,000
+to predict the number
+of retweets for the test set.
+
+105
+00:04:49,000 --> 00:04:51,300
+For features, we can use
+the text of the tweet
+
+106
+00:04:51,300 --> 00:04:52,800
+after cleaning it up,
+
+107
+00:04:52,800 --> 00:04:55,200
+and also the time stamp
+of the tweet.
+
+108
+00:04:55,200 --> 00:04:57,500
+A FeatureExtractor can convert
+the time stamps
+
+109
+00:04:57,500 --> 00:04:59,400
+into a numeric vector
+
+110
+00:04:59,400 --> 00:05:02,900
+and the tweet texts
+into a TFIDF vector,
+
+111
+00:05:02,900 --> 00:05:06,000
+since Term Frequency–Inverse
+Document Frequency
+
+112
+00:05:06,000 --> 00:05:09,400
+is a useful feature
+for text classification.
+
+113
+00:05:09,400 --> 00:05:11,600
+Let's evaluate
+the model performance,
+
+114
+00:05:11,600 --> 00:05:16,600
+and here we come to face
+with the unfortunate fact
+
+115
+00:05:16,600 --> 00:05:20,100
+that it's often hard to come up
+with a good predictor model
+
+116
+00:05:20,100 --> 00:05:21,800
+on the first pass.
+
+117
+00:05:21,800 --> 00:05:25,000
+We can continue to tweak
+the model parameters,
+
+118
+00:05:25,000 --> 00:05:27,000
+but what's nice
+about the automated
+
+119
+00:05:27,000 --> 00:05:29,500
+machine learning functions
+like Predict
+
+120
+00:05:29,500 --> 00:05:33,100
+is they give you a good place
+to start this tweaking.
+
+121
+00:05:34,300 --> 00:05:36,800
+One possible use
+of this simple model
+
+122
+00:05:36,800 --> 00:05:39,300
+could be to revisit
+certain tweets—
+
+123
+00:05:39,300 --> 00:05:42,200
+for example, this collection
+of tweets here at the bottom.
+
+124
+00:05:42,200 --> 00:05:45,500
+These tweets actually had
+a very few number of retweets,
+
+125
+00:05:45,500 --> 00:05:48,800
+but based on the content
+of the tweet and time stamp,
+
+126
+00:05:48,800 --> 00:05:51,000
+the model thinks these
+should have been retweeted
+
+127
+00:05:51,000 --> 00:05:52,000
+many more times.
+
+128
+00:05:52,000 --> 00:05:55,500
+So perhaps we could check them
+to see if tweaking the timing
+
+129
+00:05:55,500 --> 00:06:00,000
+or hashtags of these tweets
+could have improved engagement.
+
+130
+00:06:00,000 --> 00:06:01,500
+After working with the numbers,
+
+131
+00:06:01,500 --> 00:06:05,000
+it's time to move on
+to the what part of the analysis.
+
+132
+00:06:05,000 --> 00:06:08,400
+Basic string pattern matching
+and counting are simple techniques
+
+133
+00:06:08,400 --> 00:06:10,500
+that can help
+answer questions like:
+
+134
+00:06:10,500 --> 00:06:12,000
+What are the tweets
+talking about?
+
+135
+00:06:12,000 --> 00:06:13,900
+What are the hashtags
+being used?
+
+136
+00:06:13,900 --> 00:06:15,100
+In the exploration stage,
+
+137
+00:06:15,100 --> 00:06:17,100
+we created a word cloud
+of the hashtags
+
+138
+00:06:17,100 --> 00:06:20,500
+to see what topics
+were being discussed,
+
+139
+00:06:20,500 --> 00:06:22,300
+and the same word cloud
+
+140
+00:06:22,300 --> 00:06:25,800
+highlighted which hashtags
+were used most often.
+
+141
+00:06:25,800 --> 00:06:27,400
+Here is a ranking
+of the hashtags
+
+142
+00:06:27,400 --> 00:06:29,300
+by the number of times
+they were used.
+
+143
+00:06:29,300 --> 00:06:32,000
+If we are focusing
+on a specific hashtag,
+
+144
+00:06:32,000 --> 00:06:33,800
+we can see how often it is used
+
+145
+00:06:33,800 --> 00:06:36,600
+in comparison
+to the others in this list.
+
+146
+00:06:36,600 --> 00:06:38,500
+Here is #DataScience.
+
+147
+00:06:38,500 --> 00:06:40,200
+Are there other hashtags
+that were used
+
+148
+00:06:40,200 --> 00:06:43,700
+for tweets on this same topic,
+that is, #DataScience?
+
+149
+00:06:43,700 --> 00:06:45,500
+Here are a few examples.
+
+150
+00:06:45,500 --> 00:06:48,800
+We notice that typos,
+difference in cases,
+
+151
+00:06:48,800 --> 00:06:51,200
+contractions, et cetera
+create multiple versions
+
+152
+00:06:51,200 --> 00:06:53,800
+of essentially the same hashtag.
+
+153
+00:06:53,800 --> 00:06:56,600
+For tweets to be visible
+in search results,
+
+154
+00:06:56,600 --> 00:06:59,900
+it would help if the hashtags
+were consistent,
+
+155
+00:06:59,900 --> 00:07:01,900
+and that seems like
+an important finding
+
+156
+00:07:01,900 --> 00:07:04,600
+to communicate
+to the social media team.
+
+157
+00:07:04,600 --> 00:07:07,500
+Let's try another approach
+to analyzing this data.
+
+158
+00:07:07,500 --> 00:07:11,200
+Cluster analysis can be a very
+useful tool in data science,
+
+159
+00:07:11,200 --> 00:07:15,000
+whether for exploration
+or actual analysis itself.
+
+160
+00:07:15,000 --> 00:07:18,600
+Let's try to cluster the tweets
+from December 2018.
+
+161
+00:07:19,600 --> 00:07:20,600
+We can lay them out
+
+162
+00:07:20,600 --> 00:07:23,200
+in the feature space
+of the hashtags,
+
+163
+00:07:23,200 --> 00:07:26,100
+but we don't really find
+distinct clusters here.
+
+164
+00:07:26,100 --> 00:07:29,300
+The tweets with similar hashtags
+appear close together,
+
+165
+00:07:29,300 --> 00:07:31,000
+but that's pretty much it.
+
+166
+00:07:31,000 --> 00:07:33,600
+Let's try FeatureSpacePlot
+one more time,
+
+167
+00:07:33,600 --> 00:07:34,700
+but this time
+
+168
+00:07:34,700 --> 00:07:37,100
+for each individual word
+from the tweets,
+
+169
+00:07:37,100 --> 00:07:41,700
+we use a word vector created
+with the global vector model.
+
+170
+00:07:41,700 --> 00:07:45,300
+No clear clusters emerge yet,
+but then again,
+
+171
+00:07:45,300 --> 00:07:47,600
+these are words in the tweets.
+
+172
+00:07:47,600 --> 00:07:51,100
+What we want is a clustering
+of the tweets themselves.
+
+173
+00:07:51,100 --> 00:07:52,100
+And to cluster the tweets,
+
+174
+00:07:52,100 --> 00:07:54,900
+we will need to map
+each tweet to numbers
+
+175
+00:07:54,900 --> 00:07:57,700
+so that we can calculate
+the distance between them.
+
+176
+00:07:57,700 --> 00:08:00,500
+And to visualize the tweets in 2D,
+we would need to go
+
+177
+00:08:00,500 --> 00:08:03,700
+from those numbers
+to just a pair of numbers
+
+178
+00:08:03,700 --> 00:08:07,200
+that can serve as
+the <i>x</I>-<i>y</i> coordinates for the tweet.
+
+179
+00:08:07,200 --> 00:08:09,000
+Here is the text of the tweet
+
+180
+00:08:09,000 --> 00:08:10,900
+and here is the feature vector
+
+181
+00:08:10,900 --> 00:08:13,400
+extracted from the text
+of the tweet.
+
+182
+00:08:13,400 --> 00:08:17,800
+Each word is represented
+by a word vector of length 50.
+
+183
+00:08:17,800 --> 00:08:22,500
+So we get a 4-by-50 feature vector
+for the 4 words in the tweet.
+
+184
+00:08:22,500 --> 00:08:24,650
+This is the feature vector
+for all the tweets
+
+185
+00:08:24,650 --> 00:08:26,200
+from December 2018.
+
+186
+00:08:27,600 --> 00:08:31,600
+To represent each tweet
+with a single word vector,
+
+187
+00:08:31,600 --> 00:08:36,500
+we can sum up the vectors
+of each word so as to provide
+
+188
+00:08:36,500 --> 00:08:40,000
+a sort of word centroid
+for each tweet.
+
+189
+00:08:40,000 --> 00:08:43,000
+Here are the word centroids
+for some of the tweets
+
+190
+00:08:43,000 --> 00:08:45,400
+and the text they represent.
+
+191
+00:08:45,400 --> 00:08:47,200
+Dimension reduction can reduce
+
+192
+00:08:47,200 --> 00:08:50,400
+the 50-dimensional
+word-centroid vector
+
+193
+00:08:50,400 --> 00:08:52,300
+to two dimensions.
+
+194
+00:08:52,300 --> 00:08:55,600
+So now we have a pair of numbers
+representing each tweet,
+
+195
+00:08:55,600 --> 00:08:58,600
+and we can create a scatter plot
+to view them.
+
+196
+00:08:58,600 --> 00:09:00,800
+We can try to find
+clusters in this data,
+
+197
+00:09:00,800 --> 00:09:04,950
+leaving it to the FindClusters
+function to automatically select
+
+198
+00:09:04,950 --> 00:09:08,200
+the appropriate
+clustering algorithm.
+
+199
+00:09:08,200 --> 00:09:11,100
+We can specify the number
+of clusters we want,
+
+200
+00:09:11,100 --> 00:09:13,700
+as well as
+the clustering algorithm.
+
+201
+00:09:13,700 --> 00:09:15,200
+Here are the two clusters found
+
+202
+00:09:15,200 --> 00:09:18,500
+when all 50 features
+of the word centroids were used,
+
+203
+00:09:18,500 --> 00:09:21,600
+with the help of the KMeans
+clustering algorithm.
+
+204
+00:09:21,600 --> 00:09:24,700
+And this is what each cluster
+of the tweets
+
+205
+00:09:24,700 --> 00:09:26,100
+seem to be talking about.
+
+206
+00:09:27,450 --> 00:09:30,100
+Can we leverage the inherent
+grouping of the tweets
+
+207
+00:09:30,100 --> 00:09:34,000
+to automatically assign a certain
+label to each group of tweets
+
+208
+00:09:34,000 --> 00:09:36,000
+based on their textual features?
+
+209
+00:09:37,000 --> 00:09:38,800
+So for that, classification,
+
+210
+00:09:38,800 --> 00:09:41,500
+another supervised
+machine learning technique,
+
+211
+00:09:41,500 --> 00:09:43,200
+would be a useful tool.
+
+212
+00:09:45,300 --> 00:09:49,000
+A pre-trained sentiment classifier
+can quickly label the sentiment
+
+213
+00:09:49,000 --> 00:09:54,400
+for each of last month's tweets—
+mostly positive and neutral.
+
+214
+00:09:54,400 --> 00:09:57,500
+It might be more interesting
+to see if we can classify
+
+215
+00:09:57,500 --> 00:09:58,500
+whether a tweet gets
+
+216
+00:09:58,500 --> 00:10:01,300
+a specific hashtag
+based on the content of the tweet.
+
+217
+00:10:01,300 --> 00:10:05,000
+So for #DataScience, here
+are the tweets that were tagged
+
+218
+00:10:05,000 --> 00:10:08,800
+with this particular hashtag
+prior to December 2018.
+
+219
+00:10:08,800 --> 00:10:11,000
+They can be
+our positive samples.
+
+220
+00:10:11,000 --> 00:10:13,000
+Let's also pick out
+a number of tweets
+
+221
+00:10:13,000 --> 00:10:17,500
+that did not have any mention
+of data whatsoever in the text.
+
+222
+00:10:17,500 --> 00:10:20,100
+These will be
+our negative samples.
+
+223
+00:10:20,100 --> 00:10:22,200
+We can now train a classifier,
+
+224
+00:10:22,200 --> 00:10:25,000
+which should then be able
+to predict a label,
+
+225
+00:10:25,000 --> 00:10:30,800
+DataScience or NotDataScience,
+when given a the text of a tweet.
+
+226
+00:10:30,800 --> 00:10:33,900
+We could potentially use
+this classifier to suggest
+
+227
+00:10:33,900 --> 00:10:37,800
+whether a tweet could be tagged
+as #DataScience or not.
+
+228
+00:10:37,800 --> 00:10:41,500
+Let's try to use it
+on last month's tweets.
+
+229
+00:10:41,500 --> 00:10:43,200
+Here are the predicted
+labels, hashtags
+
+230
+00:10:43,200 --> 00:10:45,200
+and the text of the tweets.
+
+231
+00:10:45,200 --> 00:10:46,800
+This one seems reasonable.
+
+232
+00:10:46,800 --> 00:10:48,800
+Not sure about this one.
+
+233
+00:10:48,800 --> 00:10:51,300
+Well, at least those
+predicted DataScience
+
+234
+00:10:51,300 --> 00:10:53,800
+are worth revisiting
+to make sure the hashtags
+
+235
+00:10:53,800 --> 00:10:56,100
+are being chosen appropriately.
+
+236
+00:10:56,100 --> 00:10:58,200
+Let's try one more resource
+from our collection
+
+237
+00:10:58,200 --> 00:11:00,000
+of multiparadigm
+data science tools
+
+238
+00:11:00,000 --> 00:11:02,800
+for the analysis stage: graphs.
+
+239
+00:11:02,800 --> 00:11:05,800
+During exploration,
+we visualized the network of users
+
+240
+00:11:05,800 --> 00:11:09,400
+who were most often mentioned
+in the Wolfram Research tweets,
+
+241
+00:11:09,400 --> 00:11:11,900
+as well as in tweets
+by other users
+
+242
+00:11:11,900 --> 00:11:13,600
+mentioned by Wolfram.
+
+243
+00:11:13,600 --> 00:11:16,900
+Within these graphs
+we can look for communities,
+
+244
+00:11:16,900 --> 00:11:21,600
+that is, groups of users who have
+more connections within them
+
+245
+00:11:21,600 --> 00:11:24,000
+than with others
+outside the group.
+
+246
+00:11:24,000 --> 00:11:26,000
+and we can explore
+these communities
+
+247
+00:11:26,000 --> 00:11:27,500
+for shared interests.
+
+248
+00:11:28,500 --> 00:11:31,200
+We did gloss over
+the code in this segment,
+
+249
+00:11:31,200 --> 00:11:33,600
+because the intention
+was to exploit
+
+250
+00:11:33,600 --> 00:11:35,000
+the multiparadigm approach
+
+251
+00:11:35,000 --> 00:11:38,300
+in the analysis stage
+of building a project workflow.
+
+252
+00:11:38,300 --> 00:11:39,900
+We will move on to the next
+
+253
+00:11:39,900 --> 00:11:42,600
+and final stage of the workflow,
+communicate.
+
+254
+00:11:42,600 --> 00:11:44,500
+This is where we will discuss
+different ways
+
+255
+00:11:44,500 --> 00:11:48,000
+to put together our findings
+so that it best communicates
+
+256
+00:11:48,000 --> 00:11:51,000
+the information according
+to the needs of the audience.
+

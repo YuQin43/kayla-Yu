@@ -1,0 +1,655 @@
+﻿1
+00:00:00,000 --> 00:00:02,600
+Hello and welcome
+to Multiparadigm Data Science
+
+2
+00:00:02,600 --> 00:00:04,400
+with the Wolfram Language,
+
+3
+00:00:04,400 --> 00:00:07,000
+Section 2:
+Getting Your Data into Shape.
+
+4
+00:00:07,000 --> 00:00:10,000
+In this section,
+we will look at functionality
+
+5
+00:00:10,000 --> 00:00:13,000
+needed for the wrangle stage
+of the workflow.
+
+6
+00:00:13,000 --> 00:00:15,900
+Data wrangling involves
+importing raw data
+
+7
+00:00:15,900 --> 00:00:18,500
+and converting it into
+a suitable shape
+
+8
+00:00:18,500 --> 00:00:21,800
+for ease of use
+during rest of the analysis.
+
+9
+00:00:21,800 --> 00:00:25,400
+A multiparadigm workflow
+has to be able to handle data
+
+10
+00:00:25,400 --> 00:00:28,600
+in different formats
+from different sources,
+
+11
+00:00:28,600 --> 00:00:31,000
+reshape the data
+into different structures,
+
+12
+00:00:31,000 --> 00:00:35,000
+deal with messy data,
+extract useful features from it
+
+13
+00:00:35,000 --> 00:00:38,000
+and, if needed,
+reduce dimensionality
+
+14
+00:00:38,000 --> 00:00:40,300
+of high-dimensional data.
+
+15
+00:00:40,300 --> 00:00:43,200
+While dealing with all of this,
+the goal is to write code
+
+16
+00:00:43,200 --> 00:00:46,800
+for a set of automated tools
+for the data-wrangling process
+
+17
+00:00:46,800 --> 00:00:49,900
+so that it is much easier
+to go through this stage
+
+18
+00:00:49,900 --> 00:00:52,600
+next time the workflow is used.
+
+19
+00:00:52,600 --> 00:00:54,000
+Let's look at some examples
+
+20
+00:00:54,000 --> 00:00:57,000
+of importing real-world data
+from different sources.
+
+21
+00:00:58,500 --> 00:01:00,000
+In best-case scenarios,
+
+22
+00:01:00,000 --> 00:01:04,200
+high-quality curated data may
+be available from repositories.
+
+23
+00:01:04,200 --> 00:01:07,000
+For data that has been
+curated properly,
+
+24
+00:01:07,000 --> 00:01:10,400
+there really is no need
+for much wrangling—
+
+25
+00:01:10,400 --> 00:01:13,000
+for example,
+the Wolfram Data Repository,
+
+26
+00:01:13,000 --> 00:01:15,500
+which is a publicly
+available resource
+
+27
+00:01:15,500 --> 00:01:18,000
+for computable datasets.
+
+28
+00:01:18,000 --> 00:01:20,500
+It has curated
+and structured data
+
+29
+00:01:20,500 --> 00:01:22,900
+available for immediate use.
+
+30
+00:01:22,900 --> 00:01:26,000
+We can browse the site
+for datasets by category
+
+31
+00:01:26,000 --> 00:01:28,000
+or by type.
+
+32
+00:01:28,000 --> 00:01:31,000
+The data is all cleaned
+and ready for computation.
+
+33
+00:01:31,000 --> 00:01:33,800
+So if we find a dataset
+that we'd like to use,
+
+34
+00:01:33,800 --> 00:01:36,000
+we can just load it
+into our system
+
+35
+00:01:36,000 --> 00:01:37,600
+and start working with it.
+
+36
+00:01:40,800 --> 00:01:43,000
+In addition to the
+data repository,
+
+37
+00:01:43,000 --> 00:01:46,600
+the Wolfram Language has an
+extensive built-in knowledgebase
+
+38
+00:01:46,600 --> 00:01:48,900
+that can be explored
+for interesting data,
+
+39
+00:01:48,900 --> 00:01:50,600
+or it can also be leveraged
+
+40
+00:01:50,600 --> 00:01:53,000
+to augment
+some existing in-house data
+
+41
+00:01:53,000 --> 00:01:55,000
+with additional information.
+
+42
+00:01:55,000 --> 00:01:56,700
+To access this knowledgebase,
+
+43
+00:01:56,700 --> 00:01:58,800
+we can simply
+type in words in English,
+
+44
+00:01:58,800 --> 00:02:02,000
+which are then interpreted
+into canonical entities
+
+45
+00:02:02,000 --> 00:02:04,600
+representing real-world objects.
+
+46
+00:02:06,200 --> 00:02:09,300
+We can access the various
+properties of these entities
+
+47
+00:02:09,300 --> 00:02:11,300
+and use them for computation.
+
+48
+00:02:11,300 --> 00:02:14,600
+There are millions of entities
+across hundreds of entity types
+
+49
+00:02:14,600 --> 00:02:16,500
+built into the Wolfram Language.
+
+50
+00:02:18,200 --> 00:02:21,200
+Also, there are collections
+of domain-specific datasets
+
+51
+00:02:21,200 --> 00:02:24,900
+like geographic data,
+engineering and medical data,
+
+52
+00:02:24,900 --> 00:02:28,500
+social, cultural
+and linguistic data.
+
+53
+00:02:28,500 --> 00:02:30,200
+So that's curated data,
+
+54
+00:02:30,200 --> 00:02:34,000
+but most people want to import
+their own data into the system.
+
+55
+00:02:34,000 --> 00:02:37,100
+And we can do that
+with a simple import statement
+
+56
+00:02:37,100 --> 00:02:41,000
+for files residing either locally
+on the computer
+
+57
+00:02:41,000 --> 00:02:43,700
+or online on the web.
+
+58
+00:02:43,700 --> 00:02:45,900
+To support
+a multiparadigm workflow,
+
+59
+00:02:45,900 --> 00:02:49,800
+the Wolfram Language can handle
+a wide variety of formats.
+
+60
+00:02:49,800 --> 00:02:51,000
+The Import function
+
+61
+00:02:51,000 --> 00:02:53,300
+automatically deals
+with the format of the file
+
+62
+00:02:53,300 --> 00:02:54,900
+when importing data from it.
+
+63
+00:02:56,400 --> 00:03:00,000
+Sometimes it is useful to save
+data and intermediate results
+
+64
+00:03:00,000 --> 00:03:01,800
+in the middle of the workflow.
+
+65
+00:03:01,800 --> 00:03:04,300
+Data can be saved
+as Wolfram Language expressions
+
+66
+00:03:04,300 --> 00:03:06,300
+using Save or DumpSave,
+
+67
+00:03:06,300 --> 00:03:09,100
+and then read back in again
+using Get.
+
+68
+00:03:11,200 --> 00:03:13,800
+Okay, now let's
+move on to databases.
+
+69
+00:03:13,800 --> 00:03:14,900
+In many projects,
+
+70
+00:03:14,900 --> 00:03:17,000
+data is available
+in a relational database,
+
+71
+00:03:17,000 --> 00:03:20,200
+so the multiparadigm workflow
+must be able to connect
+
+72
+00:03:20,200 --> 00:03:22,300
+to the database
+and get the data from it.
+
+73
+00:03:22,300 --> 00:03:26,800
+Here's an example of opening
+a connection to a database,
+
+74
+00:03:26,800 --> 00:03:30,500
+looking at the tables in it
+and fetching data from a table
+
+75
+00:03:30,500 --> 00:03:33,000
+using a Wolfram Language
+function.
+
+76
+00:03:33,000 --> 00:03:36,300
+Alternately we can use
+standard SQL to fetch the data
+
+77
+00:03:36,300 --> 00:03:37,300
+and work with it.
+
+78
+00:03:39,700 --> 00:03:42,000
+It is also possible to represent
+
+79
+00:03:42,000 --> 00:03:44,300
+a relational database
+symbolically
+
+80
+00:03:44,300 --> 00:03:46,200
+in the Wolfram Language
+
+81
+00:03:46,200 --> 00:03:48,800
+by constructing an EntityStore.
+
+82
+00:03:50,300 --> 00:03:52,800
+This allows the relational data
+from the database
+
+83
+00:03:52,800 --> 00:03:55,000
+to be structured as entities,
+
+84
+00:03:55,000 --> 00:03:57,300
+very much like
+the built-in entities
+
+85
+00:03:57,300 --> 00:03:59,400
+in the Wolfram Data Framework.
+
+86
+00:03:59,400 --> 00:04:02,800
+So now we can we can use
+the same syntax to query
+
+87
+00:04:02,800 --> 00:04:06,500
+and use the properties of
+these entities for computation.
+
+88
+00:04:08,100 --> 00:04:09,900
+Moving on to the world wide web,
+
+89
+00:04:09,900 --> 00:04:12,200
+which is another
+major source of data,
+
+90
+00:04:12,200 --> 00:04:15,500
+there are multiple different ways
+of getting data from the web.
+
+91
+00:04:15,500 --> 00:04:18,400
+Many online services
+provide APIs,
+
+92
+00:04:18,400 --> 00:04:22,000
+which can be used to import
+the data from these services.
+
+93
+00:04:22,000 --> 00:04:25,000
+Here is an example of connecting
+to the Twitter API
+
+94
+00:04:25,000 --> 00:04:28,500
+and downloading tweets made by
+a specific Twitter handle.
+
+95
+00:04:33,300 --> 00:04:36,800
+Or we can simply search the web
+for generic content
+
+96
+00:04:36,800 --> 00:04:40,200
+or maybe specify the type of
+content we'd like to search for.
+
+97
+00:04:41,900 --> 00:04:43,800
+Wikipedia is another
+great resource,
+
+98
+00:04:43,800 --> 00:04:46,200
+and it can be searched
+not only for text,
+
+99
+00:04:46,200 --> 00:04:48,300
+but other metadata as well.
+
+100
+00:04:50,300 --> 00:04:52,500
+Finally, if we are just given
+a URL,
+
+101
+00:04:52,500 --> 00:04:55,600
+we can simply scrape
+the data off the webpage.
+
+102
+00:04:55,600 --> 00:04:57,600
+Depending on the requirements
+of the project,
+
+103
+00:04:57,600 --> 00:05:01,000
+we may have to scrape everything
+available on the webpage
+
+104
+00:05:01,000 --> 00:05:04,800
+and then parse the raw data
+to make sense of it,
+
+105
+00:05:04,800 --> 00:05:08,400
+or we can scrape specific
+elements like images
+
+106
+00:05:08,400 --> 00:05:10,300
+or hyperlinks from the page.
+
+107
+00:05:12,000 --> 00:05:15,300
+So that covers a number
+of different data sources
+
+108
+00:05:15,300 --> 00:05:19,900
+that we can work with when
+we are trying to wrangle data.
+
+109
+00:05:19,900 --> 00:05:22,500
+Some of us may already have
+some in-house data
+
+110
+00:05:22,500 --> 00:05:23,800
+that we would like to analyze
+
+111
+00:05:23,800 --> 00:05:26,500
+as we follow the project workflow
+in this course.
+
+112
+00:05:26,500 --> 00:05:29,000
+But for those who are looking
+for interesting datasets
+
+113
+00:05:29,000 --> 00:05:33,000
+to work with, here are some
+publicly available resources
+
+114
+00:05:33,000 --> 00:05:34,500
+to get started.
+
+115
+00:05:34,500 --> 00:05:38,000
+We've already looked
+at the Wolfram Data Repository.
+
+116
+00:05:38,000 --> 00:05:40,600
+The US Government's
+open data website
+
+117
+00:05:40,600 --> 00:05:42,000
+is another great resource;
+
+118
+00:05:42,000 --> 00:05:45,000
+so is NASA's Open Data Portal,
+
+119
+00:05:45,000 --> 00:05:47,000
+UCI's Machine
+Learning Repository,
+
+120
+00:05:47,000 --> 00:05:48,400
+the Kaggle contests,
+
+121
+00:05:48,400 --> 00:05:50,000
+the Five Thirty Eight
+blog collections
+
+122
+00:05:50,000 --> 00:05:51,000
+and so on.
+
+123
+00:05:52,800 --> 00:05:54,000
+In summary, in this segment,
+
+124
+00:05:54,000 --> 00:05:56,800
+we looked at importing data
+from different sources—
+
+125
+00:05:56,800 --> 00:06:00,600
+loading it into the system
+for exploration and analysis.
+
+126
+00:06:00,600 --> 00:06:04,000
+We looked at getting curated data
+from the Wolfram Data Repository
+
+127
+00:06:04,000 --> 00:06:06,600
+and built-in
+Wolfram Knowledgebase,
+
+128
+00:06:06,600 --> 00:06:09,000
+and we also looked
+at simply importing data
+
+129
+00:06:09,000 --> 00:06:11,600
+from files
+in a variety of formats,
+
+130
+00:06:11,600 --> 00:06:15,800
+residing either locally
+or online on the web.
+
+131
+00:06:15,800 --> 00:06:17,600
+We looked at connecting to APIs
+
+132
+00:06:17,600 --> 00:06:19,900
+to download data
+from online services,
+
+133
+00:06:19,900 --> 00:06:21,200
+and last but not the least,
+
+134
+00:06:21,200 --> 00:06:24,600
+we looked at scraping
+data elements off webpages.
+
+135
+00:06:24,600 --> 00:06:27,200
+We hope you will be able to use
+one or more of these options
+
+136
+00:06:27,200 --> 00:06:29,900
+in the wrangling stage
+of your project.
+
+137
+00:06:29,900 --> 00:06:33,000
+In the next segment, we will
+look at restructuring data
+
+138
+00:06:33,000 --> 00:06:35,500
+to make it ready for use
+in various stages
+
+139
+00:06:35,500 --> 00:06:37,500
+further downstream
+in the workflow.
+

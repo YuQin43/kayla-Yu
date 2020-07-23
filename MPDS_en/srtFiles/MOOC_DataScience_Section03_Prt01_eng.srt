@@ -1,0 +1,680 @@
+﻿1
+00:00:00,000 --> 00:00:01,000
+Hello and welcome
+
+2
+00:00:01,000 --> 00:00:04,500
+to Multiparadigm Data Science
+with the Wolfram Language,
+
+3
+00:00:04,500 --> 00:00:08,000
+Section 3:
+Get to Know Your Data.
+
+4
+00:00:08,000 --> 00:00:10,800
+In this section,
+we will look at functionality
+
+5
+00:00:10,800 --> 00:00:13,300
+useful for the explore stage
+
+6
+00:00:13,300 --> 00:00:16,500
+of the multiparadigm
+project workflow.
+
+7
+00:00:16,500 --> 00:00:20,700
+Exploratory data analysis
+is really about trying to gain
+
+8
+00:00:20,700 --> 00:00:24,000
+an intuitive understanding
+of the data.
+
+9
+00:00:24,000 --> 00:00:26,800
+How are the samples
+spread out in feature space?
+
+10
+00:00:26,800 --> 00:00:29,800
+How do the features
+relate to each other?
+
+11
+00:00:29,800 --> 00:00:33,200
+Without any analysis,
+can we just look at the data
+
+12
+00:00:33,200 --> 00:00:35,300
+and make some sense of it?
+
+13
+00:00:35,300 --> 00:00:37,450
+We've talked about
+setting up questions
+
+14
+00:00:37,450 --> 00:00:38,450
+right at the beginning
+
+15
+00:00:38,450 --> 00:00:41,000
+of the multiparadigm
+project workflow.
+
+16
+00:00:41,000 --> 00:00:42,500
+However, the explore stage
+
+17
+00:00:42,500 --> 00:00:46,000
+is where a lot
+of those questions can change
+
+18
+00:00:46,000 --> 00:00:47,800
+and new questions emerge
+
+19
+00:00:47,800 --> 00:00:52,000
+as we try to figure out
+what the data has to offer.
+
+20
+00:00:52,000 --> 00:00:55,500
+Sometimes this stage is also used
+for data QA—
+
+21
+00:00:55,500 --> 00:00:57,100
+checking the quality of the data
+
+22
+00:00:57,100 --> 00:01:01,900
+and assessing whether it is useful
+and sufficient for the project.
+
+23
+00:01:01,900 --> 00:01:05,400
+Tools used for exploratory
+data analysis, or EDA,
+
+24
+00:01:05,400 --> 00:01:09,000
+can be categorized as graphical,
+providing pictures,
+
+25
+00:01:09,000 --> 00:01:12,900
+or non-graphical,
+providing stats and numbers;
+
+26
+00:01:12,900 --> 00:01:16,900
+univariate, exploring one feature
+or variable at a time,
+
+27
+00:01:16,900 --> 00:01:20,000
+or multivariate,
+exploring combined behavior
+
+28
+00:01:20,000 --> 00:01:23,200
+of more than one variable—
+usually two.
+
+29
+00:01:24,800 --> 00:01:26,300
+Humans are visual beings.
+
+30
+00:01:26,300 --> 00:01:29,800
+Instead of staring
+at a column of numbers,
+
+31
+00:01:29,800 --> 00:01:33,500
+human pattern-recognition
+abilities are better used in
+
+32
+00:01:33,500 --> 00:01:35,200
+visual explorations,
+
+33
+00:01:35,200 --> 00:01:38,300
+checking for trends,
+shapes of distributions,
+
+34
+00:01:38,300 --> 00:01:41,300
+gaps, outliers and so on.
+
+35
+00:01:41,300 --> 00:01:44,000
+To literally look at the data
+
+36
+00:01:44,000 --> 00:01:46,400
+and examine each feature
+on its own
+
+37
+00:01:46,400 --> 00:01:48,600
+or in comparison
+with other features,
+
+38
+00:01:48,600 --> 00:01:52,900
+we can use scatter plots,
+bar charts and pie charts,
+
+39
+00:01:52,900 --> 00:01:56,900
+histograms, box plots,
+cluster visualizations,
+
+40
+00:01:56,900 --> 00:01:59,200
+time series plots and so on.
+
+41
+00:01:59,200 --> 00:02:04,000
+Let's try some visual explorations
+with Fisher's iris dataset.
+
+42
+00:02:04,000 --> 00:02:07,200
+It has the length and width
+of petals and sepals
+
+43
+00:02:07,200 --> 00:02:10,500
+of three species
+of the iris flower.
+
+44
+00:02:10,500 --> 00:02:13,000
+Scatter plots are a simple
+and easy way
+
+45
+00:02:13,000 --> 00:02:16,000
+to look at the correlation
+between two variables.
+
+46
+00:02:16,000 --> 00:02:20,000
+Here is how the sepal lengths
+of the Setosa species
+
+47
+00:02:20,000 --> 00:02:22,000
+measure against the sepal width.
+
+48
+00:02:23,000 --> 00:02:26,300
+A scatter plot matrix shows
+the pair-wise relationship
+
+49
+00:02:26,300 --> 00:02:28,500
+between multiple variables.
+
+50
+00:02:28,500 --> 00:02:30,000
+Here we see how the sepal length
+
+51
+00:02:30,000 --> 00:02:32,600
+corresponds to each
+of the other features—
+
+52
+00:02:32,600 --> 00:02:35,400
+sepal width, petal length
+and petal width.
+
+53
+00:02:35,400 --> 00:02:38,000
+We can repeat this
+for each variable in turn,
+
+54
+00:02:38,000 --> 00:02:40,300
+thus creating
+the scatterplot matrix.
+
+55
+00:02:40,300 --> 00:02:42,300
+Here is the matrix
+showing the relationship
+
+56
+00:02:42,300 --> 00:02:47,000
+between the four variables
+of all the three species of iris.
+
+57
+00:02:47,000 --> 00:02:49,500
+Now let's look at bar charts
+and pie charts,
+
+58
+00:02:49,500 --> 00:02:52,000
+two other common tools
+for visual explorations.
+
+59
+00:02:52,000 --> 00:02:56,000
+We'll use the Old Faithful
+eruptions dataset,
+
+60
+00:02:56,000 --> 00:02:57,700
+which provides the eruption time
+
+61
+00:02:57,700 --> 00:03:00,000
+and the waiting time
+to the next eruption
+
+62
+00:03:00,000 --> 00:03:02,000
+for the Old Faithful geyser.
+
+63
+00:03:02,000 --> 00:03:04,300
+Let's focus on the durations
+of the eruptions—
+
+64
+00:03:04,300 --> 00:03:06,000
+elements in the first column.
+
+65
+00:03:06,000 --> 00:03:09,000
+We can group the samples
+into four specific bins—
+
+66
+00:03:09,000 --> 00:03:12,000
+less than 2 seconds,
+between 2 and 3 seconds,
+
+67
+00:03:12,000 --> 00:03:14,500
+3 and 4 seconds
+and more than 4 seconds.
+
+68
+00:03:14,500 --> 00:03:16,300
+We can identify in this list
+
+69
+00:03:16,300 --> 00:03:19,300
+that the fourth number
+is larger than the others,
+
+70
+00:03:19,300 --> 00:03:21,600
+but a bar chart or pie chart
+really allows us
+
+71
+00:03:21,600 --> 00:03:25,400
+to compare these numbers visually
+and immediately understand
+
+72
+00:03:25,400 --> 00:03:27,300
+that the eruptions
+more than 4 seconds
+
+73
+00:03:27,300 --> 00:03:29,200
+are the most common ones.
+
+74
+00:03:29,200 --> 00:03:31,700
+Some other visualizations
+that can be helpful
+
+75
+00:03:31,700 --> 00:03:35,000
+in exploring the data
+are box whisker plots,
+
+76
+00:03:35,000 --> 00:03:37,400
+which show the max, median, min,
+
+77
+00:03:37,400 --> 00:03:40,500
+as well as first
+and third quartiles.
+
+78
+00:03:40,500 --> 00:03:43,000
+Violin plots
+are similar to box plots,
+
+79
+00:03:43,000 --> 00:03:46,500
+but also show probability density
+of the data
+
+80
+00:03:46,500 --> 00:03:48,300
+at different values.
+
+81
+00:03:48,300 --> 00:03:51,500
+Finally, quantile plots compare
+the empirical quantiles
+
+82
+00:03:51,500 --> 00:03:52,900
+of the data values
+
+83
+00:03:52,900 --> 00:03:55,800
+against the quantiles
+of a normal distribution.
+
+84
+00:03:55,800 --> 00:03:59,800
+Histograms are very useful for
+exploring quantitative variables.
+
+85
+00:03:59,800 --> 00:04:02,000
+They provide an idea
+about the shape
+
+86
+00:04:02,000 --> 00:04:04,300
+of the underlying distribution.
+
+87
+00:04:04,300 --> 00:04:06,300
+For the duration
+of the eruptions,
+
+88
+00:04:06,300 --> 00:04:10,300
+the histogram immediately shows
+two distinct groups.
+
+89
+00:04:10,300 --> 00:04:12,000
+Paired histograms can help
+
+90
+00:04:12,000 --> 00:04:16,000
+compare the distribution of values
+of both variables.
+
+91
+00:04:16,000 --> 00:04:19,100
+For example, here are the two sets
+of random numbers
+
+92
+00:04:19,100 --> 00:04:20,700
+from two normal distributions
+
+93
+00:04:20,700 --> 00:04:23,900
+with different mean
+and standard deviations,
+
+94
+00:04:23,900 --> 00:04:27,500
+and here is the paired histogram
+comparing them.
+
+95
+00:04:27,500 --> 00:04:29,300
+Let's compare the duration
+and wait times
+
+96
+00:04:29,300 --> 00:04:32,000
+from the Old Faithful data
+with a paired histogram,
+
+97
+00:04:32,000 --> 00:04:35,000
+only we have to scale
+the duration values
+
+98
+00:04:35,000 --> 00:04:38,300
+to be in the same range
+as the waiting times.
+
+99
+00:04:38,300 --> 00:04:41,000
+Overlaying plots is useful
+for comparing a fit
+
+100
+00:04:41,000 --> 00:04:43,000
+with the original data,
+
+101
+00:04:43,000 --> 00:04:45,900
+since humans are better
+at recognizing deviations
+
+102
+00:04:45,900 --> 00:04:47,400
+from straight lines.
+
+103
+00:04:47,400 --> 00:04:50,000
+Here is a comparison
+of the histogram of the wait times
+
+104
+00:04:50,000 --> 00:04:53,400
+to an estimated distribution
+for the Old Faithful data.
+
+105
+00:04:55,000 --> 00:04:58,900
+The trusty old scatter plot
+can highlight obvious correlation
+
+106
+00:04:58,900 --> 00:05:00,500
+between feature variables,
+
+107
+00:05:00,500 --> 00:05:03,000
+but it is also possible
+to explore correlations
+
+108
+00:05:03,000 --> 00:05:07,000
+by visualizing
+multivariate data in 3D
+
+109
+00:05:07,000 --> 00:05:09,300
+through density projections
+and histograms
+
+110
+00:05:09,300 --> 00:05:12,900
+based on binning
+or kernel density estimation.
+
+111
+00:05:12,900 --> 00:05:16,000
+Clustering data is often used
+to separate data into groups
+
+112
+00:05:16,000 --> 00:05:19,200
+or to identify subgroups
+within a dataset.
+
+113
+00:05:19,200 --> 00:05:21,200
+It only takes a little bit
+of Wolfram Language code
+
+114
+00:05:21,200 --> 00:05:24,500
+to quickly build an interface
+to interactively explore
+
+115
+00:05:24,500 --> 00:05:26,800
+different clusters in the data,
+
+116
+00:05:26,800 --> 00:05:31,000
+thereby offering the opportunity
+to identify interesting outliers.
+
+117
+00:05:33,500 --> 00:05:35,200
+Let's look at some other ways
+
+118
+00:05:35,200 --> 00:05:38,400
+of quickly visualizing
+clusters in the data.
+
+119
+00:05:38,400 --> 00:05:41,000
+ClusteringTree creates
+a weighted tree
+
+120
+00:05:41,000 --> 00:05:44,800
+from a hierarchical clustering
+of data elements,
+
+121
+00:05:44,800 --> 00:05:48,300
+while a Dendrogram creates a tree
+where the heights of nodes
+
+122
+00:05:48,300 --> 00:05:51,000
+are proportional
+to intercluster distances.
+
+123
+00:05:52,000 --> 00:05:53,000
+Before we end this segment,
+
+124
+00:05:53,000 --> 00:05:55,500
+let's look at
+a special type of scatter plot
+
+125
+00:05:55,500 --> 00:05:57,500
+where one of the variables
+is time.
+
+126
+00:05:57,500 --> 00:06:00,000
+So we have some unit of time
+on the <i>x</i> axis,
+
+127
+00:06:00,000 --> 00:06:03,500
+and plot on the <i>y</i> axis
+the change in values
+
+128
+00:06:03,500 --> 00:06:06,000
+of the dependent variable
+with respect to time.
+
+129
+00:06:06,000 --> 00:06:09,300
+Here is the daily mean humidity
+of Champaign, Illinois,
+
+130
+00:06:09,300 --> 00:06:13,300
+in the last year, showing May
+was dryer than other months.
+
+131
+00:06:13,300 --> 00:06:16,200
+Here's a similar plot
+for the weekly mean temperatures
+
+132
+00:06:16,200 --> 00:06:18,300
+where the winter dips
+and summer peaks
+
+133
+00:06:18,300 --> 00:06:20,700
+are easily identifiable.
+
+134
+00:06:22,400 --> 00:06:24,100
+These visualizations in time
+
+135
+00:06:24,100 --> 00:06:27,000
+allow us to quickly spot
+any trend in the data.
+
+136
+00:06:27,000 --> 00:06:29,200
+In summary,
+we looked at various tools
+
+137
+00:06:29,200 --> 00:06:32,000
+for visually exploring our data.
+
+138
+00:06:32,000 --> 00:06:35,300
+We looked at scatter plots,
+bar charts and pie charts,
+
+139
+00:06:35,300 --> 00:06:38,000
+histograms, box plots,
+violin plots,
+
+140
+00:06:38,000 --> 00:06:41,400
+cluster visualizations
+and time series plots.
+
+141
+00:06:41,400 --> 00:06:43,800
+We hope you will be able to use
+one or more
+
+142
+00:06:43,800 --> 00:06:47,000
+of these visualization tools
+in the explore stage
+
+143
+00:06:47,000 --> 00:06:50,000
+of your workflow
+in your next data science project.
+

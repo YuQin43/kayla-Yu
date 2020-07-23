@@ -1,0 +1,625 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     30102,        617]
+NotebookOptionsPosition[     19192,        413]
+NotebookOutlinePosition[     26742,        571]
+CellTagsIndexPosition[     26671,        566]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Get the Message Across", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.7550187405549192`*^9, 3.755018745149918*^9}, {
+   3.7591638606642447`*^9, 3.759163886002613*^9}, 3.759164210011063*^9, {
+   3.759164301100876*^9, 3.7591643044495583`*^9}, {3.759164377421114*^9, 
+   3.759164377845544*^9}, {3.759167251656486*^9, 3.759167252750435*^9}, 
+   3.7594988327022038`*^9, {3.7600982572670107`*^9, 3.760098267473927*^9}, {
+   3.762883551242763*^9, 3.762883554328678*^9}, {3.764006742662427*^9, 
+   3.764006750852619*^9}, {3.766145377718863*^9, 3.766145382356106*^9}, {
+   3.767005546765579*^9, 3.767005549450549*^9}, 3.767113891371792*^9},
+ CounterAssignments->{{"Section", 4}, {"Subsection", 0}, {
+   "Subsubsection", 0}, {
+   "Exercise", 0}},ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27"],
+
+Cell[CellGroupData[{
+
+Cell["Visualizations", "Subsection",
+ CellChangeTimes->{{3.76107050681248*^9, 3.761070522683797*^9}, {
+   3.76107058461234*^9, 3.7610705946430264`*^9}, {3.7628835574485292`*^9, 
+   3.7628835673684397`*^9}, {3.762883693478266*^9, 3.76288369844493*^9}, {
+   3.764006753900371*^9, 3.764006757316087*^9}, {3.766148341983994*^9, 
+   3.766148381653051*^9}, {3.766516930027422*^9, 3.7665169538264923`*^9}, {
+   3.7669220030863867`*^9, 3.766922005094008*^9}, {3.7669359684938107`*^9, 
+   3.766935971092455*^9}, 
+   3.766946486444984*^9},ExpressionUUID->"8166ba66-ded5-4109-93c9-\
+192521d797b4"],
+
+Cell["[00:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"e15f7350-81da-44b0-9cda-1e215cb39b02"],
+
+Cell["\<\
+Multiparadigm Data Science with the Wolfram Language, Section 5: Get the \
+Message Across. \
+\>", "Text",
+ CellChangeTimes->{{3.7661466013238573`*^9, 3.766146607153719*^9}, {
+  3.7662236817124157`*^9, 
+  3.766223687683399*^9}},ExpressionUUID->"99aabb34-f968-4936-abff-\
+0c449b2985db"],
+
+Cell["\<\
+We have covered the first four stages of the multiparadigm project workflow\
+\[LongDash]question, wrangle, explore, analyze\[LongDash]and now we are in \
+the last stage, ready to communicate the results of our analysis. Hopefully \
+we\[CloseCurlyQuote]ve found answers to the questions we set up in the very \
+first stage, whether expected or unexpected. These answers now need to be \
+communicated clearly. We have to tell a story with these answers in a manner \
+that the audience appreciates and finds useful.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661466122199173`*^9, {3.7661488471121635`*^9, 3.766148865201972*^9}, {
+   3.7661488990423555`*^9, 
+   3.7661489435968103`*^9}},ExpressionUUID->"78c9bea1-f2ee-4b6c-92c0-\
+59ed9f08b8c5"],
+
+Cell["\<\
+Visualizations form an integral part of this stage of the workflow. Pictures \
+can communicate a lot more than tables of numbers. Let\[CloseCurlyQuote]s \
+look at a few examples of creating interesting visualizations in the Wolfram \
+Language.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766146617011488*^9, {3.766148981497526*^9, 
+   3.7661489831545267`*^9}},ExpressionUUID->"3dc26ae7-4a8f-484d-85c1-\
+f6ff999a6f54"],
+
+Cell["[00:55]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}},
+ CellTags->"Timecode",ExpressionUUID->"2a123039-7c72-45e3-b842-fb1425ecde5f"],
+
+Cell["\<\
+These are the populations of the G8 countries. Hard to decipher anything from \
+the bunch of numbers like this, but seeing them in a bar chart helps us \
+compare the numbers much better.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766146622370159*^9, {3.7661489996725264`*^9, 
+   3.7661490127195263`*^9}},ExpressionUUID->"35524583-404b-4ea1-84d2-\
+ed8ccb6588f0"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s go through a few steps to annotate this picture so \
+that it can convey all the required information in one glance, starting out \
+with labels for the bars.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7661466282508783`*^9, {3.766149054220214*^9, 
+   3.7661490558372135`*^9}},ExpressionUUID->"2d454ee1-0785-454f-baff-\
+4c9e2fea003d"],
+
+Cell["\<\
+Now we know which bar represents which country, but the labels are too \
+crowded here at the bottom. Let\[CloseCurlyQuote]s place them above the bars. \
+Actually, it might look neater to place them in callouts.\
+\>", "Text",
+ CellChangeTimes->{{3.766146633970766*^9, 3.766146643560747*^9}, {
+  3.766149066669214*^9, 
+  3.766149093171214*^9}},ExpressionUUID->"ee2c7f7f-5df1-4105-a97f-\
+e6df83511579"],
+
+Cell["\<\
+Okay, but what do these bars really represent? We know we\[CloseCurlyQuote]ve \
+charted the population of these countries, but to make sure our audience \
+knows it too, we need to label the axes. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766146652289762*^9, {3.766149112265214*^9, 
+   3.7661491312162137`*^9}},ExpressionUUID->"bb0523ee-2c17-4b38-bbe0-\
+96a137904720"],
+
+Cell["[01:42]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964541626593*^9, 3.7669645442756844`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"5f898fb5-0f6b-4d06-aa1a-c7640cb94fb7"],
+
+Cell["\<\
+We could provide a frame for the chart and use the frame label as an \
+alternate way to label the axes. Let\[CloseCurlyQuote]s remove the top and \
+right frames\[LongDash]they look a little crowded\[LongDash]and let\
+\[CloseCurlyQuote]s also set a PlotLabel to provide a caption for this chart. \
+\>", "Text",
+ CellChangeTimes->{{3.766146658057989*^9, 3.7661466766897697`*^9}, {
+  3.766149158527214*^9, 
+  3.7661492175472136`*^9}},ExpressionUUID->"e00fdc34-a1f2-4211-8eac-\
+a7a507997b44"],
+
+Cell["\<\
+This chart conveys the information well enough, but if we want to stylize it \
+a little more, a PlotTheme is a quick way to use prebuilt collections of \
+style features to customize the chart. 
+ChartStyle can be used to change the colors and specify other styles for the \
+chart elements.  Lastly we can set the ImageSize to view our picture with \
+just the right dimensions.\
+\>", "Text",
+ CellChangeTimes->{{3.766146658057989*^9, 3.7661466936235447`*^9}, {
+  3.766149237065214*^9, 
+  3.7661492636322136`*^9}},ExpressionUUID->"7a10446c-52fb-414c-b09b-\
+631d913fd878"],
+
+Cell["[02:21]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}},
+ CellTags->"Timecode",ExpressionUUID->"b15b7b85-a166-48d6-bb98-4100b49da1be"],
+
+Cell["\<\
+That was a simple example. Now let\[CloseCurlyQuote]s try another one\
+\[LongDash]adding another feature to the dataset, GDP per capita in addition \
+to population. The RectangleChart can help us visualize both pieces of \
+information simultaneously for each country, the width of the bar showing the \
+population and the height showing the GDP per capita. And we know a chart has \
+no use without labels, so we label all the relevant pieces to ensure that the \
+chart is interpreted as intended.\
+\>", "Text",
+ CellChangeTimes->{{3.766146701368409*^9, 3.7661467188231*^9}, {
+  3.766149282664214*^9, 3.766149320725214*^9}, {3.766149352435214*^9, 
+  3.7661493697692137`*^9}},ExpressionUUID->"421e3b39-61d2-4cf4-92f0-\
+7f9a78b27fc7"],
+
+Cell["[02:54]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}, {
+   3.766964637071154*^9, 3.766964637327075*^9}},
+ CellTags->"Timecode",ExpressionUUID->"321a848c-5a80-4a5c-bc82-e288e6d65234"],
+
+Cell[TextData[{
+ "Suppose we have a third feature in our dataset that needs to be represented \
+in the chart, life expectancy, in addition to GDP per capita and population. \
+This is a good place to use a BubbleChart with the GDP per capita and the \
+life expectancy on the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "dc58b13d-a6ab-4239-abf1-26fdc720db34"],
+ " and the ",
+ Cell[BoxData[
+  FormBox["y", TraditionalForm]],ExpressionUUID->
+  "2e0b00c6-0992-4175-b34b-16452df3e923"],
+ " axis, respectively, and the size of the bubbles representing the \
+population. The bubbles are colored according to their sizes, but it is \
+easier to understand the scale of numbers represented by using the colors in \
+a legend."
+}], "Text",
+ CellChangeTimes->{{3.766146724986185*^9, 3.766146748182356*^9}, {
+  3.766149407382204*^9, 3.7661494144622045`*^9}, {3.7661494460612044`*^9, 
+  3.7661494855862045`*^9}, {3.766223888395103*^9, 3.7662238889872217`*^9}, {
+  3.7662249879235177`*^9, 
+  3.7662249915666656`*^9}},ExpressionUUID->"7ad0a4ee-910e-4264-87f0-\
+6b9439610465"],
+
+Cell["[03:27]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}, {
+   3.766964677770793*^9, 3.766964680053184*^9}},
+ CellTags->"Timecode",ExpressionUUID->"b697c96f-f84e-4d31-8cd3-101d6adbdcb0"],
+
+Cell["\<\
+The tooltip, by default, provides the information corresponding to the size \
+of the bubble\[LongDash]in this case, the population. But it is easy \
+customize the tooltips to provide more information. For example, we can \
+create a little table out of the information available for each data point \
+and add this table to the tooltip. So now we have packed a lot more \
+information into this simple chart without making it crowded and without \
+compromising the aesthetics of the chart.\
+\>", "Text",
+ CellChangeTimes->{{3.766146741166977*^9, 3.766146758069963*^9}, {
+  3.7661495050962043`*^9, 
+  3.766149563127445*^9}},ExpressionUUID->"7081f5b8-9d66-4d88-90df-\
+393aa78f3fbb"],
+
+Cell["[04:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}, {
+   3.766964719997785*^9, 3.766964722557549*^9}},
+ CellTags->"Timecode",ExpressionUUID->"80ceaaec-8697-4073-b66b-d7fe8c05915c"],
+
+Cell["\<\
+The Wolfram Language makes it really easy to make simple visualizations more \
+engaging by adding interactivity. The Manipulate is a powerful function that \
+is actually pretty easy to use. We can wrap a Manipulate around this \
+expression, and now we have the ability to choose the information we would \
+like to see. For the example we were working with, we can use Manipulate to \
+choose between different continents, and for each continent, we can then \
+compare the life expectancy, GDP per capita and population for the countries \
+in that continent.\
+\>", "Text",
+ CellChangeTimes->{{3.766146764765555*^9, 3.766146774772637*^9}, {
+  3.7661495871348457`*^9, 
+  3.7661496242085524`*^9}},ExpressionUUID->"b05094ca-1dfc-4d18-882e-\
+c3b6ccbe447b"],
+
+Cell["[04:40]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}, {
+   3.766964760108479*^9, 3.766964763115609*^9}},
+ CellTags->"Timecode",ExpressionUUID->"086381be-ee90-4cee-869d-cac3361cdd5c"],
+
+Cell[TextData[{
+ "One last thing about these charts. It\[CloseCurlyQuote]s important to pay \
+attention to the axes themselves. \nAs you may have guessed by now, these \
+bubble charts were inspired by the famous bubble charts of Hans Rosling. At \
+gapminder.org, we can see the World Health Chart comparing health and wealth \
+of nations. \nHowever, comparing that chart to our chart, we see the spread \
+of the countries is not quite the same. Of course we could take away the \
+outliers to focus on the range within which most of the countries fall with \
+their national income per person, but it is only when we examine the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "3bf53630-e04c-4fbb-8627-7a43b2a22eac"],
+ " axis in the original chart we see that it is plotted in the log scale. We \
+make the adjustment, and now we see more clearly the main message of this \
+chart\[LongDash]that really, most countries are in the middle of the \
+health-wealth scale."
+}], "Text",
+ CellChangeTimes->{{3.766146786573947*^9, 3.766146806890813*^9}, {
+   3.7661496516482964`*^9, 3.766149808304633*^9}, 
+   3.766225006294262*^9},ExpressionUUID->"fcdd00f9-4563-4028-be40-\
+349315fcd57a"],
+
+Cell["[05:29]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}, {
+   3.766964819777697*^9, 3.766964822009169*^9}},
+ CellTags->"Timecode",ExpressionUUID->"cac1dd44-8234-4ece-a0d2-46912b14a59f"],
+
+Cell["\<\
+Here are a few other examples of visualizations. 
+Electricity production by country for the G6 counties. For each country, the \
+breakup is shown across the different sources of production.\
+\>", "Text",
+ CellChangeTimes->{
+  3.76614681442868*^9, {3.766149823127115*^9, 
+   3.7661498301518173`*^9}},ExpressionUUID->"ab733d6d-3100-4f67-b6df-\
+fa1a1677fcc4"],
+
+Cell["\<\
+This example shows the top petroleum producing countries of the world using a \
+geographic visualization function, GeoBubbleChart. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766146821052525*^9, {3.766149838158618*^9, 
+   3.7661498512639284`*^9}},ExpressionUUID->"9457883f-07b9-4bf5-9b78-\
+a1b953374930"],
+
+Cell["[05:53]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}, {
+   3.766964854890561*^9, 3.766964858170362*^9}},
+ CellTags->"Timecode",ExpressionUUID->"85e0180e-bac3-4ecf-b2de-d7e70610c75b"],
+
+Cell["\<\
+Graphs are a great tool for visualizing relationships between data samples. \
+This graph shows the words nearest to \[OpenCurlyDoubleQuote]wolf\
+\[CloseCurlyDoubleQuote], connecting each word with the two words nearest to \
+it. This graph shows how letters in a word occur one after the other, or in \
+the case of a sentence, how words are linked to subsequent words in order in \
+the sentence.\
+\>", "Text",
+ CellChangeTimes->{{3.766146826684304*^9, 3.7661468391628647`*^9}, {
+  3.7661498649772997`*^9, 
+  3.766149905682193*^9}},ExpressionUUID->"be32cec2-2d3f-4a31-b991-\
+3fa3b9bcb0a6"],
+
+Cell["[06:17]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}, {
+   3.766964880044057*^9, 3.766964884422801*^9}},
+ CellTags->"Timecode",ExpressionUUID->"1e5a834f-0671-45f6-8295-feededf2215b"],
+
+Cell["\<\
+The Wolfram Language offers a large variety of visualization functions. For \
+data visualization itself, there are many specialized functions that can be \
+used for visualizing specific types of data. Across these functions, a number \
+of different styling options can be used to customize the look and feel of \
+the charts, plots and graphs. PlotTheme, as we mentioned earlier, is a way to \
+leverage some prebuilt  themes to quickly set the style across multiple \
+options. PlotStyle and ChartStyles are other useful options for customizing \
+the individual elements in the charts.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766146846627758*^9, {3.766149922370861*^9, 3.7661499605234833`*^9}, {
+   3.767113870867713*^9, 
+   3.7671138715404863`*^9}},ExpressionUUID->"db7962a4-133f-479e-963c-\
+afb36ff5c3fa"],
+
+Cell["[06:57]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766964488104665*^9, 
+   3.766964488297393*^9}, {3.766964595442814*^9, 3.766964597651943*^9}, {
+   3.766964930110303*^9, 3.766964932820044*^9}},
+ CellTags->"Timecode",ExpressionUUID->"07154d8f-b9ec-448d-b15a-b9deca5e2bc6"],
+
+Cell["\<\
+There are many different ways to combine pictures and arrange them in a \
+custom layout, annotate them effectively, and add interactivity to create \
+engaging infographics. To learn more about creating beautiful visualizations \
+in the Wolfram Language, please refer to the detailed hands-on tutorials \
+linked from the documentation pages. Wolfram U also offers a full-length, \
+instructor-led course on data visualization in the Wolfram Language, as well \
+as many other resources for learning about visualization and graphics.\
+\>", "Text",
+ CellChangeTimes->{{3.7661468538999557`*^9, 3.766146859025299*^9}, {
+  3.766149986956126*^9, 3.766150058847315*^9}, {3.767113873933228*^9, 
+  3.7671138806050034`*^9}},ExpressionUUID->"dab2ccb7-69a8-4406-908a-\
+964f2040d92b"]
+}, Open  ]]
+},
+WindowSize->{807, 1035},
+WindowMargins->{{Automatic, 212}, {900, Automatic}},
+ShowCellTags->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+       StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+       CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> False, 
+       LineSpacing -> {1, 4}, LanguageCategory -> "NaturalLanguage", 
+       CounterIncrements -> "Title", 
+       CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+         "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+         "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+         "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, MenuSortingValue -> 
+       1100, MenuCommandKey -> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+       45, FontTracking -> -0.5, FontColor -> RGBColor[0.8, 0.043, 0.008]], 
+      Cell[
+       StyleData["Section"], CellFrame -> {{0, 0}, {0, 0}}, CellDingbat -> 
+       Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{67, Inherited}, {34, 54}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionDoubleDigit"], CellFrame -> {{0, 0}, {0, 0}}, 
+       CellDingbat -> Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{112, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionNumber"], CellBaseline -> Baseline, FontFamily -> 
+       "Source Sans Pro", FontSize -> 36, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionInline"], FontFamily -> "Source Sans Pro", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionNoDingbat"], 
+       CellMargins -> {{64, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 25, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Subsubsection"], CellMargins -> {{27, Inherited}, {6, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 20, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Text"], CellMargins -> {{27, 10}, {7, 8}}, 
+       LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+       "Text", MenuSortingValue -> 1400, MenuCommandKey -> "7", FontFamily -> 
+       "Source Sans Pro", FontSize -> 15], 
+      Cell[
+       StyleData["Link"], 
+       CellChangeTimes -> {{3.747057645225031*^9, 3.747057645432509*^9}, {
+        3.747057679800942*^9, 3.747057679968298*^9}}, FontFamily -> 
+       "WolframCodeSans", FontSize :> If[CurrentValue[
+           EvaluationCell[], "FontFamily"] === "Source Sans Pro", Inherited, 
+         If[CurrentValue[
+            EvaluationCell[], "FontFamily"] === "WolframCodeSans", Inherited, 
+          Inherited 0.9]], FontColor -> 
+       RGBColor[
+        0.4285191119249256, 0.45610742351415273`, 0.560845349813077]]}, 
+     Closed]]}, Visible -> False, FrontEndVersion -> 
+  "12.0 for Mac OS X x86 (64-bit) (April 8, 2019)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Timecode"->{
+  Cell[1978, 47, 360, 6, 45, "Text",ExpressionUUID->"e15f7350-81da-44b0-9cda-1e215cb39b02",
+   CellTags->"Timecode"],
+  Cell[3811, 90, 410, 7, 45, "Text",ExpressionUUID->"2a123039-7c72-45e3-b842-fb1425ecde5f",
+   CellTags->"Timecode"],
+  Cell[5744, 139, 458, 7, 45, "Text",ExpressionUUID->"5f898fb5-0f6b-4d06-aa1a-c7640cb94fb7",
+   CellTags->"Timecode"],
+  Cell[7287, 172, 456, 7, 45, "Text",ExpressionUUID->"b15b7b85-a166-48d6-bb98-4100b49da1be",
+   CellTags->"Timecode"],
+  Cell[8490, 195, 506, 8, 45, "Text",ExpressionUUID->"321a848c-5a80-4a5c-bc82-e288e6d65234",
+   CellTags->"Timecode"],
+  Cell[10085, 229, 506, 8, 45, "Text",ExpressionUUID->"b697c96f-f84e-4d31-8cd3-101d6adbdcb0",
+   CellTags->"Timecode"],
+  Cell[11284, 253, 506, 8, 45, "Text",ExpressionUUID->"80ceaaec-8697-4073-b66b-d7fe8c05915c",
+   CellTags->"Timecode"],
+  Cell[12555, 278, 506, 8, 45, "Text",ExpressionUUID->"086381be-ee90-4cee-869d-cac3361cdd5c",
+   CellTags->"Timecode"],
+  Cell[14265, 310, 506, 8, 56, "Text",ExpressionUUID->"cac1dd44-8234-4ece-a0d2-46912b14a59f",
+   CellTags->"Timecode"],
+  Cell[15455, 339, 506, 8, 56, "Text",ExpressionUUID->"85e0180e-bac3-4ecf-b2de-d7e70610c75b",
+   CellTags->"Timecode"],
+  Cell[16564, 362, 506, 8, 56, "Text",ExpressionUUID->"1e5a834f-0671-45f6-8295-feededf2215b",
+   CellTags->"Timecode"],
+  Cell[17889, 388, 506, 8, 56, "Text",ExpressionUUID->"07154d8f-b9ec-448d-b15a-b9deca5e2bc6",
+   CellTags->"Timecode"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Timecode", 25214, 538}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 806, 12, 135, "Section",ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27",
+ Evaluatable->False,
+ CounterAssignments->{{"Section", 4}, {"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}}],
+Cell[CellGroupData[{
+Cell[1389, 36, 586, 9, 48, "Subsection",ExpressionUUID->"8166ba66-ded5-4109-93c9-192521d797b4"],
+Cell[1978, 47, 360, 6, 45, "Text",ExpressionUUID->"e15f7350-81da-44b0-9cda-1e215cb39b02",
+ CellTags->"Timecode"],
+Cell[2341, 55, 294, 7, 35, "Text",ExpressionUUID->"99aabb34-f968-4936-abff-0c449b2985db"],
+Cell[2638, 64, 746, 13, 127, "Text",ExpressionUUID->"78c9bea1-f2ee-4b6c-92c0-59ed9f08b8c5"],
+Cell[3387, 79, 421, 9, 58, "Text",ExpressionUUID->"3dc26ae7-4a8f-484d-85c1-f6ff999a6f54"],
+Cell[3811, 90, 410, 7, 45, "Text",ExpressionUUID->"2a123039-7c72-45e3-b842-fb1425ecde5f",
+ CellTags->"Timecode"],
+Cell[4224, 99, 366, 8, 58, "Text",ExpressionUUID->"35524583-404b-4ea1-84d2-ed8ccb6588f0"],
+Cell[4593, 109, 359, 8, 58, "Text",ExpressionUUID->"2d454ee1-0785-454f-baff-4c9e2fea003d"],
+Cell[4955, 119, 409, 8, 58, "Text",ExpressionUUID->"ee2c7f7f-5df1-4105-a97f-e6df83511579"],
+Cell[5367, 129, 374, 8, 58, "Text",ExpressionUUID->"bb0523ee-2c17-4b38-bbe0-96a137904720"],
+Cell[5744, 139, 458, 7, 45, "Text",ExpressionUUID->"5f898fb5-0f6b-4d06-aa1a-c7640cb94fb7",
+ CellTags->"Timecode"],
+Cell[6205, 148, 498, 9, 58, "Text",ExpressionUUID->"e00fdc34-a1f2-4211-8eac-a7a507997b44"],
+Cell[6706, 159, 578, 11, 104, "Text",ExpressionUUID->"7a10446c-52fb-414c-b09b-631d913fd878"],
+Cell[7287, 172, 456, 7, 45, "Text",ExpressionUUID->"b15b7b85-a166-48d6-bb98-4100b49da1be",
+ CellTags->"Timecode"],
+Cell[7746, 181, 741, 12, 104, "Text",ExpressionUUID->"421e3b39-61d2-4cf4-92f0-7f9a78b27fc7"],
+Cell[8490, 195, 506, 8, 45, "Text",ExpressionUUID->"321a848c-5a80-4a5c-bc82-e288e6d65234",
+ CellTags->"Timecode"],
+Cell[8999, 205, 1083, 22, 127, "Text",ExpressionUUID->"7ad0a4ee-910e-4264-87f0-6b9439610465"],
+Cell[10085, 229, 506, 8, 45, "Text",ExpressionUUID->"b697c96f-f84e-4d31-8cd3-101d6adbdcb0",
+ CellTags->"Timecode"],
+Cell[10594, 239, 687, 12, 127, "Text",ExpressionUUID->"7081f5b8-9d66-4d88-90df-393aa78f3fbb"],
+Cell[11284, 253, 506, 8, 45, "Text",ExpressionUUID->"80ceaaec-8697-4073-b66b-d7fe8c05915c",
+ CellTags->"Timecode"],
+Cell[11793, 263, 759, 13, 127, "Text",ExpressionUUID->"b05094ca-1dfc-4d18-882e-c3b6ccbe447b"],
+Cell[12555, 278, 506, 8, 45, "Text",ExpressionUUID->"086381be-ee90-4cee-869d-cac3361cdd5c",
+ CellTags->"Timecode"],
+Cell[13064, 288, 1198, 20, 196, "Text",ExpressionUUID->"fcdd00f9-4563-4028-be40-349315fcd57a"],
+Cell[14265, 310, 506, 8, 56, "Text",ExpressionUUID->"cac1dd44-8234-4ece-a0d2-46912b14a59f",
+ CellTags->"Timecode"],
+Cell[14774, 320, 366, 8, 81, "Text",ExpressionUUID->"ab733d6d-3100-4f67-b6df-fa1a1677fcc4"],
+Cell[15143, 330, 309, 7, 58, "Text",ExpressionUUID->"9457883f-07b9-4bf5-9b78-a1b953374930"],
+Cell[15455, 339, 506, 8, 56, "Text",ExpressionUUID->"85e0180e-bac3-4ecf-b2de-d7e70610c75b",
+ CellTags->"Timecode"],
+Cell[15964, 349, 597, 11, 81, "Text",ExpressionUUID->"be32cec2-2d3f-4a31-b991-3fa3b9bcb0a6"],
+Cell[16564, 362, 506, 8, 56, "Text",ExpressionUUID->"1e5a834f-0671-45f6-8295-feededf2215b",
+ CellTags->"Timecode"],
+Cell[17073, 372, 813, 14, 127, "Text",ExpressionUUID->"db7962a4-133f-479e-963c-afb36ff5c3fa"],
+Cell[17889, 388, 506, 8, 56, "Text",ExpressionUUID->"07154d8f-b9ec-448d-b15a-b9deca5e2bc6",
+ CellTags->"Timecode"],
+Cell[18398, 398, 778, 12, 127, "Text",ExpressionUUID->"dab2ccb7-69a8-4406-908a-964f2040d92b"]
+}, Open  ]]
+}
+]
+*)
+

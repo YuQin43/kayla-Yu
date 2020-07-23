@@ -1,0 +1,807 @@
+﻿1
+00:00:00,000 --> 00:00:03,600
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,600 --> 00:00:06,400
+Section 1: The Project Workflow.
+
+3
+00:00:06,400 --> 00:00:09,600
+We are now at the third stage
+of the project workflow,
+
+4
+00:00:09,600 --> 00:00:11,100
+that is, explore.
+
+5
+00:00:11,100 --> 00:00:13,900
+We will try some exploratory
+data analysis
+
+6
+00:00:13,900 --> 00:00:15,500
+for our example project,
+
+7
+00:00:15,500 --> 00:00:18,300
+where we downloaded the tweets
+made by Wolfram Research
+
+8
+00:00:18,300 --> 00:00:23,000
+and are hoping to use them to
+derive some data-driven insights.
+
+9
+00:00:23,000 --> 00:00:26,000
+Exploratory data analysis
+is all about trying to gain
+
+10
+00:00:26,000 --> 00:00:28,800
+an intuitive understanding
+of the data.
+
+11
+00:00:28,800 --> 00:00:32,100
+We don't have to know exactly
+what sort of algorithm
+
+12
+00:00:32,100 --> 00:00:35,500
+or technique we want to employ
+for the data yet.
+
+13
+00:00:35,500 --> 00:00:38,000
+In fact,
+with the multiparadigm workflow,
+
+14
+00:00:38,000 --> 00:00:40,800
+we are encouraged
+to keep an open mind
+
+15
+00:00:40,800 --> 00:00:42,200
+and try out different techniques.
+
+16
+00:00:42,200 --> 00:00:44,700
+There is no wrong choice
+at this point,
+
+17
+00:00:44,700 --> 00:00:47,300
+and this makes it much more fun.
+
+18
+00:00:47,300 --> 00:00:50,900
+As the exploration proceeds,
+we may even find ourselves
+
+19
+00:00:50,900 --> 00:00:54,000
+reframing the questions
+we started out with.
+
+20
+00:00:54,000 --> 00:00:55,450
+Let's explore the Twitter data
+
+21
+00:00:55,450 --> 00:00:59,400
+and figure out if it can be used
+to answer questions like:
+
+22
+00:00:59,400 --> 00:01:01,200
+How many tweets were made?
+
+23
+00:01:01,200 --> 00:01:03,000
+What were the tweets
+talking about?
+
+24
+00:01:03,000 --> 00:01:04,900
+Who was featured in these tweets?
+
+25
+00:01:04,900 --> 00:01:06,000
+And so on.
+
+26
+00:01:06,000 --> 00:01:09,000
+To answer the question,
+"how many tweets were sent out,"
+
+27
+00:01:09,000 --> 00:01:11,800
+we can look at the DateHistogram
+
+28
+00:01:11,800 --> 00:01:14,500
+showing the number of tweets
+by year.
+
+29
+00:01:14,500 --> 00:01:17,400
+We can recreate
+the same date histogram,
+
+30
+00:01:17,400 --> 00:01:19,500
+but this time binning the tweets
+
+31
+00:01:19,500 --> 00:01:22,600
+by the day of the week
+on which they were created.
+
+32
+00:01:22,600 --> 00:01:24,700
+This shows that
+the majority of the tweets
+
+33
+00:01:24,700 --> 00:01:27,000
+went out on Wednesday.
+
+34
+00:01:27,000 --> 00:01:29,000
+In another version
+of the histogram,
+
+35
+00:01:29,000 --> 00:01:32,000
+we can bin the tweets
+by hour of the day.
+
+36
+00:01:32,000 --> 00:01:33,650
+We see most of the tweets
+were made
+
+37
+00:01:33,650 --> 00:01:35,900
+during regular business hours,
+
+38
+00:01:35,900 --> 00:01:39,800
+but someone was burning the
+midnight oil at these tail ends.
+
+39
+00:01:39,800 --> 00:01:41,400
+While we are exploring
+the numbers,
+
+40
+00:01:41,400 --> 00:01:42,500
+it would be nice to know
+
+41
+00:01:42,500 --> 00:01:45,100
+how many tweets
+were liked or retweeted
+
+42
+00:01:45,100 --> 00:01:46,800
+a certain number of times.
+
+43
+00:01:46,800 --> 00:01:49,200
+So here is a histogram
+of the number of times
+
+44
+00:01:49,200 --> 00:01:51,000
+a tweet was liked.
+
+45
+00:01:51,000 --> 00:01:54,000
+We see that the majority
+of the tweets were liked
+
+46
+00:01:54,000 --> 00:01:57,100
+anywhere between 0 and 25 times,
+
+47
+00:01:57,100 --> 00:01:59,900
+while when we look
+at the retweets,
+
+48
+00:01:59,900 --> 00:02:00,900
+in the same way,
+
+49
+00:02:00,900 --> 00:02:02,900
+we see very few tweets
+were retweeted
+
+50
+00:02:02,900 --> 00:02:05,000
+more than 400 times.
+
+51
+00:02:05,000 --> 00:02:08,100
+We can actually pull out
+these tail-end tweets
+
+52
+00:02:08,100 --> 00:02:10,800
+liked or retweeted more than
+a certain number of times
+
+53
+00:02:10,800 --> 00:02:13,400
+and look at their text
+and hashtags.
+
+54
+00:02:15,400 --> 00:02:17,600
+Now that we have explored
+the numbers a bit,
+
+55
+00:02:17,600 --> 00:02:21,100
+let's explore the actual content
+of these tweets.
+
+56
+00:02:21,100 --> 00:02:23,000
+We can look at the hashtags
+in the tweets
+
+57
+00:02:23,000 --> 00:02:26,800
+to see what Wolfram Research
+has been tweeting about.
+
+58
+00:02:26,800 --> 00:02:31,100
+A plain list is not very useful,
+so maybe we could count and sort
+
+59
+00:02:31,100 --> 00:02:35,800
+the hashtags in descending order
+of number of times they were used.
+
+60
+00:02:35,800 --> 00:02:36,800
+But the same information
+
+61
+00:02:36,800 --> 00:02:40,200
+becomes more appealing visually
+in a word cloud,
+
+62
+00:02:40,200 --> 00:02:43,000
+and seems like this would be
+a good way to convey
+
+63
+00:02:43,000 --> 00:02:45,200
+the importance given
+to certain hashtags
+
+64
+00:02:45,200 --> 00:02:48,000
+or specific topics in the tweets.
+
+65
+00:02:48,000 --> 00:02:51,000
+Here is a word cloud made out
+of the raw text from the tweets,
+
+66
+00:02:51,000 --> 00:02:54,000
+and it is immediately visible
+
+67
+00:02:54,000 --> 00:02:57,700
+that the text text
+needs some cleaning.
+
+68
+00:02:57,700 --> 00:03:01,100
+There—much better once we use
+the cleanText function
+
+69
+00:03:01,100 --> 00:03:02,800
+we developed before.
+
+70
+00:03:02,800 --> 00:03:05,000
+In addition to the hashtags
+and user mentions,
+
+71
+00:03:05,000 --> 00:03:07,500
+a few other
+interesting words pop up.
+
+72
+00:03:07,500 --> 00:03:10,800
+It appears that we announce
+a lot of new things
+
+73
+00:03:10,800 --> 00:03:15,000
+and we are also very polite,
+as we say a lot of thanks,
+
+74
+00:03:15,000 --> 00:03:17,000
+and we also encourage
+people to learn.
+
+75
+00:03:18,700 --> 00:03:23,000
+Next let's explore to see
+who were the people in the tweets.
+
+76
+00:03:23,000 --> 00:03:25,800
+We did look at the users
+mentioned in the tweets.
+
+77
+00:03:25,800 --> 00:03:29,200
+We can create a word cloud
+with that information
+
+78
+00:03:29,200 --> 00:03:32,300
+and can see who
+was mentioned most often.
+
+79
+00:03:32,300 --> 00:03:34,900
+Well, no surprise there.
+
+80
+00:03:34,900 --> 00:03:37,000
+We have the Twitter handles
+of these users,
+
+81
+00:03:37,000 --> 00:03:40,000
+but we could get more information
+
+82
+00:03:40,000 --> 00:03:42,600
+if we could download
+the user data.
+
+83
+00:03:42,600 --> 00:03:45,100
+So back to
+the data wrangling stage
+
+84
+00:03:45,100 --> 00:03:49,000
+to download and organize
+some more data for these users.
+
+85
+00:03:49,000 --> 00:03:52,000
+You'll notice a few errors
+while we try to download the data
+
+86
+00:03:52,000 --> 00:03:53,100
+because not all accounts
+
+87
+00:03:53,100 --> 00:03:55,600
+make the information
+publicly downloadable.
+
+88
+00:03:55,600 --> 00:03:57,800
+But for the ones that are
+successfully downloaded,
+
+89
+00:03:57,800 --> 00:03:59,800
+let's see what is available.
+
+90
+00:03:59,800 --> 00:04:04,300
+We have the user ID; screen name,
+or the Twitter handle;
+
+91
+00:04:04,300 --> 00:04:06,800
+display name; location;
+
+92
+00:04:06,800 --> 00:04:10,000
+favorites count;
+and friends count.
+
+93
+00:04:10,000 --> 00:04:12,000
+Notice there is no consistency
+
+94
+00:04:12,000 --> 00:04:15,000
+in the way the location
+information is provided.
+
+95
+00:04:15,000 --> 00:04:17,000
+Sometimes we have
+the city and state
+
+96
+00:04:17,000 --> 00:04:19,600
+or just the city
+or just the country
+
+97
+00:04:19,600 --> 00:04:21,500
+or nothing at all.
+
+98
+00:04:21,500 --> 00:04:23,500
+Now a little data cleaning
+can get us
+
+99
+00:04:23,500 --> 00:04:26,500
+from these place names
+in natural language
+
+100
+00:04:26,500 --> 00:04:31,100
+to actual geographic coordinates,
+
+101
+00:04:31,100 --> 00:04:35,000
+and for that we can use
+the ComputedLocation interpreter
+
+102
+00:04:35,000 --> 00:04:36,800
+in the Wolfram Language.
+
+103
+00:04:36,800 --> 00:04:40,700
+It easily converts the text
+in natural language
+
+104
+00:04:40,700 --> 00:04:44,300
+to usable geographic coordinates
+that can be plotted on a map.
+
+105
+00:04:49,500 --> 00:04:50,900
+In fact with a GeoHistogram,
+
+106
+00:04:50,900 --> 00:04:53,800
+we can see the density
+of the users on a world map,
+
+107
+00:04:53,800 --> 00:04:56,000
+which provides some indication
+of the regions
+
+108
+00:04:56,000 --> 00:04:58,800
+where most of these users
+who were mentioned
+
+109
+00:04:58,800 --> 00:05:02,600
+in the Wolfram tweets
+are located.
+
+110
+00:05:02,600 --> 00:05:04,500
+We had seen in
+the earlier word clouds
+
+111
+00:05:04,500 --> 00:05:06,900
+what the Wolfram Research tweets
+were talking about.
+
+112
+00:05:06,900 --> 00:05:11,000
+It would be interesting to see
+what the tweets by all these users
+
+113
+00:05:11,000 --> 00:05:13,100
+who are being mentioned
+by Wolfram Research—
+
+114
+00:05:13,100 --> 00:05:14,800
+what are they talking about?
+
+115
+00:05:14,800 --> 00:05:18,300
+So back to data wrangling again
+to download the hashtags
+
+116
+00:05:18,300 --> 00:05:20,000
+used by these users.
+
+117
+00:05:20,000 --> 00:05:23,000
+And laying them out
+in a word cloud,
+
+118
+00:05:23,000 --> 00:05:26,600
+we see shared interest in AI,
+machine learning,
+
+119
+00:05:26,600 --> 00:05:28,600
+data science, blockchain
+
+120
+00:05:28,600 --> 00:05:32,000
+and of course Wolfram Language
+and Mathematica.
+
+121
+00:05:32,000 --> 00:05:34,300
+In case you are wondering,
+Chambana, here,
+
+122
+00:05:34,300 --> 00:05:36,200
+is how folks refer
+to the twin cities
+
+123
+00:05:36,200 --> 00:05:38,000
+of Champaign–Urbana,
+
+124
+00:05:38,000 --> 00:05:42,200
+Champaign being the location of
+Wolfram's corporate headquarters.
+
+125
+00:05:42,200 --> 00:05:45,000
+Branching out into
+a different path of exploration,
+
+126
+00:05:45,000 --> 00:05:48,500
+we can try to look at
+the social network of these users:
+
+127
+00:05:48,500 --> 00:05:51,300
+who is being mentioned by whom
+
+128
+00:05:51,300 --> 00:05:54,800
+and how they are connected
+through such user mentions.
+
+129
+00:05:54,800 --> 00:05:57,000
+First let's download the people
+who are mentioned
+
+130
+00:05:57,000 --> 00:06:01,300
+in the tweets made by all these
+other people in our list.
+
+131
+00:06:01,300 --> 00:06:05,500
+Some people do not mention others,
+so their list is empty.
+
+132
+00:06:05,500 --> 00:06:09,000
+If we draw an edge
+from one user to another
+
+133
+00:06:09,000 --> 00:06:12,000
+every time the former
+mentions the latter,
+
+134
+00:06:12,000 --> 00:06:16,800
+we can create the network
+of users mentioning each other.
+
+135
+00:06:16,800 --> 00:06:19,800
+So let's shortlist
+the people for whom
+
+136
+00:06:19,800 --> 00:06:22,400
+the right-hand side
+is not an empty list,
+
+137
+00:06:22,400 --> 00:06:25,300
+that is, people who mention
+at least one other person
+
+138
+00:06:25,300 --> 00:06:26,500
+in their tweets,
+
+139
+00:06:26,500 --> 00:06:29,400
+and create a list
+of edges going out
+
+140
+00:06:29,400 --> 00:06:32,700
+from each node
+in our prospective graph.
+
+141
+00:06:32,700 --> 00:06:35,800
+A whole bunch of edges
+will connect Wolfram Research
+
+142
+00:06:35,800 --> 00:06:38,200
+to people in our list.
+
+143
+00:06:38,200 --> 00:06:40,700
+This is the graph showing
+all the connections.
+
+144
+00:06:42,000 --> 00:06:48,700
+It has over 13,000 vertices
+and 16,000 edges.
+
+145
+00:06:48,700 --> 00:06:52,300
+So let's try to focus
+on a simpler subgraph.
+
+146
+00:06:52,300 --> 00:06:56,000
+For every user mention,
+the node representing that user
+
+147
+00:06:56,000 --> 00:06:58,400
+has an edge coming into the node.
+
+148
+00:06:59,500 --> 00:07:03,200
+These edges make up
+the in-degree of the node.
+
+149
+00:07:03,200 --> 00:07:05,800
+The most popular person
+in the network—
+
+150
+00:07:05,800 --> 00:07:07,300
+most mentioned by others—
+
+151
+00:07:07,300 --> 00:07:09,500
+would have the highest in-degree.
+
+152
+00:07:09,500 --> 00:07:14,800
+We pick the vertices
+with in-degree above a threshold,
+
+153
+00:07:14,800 --> 00:07:15,800
+choosing people mentioned
+
+154
+00:07:15,800 --> 00:07:19,100
+at least a certain number
+of times in this network,
+
+155
+00:07:19,100 --> 00:07:23,800
+and attempt to visualize
+this simpler subgraph.
+
+156
+00:07:23,800 --> 00:07:25,500
+This picture is much clearer,
+
+157
+00:07:25,500 --> 00:07:28,500
+but we could probably
+scale the vertex size
+
+158
+00:07:28,500 --> 00:07:32,000
+according to the in-degrees
+so that we can at once see
+
+159
+00:07:32,000 --> 00:07:34,200
+which are the more popular nodes.
+
+160
+00:07:36,700 --> 00:07:38,600
+Exploratory analysis can be
+
+161
+00:07:38,600 --> 00:07:40,600
+the most fun part
+of your project,
+
+162
+00:07:40,600 --> 00:07:43,200
+so sometimes you just
+have to put the brakes
+
+163
+00:07:43,200 --> 00:07:45,800
+on exploration before
+you get carried off
+
+164
+00:07:45,800 --> 00:07:48,700
+with the fun and ease
+of doing such analysis.
+
+165
+00:07:48,700 --> 00:07:51,500
+We have tried a bunch of things,
+and now have some ideas
+
+166
+00:07:51,500 --> 00:07:55,200
+about the type of insights we
+might be able draw from the data.
+
+167
+00:07:55,200 --> 00:07:57,500
+We also came up
+with some new questions
+
+168
+00:07:57,500 --> 00:08:00,900
+that can be asked, and also
+additional data that can be used
+
+169
+00:08:00,900 --> 00:08:04,000
+to augment the data
+we started out with.
+
+170
+00:08:04,000 --> 00:08:05,000
+Armed with these thoughts,
+
+171
+00:08:05,000 --> 00:08:09,000
+we can move on to the analysis
+phase of the workflow.
+

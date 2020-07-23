@@ -1,0 +1,602 @@
+﻿1
+00:00:00,000 --> 00:00:03,000
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,000 --> 00:00:06,000
+Section 2:
+Getting Your Data into Shape.
+
+3
+00:00:06,000 --> 00:00:08,800
+In this section,
+we are discussing functionality
+
+4
+00:00:08,800 --> 00:00:11,300
+that is useful
+for data wrangling.
+
+5
+00:00:11,300 --> 00:00:15,600
+Stephen Wolfram recommended
+a 10-step data curation hierarchy
+
+6
+00:00:15,600 --> 00:00:17,800
+on his blog post a while back.
+
+7
+00:00:17,800 --> 00:00:19,600
+It shows a path to get data
+
+8
+00:00:19,600 --> 00:00:22,800
+from the raw digital form
+in which it has been collected
+
+9
+00:00:22,800 --> 00:00:27,300
+to a form suitable for repeated
+systematic computations.
+
+10
+00:00:27,300 --> 00:00:30,400
+Integrating it into the
+multiparadigm project workflow,
+
+11
+00:00:30,400 --> 00:00:34,200
+we now have helpful guideline
+for the data-wrangling stage.
+
+12
+00:00:34,200 --> 00:00:37,800
+Steps 2 and 3 here highlight
+the need to wrangle raw data
+
+13
+00:00:37,800 --> 00:00:39,600
+and store it systematically,
+
+14
+00:00:39,600 --> 00:00:43,000
+with the data elements arranged
+in a structured way.
+
+15
+00:00:43,000 --> 00:00:45,000
+The structural elements
+that can be used
+
+16
+00:00:45,000 --> 00:00:49,700
+for organizing data include
+lists, associations,
+
+17
+00:00:49,700 --> 00:00:53,000
+datasets, EntityStores
+and time series.
+
+18
+00:00:54,000 --> 00:00:56,600
+Lists are the among the most
+basic data structures.
+
+19
+00:00:56,600 --> 00:01:01,600
+In fact, most file formats are
+imported into lists by default.
+
+20
+00:01:01,600 --> 00:01:03,400
+Let's take a peek at this list
+
+21
+00:01:03,400 --> 00:01:06,000
+to see the first few rows
+of the data.
+
+22
+00:01:06,000 --> 00:01:08,000
+Nested lists provide a structure
+
+23
+00:01:08,000 --> 00:01:11,900
+similar to rows and columns
+of tabular data.
+
+24
+00:01:11,900 --> 00:01:14,500
+The 601 rows
+of the tabular data here
+
+25
+00:01:14,500 --> 00:01:18,000
+have become the list
+of 601 inner lists,
+
+26
+00:01:18,000 --> 00:01:20,000
+and the 3 columns correspond
+
+27
+00:01:20,000 --> 00:01:23,000
+to the 3 items
+in each of these lists.
+
+28
+00:01:23,000 --> 00:01:24,500
+Here's the first row,
+
+29
+00:01:24,500 --> 00:01:27,700
+and here is how we can look
+at the rest of the data.
+
+30
+00:01:27,700 --> 00:01:31,000
+Here's a look at columns 1 and 3,
+or if you choose,
+
+31
+00:01:31,000 --> 00:01:33,600
+we can look at columns 2 and 3.
+
+32
+00:01:33,600 --> 00:01:38,000
+Lists can be easily manipulated
+for inspection and computation.
+
+33
+00:01:38,000 --> 00:01:40,000
+The only overhead that we need
+to keep in mind
+
+34
+00:01:40,000 --> 00:01:42,800
+are the indices of the elements
+in the list
+
+35
+00:01:42,800 --> 00:01:47,000
+so we can retain an understanding
+of the original structure.
+
+36
+00:01:47,000 --> 00:01:51,700
+Column 1 here has the cities
+and column 2 has the sales amount.
+
+37
+00:01:51,700 --> 00:01:54,200
+If we want the total sales
+for each city,
+
+38
+00:01:54,200 --> 00:01:56,200
+we'll need to work with column 2.
+
+39
+00:01:58,800 --> 00:02:01,800
+Associations reduce the need
+for this overhead
+
+40
+00:02:01,800 --> 00:02:03,300
+to keep track of the indices.
+
+41
+00:02:03,300 --> 00:02:06,400
+They use key-value pairs
+to represent the data.
+
+42
+00:02:06,400 --> 00:02:09,300
+So we have
+this dictionary data structure,
+
+43
+00:02:09,300 --> 00:02:12,200
+where each value
+is labeled with a key,
+
+44
+00:02:12,200 --> 00:02:16,300
+and this key is also used
+to access the value.
+
+45
+00:02:16,300 --> 00:02:19,300
+This removes the need to remember
+the meaning of each entry
+
+46
+00:02:19,300 --> 00:02:22,000
+and strictly adhere
+to the sequence of indices,
+
+47
+00:02:22,000 --> 00:02:23,800
+as we had to do with a list.
+
+48
+00:02:23,800 --> 00:02:27,300
+We can work directly on the values
+of the association,
+
+49
+00:02:27,300 --> 00:02:30,500
+or if needed,
+we can also work on the keys.
+
+50
+00:02:30,500 --> 00:02:32,300
+We can extract all the keys
+
+51
+00:02:32,300 --> 00:02:35,300
+or all the values
+from the association.
+
+52
+00:02:35,300 --> 00:02:39,500
+It is easy to construct
+associations from lists.
+
+53
+00:02:39,500 --> 00:02:41,000
+And we can get back a list
+
+54
+00:02:41,000 --> 00:02:45,500
+of the key-value pairs
+from the association if needed.
+
+55
+00:02:45,500 --> 00:02:48,600
+Here's the sales data from
+the previous example,
+
+56
+00:02:48,600 --> 00:02:51,200
+but this time,
+let's use an association
+
+57
+00:02:51,200 --> 00:02:54,200
+to store the sales
+for each city.
+
+58
+00:02:54,200 --> 00:02:58,000
+Now we can retrieve the
+information for a specific city
+
+59
+00:02:58,000 --> 00:03:00,600
+and continue to be able
+to work with the data
+
+60
+00:03:00,600 --> 00:03:03,000
+for all the cities
+in the association.
+
+61
+00:03:05,500 --> 00:03:09,000
+A dataset is a general way
+of representing a hierarchy
+
+62
+00:03:09,000 --> 00:03:13,300
+of lists and associations
+constructed from tabular data.
+
+63
+00:03:13,300 --> 00:03:15,000
+It provides a flexible framework
+
+64
+00:03:15,000 --> 00:03:20,000
+for sophisticated database-style
+queries and manipulations on data,
+
+65
+00:03:20,000 --> 00:03:23,000
+while providing a defined,
+regular structure
+
+66
+00:03:23,000 --> 00:03:25,800
+at arbitrary complexity.
+
+67
+00:03:25,800 --> 00:03:31,000
+We can extract rows
+or columns from the dataset,
+
+68
+00:03:31,000 --> 00:03:35,600
+query it using a function
+or composition of functions,
+
+69
+00:03:35,600 --> 00:03:41,900
+as well as sort, filter
+and aggregate rows in the dataset.
+
+70
+00:03:41,900 --> 00:03:46,800
+Revisiting the sales data example,
+here is a dataset of sales figures
+
+71
+00:03:46,800 --> 00:03:50,400
+with the cities in rows
+and months in columns,
+
+72
+00:03:50,400 --> 00:03:53,800
+and this is how we could query it
+for information.
+
+73
+00:03:55,700 --> 00:03:58,600
+SemanticImport gets the data
+directly into a dataset,
+
+74
+00:03:58,600 --> 00:04:01,500
+and while doing so,
+it also uses machine learning
+
+75
+00:04:01,500 --> 00:04:04,200
+to automatically convert
+different kinds of data
+
+76
+00:04:04,200 --> 00:04:06,400
+into Wolfram Language entities.
+
+77
+00:04:08,900 --> 00:04:10,200
+For data ordered in time,
+
+78
+00:04:10,200 --> 00:04:12,900
+it is helpful
+to preserve the essence
+
+79
+00:04:12,900 --> 00:04:15,800
+of this special ordering property.
+
+80
+00:04:15,800 --> 00:04:17,800
+A series of time-ordered
+data points,
+
+81
+00:04:17,800 --> 00:04:21,000
+like the monthly sales
+of the Boston office
+
+82
+00:04:21,000 --> 00:04:22,000
+in the sales example,
+
+83
+00:04:22,000 --> 00:04:25,000
+can be stored as a time series.
+
+84
+00:04:25,000 --> 00:04:27,000
+We can now use
+special functionality
+
+85
+00:04:27,000 --> 00:04:31,500
+dedicated to handling time series
+to explore and analyze this data.
+
+86
+00:04:31,500 --> 00:04:35,300
+Here's a sample forecast
+from the model based on past data
+
+87
+00:04:35,300 --> 00:04:36,800
+and a comparison of the forecast
+
+88
+00:04:36,800 --> 00:04:38,700
+to the actual data
+from this period.
+
+89
+00:04:40,500 --> 00:04:43,200
+The data curation hierarchy
+referred to earlier
+
+90
+00:04:43,200 --> 00:04:45,000
+recommends
+converting data elements
+
+91
+00:04:45,000 --> 00:04:49,000
+into canonical symbolic forms
+of entities.
+
+92
+00:04:49,000 --> 00:04:53,300
+This helps with augmenting plain
+data with additional information
+
+93
+00:04:53,300 --> 00:04:55,700
+during the data wrangling process.
+
+94
+00:04:55,700 --> 00:04:58,700
+The Wolfram Language provides
+access to real-world objects
+
+95
+00:04:58,700 --> 00:05:01,900
+as symbolic entities
+with their own set of properties.
+
+96
+00:05:01,900 --> 00:05:04,300
+We can create a richer dataset
+
+97
+00:05:04,300 --> 00:05:07,000
+by converting
+the plain-text representations
+
+98
+00:05:07,000 --> 00:05:09,000
+of many data elements
+
+99
+00:05:09,000 --> 00:05:12,900
+into computable entities,
+thereby really embracing
+
+100
+00:05:12,900 --> 00:05:15,400
+the multiparadigm approach
+to working with data.
+
+101
+00:05:19,500 --> 00:05:21,300
+In addition
+to the built-in entities,
+
+102
+00:05:21,300 --> 00:05:25,300
+we can create custom EntityStores
+out of our own data.
+
+103
+00:05:25,300 --> 00:05:28,400
+Here is an EntityStore
+of the type "offices"
+
+104
+00:05:28,400 --> 00:05:30,500
+containing the same information
+
+105
+00:05:30,500 --> 00:05:33,700
+as in the earlier
+sales data example.
+
+106
+00:05:33,700 --> 00:05:36,200
+It has six entities
+of the type "office"
+
+107
+00:05:36,200 --> 00:05:40,000
+with their own properties
+like city and total sales.
+
+108
+00:05:40,000 --> 00:05:41,300
+This can be now used
+
+109
+00:05:41,300 --> 00:05:44,800
+in the same way
+as built-in entities.
+
+110
+00:05:44,800 --> 00:05:47,700
+You can find more information
+about setting up EntityStores
+
+111
+00:05:47,700 --> 00:05:49,200
+in this workflow
+
+112
+00:05:49,200 --> 00:05:51,700
+and explore functions
+to work with information
+
+113
+00:05:51,700 --> 00:05:54,000
+in the relation database here.
+
+114
+00:05:56,000 --> 00:05:59,000
+In summary, we covered
+various structural elements
+
+115
+00:05:59,000 --> 00:06:01,400
+that can be used
+in a multiparadigm workflow
+
+116
+00:06:01,400 --> 00:06:04,000
+to organize and work with data.
+
+117
+00:06:04,000 --> 00:06:07,300
+We looked at lists,
+associations, datasets,
+
+118
+00:06:07,300 --> 00:06:10,000
+time series and EntityStores.
+
+119
+00:06:10,000 --> 00:06:13,000
+We also looked at using
+the Wolfram Data Framework
+
+120
+00:06:13,000 --> 00:06:15,500
+to enrich raw data semantically,
+
+121
+00:06:15,500 --> 00:06:20,000
+a useful step towards preparing
+a structured, computable dataset
+
+122
+00:06:20,000 --> 00:06:22,300
+as the end product
+of the data wrangling stage
+
+123
+00:06:22,300 --> 00:06:24,500
+of the multiparadigm workflow.
+
+124
+00:06:24,500 --> 00:06:28,200
+In the next segment, we will
+look at dealing with messy data—
+
+125
+00:06:28,200 --> 00:06:32,300
+removing errors and finding
+replacements for missing values—
+
+126
+00:06:32,300 --> 00:06:35,100
+all part of the process
+of getting your data into shape
+
+127
+00:06:35,100 --> 00:06:38,000
+for exploration and analysis.
+

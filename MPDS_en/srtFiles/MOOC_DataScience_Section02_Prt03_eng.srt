@@ -1,0 +1,546 @@
+﻿1
+00:00:00,000 --> 00:00:03,000
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,000 --> 00:00:06,200
+Section 2:
+Getting Your Data into Shape.
+
+3
+00:00:06,200 --> 00:00:08,300
+Real-world data can be messy.
+
+4
+00:00:08,300 --> 00:00:11,200
+It is not enough
+to simply get hold of data.
+
+5
+00:00:11,200 --> 00:00:14,800
+A multiparadigm workflow must
+be able to deal with incomplete
+
+6
+00:00:14,800 --> 00:00:16,100
+or inaccurate data
+
+7
+00:00:16,100 --> 00:00:19,700
+containing items
+that may be even irrelevant.
+
+8
+00:00:19,700 --> 00:00:23,800
+Data cleaning is the process
+of replacing, modifying
+
+9
+00:00:23,800 --> 00:00:26,200
+or removing errors from the data.
+
+10
+00:00:26,200 --> 00:00:29,800
+A data cleaning checklist to deal
+with these various problems
+
+11
+00:00:29,800 --> 00:00:32,500
+is a good idea for repeated use
+
+12
+00:00:32,500 --> 00:00:35,600
+at this stage
+of the project workflow.
+
+13
+00:00:35,600 --> 00:00:39,500
+We can start out by checking
+for consistent formatting
+
+14
+00:00:39,500 --> 00:00:43,300
+across each row
+and also across each column.
+
+15
+00:00:43,300 --> 00:00:45,800
+We can also check
+if the feature values
+
+16
+00:00:45,800 --> 00:00:50,000
+are reasonable and informative—
+free of obvious errors.
+
+17
+00:00:50,000 --> 00:00:53,400
+All feature values must be
+within a permissible range,
+
+18
+00:00:53,400 --> 00:00:56,500
+and we can check with experts
+for a reasonable range.
+
+19
+00:00:56,500 --> 00:00:58,000
+Finally we need to check
+
+20
+00:00:58,000 --> 00:01:00,900
+if there are indications
+of missing data,
+
+21
+00:01:00,900 --> 00:01:03,000
+and once we've identified
+missing data,
+
+22
+00:01:03,000 --> 00:01:06,000
+we must decide
+how we are going to deal with it.
+
+23
+00:01:06,000 --> 00:01:07,300
+With the checklist in hand,
+
+24
+00:01:07,300 --> 00:01:11,000
+let's look at ways to clean
+the data one variable at a time.
+
+25
+00:01:11,000 --> 00:01:14,000
+We can look at each variable
+featured in the dataset
+
+26
+00:01:14,000 --> 00:01:16,600
+to identify erroneous values.
+
+27
+00:01:16,600 --> 00:01:19,400
+If you were expecting
+only numeric values,
+
+28
+00:01:19,400 --> 00:01:22,500
+then there should not be strings
+in a particular column.
+
+29
+00:01:25,000 --> 00:01:27,800
+If all values in a column
+are the same,
+
+30
+00:01:27,800 --> 00:01:31,700
+the feature is unlikely to be
+discriminatory or useful.
+
+31
+00:01:31,700 --> 00:01:35,500
+Informative features
+usually span a range of values.
+
+32
+00:01:35,500 --> 00:01:40,000
+If the observed range of values
+appears less than expected,
+
+33
+00:01:40,000 --> 00:01:42,300
+an unexpected cutoff
+may have been applied
+
+34
+00:01:42,300 --> 00:01:44,000
+across the data.
+
+35
+00:01:44,000 --> 00:01:47,300
+If the range of values is
+different from what is expected,
+
+36
+00:01:47,300 --> 00:01:50,300
+some form of unit conversion
+may be required,
+
+37
+00:01:50,300 --> 00:01:52,000
+like metric to imperial.
+
+38
+00:01:56,400 --> 00:01:59,200
+The maximum and minimum
+of a numeric feature
+
+39
+00:01:59,200 --> 00:02:02,900
+should not be outside
+the permissible range of values.
+
+40
+00:02:06,600 --> 00:02:10,000
+Cardinality of a feature
+should conform to expectations.
+
+41
+00:02:10,000 --> 00:02:13,000
+For example, there should be
+only two possible values
+
+42
+00:02:13,000 --> 00:02:15,300
+for a Boolean feature—
+true or false.
+
+43
+00:02:15,300 --> 00:02:19,000
+If we find samples with values
+other than true and false,
+
+44
+00:02:19,000 --> 00:02:20,900
+that is an indication
+of a problem.
+
+45
+00:02:22,300 --> 00:02:27,000
+If the data points come from
+a known statistical distribution,
+
+46
+00:02:27,000 --> 00:02:30,300
+then they should conform
+to the parameters
+
+47
+00:02:30,300 --> 00:02:32,000
+of those distributions.
+
+48
+00:02:32,000 --> 00:02:35,500
+For a normal distribution
+of, say, mean 5
+
+49
+00:02:35,500 --> 00:02:37,700
+and standard deviation of 2,
+
+50
+00:02:37,700 --> 00:02:40,300
+12 would be a suspicious value.
+
+51
+00:02:40,300 --> 00:02:44,400
+Any known or common sense
+relationship between features
+
+52
+00:02:44,400 --> 00:02:50,000
+should be verified with numerical
+or logical consistency checks.
+
+53
+00:02:50,000 --> 00:02:53,000
+Misspellings are
+a common source of errors.
+
+54
+00:02:53,000 --> 00:02:56,400
+Sorting nominal features
+can bring misspelled values
+
+55
+00:02:56,400 --> 00:02:58,500
+next to correctly spelled values
+
+56
+00:02:58,500 --> 00:03:00,500
+and make it easy
+to spot the error.
+
+57
+00:03:02,500 --> 00:03:05,000
+So how do we
+deal with missing data?
+
+58
+00:03:05,000 --> 00:03:07,300
+We can do it in a number of ways.
+
+59
+00:03:07,300 --> 00:03:11,500
+For starters, we can simply ignore
+the samples with missing values.
+
+60
+00:03:11,500 --> 00:03:15,200
+That’s easy,
+but in a real-life scenario,
+
+61
+00:03:15,200 --> 00:03:18,800
+you may only have
+few samples to work with.
+
+62
+00:03:18,800 --> 00:03:20,800
+So instead of throwing away
+some of the data
+
+63
+00:03:20,800 --> 00:03:23,500
+that was collected
+with a lot of hard work,
+
+64
+00:03:23,500 --> 00:03:26,700
+it might help to find
+reasonable substitutes
+
+65
+00:03:26,700 --> 00:03:28,900
+for the missing values.
+
+66
+00:03:28,900 --> 00:03:31,000
+One candidate
+for replacing missing values
+
+67
+00:03:31,000 --> 00:03:35,600
+is the most commonly occurring
+value for that particular feature,
+
+68
+00:03:35,600 --> 00:03:38,600
+or the mean of all
+the available feature values
+
+69
+00:03:38,600 --> 00:03:40,100
+in that particular column.
+
+70
+00:03:42,000 --> 00:03:44,200
+In certain cases,
+it might make more sense
+
+71
+00:03:44,200 --> 00:03:47,900
+to replace the missing value
+with the mean of samples
+
+72
+00:03:47,900 --> 00:03:51,000
+belonging to the same class
+as the corrupt sample
+
+73
+00:03:51,000 --> 00:03:54,000
+instead of the mean
+of all the samples.
+
+74
+00:03:54,000 --> 00:03:55,500
+It doesn't always
+have to be the mean;
+
+75
+00:03:55,500 --> 00:03:57,000
+it can be the median
+
+76
+00:03:57,000 --> 00:03:59,700
+or the commonest value
+in the class.
+
+77
+00:03:59,700 --> 00:04:03,000
+We can even pick a random value
+to replace the missing value.
+
+78
+00:04:03,000 --> 00:04:04,600
+Here's an example
+where we compute
+
+79
+00:04:04,600 --> 00:04:08,300
+the mean and standard deviation
+to model a normal distribution
+
+80
+00:04:08,300 --> 00:04:10,500
+and then pick
+a random value from it.
+
+81
+00:04:10,500 --> 00:04:14,500
+We could even attempt to learn
+a distribution from the good data
+
+82
+00:04:14,500 --> 00:04:18,300
+and use it to generate
+a random replacement value.
+
+83
+00:04:18,300 --> 00:04:22,100
+In hot deck imputation,
+we pick a good sample—
+
+84
+00:04:22,100 --> 00:04:24,200
+one with no missing features—
+
+85
+00:04:24,200 --> 00:04:27,200
+that is most similar
+to the bad sample—
+
+86
+00:04:27,200 --> 00:04:29,000
+the one with a missing value—
+
+87
+00:04:29,000 --> 00:04:32,000
+then copy
+the good sample's feature value
+
+88
+00:04:32,000 --> 00:04:34,900
+to replace the missing value
+in the bad sample.
+
+89
+00:04:36,000 --> 00:04:39,000
+If the situation demands,
+it is not unheard of
+
+90
+00:04:39,000 --> 00:04:42,800
+data scientists employing
+a full-blown classification
+
+91
+00:04:42,800 --> 00:04:46,700
+or regression model
+to predict the missing values.
+
+92
+00:04:46,700 --> 00:04:50,300
+If we do not really want to make
+any changes to the data,
+
+93
+00:04:50,300 --> 00:04:54,300
+changes like removing
+or replacing sample values,
+
+94
+00:04:54,300 --> 00:04:58,700
+we could just leave Missing
+as a special feature value,
+
+95
+00:04:58,700 --> 00:05:01,700
+and the Wolfram Language would
+be able to handle that easily.
+
+96
+00:05:04,800 --> 00:05:06,800
+Before concluding this segment,
+
+97
+00:05:06,800 --> 00:05:09,900
+let's look at some useful
+Wolfram Language functions
+
+98
+00:05:09,900 --> 00:05:12,000
+for sifting through the data.
+
+99
+00:05:12,000 --> 00:05:16,800
+Specific samples can be identified
+in a list with the help of Cases.
+
+100
+00:05:16,800 --> 00:05:18,000
+Samples can be filtered out
+
+101
+00:05:18,000 --> 00:05:21,200
+according to various conditions
+using Select.
+
+102
+00:05:23,000 --> 00:05:25,600
+Various types of Delete functions
+can be used
+
+103
+00:05:25,600 --> 00:05:28,000
+to remove unwanted samples
+from the data.
+
+104
+00:05:29,200 --> 00:05:32,100
+Pattern matching
+along with Replace can be used
+
+105
+00:05:32,100 --> 00:05:35,000
+to replace missing values
+or delete them.
+
+106
+00:05:37,500 --> 00:05:40,400
+In summary,
+we looked at a few thumb rules
+
+107
+00:05:40,400 --> 00:05:43,000
+for systematically
+going through the data,
+
+108
+00:05:43,000 --> 00:05:45,000
+checking for inconsistencies.
+
+109
+00:05:46,000 --> 00:05:49,800
+We looked at a few different ways
+of dealing with missing data.
+
+110
+00:05:49,800 --> 00:05:52,500
+We also looked at some
+Wolfram Language functions
+
+111
+00:05:52,500 --> 00:05:56,000
+that can be used
+for sifting through messy data.
+
+112
+00:05:56,000 --> 00:05:58,000
+In the next and final segment,
+
+113
+00:05:58,000 --> 00:06:02,400
+we will look at feature extraction
+and dimensionality reduction
+
+114
+00:06:02,400 --> 00:06:06,000
+as the possible final steps
+of Getting Your Data into Shape.
+

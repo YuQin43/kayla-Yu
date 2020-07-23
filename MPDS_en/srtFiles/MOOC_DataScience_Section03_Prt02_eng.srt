@@ -1,0 +1,374 @@
+﻿1
+00:00:00,000 --> 00:00:03,000
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,000 --> 00:00:05,800
+Section 3:
+Get to Know Your Data.
+
+3
+00:00:05,800 --> 00:00:08,300
+We are talking
+about exploratory data analysis
+
+4
+00:00:08,300 --> 00:00:10,600
+as a way of getting to know
+your data
+
+5
+00:00:10,600 --> 00:00:14,800
+before really starting to use it
+for modeling or machine learning.
+
+6
+00:00:14,800 --> 00:00:16,000
+We've looked at some tools
+
+7
+00:00:16,000 --> 00:00:19,000
+for basic visual exploration
+of the data—
+
+8
+00:00:19,000 --> 00:00:22,600
+a scatter plot or a simple
+clustering of the samples—
+
+9
+00:00:22,600 --> 00:00:24,500
+things we can easily try out,
+
+10
+00:00:24,500 --> 00:00:29,800
+even if we have no idea how we
+want to proceed with the analysis.
+
+11
+00:00:29,800 --> 00:00:33,000
+In addition to
+these traditional EDA tools,
+
+12
+00:00:33,000 --> 00:00:36,600
+there are many different techniques
+we can borrow from various fields
+
+13
+00:00:36,600 --> 00:00:39,300
+to look at
+our own data differently.
+
+14
+00:00:39,300 --> 00:00:42,500
+A word cloud provides
+a quick intuitive understanding
+
+15
+00:00:42,500 --> 00:00:46,500
+of the most commonly occurring
+words in a piece of text,
+
+16
+00:00:46,500 --> 00:00:49,900
+but we can also use it
+to visualize data
+
+17
+00:00:49,900 --> 00:00:51,200
+any time we are trying to find
+
+18
+00:00:51,200 --> 00:00:54,000
+the most commonly occurring
+elements in a list.
+
+19
+00:00:54,000 --> 00:00:57,000
+For example, to find
+the most popular registered
+
+20
+00:00:57,000 --> 00:01:00,000
+official language
+in the countries of the UN,
+
+21
+00:01:00,000 --> 00:01:01,500
+we could look at the counts
+
+22
+00:01:01,500 --> 00:01:03,000
+or we could look
+at the word cloud,
+
+23
+00:01:03,000 --> 00:01:07,400
+which allows us to quickly
+identify the most popular ones
+
+24
+00:01:07,400 --> 00:01:10,500
+in comparison
+to the other languages.
+
+25
+00:01:10,500 --> 00:01:11,700
+With two-dimensional data
+
+26
+00:01:11,700 --> 00:01:14,500
+like the Old Faithful
+geyser eruptions
+
+27
+00:01:14,500 --> 00:01:17,500
+or the Fisher's iris samples
+
+28
+00:01:17,500 --> 00:01:20,000
+where we can compare
+two features at a time,
+
+29
+00:01:20,000 --> 00:01:23,000
+it's easy to lay out the samples
+in two dimensions
+
+30
+00:01:23,000 --> 00:01:24,300
+and look at them.
+
+31
+00:01:24,300 --> 00:01:28,000
+But with more complicated data
+with multiple features,
+
+32
+00:01:28,000 --> 00:01:33,000
+it's hard to visualize the data
+without significant preprocessing.
+
+33
+00:01:33,000 --> 00:01:36,000
+The Wolfram Language provides
+a multiparadigm tool
+
+34
+00:01:36,000 --> 00:01:39,500
+to easily visualize samples
+in feature space
+
+35
+00:01:39,500 --> 00:01:42,500
+across different types of data.
+
+36
+00:01:42,500 --> 00:01:46,000
+FeatureSpacePlot,
+given a list of samples,
+
+37
+00:01:46,000 --> 00:01:49,300
+it lays them out
+in an appropriate feature space
+
+38
+00:01:49,300 --> 00:01:51,500
+for exploratory analysis.
+
+39
+00:01:51,500 --> 00:01:54,800
+It uses sophisticated pretrained
+feature extractors
+
+40
+00:01:54,800 --> 00:01:59,000
+for specific types of data—
+like images, text or audio.
+
+41
+00:02:00,000 --> 00:02:04,400
+Graphs are a great tool
+for information visualization.
+
+42
+00:02:04,400 --> 00:02:08,500
+Highlighting graph elements
+helps information stand out.
+
+43
+00:02:08,500 --> 00:02:10,800
+By using
+algorithmic graph layouts,
+
+44
+00:02:10,800 --> 00:02:12,700
+much of the structure in a graph,
+
+45
+00:02:12,700 --> 00:02:16,500
+such as connected components,
+becomes self-evident.
+
+46
+00:02:16,500 --> 00:02:18,000
+These are the countries in Asia
+
+47
+00:02:18,000 --> 00:02:20,700
+and the neighbors
+with whom they share a border.
+
+48
+00:02:20,700 --> 00:02:23,800
+Laying them out in a graph,
+it becomes clear
+
+49
+00:02:23,800 --> 00:02:26,700
+which are the hubs sharing
+borders with many neighbors,
+
+50
+00:02:26,700 --> 00:02:28,600
+and which seem to be
+
+51
+00:02:28,600 --> 00:02:31,500
+the more geographically
+secluded countries.
+
+52
+00:02:33,000 --> 00:02:36,500
+Superimposing geographically
+distributed data on maps
+
+53
+00:02:36,500 --> 00:02:39,000
+can provide insight
+into the relationship
+
+54
+00:02:39,000 --> 00:02:42,400
+of the data
+with the geography of the place.
+
+55
+00:02:42,400 --> 00:02:45,000
+These are the earthquakes
+of magnitudes 7 or higher
+
+56
+00:02:45,000 --> 00:02:47,400
+around the world since 1980.
+
+57
+00:02:47,400 --> 00:02:50,000
+Superimposing their locations
+on the world map,
+
+58
+00:02:50,000 --> 00:02:53,800
+we see they occur
+in a specific geographic region.
+
+59
+00:02:53,800 --> 00:02:55,800
+A GeoHistogram highlights
+
+60
+00:02:55,800 --> 00:02:59,400
+the most seismically active parts
+of this region
+
+61
+00:02:59,400 --> 00:03:02,800
+and reminds us
+about the Ring of Fire.
+
+62
+00:03:02,800 --> 00:03:05,400
+Timeline plots show
+when events occur
+
+63
+00:03:05,400 --> 00:03:07,000
+relative to each other.
+
+64
+00:03:07,000 --> 00:03:09,000
+Here is a TimelinePlot
+of the earthquakes
+
+65
+00:03:09,000 --> 00:03:10,500
+of varying magnitudes
+
+66
+00:03:10,500 --> 00:03:13,400
+around Japan in March of 2011,
+
+67
+00:03:13,400 --> 00:03:15,800
+and we can see
+this cluster of aftershocks
+
+68
+00:03:15,800 --> 00:03:17,300
+in the days right after
+
+69
+00:03:17,300 --> 00:03:20,000
+the Great East Japan Earthquake
+and tsunami
+
+70
+00:03:20,000 --> 00:03:23,100
+that destroyed the Fukushima
+Daiichi Nuclear Power Plant.
+
+71
+00:03:24,500 --> 00:03:27,800
+In summary, we looked at
+a few nontraditional tools
+
+72
+00:03:27,800 --> 00:03:30,000
+for visual exploration of data.
+
+73
+00:03:30,000 --> 00:03:31,500
+With a multiparadigm workflow,
+
+74
+00:03:31,500 --> 00:03:34,800
+you can leverage functionality
+from across disciplines
+
+75
+00:03:34,800 --> 00:03:36,400
+to quickly establish
+
+76
+00:03:36,400 --> 00:03:39,500
+relationships between different
+types of features in the dataset
+
+77
+00:03:39,500 --> 00:03:43,300
+or to just look at your data
+very differently.
+
+78
+00:03:43,300 --> 00:03:47,000
+Some of the tools we looked at
+in this segment are word clouds,
+
+79
+00:03:47,000 --> 00:03:52,000
+feature space plots, graphs,
+geographics and timelines.
+

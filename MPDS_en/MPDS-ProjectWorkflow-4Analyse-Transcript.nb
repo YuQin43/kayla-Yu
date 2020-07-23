@@ -1,0 +1,1207 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     58176,       1199]
+NotebookOptionsPosition[     41183,        915]
+NotebookOutlinePosition[     49932,       1093]
+CellTagsIndexPosition[     49860,       1088]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Build a Project Workflow", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.7550187405549192`*^9, 3.755018745149918*^9}, 
+   3.7669466944493723`*^9, 3.767108919026679*^9},
+ CounterAssignments->{{"Section", 0}, {"Subsection", 0}, {
+   "Subsubsection", 0}, {
+   "Exercise", 0}},ExpressionUUID->"4e97b973-976e-4eff-83f4-14391fc7490e"],
+
+Cell[CellGroupData[{
+
+Cell["Analyze", "Subsection",
+ CellChangeTimes->{{3.737378563425274*^9, 3.737378569522224*^9}, {
+   3.755018913277388*^9, 3.755018916601334*^9}, {3.7550190719287863`*^9, 
+   3.7550190732448063`*^9}, {3.7556281794469767`*^9, 3.755628202885263*^9}, 
+   3.755884521562111*^9},ExpressionUUID->"7bb972f3-368a-4b8f-b0bf-\
+f2552ba0ffa7"],
+
+Cell["[00:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"747c4d82-a00f-4929-a7c6-4ef2e661851b"],
+
+Cell["\<\
+Multiparadigm Data Science with the Wolfram Language--Section 1--the Project \
+Workflow.\
+\>", "Text",
+ CellChangeTimes->{{3.759146102692067*^9, 3.759146128120516*^9}, 
+   3.759146470161385*^9, {3.75914792705197*^9, 
+   3.759147938250778*^9}},ExpressionUUID->"d40c3995-0df7-4321-8c9b-\
+051f80de147e"],
+
+Cell["\<\
+We are working on an example data science project, looking at the Twitter \
+feed of Wolfram Research and trying to capture some insights from the tweets.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.755884447137002*^9, 3.755884453313237*^9}, {
+   3.756126623933778*^9, 3.756126625197899*^9}, 3.756735803547379*^9, {
+   3.757680010935873*^9, 
+   3.757680011312018*^9}},ExpressionUUID->"c002300d-9d0e-448f-890c-\
+ccdaa829550f"],
+
+Cell["\<\
+We are trying to execute this project by building a workflow in stages. We \
+have worked through the first three stages, where we set up questions, \
+wrangled the data and explored it. And now we are at the fourth stage of the \
+workflow, \[OpenCurlyDoubleQuote]Analyze.\[CloseCurlyDoubleQuote] \
+\>", "Text",
+ CellChangeTimes->{{3.755884447137002*^9, 3.755884453313237*^9}, {
+   3.756126623933778*^9, 3.756126662694048*^9}, 3.756735809378573*^9, 
+   3.757173943009343*^9, {3.75767998992922*^9, 3.757680034976273*^9}, {
+   3.7591502316344833`*^9, 
+   3.7591502336262083`*^9}},ExpressionUUID->"c3c859b3-eecd-4284-80a8-\
+782d3533d880"],
+
+Cell["[00:32]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669669608181877`*^9, 
+   3.766966960938039*^9}},
+ CellTags->"Timecode",ExpressionUUID->"791ce004-2a99-4303-bf09-eb64fc15af0d"],
+
+Cell["\<\
+The analysis stage is really where the multiparadigm approach becomes so very \
+helpful. We don\[CloseCurlyQuote]t have to restrict ourselves to a particular \
+technique associated with a specific kind of data or field of study. \
+\>", "Text",
+ CellChangeTimes->{
+  3.755884588265593*^9, 3.7561266981543303`*^9, {3.757680038936255*^9, 
+   3.75768004849631*^9}, {3.75915038382082*^9, 
+   3.759150386817759*^9}},ExpressionUUID->"db91cf82-7bf7-4f39-a788-\
+660f52d84b85"],
+
+Cell["\<\
+The Wolfram Language provides a large computational toolset for multiparadigm \
+data science, and we can pick a few different tools to see which one provides \
+the best answers to our questions.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558845951131773`*^9, 3.755969335995517*^9, 3.7561267060397243`*^9, {
+   3.757680056296514*^9, 
+   3.757680060344678*^9}},ExpressionUUID->"fb0434a2-4178-4b5e-89e4-\
+1a54ef5e9d78"],
+
+Cell["\<\
+At the beginning of the project, we framed questions of the type, \
+\[OpenCurlyDoubleQuote]How many?\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]What?\[CloseCurlyDoubleQuote], \
+\[OpenCurlyDoubleQuote]Who?\[CloseCurlyDoubleQuote] and so on. For each of \
+these questions, we can pick an algorithm or technique that helps to provide \
+a meaningful answer. \
+\>", "Text",
+ CellChangeTimes->{
+  3.7558845951131773`*^9, 3.755969337329884*^9, 3.756126712447707*^9, {
+   3.75768006732883*^9, 3.7576800887130117`*^9}, 3.7576833656485567`*^9, {
+   3.7591504109685183`*^9, 
+   3.759150421679928*^9}},ExpressionUUID->"4c8ab19d-b6ea-4b92-b72f-\
+601fba80a150"],
+
+Cell["[01:12]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766966992958624*^9, 
+   3.7669669950751743`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"5eefe0a3-2305-4736-bfc6-32a2542d2aa8"],
+
+Cell["Let\[CloseCurlyQuote]s start out with, \[OpenCurlyDoubleQuote]How many?\
+\[CloseCurlyDoubleQuote].", "Text",
+ CellChangeTimes->{{3.755884631933082*^9, 3.7558846334887943`*^9}, 
+   3.756126746019146*^9, {3.7576801195718927`*^9, 3.757680130191033*^9}, {
+   3.75915045159813*^9, 
+   3.759150461116671*^9}},ExpressionUUID->"c1660840-a549-4020-a0e6-\
+4a2929d62999"],
+
+Cell[TextData[{
+ StyleBox["Comparison charts can help answer questions about",
+  FontWeight->"Plain"],
+ " the number of tweets."
+}], "Text",
+ CellChangeTimes->{{3.755884631933082*^9, 3.7558846334887943`*^9}, 
+   3.756126746019146*^9, {3.7576801195718927`*^9, 3.7576801321295977`*^9}, {
+   3.757683381876142*^9, 
+   3.7576833819562693`*^9}},ExpressionUUID->"0ea9ad46-0496-440a-a992-\
+8f30c290fbb6"],
+
+Cell["\<\
+Here is a date histogram from the exploration stage of the workflow, showing \
+the number of tweets by year.\
+\>", "Text",
+ CellChangeTimes->{
+  3.755884640631587*^9, 3.7559697112585373`*^9, 3.75612675546572*^9, {
+   3.756735867870682*^9, 3.756735868333057*^9}, {3.75768014045774*^9, 
+   3.757680144713849*^9}},ExpressionUUID->"a2a6882a-202a-4e3c-8bc5-\
+e3a06f3ae6c0"],
+
+Cell["\<\
+The code you see here is available in the lecture notebook. We will not go \
+into the details of the code in this particular section, because the aim is \
+to get a high-level overview of a project workflow that embraces the \
+multiparadigm concept. Most of the functionality shown here will be covered \
+in more details in later sections.\
+\>", "Text",
+ CellChangeTimes->{{3.756735899219426*^9, 3.756735901107101*^9}, 
+   3.756835175098154*^9, {3.757680155761876*^9, 3.7576801664263077`*^9}, 
+   3.75915052341709*^9},ExpressionUUID->"8d6851f6-0176-4b70-951d-\
+f4eca428a97b"],
+
+Cell["\<\
+This chart shows all the tweets ever made by Wolfram Research. But in this \
+same way, we can compare the numbers of tweets on a particular topic with a \
+specific hashtag, for example, \[OpenCurlyDoubleQuote]#DataScience.\
+\[CloseCurlyDoubleQuote]\
+\>", "Text",
+ CellChangeTimes->{
+  3.755884647441574*^9, 3.7561267619844303`*^9, 3.756735913066935*^9, 
+   3.75683520119969*^9, {3.75768017031459*^9, 3.7576802391395693`*^9}, {
+   3.7576834089091253`*^9, 3.757683409388955*^9}, {3.759150506849382*^9, 
+   3.759150532143839*^9}},ExpressionUUID->"525b25ce-f289-4f05-9d8a-\
+34783631c2a0"],
+
+Cell["[02:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, 3.766967022701704*^9},
+ CellTags->"Timecode",ExpressionUUID->"a9071873-dea6-4607-9ac9-e73d9a5baac2"],
+
+Cell["\<\
+Comparing the two histograms, we see that while the total number of tweets \
+went down from 2017 to 2018, the number of tweets on data science went up, \
+and that might be a good thing to report to a team planning a Twitter \
+campaign on data science.\
+\>", "Text",
+ CellChangeTimes->{{3.755884653841907*^9, 3.7558846550570097`*^9}, 
+   3.7561267744477882`*^9, 3.756835185344841*^9, {3.757680231467152*^9, 
+   3.757680258683709*^9}, {3.759150549797112*^9, 
+   3.759150550612481*^9}},ExpressionUUID->"9e6d391b-8954-4969-8eb0-\
+ca69b5bacbd9"],
+
+Cell["\<\
+In fact, we can compare the number of tweets by month for the past two years, \
+highlighting for each month the number of tweets tagged with a focus keyword \
+or hashtag.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558846615668297`*^9, 3.756126784880077*^9, {3.756126831085577*^9, 
+   3.75612683151096*^9}, 3.756735938909284*^9, {3.757680262651662*^9, 
+   3.7576802763014812`*^9}},ExpressionUUID->"efad876c-2688-46e0-bd9e-\
+f12e91ebf442"],
+
+Cell["[02:27]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967044577495*^9, 
+   3.766967047281474*^9}},
+ CellTags->"Timecode",ExpressionUUID->"785f951d-333f-4ded-b381-ed7590cea40b"],
+
+Cell["A few things we observe here are:", "Text",
+ CellChangeTimes->{
+  3.7558846758068113`*^9, 3.7561268010953627`*^9, {3.75612683904531*^9, 
+   3.756126929027055*^9}, 3.756735949854384*^9, 3.757679992434844*^9, 
+   3.757680284076548*^9},ExpressionUUID->"06880f79-b802-415c-a62c-\
+f068b8be9c71"],
+
+Cell["\<\
+The number of tweets--they were comparable at the beginning of the year, but \
+the 2018 numbers went down over the summer months.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558846758068113`*^9, 3.7561268010953627`*^9, {3.75612683904531*^9, 
+   3.756126929027055*^9}, 3.756735951467594*^9, {3.7567365775282717`*^9, 
+   3.7567365885312357`*^9}, {3.757680291276271*^9, 3.757680296083921*^9}, {
+   3.759150569570464*^9, 
+   3.759150572248519*^9}},ExpressionUUID->"2962dee2-c249-410b-8553-\
+fb96af99e779"],
+
+Cell["\<\
+Also there was a peak during October of both years (and that makes sense, \
+when you remember that is when the Wolfram Technology Conference takes place).\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558846758068113`*^9, 3.7561268010953627`*^9, {3.75612683904531*^9, 
+   3.756126929027055*^9}, 3.756735951467594*^9, {3.75673657890921*^9, 
+   3.756736598811171*^9}, {3.757680300732419*^9, 3.75768031235639*^9}, {
+   3.7591505768802233`*^9, 
+   3.7591505809767103`*^9}},ExpressionUUID->"dadbea29-99a0-435a-b684-\
+314436175794"],
+
+Cell["\<\
+The focus hashtag in this example\[LongDash]DataScience\[LongDash]has been \
+featured steadily every month, in more tweets in 2018 compared to the \
+previous year. \
+\>", "Text",
+ CellChangeTimes->{
+  3.7558846758068113`*^9, 3.7561268010953627`*^9, {3.75612683904531*^9, 
+   3.756126929027055*^9}, 3.756735951467594*^9, {3.7567366078512363`*^9, 
+   3.7567366082104883`*^9}, {3.757680316028257*^9, 
+   3.7576803265507317`*^9}},ExpressionUUID->"9ff45a65-4577-429e-8bda-\
+21b7eedbb5fc"],
+
+Cell["[02:58]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967062464842*^9, 
+   3.766967065360611*^9}},
+ CellTags->"Timecode",ExpressionUUID->"ecab015e-131d-4b24-9672-99d39a0209d2"],
+
+Cell["\<\
+Here is the total number of tweets made by Wolfram Research. And the number \
+of days over which they span. So we can get the average number of tweets per \
+day.\
+\>", "Text",
+ CellChangeTimes->{{3.755884709088132*^9, 3.755884710166806*^9}, {
+  3.7561303181908903`*^9, 3.756130332277055*^9}, {3.7567366339545593`*^9, 
+  3.756736635674293*^9}, {3.759150617412475*^9, 
+  3.759150623830665*^9}},ExpressionUUID->"c5f4e706-5922-433a-bcd1-\
+4b7d4b70696d"],
+
+Cell["\<\
+During exploration, we saw date histograms that showed the number of tweets \
+by day of the week or hour of the day. But if we wanted a quick snapshot of \
+the hourly numbers by day of the week, we would need a comparison chart \
+showing seven groups of 24 numbers.\
+\>", "Text",
+ CellChangeTimes->{{3.755884760950005*^9, 3.755884770419406*^9}, {
+   3.7561303480773773`*^9, 3.756130357278736*^9}, 3.757679977809843*^9, {
+   3.75768034151665*^9, 3.7576803579985456`*^9}, {3.75768345453402*^9, 
+   3.757683456861608*^9}, {3.767107630296303*^9, 
+   3.767107632292941*^9}},ExpressionUUID->"e3b146c0-70c0-471d-9089-\
+4222e71dea58"],
+
+Cell["\<\
+Something like this for the 24 hours in one day, or this for all seven days \
+of the week, with the days in rows and the hours in columns. This is what the \
+number of tweets from last week looks like.\
+\>", "Text",
+ CellChangeTimes->{{3.755884783412793*^9, 3.755884815321557*^9}, {
+   3.756130372573165*^9, 3.756130431289978*^9}, {3.756737813284299*^9, 
+   3.756737823772128*^9}, 3.756737855539155*^9, 3.757679994355998*^9, {
+   3.7576803789898157`*^9, 3.75768039297351*^9}, {3.767107638495138*^9, 
+   3.767107640052949*^9}},ExpressionUUID->"309b8340-1d22-4217-993d-\
+2eaa86cd81f4"],
+
+Cell["[03:39]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967119514163*^9, 
+   3.7669671222317467`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"d28e9b43-78fb-442d-93f2-0027ea37d26d"],
+
+Cell["\<\
+Again, the code to create this chart is there in the lecture notebook, and we \
+will also discuss the associated functionality in more detail later in the \
+course. \
+\>", "Text",
+ CellChangeTimes->{{3.755884783412793*^9, 3.755884815321557*^9}, {
+  3.756130372573165*^9, 3.756130431289978*^9}, {3.756737813284299*^9, 
+  3.756737823772128*^9}, {3.756737857962*^9, 3.7567378725457582`*^9}, {
+  3.757680397630423*^9, 3.7576804177817993`*^9}, {3.7591506638809977`*^9, 
+  3.7591506766947393`*^9}},ExpressionUUID->"da3cf26c-f8ea-450a-8c73-\
+24596320d3cf"],
+
+Cell["\<\
+Here are the number of retweets garnered by tweets published during a \
+specific hour of the day, to check if it makes sense to favor a particular \
+time over others when sending out tweets. We see different levels of \
+engagement for tweets made at different hours, but we can\[CloseCurlyQuote]t \
+be sure if it was the time or the content of the tweet, or even some specific \
+user mentioned in the tweet that sparked the engagement.\
+\>", "Text",
+ CellChangeTimes->{{3.755884827451769*^9, 3.755884828923805*^9}, 
+   3.756130441866624*^9, 3.7567379456289787`*^9, {3.757680422134041*^9, 
+   3.7576804277425737`*^9}, {3.7576834912945633`*^9, 
+   3.7576834915343637`*^9}, {3.7591506807504997`*^9, 3.759150680998584*^9}, {
+   3.7671076637752953`*^9, 
+   3.767107666092326*^9}},ExpressionUUID->"eea9aea9-0f82-4841-be16-\
+0b6500388565"],
+
+Cell["\<\
+We could try to predict the popularity of the tweet, in terms of the number \
+of retweets it gets, based on its features.\
+\>", "Text",
+ CellChangeTimes->{{3.755884840403182*^9, 3.755884841601717*^9}, 
+   3.756130458841626*^9, 3.756737974353537*^9, {3.7576804610304737`*^9, 
+   3.757680461558464*^9}, {3.759150704232028*^9, 
+   3.759150704503174*^9}},ExpressionUUID->"fe21a210-56be-43ea-bc90-\
+5feec6a890fe"],
+
+Cell["[04:22]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669671573643436`*^9, 
+   3.766967161013049*^9}},
+ CellTags->"Timecode",ExpressionUUID->"89c35f48-0d09-4d4e-95e8-dc9e3ea77072"],
+
+Cell["\<\
+Predictive analytics, another tool from the multiparadigm stack, can be \
+helpful here.\
+\>", "Text",
+ CellChangeTimes->{3.755884870039616*^9, 
+  3.756130470881369*^9},ExpressionUUID->"57d9068a-209f-407a-b28b-\
+d2f50852a038"],
+
+Cell["\<\
+Supervised machine learning algorithms like \[OpenCurlyDoubleQuote]Linear \
+Regression\[CloseCurlyDoubleQuote] or \[OpenCurlyDoubleQuote]Decision Trees\
+\[CloseCurlyDoubleQuote] could be used to predict the number of retweets \
+given the features of a tweet.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558848771199512`*^9, 3.756130476777265*^9, 3.756738001727708*^9, {
+   3.757680480550791*^9, 3.7576804986788883`*^9}, {3.759150747447294*^9, 
+   3.759150762182027*^9}},ExpressionUUID->"8def0a5a-508b-430e-aca3-\
+c562a53250aa"],
+
+Cell["\<\
+As usually required in machine learning, let\[CloseCurlyQuote]s split the \
+entire collection of tweets into a training and a test set.  We can train a \
+model on the training set to predict the number of retweets for the test set.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.755884882315052*^9, 3.755884883328476*^9}, 
+   3.75613048506571*^9, 3.756738009263153*^9, {3.757680505031055*^9, 
+   3.757680518335166*^9}, {3.759150783280278*^9, 3.759150793734064*^9}, {
+   3.767107679953763*^9, 
+   3.7671076828755713`*^9}},ExpressionUUID->"e848b49c-bd66-484c-a823-\
+e675de04ea06"],
+
+Cell["[04:49]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967199887094*^9, 
+   3.766967202345817*^9}},
+ CellTags->"Timecode",ExpressionUUID->"c57dd5e5-0fb8-47eb-9ea8-1e3672a35afb"],
+
+Cell[TextData[{
+ "For features, we can use the text of the tweet (after cleaning it up) and \
+also the time stamp of the tweet.  A ",
+ StyleBox["FeatureExtractor", "Input"],
+ " can convert the time stamps into a numeric vector and the tweet texts into \
+a TFIDF vector (since Term Frequency Inverse Document Frequency is a useful \
+feature for text classification)."
+}], "Text",
+ CellChangeTimes->{
+  3.755884932494516*^9, 3.7561305114238663`*^9, 3.756738031246434*^9, {
+   3.7576805240874443`*^9, 
+   3.757680537016488*^9}},ExpressionUUID->"eb3dca63-a8e8-46c8-83e7-\
+28a9d823620f"],
+
+Cell["[05:10]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"ef86ea6d-9adf-4d5b-926d-4e9df6b16a01"],
+
+Cell[TextData[{
+ "Let\[CloseCurlyQuote]s evaluate the model performance. And here we come \
+(face-)to-face with the unfortunate fact that it is often hard to come up \
+with a good predictor model on the first pass. We can continue to tweak the \
+model parameters, but what is nice about the automated machine learning \
+functions like ",
+ StyleBox["Predict", "Input"],
+ " is they give you a good place to start this tweaking."
+}], "Text",
+ CellChangeTimes->{{3.755884938808873*^9, 3.7558849398791924`*^9}, {
+  3.7561305223753242`*^9, 3.756130546677656*^9}, {3.756738043966032*^9, 
+  3.756738051317822*^9}, {3.757680552344302*^9, 3.757680575592083*^9}, {
+  3.757683535183091*^9, 3.757683535510647*^9}, {3.75915082826587*^9, 
+  3.759150877548052*^9}, {3.759150922097189*^9, 
+  3.759150928839406*^9}},ExpressionUUID->"cd44fce6-1761-4283-a025-\
+0d24a37e0664"],
+
+Cell["[05:36]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.766967263253787*^9}},
+ CellTags->"Timecode",ExpressionUUID->"539a877f-1911-4fbb-9a8e-c4e1985d860a"],
+
+Cell["\<\
+One possible use of this simple model could be to revisit certain tweets, for \
+example, this collection of tweets here at the bottom. These tweets actually \
+had very few retweets, but based on the content of the tweet and the time \
+stamp, the model thinks these should have been retweeted many more times. So \
+perhaps we could could check them to see if tweaking the timing or hashtags \
+of these tweets could have improved engagement. \
+\>", "Text",
+ CellChangeTimes->{
+  3.755884951605123*^9, 3.75613056403841*^9, 3.756738067381967*^9, 
+   3.75733463242301*^9, 3.757679996400484*^9, {3.757680586584228*^9, 
+   3.757680625098119*^9}, {3.759150892353003*^9, 3.7591508934956713`*^9}, {
+   3.759150970909604*^9, 
+   3.7591509789083557`*^9}},ExpressionUUID->"0e934f7f-598a-4bd4-b30a-\
+1c021e5b2cfd"],
+
+Cell["[06:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}},
+ CellTags->"Timecode",ExpressionUUID->"65be9bf7-fcaa-4706-8bf3-d40bcfd8607f"],
+
+Cell["\<\
+After working with the numbers, it is time to move on to the \
+\[OpenCurlyDoubleQuote]What?\[CloseCurlyDoubleQuote] part of the analysis. \
+\>", "Text",
+ CellChangeTimes->{
+  3.755884958540778*^9, {3.7561305725408173`*^9, 3.7561305788774357`*^9}, 
+   3.756738077645995*^9, {3.757680633681425*^9, 3.757680644769002*^9}, {
+   3.759150990415616*^9, 
+   3.759150992459116*^9}},ExpressionUUID->"d88c8353-8998-49f1-aa96-\
+11e0fe8851d8"],
+
+Cell["\<\
+Basic string pattern matching and counting are simple techniques that can \
+help answer questions like:\
+\>", "Text",
+ CellChangeTimes->{{3.7558850733195677`*^9, 3.755885094012973*^9}, {
+  3.7567380893168707`*^9, 
+  3.7567380982434683`*^9}},ExpressionUUID->"d734f724-8503-47f2-ad61-\
+313479e86a5a"],
+
+Cell["What are the tweets talking about?", "Text",
+ CellChangeTimes->{{3.755885101181211*^9, 
+  3.755885102958177*^9}},ExpressionUUID->"4b0cf627-003c-4d2a-8ef1-\
+edffa77c03f0"],
+
+Cell["What are the hashtags being used?", "Text",
+ CellChangeTimes->{{3.755885101181211*^9, 3.755885116725151*^9}, 
+   3.7591510085561028`*^9},ExpressionUUID->"037fec64-00fa-4f58-a21a-\
+5d7374698bc2"],
+
+Cell["\<\
+In the exploration stage, we created a word cloud of the hashtags to see what \
+topics were being discussed. And the same word cloud highlighted which \
+hashtags were used most often. \
+\>", "Text",
+ CellChangeTimes->{{3.7558851260046663`*^9, 3.7558851373795977`*^9}, {
+   3.756738114348435*^9, 3.756738134439528*^9}, 3.7576799790777607`*^9, {
+   3.757681105381734*^9, 3.757681114001206*^9}, {3.759151065101638*^9, 
+   3.7591510860350113`*^9}},ExpressionUUID->"1b13d315-990d-4366-980b-\
+db7d21704d12"],
+
+Cell["[06:26]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967324963442*^9, 3.766967325419504*^9}},
+ CellTags->"Timecode",ExpressionUUID->"3fcd04b9-7d14-41a8-9e61-158246da5dba"],
+
+Cell["\<\
+Here is a ranking of the hashtags by the number of times they were used. If \
+we are focusing on a specific hashtag, we can see how often it was used in \
+comparison to the others in this list. Here is #DataScience.\
+\>", "Text",
+ CellChangeTimes->{{3.756738137433779*^9, 3.75673814687394*^9}, {
+  3.757681126513671*^9, 3.7576811385377207`*^9}, {3.7591511045003567`*^9, 
+  3.759151109131722*^9}},ExpressionUUID->"384dc45b-454d-4741-8f15-\
+2048416ccc32"],
+
+Cell["\<\
+Are there other hashtags that were used for tweets on this same topic, i.e. \
+#DataScience? Here are a few examples.\
+\>", "Text",
+ CellChangeTimes->{{3.755885146235651*^9, 3.755885172624757*^9}, {
+   3.75673815504747*^9, 3.7567381669266157`*^9}, 3.7576799984811687`*^9, {
+   3.7576811462340803`*^9, 3.757681150627057*^9}, {3.759151142565517*^9, 
+   3.7591511445724487`*^9}},ExpressionUUID->"86b3acf1-34ee-4fbc-9d75-\
+3f52783107a3"],
+
+Cell["\<\
+We notice that typos, difference in cases, contractions, etc. create multiple \
+versions of essentially the same hashtag. For tweets to be visible in search \
+results, it would help if the hashtags were consistent, and that seems like \
+an important finding to communicate to the social media team.\
+\>", "Text",
+ CellChangeTimes->{{3.7558851793307753`*^9, 3.75588519836931*^9}, 
+   3.7567381743116693`*^9, {3.757681162266674*^9, 
+   3.757681168953883*^9}},ExpressionUUID->"85b26bac-fa71-4a48-bec3-\
+3b8eaa31f29e"],
+
+Cell["[07:04]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967367345819*^9, 3.766967369954213*^9}},
+ CellTags->"Timecode",ExpressionUUID->"ab340381-86d6-4780-820e-f5c94a276146"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s try another approach to analyzing this data. Cluster \
+analysis can be a very useful tool in data science, whether for exploration \
+or actual analysis itself. \
+\>", "Text",
+ CellChangeTimes->{
+  3.7558866958946447`*^9, {3.756738185302182*^9, 3.756738201989766*^9}, {
+   3.757335767233946*^9, 3.7573357720808477`*^9}, {3.757681178098528*^9, 
+   3.757681185514514*^9}, {3.759151152116702*^9, 
+   3.759151152580574*^9}},ExpressionUUID->"723fbe16-bdc1-4cf4-9ce2-\
+9407ab26fcfd"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s try to cluster the tweets from December 2018. We can \
+lay them out in the feature space of the hashtags, but we don\
+\[CloseCurlyQuote]t really find distinct clusters here. The tweets with \
+similar hashtags appear close together, but that is pretty much it.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558867030386868`*^9, {3.756738210294114*^9, 3.7567382219893913`*^9}, {
+   3.7573358092753983`*^9, 3.757335816169799*^9}, {3.757681192762765*^9, 
+   3.7576812063950777`*^9}, {3.759151169808352*^9, 
+   3.7591511714551487`*^9}},ExpressionUUID->"43dc8678-6d4f-4afd-a26d-\
+4807e9268291"],
+
+Cell["[07:31]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967414702474*^9, 3.7669674176783037`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"e0d759f8-21ca-4dfe-98f6-b3c768341b52"],
+
+Cell[TextData[{
+ "Let\[CloseCurlyQuote]s try ",
+ StyleBox["FeatureSpacePlot", "Input"],
+ " one more time, but this time for each individual word from the tweets, we \
+use a word vector created with the global vector model."
+}], "Text",
+ CellChangeTimes->{
+  3.755886713054303*^9, 3.7567382312207613`*^9, {3.757681217875164*^9, 
+   3.7576812383554792`*^9}, {3.7576812699339933`*^9, 3.757681270059724*^9}, {
+   3.759151192480809*^9, 3.759151195838935*^9}, {3.759151231447644*^9, 
+   3.759151232166184*^9}},ExpressionUUID->"c96264ec-c5cd-4517-8043-\
+bad33767b87d"],
+
+Cell["\<\
+No clear clusters emerge yet. But then again, these are the words in the \
+tweets. What we want is a clustering of the tweets themselves. And to cluster \
+the tweets, we will need to map each tweet to numbers so that we can \
+calculate the distance between them. \
+\>", "Text",
+ CellChangeTimes->{
+  3.755886719446162*^9, {3.7573367845657673`*^9, 3.7573367899950857`*^9}, {
+   3.757681277388085*^9, 3.7576812829962883`*^9}, {3.7591512439580107`*^9, 
+   3.759151245501815*^9}, {3.759151288073946*^9, 
+   3.7591512891120768`*^9}},ExpressionUUID->"f5849516-0f5a-4f88-b5da-\
+5f3c98c25644"],
+
+Cell["[07:58]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967441205543*^9, 3.766967447061099*^9}},
+ CellTags->"Timecode",ExpressionUUID->"1fa2c9d6-cbe8-4505-b6f0-5661c7018a95"],
+
+Cell["\<\
+And to visualize the tweets in 2D, we will need to go from those numbers to \
+just a pair of numbers that can serve as the x-y coordinates for the tweet.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558867310298758`*^9, 3.7573368062517567`*^9, {3.757681297572155*^9, 
+   3.7576813138118753`*^9}, {3.759151301855112*^9, 
+   3.759151356132518*^9}},ExpressionUUID->"449ecca9-3bd6-4b28-9dad-\
+ffe46d916b94"],
+
+Cell["\<\
+Here is the text for a tweet. And here is the feature vector extracted from \
+the text of the tweet. Each word is represented by a word vector of length \
+50. So we get a 4-by-50 feature vector for the 4 words in the tweet.\
+\>", "Text",
+ CellChangeTimes->{{3.759151369332198*^9, 
+  3.7591514526711807`*^9}},ExpressionUUID->"3cb07fc2-bd00-4d11-96b7-\
+7dc35e4a96d4"],
+
+Cell["\<\
+This is the feature vector for all the tweets from December 2018. \
+\>", "Text",
+ CellChangeTimes->{3.755886738349753*^9, 3.7573368229936533`*^9, 
+  3.75733688355838*^9},ExpressionUUID->"8556f96f-ed1a-4a01-8579-85d11bffc90d"],
+
+Cell["[08:27]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.7669674943216543`*^9, 3.76696749738984*^9}},
+ CellTags->"Timecode",ExpressionUUID->"3ca12a74-017a-4fb6-8d5c-4c0e2f724678"],
+
+Cell["\<\
+To represent each tweet with a single word vector, we can sum up the vectors \
+of each word so as to provide a sort of word centroid for each tweet.\
+\>", "Text",
+ CellChangeTimes->{
+  3.755886743801529*^9, {3.757337018943513*^9, 3.757337028629603*^9}, {
+   3.757681332687153*^9, 3.757681338997118*^9}, {3.759151475316455*^9, 
+   3.759151477891603*^9}},ExpressionUUID->"1e26e619-8db0-4e2e-bbbe-\
+cd037988c003"],
+
+Cell["\<\
+Here are the word centroids for some of the tweets and the text they \
+represent. Dimension reduction can reduce the 50-dimensional word-centroid \
+vector to two dimensions.\
+\>", "Text",
+ CellChangeTimes->{{3.7558867520688057`*^9, 3.755886753486382*^9}, 
+   3.757337074479278*^9, {3.76710772090937*^9, 
+   3.7671077242903337`*^9}},ExpressionUUID->"d065479b-2104-4839-b50f-\
+fbba9b65b041"],
+
+Cell["[08:52]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967539439377*^9, 3.7669675450235662`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"142a5313-2041-4872-955b-caece9917c52"],
+
+Cell["\<\
+So now we have a pair of numbers representing each tweet, and we can create a \
+scatter plot to view them.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558867520688057`*^9, {3.755887544116501*^9, 3.755887572244021*^9}, {
+   3.7573371050223618`*^9, 3.757337112357513*^9}, {3.7576813557253723`*^9, 
+   3.757681358606531*^9}},ExpressionUUID->"1f513fd6-aea5-4bdc-8e9c-\
+ad02ccd4644e"],
+
+Cell[TextData[{
+ "We can try to find clusters in this data, leaving it to the ",
+ StyleBox["FindClusters", "Input"],
+ " function to automatically select the appropriate clustering algorithm."
+}], "Text",
+ CellChangeTimes->{
+  3.7558867520688057`*^9, {3.755887544116501*^9, 3.755887574491644*^9}, 
+   3.757337201444248*^9, 
+   3.757681371853557*^9},ExpressionUUID->"191be025-1d20-4514-b6a8-\
+f71262de357f"],
+
+Cell["\<\
+We can specify the number of clusters as well as the clustering algorithm. \
+Here are the two clusters found when all 50 features of the word centroids \
+were used, with the help of the \[OpenCurlyDoubleQuote]K-Means\
+\[CloseCurlyDoubleQuote] clustering algorithm. And this is what each cluster \
+of tweets seems to be talking about.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558867520688057`*^9, {3.755887544116501*^9, 3.755887582251792*^9}, 
+   3.757337248494424*^9, {3.7573374490330133`*^9, 3.7573374492810297`*^9}, {
+   3.757681379245928*^9, 3.757681387470385*^9}, {3.759151527430088*^9, 
+   3.759151565900927*^9}},ExpressionUUID->"e10fcb7f-465e-4bb4-9eb0-\
+a7805555e55b"],
+
+Cell["[09:27]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967539439377*^9, 3.766967578019024*^9}},
+ CellTags->"Timecode",ExpressionUUID->"5b295730-c05b-4aa0-b818-be91a4cc2181"],
+
+Cell["\<\
+Can we leverage the inherent grouping of the tweets to automatically assign a \
+certain label to each group of tweets, based on their textual features? \
+\>", "Text",
+ CellChangeTimes->{
+  3.7558867520688057`*^9, {3.755887544116501*^9, 3.755887598871236*^9}, 
+   3.757337525229961*^9, {3.7576813955018806`*^9, 3.757681399989925*^9}, 
+   3.75768367479436*^9},ExpressionUUID->"4a65cdc3-ae5c-4b87-8f26-\
+1b14069df81c"],
+
+Cell["\<\
+So for that, \[OpenCurlyDoubleQuote]Classification\[CloseCurlyDoubleQuote], \
+another supervised machine learning technique, would be a useful tool. A \
+pre-trained sentiment classifier can quickly label the sentiment for each of \
+last month\[CloseCurlyQuote]s tweets--mostly positive and neutral.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7558867520688057`*^9, {3.755887544116501*^9, 3.755887581602549*^9}, 
+   3.755887628492319*^9, 3.7573375356366243`*^9, {3.7576814102779512`*^9, 
+   3.757681417158016*^9}, {3.759151581748006*^9, 3.759151601325981*^9}, {
+   3.7671077359309587`*^9, 
+   3.767107738266041*^9}},ExpressionUUID->"48c79cc3-3dad-4b28-9ebd-\
+4d6dd541d4f9"],
+
+Cell["[09:55]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967539439377*^9, 3.7669675450235662`*^9}, {3.7669676168369083`*^9, 
+   3.766967621877885*^9}},
+ CellTags->"Timecode",ExpressionUUID->"3f59ffdb-fc26-4677-a91c-004a82c120fe"],
+
+Cell["\<\
+It might be more interesting to see if we can classify whether tweet gets a \
+specific hashtag, based on the content of the tweet. So for #DataScience, \
+here are the tweets that were tagged with this particular hashtag, prior to \
+December 2018. They will be our positive samples.\
+\>", "Text",
+ CellChangeTimes->{{3.7558876543494873`*^9, 3.7558876806906033`*^9}, 
+   3.757338260833404*^9, {3.757681442798992*^9, 3.757681454167121*^9}, {
+   3.759151656511503*^9, 3.759151670828521*^9}, {3.759151707704344*^9, 
+   3.7591517095036917`*^9}, {3.767107749334889*^9, 
+   3.767107758406842*^9}},ExpressionUUID->"2cd6bc90-31b3-47c4-9671-\
+07c4103da401"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s also pick out a number of tweets that did not have any \
+mention of data whatsoever in the text. These will be our negative samples.\
+\>", "Text",
+ CellChangeTimes->{{3.7558876543494873`*^9, 3.755887689577915*^9}, {
+   3.755887723705282*^9, 3.755887729810651*^9}, 3.7573382847286997`*^9, 
+   3.7576800005050592`*^9, 
+   3.7576814701270857`*^9},ExpressionUUID->"1e308b75-e9f9-435f-b657-\
+d41f8572b323"],
+
+Cell["\<\
+We can now train a classifier, which should then be able to predict a label \
+\[OpenCurlyDoubleQuote]DataScience\[CloseCurlyDoubleQuote] or \
+\[OpenCurlyDoubleQuote]NotDataScience\[CloseCurlyDoubleQuote] when given a \
+the text of a tweet. We could potentially use this classifier to suggest \
+whether a tweet could be tagged as #DataScience or not. \
+Let\[CloseCurlyQuote]s try to use it on last month\[CloseCurlyQuote]s tweets.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.7558876543494873`*^9, 3.755887689577915*^9}, {
+   3.755887723705282*^9, 3.75588774020172*^9}, 3.7573382911365967`*^9, {
+   3.759151723479413*^9, 3.759151732742064*^9}, {3.767107775283353*^9, 
+   3.7671077776703453`*^9}},ExpressionUUID->"4c0c731a-8137-4a03-ac5b-\
+77d47f9b7422"],
+
+Cell["\<\
+Here are the predicted labels, hashtags and the text of the tweets. This one \
+seems reasonable. Not sure about this one. Well, at least those predicted \
+\[OpenCurlyDoubleQuote]DataScience\[CloseCurlyDoubleQuote] are worth \
+revisiting to make sure the hashtags are being chosen appropriately.\
+\>", "Text",
+ CellChangeTimes->{{3.7558876543494873`*^9, 3.755887689577915*^9}, {
+   3.755887723705282*^9, 3.755887753383926*^9}, 3.757338669472377*^9, {
+   3.757681502911941*^9, 3.7576815112476873`*^9}, {3.759151770134006*^9, 
+   3.7591517975716753`*^9}},ExpressionUUID->"89409dcb-3318-49e8-8b13-\
+805eacc186df"],
+
+Cell["[10:56]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967539439377*^9, 3.7669675450235662`*^9}, {3.7669676856872396`*^9, 
+   3.766967688110599*^9}},
+ CellTags->"Timecode",ExpressionUUID->"6f3a7667-287b-4d9c-8d3b-50aba356a25f"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s try one more resource from our collection of \
+multiparadigm data science tools for the analysis stage--graphs. \
+\>", "Text",
+ CellChangeTimes->{{3.7558877874630404`*^9, 3.7558877920860023`*^9}, {
+   3.7573387275524473`*^9, 3.757338731014901*^9}, {3.757681523203631*^9, 
+   3.757681545800435*^9}, 3.757683721235425*^9, {3.759151832109406*^9, 
+   3.759151846780531*^9}},ExpressionUUID->"5f5d9419-f61e-46bf-8979-\
+bcd8310f2fa0"],
+
+Cell["\<\
+During exploration, we visualized the network of users who were most often \
+mentioned in the Wolfram Research tweets as well as in tweets by other users \
+mentioned by Wolfram. Within these graphs we can look for communities, i.e. \
+groups of users who have more connections within (the group) than with others \
+outside the group. And we can explore these communities for shared interests.\
+\
+\>", "Text",
+ CellChangeTimes->{
+  3.755887804902462*^9, 3.757338796343525*^9, {3.757681554512875*^9, 
+   3.757681557304501*^9}, {3.7671078060514307`*^9, 
+   3.767107807944776*^9}},ExpressionUUID->"fb92e097-11c2-4de4-b97e-\
+80e66cac8fb6"],
+
+Cell["[11:29]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766967235661674*^9, 
+   3.7669672375892057`*^9}, {3.766967285888702*^9, 3.766967288041951*^9}, {
+   3.766967539439377*^9, 3.7669675450235662`*^9}, {3.76696772283604*^9, 
+   3.766967725991229*^9}},
+ CellTags->"Timecode",ExpressionUUID->"06f04c0b-36dd-4237-87ae-20fa1e3e90a1"],
+
+Cell["\<\
+We did gloss over the code in this segment, because the intention was to \
+exploit the multiparadigm approach in the \"Analysis\" stage of building a \
+project workflow. \
+\>", "Text",
+ CellChangeTimes->{{3.757338969648278*^9, 3.757338969650481*^9}, 
+   3.757339031400033*^9, {3.757681576816972*^9, 3.757681589768983*^9}, {
+   3.7591519740641203`*^9, 
+   3.759151983888349*^9}},ExpressionUUID->"a51b9969-e09c-4fbc-8e96-\
+9d255c48a714"],
+
+Cell["\<\
+We will move on to the next and final stage of the workflow, \
+\[OpenCurlyDoubleQuote]Communicate.\[CloseCurlyDoubleQuote] This is where we \
+will discuss different ways to put together our findings so that they best \
+communicate the information according to the needs of the audience.  \
+\>", "Text",
+ CellChangeTimes->{{3.757338978015023*^9, 3.757338978017377*^9}, 
+   3.757339031401086*^9, {3.757681598241681*^9, 3.757681614105345*^9}, {
+   3.759151987031885*^9, 3.75915199162395*^9}, 
+   3.76710785998674*^9},ExpressionUUID->"269a7607-baa8-4a55-a3ac-\
+c29c667aaef0"]
+}, Open  ]]
+},
+WindowSize->{772, 1031},
+WindowMargins->{{Automatic, 103}, {904, Automatic}},
+ShowCellTags->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+       StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+       CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> False, 
+       LineSpacing -> {1, 4}, LanguageCategory -> "NaturalLanguage", 
+       CounterIncrements -> "Title", 
+       CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+         "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+         "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+         "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, MenuSortingValue -> 
+       1100, MenuCommandKey -> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+       45, FontTracking -> -0.5, FontColor -> RGBColor[0.8, 0.043, 0.008]], 
+      Cell[
+       StyleData["Section"], CellFrame -> {{0, 0}, {0, 0}}, CellDingbat -> 
+       Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{67, Inherited}, {34, 54}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionDoubleDigit"], CellFrame -> {{0, 0}, {0, 0}}, 
+       CellDingbat -> Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{112, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionNumber"], CellBaseline -> Baseline, FontFamily -> 
+       "Source Sans Pro", FontSize -> 36, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionInline"], FontFamily -> "Source Sans Pro", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionNoDingbat"], 
+       CellMargins -> {{64, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 25, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Subsubsection"], CellMargins -> {{27, Inherited}, {6, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 20, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Text"], CellMargins -> {{27, 10}, {7, 8}}, 
+       LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+       "Text", MenuSortingValue -> 1400, MenuCommandKey -> "7", FontFamily -> 
+       "Source Sans Pro", FontSize -> 15], 
+      Cell[
+       StyleData["Link"], 
+       CellChangeTimes -> {{3.747057645225031*^9, 3.747057645432509*^9}, {
+        3.747057679800942*^9, 3.747057679968298*^9}}, FontFamily -> 
+       "WolframCodeSans", FontSize :> If[CurrentValue[
+           EvaluationCell[], "FontFamily"] === "Source Sans Pro", Inherited, 
+         If[CurrentValue[
+            EvaluationCell[], "FontFamily"] === "WolframCodeSans", Inherited, 
+          Inherited 0.9]], FontColor -> 
+       RGBColor[
+        0.4285191119249256, 0.45610742351415273`, 0.560845349813077]]}, 
+     Open]]}, Visible -> False, FrontEndVersion -> 
+  "12.0 for Mac OS X x86 (64-bit) (April 8, 2019)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Timecode"->{
+  Cell[1258, 37, 360, 6, 56, "Text",ExpressionUUID->"747c4d82-a00f-4929-a7c6-4ef2e661851b",
+   CellTags->"Timecode"],
+  Cell[3011, 78, 412, 7, 56, "Text",ExpressionUUID->"791ce004-2a99-4303-bf09-eb64fc15af0d",
+   CellTags->"Timecode"],
+  Cell[4998, 124, 412, 7, 56, "Text",ExpressionUUID->"5eefe0a3-2305-4736-bfc6-32a2542d2aa8",
+   CellTags->"Timecode"],
+  Cell[7747, 187, 382, 6, 56, "Text",ExpressionUUID->"a9071873-dea6-4607-9ac9-e73d9a5baac2",
+   CellTags->"Timecode"],
+  Cell[9131, 218, 410, 7, 56, "Text",ExpressionUUID->"785f951d-333f-4ded-b381-ed7590cea40b",
+   CellTags->"Timecode"],
+  Cell[11380, 270, 410, 7, 56, "Text",ExpressionUUID->"ecab015e-131d-4b24-9672-99d39a0209d2",
+   CellTags->"Timecode"],
+  Cell[13490, 315, 412, 7, 56, "Text",ExpressionUUID->"d28e9b43-78fb-442d-93f2-0027ea37d26d",
+   CellTags->"Timecode"],
+  Cell[15733, 362, 412, 7, 56, "Text",ExpressionUUID->"89c35f48-0d09-4d4e-95e8-dc9e3ea77072",
+   CellTags->"Timecode"],
+  Cell[17503, 404, 410, 7, 56, "Text",ExpressionUUID->"c57dd5e5-0fb8-47eb-9ea8-1e3672a35afb",
+   CellTags->"Timecode"],
+  Cell[18501, 427, 412, 7, 56, "Text",ExpressionUUID->"ef86ea6d-9adf-4d5b-926d-4e9df6b16a01",
+   CellTags->"Timecode"],
+  Cell[19774, 453, 410, 7, 56, "Text",ExpressionUUID->"539a877f-1911-4fbb-9a8e-c4e1985d860a",
+   CellTags->"Timecode"],
+  Cell[21000, 478, 458, 7, 56, "Text",ExpressionUUID->"65be9bf7-fcaa-4706-8bf3-d40bcfd8607f",
+   CellTags->"Timecode"],
+  Cell[23111, 528, 508, 8, 56, "Text",ExpressionUUID->"3fcd04b9-7d14-41a8-9e61-158246da5dba",
+   CellTags->"Timecode"],
+  Cell[25060, 569, 508, 8, 56, "Text",ExpressionUUID->"ab340381-86d6-4780-820e-f5c94a276146",
+   CellTags->"Timecode"],
+  Cell[26700, 604, 510, 8, 56, "Text",ExpressionUUID->"e0d759f8-21ca-4dfe-98f6-b3c768341b52",
+   CellTags->"Timecode"],
+  Cell[28375, 640, 508, 8, 56, "Text",ExpressionUUID->"1fa2c9d6-cbe8-4505-b6f0-5661c7018a95",
+   CellTags->"Timecode"],
+  Cell[29912, 675, 509, 8, 56, "Text",ExpressionUUID->"3ca12a74-017a-4fb6-8d5c-4c0e2f724678",
+   CellTags->"Timecode"],
+  Cell[31249, 705, 510, 8, 56, "Text",ExpressionUUID->"142a5313-2041-4872-955b-caece9917c52",
+   CellTags->"Timecode"],
+  Cell[33243, 750, 508, 8, 56, "Text",ExpressionUUID->"5b295730-c05b-4aa0-b818-be91a4cc2181",
+   CellTags->"Timecode"],
+  Cell[34861, 784, 562, 9, 56, "Text",ExpressionUUID->"3f59ffdb-fc26-4677-a91c-004a82c120fe",
+   CellTags->"Timecode"],
+  Cell[37902, 845, 562, 9, 56, "Text",ExpressionUUID->"6f3a7667-287b-4d9c-8d3b-50aba356a25f",
+   CellTags->"Timecode"],
+  Cell[39576, 880, 559, 9, 56, "Text",ExpressionUUID->"06f04c0b-36dd-4237-87ae-20fa1e3e90a1",
+   CellTags->"Timecode"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Timecode", 47203, 1040}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 342, 6, 135, "Section",ExpressionUUID->"4e97b973-976e-4eff-83f4-14391fc7490e",
+ Evaluatable->False,
+ CounterAssignments->{{"Section", 0}, {"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}}],
+Cell[CellGroupData[{
+Cell[925, 30, 330, 5, 48, "Subsection",ExpressionUUID->"7bb972f3-368a-4b8f-b0bf-f2552ba0ffa7"],
+Cell[1258, 37, 360, 6, 56, "Text",ExpressionUUID->"747c4d82-a00f-4929-a7c6-4ef2e661851b",
+ CellTags->"Timecode"],
+Cell[1621, 45, 310, 7, 35, "Text",ExpressionUUID->"d40c3995-0df7-4321-8c9b-051f80de147e"],
+Cell[1934, 54, 428, 9, 58, "Text",ExpressionUUID->"c002300d-9d0e-448f-890c-ccdaa829550f"],
+Cell[2365, 65, 643, 11, 81, "Text",ExpressionUUID->"c3c859b3-eecd-4284-80a8-782d3533d880"],
+Cell[3011, 78, 412, 7, 56, "Text",ExpressionUUID->"791ce004-2a99-4303-bf09-eb64fc15af0d",
+ CellTags->"Timecode"],
+Cell[3426, 87, 477, 9, 58, "Text",ExpressionUUID->"db91cf82-7bf7-4f39-a788-660f52d84b85"],
+Cell[3906, 98, 422, 9, 58, "Text",ExpressionUUID->"fb0434a2-4178-4b5e-89e4-1a54ef5e9d78"],
+Cell[4331, 109, 664, 13, 58, "Text",ExpressionUUID->"4c8ab19d-b6ea-4b92-b72f-601fba80a150"],
+Cell[4998, 124, 412, 7, 56, "Text",ExpressionUUID->"5eefe0a3-2305-4736-bfc6-32a2542d2aa8",
+ CellTags->"Timecode"],
+Cell[5413, 133, 366, 6, 35, "Text",ExpressionUUID->"c1660840-a549-4020-a0e6-4a2929d62999"],
+Cell[5782, 141, 397, 9, 35, "Text",ExpressionUUID->"0ea9ad46-0496-440a-a992-8f30c290fbb6"],
+Cell[6182, 152, 378, 8, 35, "Text",ExpressionUUID->"a2a6882a-202a-4e3c-8bc5-e3a06f3ae6c0"],
+Cell[6563, 162, 584, 10, 81, "Text",ExpressionUUID->"8d6851f6-0176-4b70-951d-f4eca428a97b"],
+Cell[7150, 174, 594, 11, 58, "Text",ExpressionUUID->"525b25ce-f289-4f05-9d8a-34783631c2a0"],
+Cell[7747, 187, 382, 6, 56, "Text",ExpressionUUID->"a9071873-dea6-4607-9ac9-e73d9a5baac2",
+ CellTags->"Timecode"],
+Cell[8132, 195, 550, 10, 81, "Text",ExpressionUUID->"9e6d391b-8954-4969-8eb0-ca69b5bacbd9"],
+Cell[8685, 207, 443, 9, 58, "Text",ExpressionUUID->"efad876c-2688-46e0-bd9e-f12e91ebf442"],
+Cell[9131, 218, 410, 7, 56, "Text",ExpressionUUID->"785f951d-333f-4ded-b381-ed7590cea40b",
+ CellTags->"Timecode"],
+Cell[9544, 227, 296, 5, 35, "Text",ExpressionUUID->"06880f79-b802-415c-a62c-f068b8be9c71"],
+Cell[9843, 234, 506, 10, 58, "Text",ExpressionUUID->"2962dee2-c249-410b-8553-fb96af99e779"],
+Cell[10352, 246, 529, 10, 58, "Text",ExpressionUUID->"dadbea29-99a0-435a-b684-314436175794"],
+Cell[10884, 258, 493, 10, 58, "Text",ExpressionUUID->"9ff45a65-4577-429e-8bda-21b7eedbb5fc"],
+Cell[11380, 270, 410, 7, 56, "Text",ExpressionUUID->"ecab015e-131d-4b24-9672-99d39a0209d2",
+ CellTags->"Timecode"],
+Cell[11793, 279, 459, 9, 58, "Text",ExpressionUUID->"c5f4e706-5922-433a-bcd1-4b7d4b70696d"],
+Cell[12255, 290, 636, 11, 81, "Text",ExpressionUUID->"e3b146c0-70c0-471d-9089-4222e71dea58"],
+Cell[12894, 303, 593, 10, 58, "Text",ExpressionUUID->"309b8340-1d22-4217-993d-2eaa86cd81f4"],
+Cell[13490, 315, 412, 7, 56, "Text",ExpressionUUID->"d28e9b43-78fb-442d-93f2-0027ea37d26d",
+ CellTags->"Timecode"],
+Cell[13905, 324, 559, 10, 58, "Text",ExpressionUUID->"da3cf26c-f8ea-450a-8c73-24596320d3cf"],
+Cell[14467, 336, 842, 14, 104, "Text",ExpressionUUID->"eea9aea9-0f82-4841-be16-0b6500388565"],
+Cell[15312, 352, 418, 8, 58, "Text",ExpressionUUID->"fe21a210-56be-43ea-bc90-5feec6a890fe"],
+Cell[15733, 362, 412, 7, 56, "Text",ExpressionUUID->"89c35f48-0d09-4d4e-95e8-dc9e3ea77072",
+ CellTags->"Timecode"],
+Cell[16148, 371, 235, 6, 35, "Text",ExpressionUUID->"57d9068a-209f-407a-b28b-d2f50852a038"],
+Cell[16386, 379, 532, 10, 58, "Text",ExpressionUUID->"8def0a5a-508b-430e-aca3-c562a53250aa"],
+Cell[16921, 391, 579, 11, 58, "Text",ExpressionUUID->"e848b49c-bd66-484c-a823-e675de04ea06"],
+Cell[17503, 404, 410, 7, 56, "Text",ExpressionUUID->"c57dd5e5-0fb8-47eb-9ea8-1e3672a35afb",
+ CellTags->"Timecode"],
+Cell[17916, 413, 582, 12, 81, "Text",ExpressionUUID->"eb3dca63-a8e8-46c8-83e7-28a9d823620f"],
+Cell[18501, 427, 412, 7, 56, "Text",ExpressionUUID->"ef86ea6d-9adf-4d5b-926d-4e9df6b16a01",
+ CellTags->"Timecode"],
+Cell[18916, 436, 855, 15, 104, "Text",ExpressionUUID->"cd44fce6-1761-4283-a025-0d24a37e0664"],
+Cell[19774, 453, 410, 7, 56, "Text",ExpressionUUID->"539a877f-1911-4fbb-9a8e-c4e1985d860a",
+ CellTags->"Timecode"],
+Cell[20187, 462, 810, 14, 104, "Text",ExpressionUUID->"0e934f7f-598a-4bd4-b30a-1c021e5b2cfd"],
+Cell[21000, 478, 458, 7, 56, "Text",ExpressionUUID->"65be9bf7-fcaa-4706-8bf3-d40bcfd8607f",
+ CellTags->"Timecode"],
+Cell[21461, 487, 440, 9, 35, "Text",ExpressionUUID->"d88c8353-8998-49f1-aa96-11e0fe8851d8"],
+Cell[21904, 498, 308, 7, 35, "Text",ExpressionUUID->"d734f724-8503-47f2-ad61-313479e86a5a"],
+Cell[22215, 507, 176, 3, 35, "Text",ExpressionUUID->"4b0cf627-003c-4d2a-8ef1-edffa77c03f0"],
+Cell[22394, 512, 200, 3, 35, "Text",ExpressionUUID->"037fec64-00fa-4f58-a21a-5d7374698bc2"],
+Cell[22597, 517, 511, 9, 58, "Text",ExpressionUUID->"1b13d315-990d-4366-980b-db7d21704d12"],
+Cell[23111, 528, 508, 8, 56, "Text",ExpressionUUID->"3fcd04b9-7d14-41a8-9e61-158246da5dba",
+ CellTags->"Timecode"],
+Cell[23622, 538, 463, 8, 58, "Text",ExpressionUUID->"384dc45b-454d-4741-8f15-2048416ccc32"],
+Cell[24088, 548, 442, 8, 58, "Text",ExpressionUUID->"86b3acf1-34ee-4fbc-9d75-3f52783107a3"],
+Cell[24533, 558, 524, 9, 81, "Text",ExpressionUUID->"85b26bac-fa71-4a48-bec3-3b8eaa31f29e"],
+Cell[25060, 569, 508, 8, 56, "Text",ExpressionUUID->"ab340381-86d6-4780-820e-f5c94a276146",
+ CellTags->"Timecode"],
+Cell[25571, 579, 509, 10, 58, "Text",ExpressionUUID->"723fbe16-bdc1-4cf4-9ce2-9407ab26fcfd"],
+Cell[26083, 591, 614, 11, 81, "Text",ExpressionUUID->"43dc8678-6d4f-4afd-a26d-4807e9268291"],
+Cell[26700, 604, 510, 8, 56, "Text",ExpressionUUID->"e0d759f8-21ca-4dfe-98f6-b3c768341b52",
+ CellTags->"Timecode"],
+Cell[27213, 614, 561, 11, 58, "Text",ExpressionUUID->"c96264ec-c5cd-4517-8043-bad33767b87d"],
+Cell[27777, 627, 595, 11, 81, "Text",ExpressionUUID->"f5849516-0f5a-4f88-b5da-5f3c98c25644"],
+Cell[28375, 640, 508, 8, 56, "Text",ExpressionUUID->"1fa2c9d6-cbe8-4505-b6f0-5661c7018a95",
+ CellTags->"Timecode"],
+Cell[28886, 650, 407, 8, 58, "Text",ExpressionUUID->"449ecca9-3bd6-4b28-9dad-ffe46d916b94"],
+Cell[29296, 660, 375, 7, 58, "Text",ExpressionUUID->"3cb07fc2-bd00-4d11-96b7-7dc35e4a96d4"],
+Cell[29674, 669, 235, 4, 35, "Text",ExpressionUUID->"8556f96f-ed1a-4a01-8579-85d11bffc90d"],
+Cell[29912, 675, 509, 8, 56, "Text",ExpressionUUID->"3ca12a74-017a-4fb6-8d5c-4c0e2f724678",
+ CellTags->"Timecode"],
+Cell[30424, 685, 420, 8, 58, "Text",ExpressionUUID->"1e26e619-8db0-4e2e-bbbe-cd037988c003"],
+Cell[30847, 695, 399, 8, 58, "Text",ExpressionUUID->"d065479b-2104-4839-b50f-fbba9b65b041"],
+Cell[31249, 705, 510, 8, 56, "Text",ExpressionUUID->"142a5313-2041-4872-955b-caece9917c52",
+ CellTags->"Timecode"],
+Cell[31762, 715, 384, 8, 35, "Text",ExpressionUUID->"1f513fd6-aea5-4bdc-8e9c-ad02ccd4644e"],
+Cell[32149, 725, 405, 9, 58, "Text",ExpressionUUID->"191be025-1d20-4514-b6a8-f71262de357f"],
+Cell[32557, 736, 683, 12, 81, "Text",ExpressionUUID->"e10fcb7f-465e-4bb4-9eb0-a7805555e55b"],
+Cell[33243, 750, 508, 8, 56, "Text",ExpressionUUID->"5b295730-c05b-4aa0-b818-be91a4cc2181",
+ CellTags->"Timecode"],
+Cell[33754, 760, 425, 8, 58, "Text",ExpressionUUID->"4a65cdc3-ae5c-4b87-8f26-1b14069df81c"],
+Cell[34182, 770, 676, 12, 81, "Text",ExpressionUUID->"48c79cc3-3dad-4b28-9ebd-4d6dd541d4f9"],
+Cell[34861, 784, 562, 9, 56, "Text",ExpressionUUID->"3f59ffdb-fc26-4677-a91c-004a82c120fe",
+ CellTags->"Timecode"],
+Cell[35426, 795, 656, 11, 81, "Text",ExpressionUUID->"2cd6bc90-31b3-47c4-9671-07c4103da401"],
+Cell[36085, 808, 434, 8, 58, "Text",ExpressionUUID->"1e308b75-e9f9-435f-b657-d41f8572b323"],
+Cell[36522, 818, 755, 13, 81, "Text",ExpressionUUID->"4c0c731a-8137-4a03-ac5b-77d47f9b7422"],
+Cell[37280, 833, 619, 10, 81, "Text",ExpressionUUID->"89409dcb-3318-49e8-8b13-805eacc186df"],
+Cell[37902, 845, 562, 9, 56, "Text",ExpressionUUID->"6f3a7667-287b-4d9c-8d3b-50aba356a25f",
+ CellTags->"Timecode"],
+Cell[38467, 856, 460, 8, 58, "Text",ExpressionUUID->"5f5d9419-f61e-46bf-8979-bcd8310f2fa0"],
+Cell[38930, 866, 643, 12, 104, "Text",ExpressionUUID->"fb92e097-11c2-4de4-b97e-80e66cac8fb6"],
+Cell[39576, 880, 559, 9, 56, "Text",ExpressionUUID->"06f04c0b-36dd-4237-87ae-20fa1e3e90a1",
+ CellTags->"Timecode"],
+Cell[40138, 891, 445, 9, 58, "Text",ExpressionUUID->"a51b9969-e09c-4fbc-8e96-9d255c48a714"],
+Cell[40586, 902, 581, 10, 81, "Text",ExpressionUUID->"269a7607-baa8-4a55-a3ac-c29c667aaef0"]
+}, Open  ]]
+}
+]
+*)
+

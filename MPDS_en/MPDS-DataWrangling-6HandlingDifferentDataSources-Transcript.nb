@@ -1,0 +1,524 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26296,        516]
+NotebookOptionsPosition[     17012,        337]
+NotebookOutlinePosition[     23968,        485]
+CellTagsIndexPosition[     23897,        480]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Get your Data into Shape", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.7550187405549192`*^9, 3.755018745149918*^9}, {
+   3.7591638606642447`*^9, 3.759163886002613*^9}, 3.759164210011063*^9, {
+   3.759164301100876*^9, 3.7591643044495583`*^9}, {3.759164377421114*^9, 
+   3.759164377845544*^9}, {3.759167251656486*^9, 3.759167252750435*^9}, 
+   3.7594988327022038`*^9, {3.7600982572670107`*^9, 3.760098267473927*^9}, {
+   3.766922478256839*^9, 3.766922483174308*^9}, 3.767109280172596*^9},
+ CounterAssignments->{{"Section", 1}, {"Subsection", 0}, {
+   "Subsubsection", 0}, {
+   "Exercise", 0}},ExpressionUUID->"4e97b973-976e-4eff-83f4-14391fc7490e"],
+
+Cell[CellGroupData[{
+
+Cell["Handling Different Types of Data", "Subsection",
+ CellChangeTimes->{{3.76107050681248*^9, 3.761070522683797*^9}, {
+  3.76107058461234*^9, 3.7610705946430264`*^9}, {3.7628835574485292`*^9, 
+  3.7628835673684397`*^9}, {3.762883693478266*^9, 3.76288369844493*^9}, {
+  3.764006753900371*^9, 3.764006757316087*^9}, {3.766148341983994*^9, 
+  3.766148381653051*^9}, {3.766516930027422*^9, 3.7665169538264923`*^9}, {
+  3.7669220030863867`*^9, 3.766922005094008*^9}, {3.76692250042992*^9, 
+  3.766922506205824*^9}},ExpressionUUID->"f3af178f-c224-43d9-a09d-\
+2df831f7d1dd"],
+
+Cell["[00:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"3c42483b-461c-439a-9625-40938d6f8390"],
+
+Cell["\<\
+Hello and welcome to Multiparadigm Data Science with the Wolfram Language, \
+Section 2: Getting Your Data into Shape. In this section, we will look at \
+functionality needed for the wrangle stage of the workflow. \
+\>", "Text",
+ CellChangeTimes->{{3.7453413785198174`*^9, 3.745341648211026*^9}, {
+   3.745343526443372*^9, 3.745343527909575*^9}, {3.745851802475604*^9, 
+   3.7458518139909983`*^9}, {3.749483340879771*^9, 3.749483395869224*^9}, 
+   3.7494847813132067`*^9, {3.749485106158723*^9, 3.749485106793234*^9}, 
+   3.749485221039809*^9, {3.752427725928319*^9, 3.7524277292918863`*^9}, {
+   3.760096427237935*^9, 3.7600964436683826`*^9}, {3.760096482612619*^9, 
+   3.760096632796159*^9}, {3.760107637574524*^9, 3.7601076639487457`*^9}, {
+   3.761318602273076*^9, 3.761318614255405*^9}, {3.761319128916728*^9, 
+   3.7613191408237743`*^9}, 3.761319293254797*^9, {3.761319335106265*^9, 
+   3.761319335426426*^9}, {3.7613956761989107`*^9, 3.761395677037216*^9}, 
+   3.761414684395958*^9, {3.761476894638472*^9, 3.761476895753873*^9}, {
+   3.7670014486179852`*^9, 
+   3.7670014948056035`*^9}},ExpressionUUID->"3bbbd4f4-0f8d-4f43-a80f-\
+2db273e093d5"],
+
+Cell["\<\
+Data wrangling involves importing raw data and converting it into a suitable \
+shape for ease of use during rest of the analysis.  A multiparadigm workflow \
+has to be able to  handle data in different formats from different sources, \
+reshape the data into different structures, deal with messy data, extract \
+useful features from it and, if needed, reduce the dimensionality of \
+high-dimensional data. While dealing with all of this, the goal is to write \
+code for a set of automated tools for the data-wrangling process so that it \
+is much easier to go through this stage next time the workflow is used.\
+\>", "Text",
+ CellChangeTimes->{{3.745353946862062*^9, 3.745353991336843*^9}, {
+   3.7453540574515133`*^9, 3.74535409206209*^9}, {3.745354127350151*^9, 
+   3.745354250102208*^9}, {3.745857577617345*^9, 3.745857582012582*^9}, {
+   3.7459400933679533`*^9, 3.745940104923502*^9}, {3.745940139749401*^9, 
+   3.7459401519335613`*^9}, 3.747170258874671*^9, {3.747398315197485*^9, 
+   3.7473983161533527`*^9}, {3.749489238680726*^9, 3.749489238788509*^9}, 
+   3.7559593702963133`*^9, {3.7562270796520443`*^9, 3.7562270875162497`*^9}, {
+   3.761319340770583*^9, 3.761319341162603*^9}, {3.761319408281412*^9, 
+   3.7613194154588213`*^9}, {3.7613195300876923`*^9, 3.761319530423785*^9}, {
+   3.7613196458492403`*^9, 3.761319646770191*^9}, {3.761395695127846*^9, 
+   3.761395878052438*^9}, {3.761414706821726*^9, 3.761414707332053*^9}, {
+   3.761476928737281*^9, 3.761476944439229*^9}, {3.7614770105201263`*^9, 
+   3.761477011655208*^9}, {3.766851637721991*^9, 3.7668516396858807`*^9}, {
+   3.7669230983780813`*^9, 3.766923109826696*^9}, {3.767001512567627*^9, 
+   3.767001602773882*^9}, {3.7670022551561165`*^9, 
+   3.7670022600962505`*^9}},ExpressionUUID->"3e196c58-fa8d-42ce-b573-\
+97ca8dcbedd2"],
+
+Cell["[00:52]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766922592175065*^9, 
+   3.766922592663094*^9}},
+ CellTags->"Timecode",ExpressionUUID->"54e86180-7f9c-41df-9783-d7db8b198276"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s look at some examples of importing real-world data \
+from different sources. In best-case scenarios, high-quality curated data \
+maybe available from repositories. For data that has been curated properly, \
+there really is no need for much wrangling\[LongDash]for example, the Wolfram \
+Data Repository, which is a publicly available resource for computable \
+datasets. It has curated and structured data available for immediate use. We \
+can browse the site for datasets by category or by type. The data is all \
+cleaned and ready for computation. So if we find a dataset that we\
+\[CloseCurlyQuote]d like to use, we can just load it into our system and  \
+start working with it. \
+\>", "Text",
+ CellChangeTimes->{{3.726102540449729*^9, 3.726102554672701*^9}, {
+   3.7613198656910973`*^9, 3.761319988922929*^9}, {3.761395950474024*^9, 
+   3.761396029877348*^9}, {3.761414777776491*^9, 3.761414867968103*^9}, {
+   3.761477075295898*^9, 3.761477096412467*^9}, {3.761477151156953*^9, 
+   3.7614771521797333`*^9}, 3.76685164800847*^9, {3.766922688967573*^9, 
+   3.766922701473572*^9}, {3.767001614529947*^9, 3.767001614753947*^9}, {
+   3.767002283131437*^9, 
+   3.767002314342718*^9}},ExpressionUUID->"2022b1b1-7fb4-4e76-9abd-\
+c11ffbfed54c"],
+
+Cell["\<\
+In addition to the data repository, the Wolfram Language has an extensive \
+built-in knowledgebase that can be explored for interesting data, or it can \
+also be leveraged to augment some existing in-house data with additional \
+information. To access this knowledgebase, we can simply type in words in \
+English, which are then interpreted into canonical entities representing \
+real-world objects. We can access the various properties of these entities \
+and use them for computation. There are millions of entities across hundreds \
+of entity types built into the Wolfram Language.\
+\>", "Text",
+ CellChangeTimes->{{3.7613204007031393`*^9, 3.761320452362442*^9}, {
+  3.7613205069611807`*^9, 3.761320571642149*^9}, {3.761320763796104*^9, 
+  3.761320819170518*^9}, {3.761414991408012*^9, 3.76141501948738*^9}, {
+  3.766851666296423*^9, 3.7668516801744003`*^9}, {3.7669227801077747`*^9, 
+  3.7669228246157427`*^9}, {3.7670016826642017`*^9, 
+  3.7670017114907713`*^9}},ExpressionUUID->"873d3009-3510-48f5-aec6-\
+c9f5480c7692"],
+
+Cell["\<\
+Also, there are collections of domain-specific datasets like geographic data, \
+engineering and medical data, social, cultural and linguistic data.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923004999831*^9, {3.767001749514368*^9, 
+   3.76700175363478*^9}},ExpressionUUID->"5538c68d-301b-46cc-bbd9-\
+7b74c5e15f5f"],
+
+Cell["[02:31]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766922592175065*^9, 
+   3.766922592663094*^9}, {3.766923287920759*^9, 3.7669232906481*^9}},
+ CellTags->"Timecode",ExpressionUUID->"4dec2fcf-aa15-4e4b-a67a-2f71e169894b"],
+
+Cell["\<\
+So that\[CloseCurlyQuote]s curated data, but most people want to import their \
+own data into the system. And we can do that with a simple import statement \
+for files residing either locally on the computer or online on the web.  To \
+support a multiparadigm workflow, the Wolfram Language can handle a wide \
+variety of formats. The Import function automatically deals with the format \
+of the file when importing data from it.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923005037016*^9, {3.766923307243161*^9, 3.766923331635433*^9}, {
+   3.767001764658822*^9, 3.76700181121229*^9}, 
+   3.7670024172549143`*^9},ExpressionUUID->"b7e071f9-0343-4842-ad07-\
+0da7989c8f5d"],
+
+Cell["\<\
+Sometimes it is useful to save data and intermediate results in the middle of \
+the workflow. Data can be saved as Wolfram Language expressions using Save or \
+DumpSave, and then read back in again using Get.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923005037016*^9, {3.766923307243161*^9, 3.766923341849304*^9}, {
+   3.7670018229654646`*^9, 
+   3.7670018252456927`*^9}},ExpressionUUID->"4c8d9cd1-1646-4ace-8726-\
+aa7f1de31e51"],
+
+Cell["[03:14]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766922592175065*^9, 
+   3.766922592663094*^9}, {3.766923287920759*^9, 3.7669232906481*^9}, {
+   3.766923471374009*^9, 3.766923476125434*^9}},
+ CellTags->"Timecode",ExpressionUUID->"7557f1af-ba6c-4b40-90ad-8f7a072d02ca"],
+
+Cell["\<\
+Okay. Now let's move on to databases. In many projects, data  is available in \
+a relational database, so the multiparadigm workflow must be able to connect \
+to the database to get the data from it. Here is an example of opening a \
+connection to a database, looking at the tables in it and fetching data from \
+a table using a Wolfram Language function. Alternately we can use standard \
+SQL to fetch the data and work with it. It is also possible to represent a \
+relational database symbolically in the Wolfram Language by constructing an \
+EntityStore. This allows the relational data from the database to be \
+structured as entities, very much like the built-in entities in the Wolfram \
+Data Framework. So now we can we can use the same syntax to query and use the \
+properties of these entities for computation.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923005037016*^9, {3.766923307243161*^9, 3.766923408199272*^9}, 
+   3.766923520956089*^9, {3.7670018305031157`*^9, 3.76700186157108*^9}, {
+   3.767001891630853*^9, 
+   3.7670018943969793`*^9}},ExpressionUUID->"cc54e3c4-9ce7-48c4-9387-\
+c5afa5626c89"],
+
+Cell["[04:09]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766922592175065*^9, 
+   3.766922592663094*^9}, {3.766923287920759*^9, 3.7669232906481*^9}, {
+   3.766923471374009*^9, 3.766923476125434*^9}, {3.766923549692415*^9, 
+   3.7669235531143513`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"da25608a-40eb-427f-8768-a9005f522f04"],
+
+Cell["\<\
+Moving on to the world wide web, which is another major source of data, there \
+are multiple different ways of getting data from the web. Many online \
+services provide APIs, which can be used to import the data from these \
+services. Here is an example of connecting to the Twitter API and downloading \
+tweets made by a specific Twitter handle. \
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230053744307`*^9, {3.766923570137253*^9, 3.76692359402802*^9}, {
+   3.7670019235217285`*^9, 
+   3.7670019603933883`*^9}},ExpressionUUID->"22054720-3e84-4bd9-88b0-\
+53af38cdcffe"],
+
+Cell["\<\
+Or we can simply search the web for generic content or maybe specify the type \
+of content we'd like to search for. Wikipedia is a great resource, and it can \
+be searched not only for text, but other metadata as well. Finally, if we are \
+just given a URL, we can simply scrape the data off the webpage. Depending on \
+the requirements of the project, we may have to scrape everything available \
+on the webpage and then parse the raw data to make sense of it, or we can \
+scrape specific elements like images or hyperlinks from the page.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230053744307`*^9, {3.766923570137253*^9, 3.766923630092401*^9}, {
+   3.76700197401075*^9, 3.7670019925673723`*^9}, {3.767002549444132*^9, 
+   3.7670025645966473`*^9}},ExpressionUUID->"5eca98cb-2f11-4354-a51a-\
+4a20a4eb5566"],
+
+Cell["[05:15]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766922592175065*^9, 
+   3.766922592663094*^9}, {3.766923287920759*^9, 3.7669232906481*^9}, {
+   3.766923471374009*^9, 3.766923476125434*^9}, {3.766923549692415*^9, 
+   3.7669235531143513`*^9}, {3.766923689844968*^9, 3.766923692501199*^9}},
+ CellTags->"Timecode",ExpressionUUID->"4f6589b2-652f-4a2f-8f8f-11c955972f10"],
+
+Cell["\<\
+So that covers a number of different data sources that we can work with when \
+we are trying to wrangle data.  Some of us may already have some in-house \
+data that we would like to analyze as we follow the project workflow in this \
+course. \
+\>", "Text",
+ CellChangeTimes->{
+  3.766923005659224*^9, {3.766923711003037*^9, 3.766923718744307*^9}, {
+   3.767002010859006*^9, 
+   3.767002031269681*^9}},ExpressionUUID->"1100337b-7e40-4180-ab52-\
+0c960a0d5d38"],
+
+Cell["\<\
+But for those who are looking for interesting datasets to work with, here are \
+some publicly available resources to get started. We've already looked at the \
+Wolfram Data Repository. The US Government's open data website is another \
+great resource; so is NASA's Open Data Portal, UCI's Machine Learning \
+Repository, the Kaggle contests, the Five Thirty Eight blog collections and \
+so on.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923005659224*^9, {3.766923711003037*^9, 3.7669237432959414`*^9}, {
+   3.7670020783005457`*^9, 
+   3.767002099141823*^9}},ExpressionUUID->"9ad304d3-6007-4183-a17b-\
+4380744226cd"],
+
+Cell["[05:15]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766922592175065*^9, 
+   3.766922592663094*^9}, {3.766923287920759*^9, 3.7669232906481*^9}, {
+   3.766923471374009*^9, 3.766923476125434*^9}, {3.766923549692415*^9, 
+   3.7669235531143513`*^9}, {3.766923689844968*^9, 3.766923692501199*^9}},
+ CellTags->"Timecode",ExpressionUUID->"9661ff0f-2f14-40a6-9f8b-5ce522baaadc"],
+
+Cell["\<\
+In summary, in this segment, we looked at importing data from different \
+sources\[LongDash]loading it into the system for exploration and analysis. We \
+looked at getting curated data from the Wolfram Data Repository and built-in \
+Wolfram Knowledgebase, and we also looked at simply importing data from files \
+in a variety of formats, residing either locally or online on the web. We \
+looked at connecting to APIs to download data from online services, and last \
+but not the least, we looked at scraping data elements off webpages. \
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230057043552`*^9, {3.766923755718144*^9, 3.766923762046032*^9}, {
+   3.7669239606169252`*^9, 3.766923976027562*^9}, {3.7670021215823755`*^9, 
+   3.7670021604021187`*^9}},ExpressionUUID->"798945cc-1b3e-4bec-8946-\
+85794501123b"],
+
+Cell["\<\
+We hope you will be able to use one or more of these options in the wrangling \
+stage of your project. In the next segment, we will look at restructuring \
+data to make it ready for use in various stages further downstream in the \
+workflow.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230057043552`*^9, {3.766923755718144*^9, 3.766923762046032*^9}, {
+   3.7669239606169252`*^9, 3.766923985233986*^9}, 
+   3.7670021817760763`*^9},ExpressionUUID->"0c3f2322-80d8-445a-a9f5-\
+c05fd08c42b3"]
+}, Open  ]]
+},
+WindowSize->{780, 1035},
+WindowMargins->{{Automatic, 0}, {900, Automatic}},
+ShowCellTags->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (October 15, 2018)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+       StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+       CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> False, 
+       LineSpacing -> {1, 4}, LanguageCategory -> "NaturalLanguage", 
+       CounterIncrements -> "Title", 
+       CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+         "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+         "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+         "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, MenuSortingValue -> 
+       1100, MenuCommandKey -> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+       45, FontTracking -> -0.5, FontColor -> RGBColor[0.8, 0.043, 0.008]], 
+      Cell[
+       StyleData["Section"], CellFrame -> {{0, 0}, {0, 0}}, CellDingbat -> 
+       Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{67, Inherited}, {34, 54}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionDoubleDigit"], CellFrame -> {{0, 0}, {0, 0}}, 
+       CellDingbat -> Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{112, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionNumber"], CellBaseline -> Baseline, FontFamily -> 
+       "Source Sans Pro", FontSize -> 36, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionInline"], FontFamily -> "Source Sans Pro", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionNoDingbat"], 
+       CellMargins -> {{64, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 25, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Subsubsection"], CellMargins -> {{27, Inherited}, {6, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 20, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Text"], CellMargins -> {{27, 10}, {7, 8}}, 
+       LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+       "Text", MenuSortingValue -> 1400, MenuCommandKey -> "7", FontFamily -> 
+       "Source Sans Pro", FontSize -> 15], 
+      Cell[
+       StyleData["Link"], 
+       CellChangeTimes -> {{3.747057645225031*^9, 3.747057645432509*^9}, {
+        3.747057679800942*^9, 3.747057679968298*^9}}, FontFamily -> 
+       "WolframCodeSans", FontSize :> If[CurrentValue[
+           EvaluationCell[], "FontFamily"] === "Source Sans Pro", Inherited, 
+         If[CurrentValue[
+            EvaluationCell[], "FontFamily"] === "WolframCodeSans", Inherited, 
+          Inherited 0.9]], FontColor -> 
+       RGBColor[
+        0.4285191119249256, 0.45610742351415273`, 0.560845349813077]]}, 
+     Closed]]}, Visible -> False, FrontEndVersion -> 
+  "12.0 for Mac OS X x86 (64-bit) (October 15, 2018)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Timecode"->{
+  Cell[1817, 44, 360, 6, 56, "Text",ExpressionUUID->"3c42483b-461c-439a-9625-40938d6f8390",
+   CellTags->"Timecode"],
+  Cell[5156, 100, 410, 7, 56, "Text",ExpressionUUID->"54e86180-7f9c-41df-9783-d7db8b198276",
+   CellTags->"Timecode"],
+  Cell[8207, 158, 454, 7, 56, "Text",ExpressionUUID->"4dec2fcf-aa15-4e4b-a67a-2f71e169894b",
+   CellTags->"Timecode"],
+  Cell[9786, 192, 504, 8, 56, "Text",ExpressionUUID->"7557f1af-ba6c-4b40-90ad-8f7a072d02ca",
+   CellTags->"Timecode"],
+  Cell[11416, 222, 556, 9, 56, "Text",ExpressionUUID->"da25608a-40eb-427f-8768-a9005f522f04",
+   CellTags->"Timecode"],
+  Cell[13375, 261, 602, 9, 56, "Text",ExpressionUUID->"4f6589b2-652f-4a2f-8f8f-11c955972f10",
+   CellTags->"Timecode"],
+  Cell[15076, 298, 602, 9, 56, "Text",ExpressionUUID->"9661ff0f-2f14-40a6-9f8b-5ce522baaadc",
+   CellTags->"Timecode"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Timecode", 23038, 462}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 662, 10, 135, "Section",ExpressionUUID->"4e97b973-976e-4eff-83f4-14391fc7490e",
+ Evaluatable->False,
+ CounterAssignments->{{"Section", 1}, {"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}}],
+Cell[CellGroupData[{
+Cell[1245, 34, 569, 8, 48, "Subsection",ExpressionUUID->"f3af178f-c224-43d9-a09d-2df831f7d1dd"],
+Cell[1817, 44, 360, 6, 56, "Text",ExpressionUUID->"3c42483b-461c-439a-9625-40938d6f8390",
+ CellTags->"Timecode"],
+Cell[2180, 52, 1160, 18, 58, "Text",ExpressionUUID->"3bbbd4f4-0f8d-4f43-a80f-2db273e093d5"],
+Cell[3343, 72, 1810, 26, 150, "Text",ExpressionUUID->"3e196c58-fa8d-42ce-b573-97ca8dcbedd2"],
+Cell[5156, 100, 410, 7, 56, "Text",ExpressionUUID->"54e86180-7f9c-41df-9783-d7db8b198276",
+ CellTags->"Timecode"],
+Cell[5569, 109, 1272, 20, 150, "Text",ExpressionUUID->"2022b1b1-7fb4-4e76-9abd-c11ffbfed54c"],
+Cell[6844, 131, 1035, 16, 150, "Text",ExpressionUUID->"873d3009-3510-48f5-aec6-c9f5480c7692"],
+Cell[7882, 149, 322, 7, 58, "Text",ExpressionUUID->"5538c68d-301b-46cc-bbd9-7b74c5e15f5f"],
+Cell[8207, 158, 454, 7, 56, "Text",ExpressionUUID->"4dec2fcf-aa15-4e4b-a67a-2f71e169894b",
+ CellTags->"Timecode"],
+Cell[8664, 167, 678, 12, 104, "Text",ExpressionUUID->"b7e071f9-0343-4842-ad07-0da7989c8f5d"],
+Cell[9345, 181, 438, 9, 58, "Text",ExpressionUUID->"4c8d9cd1-1646-4ace-8726-aa7f1de31e51"],
+Cell[9786, 192, 504, 8, 56, "Text",ExpressionUUID->"7557f1af-ba6c-4b40-90ad-8f7a072d02ca",
+ CellTags->"Timecode"],
+Cell[10293, 202, 1120, 18, 196, "Text",ExpressionUUID->"cc54e3c4-9ce7-48c4-9387-c5afa5626c89"],
+Cell[11416, 222, 556, 9, 56, "Text",ExpressionUUID->"da25608a-40eb-427f-8768-a9005f522f04",
+ CellTags->"Timecode"],
+Cell[11975, 233, 578, 11, 104, "Text",ExpressionUUID->"22054720-3e84-4bd9-88b0-53af38cdcffe"],
+Cell[12556, 246, 816, 13, 127, "Text",ExpressionUUID->"5eca98cb-2f11-4354-a51a-4a20a4eb5566"],
+Cell[13375, 261, 602, 9, 56, "Text",ExpressionUUID->"4f6589b2-652f-4a2f-8f8f-11c955972f10",
+ CellTags->"Timecode"],
+Cell[13980, 272, 468, 10, 81, "Text",ExpressionUUID->"1100337b-7e40-4180-ab52-0c960a0d5d38"],
+Cell[14451, 284, 622, 12, 104, "Text",ExpressionUUID->"9ad304d3-6007-4183-a17b-4380744226cd"],
+Cell[15076, 298, 602, 9, 56, "Text",ExpressionUUID->"9661ff0f-2f14-40a6-9f8b-5ce522baaadc",
+ CellTags->"Timecode"],
+Cell[15681, 309, 817, 13, 127, "Text",ExpressionUUID->"798945cc-1b3e-4bec-8946-85794501123b"],
+Cell[16501, 324, 495, 10, 81, "Text",ExpressionUUID->"0c3f2322-80d8-445a-a9f5-c05fd08c42b3"]
+}, Open  ]]
+}
+]
+*)
+

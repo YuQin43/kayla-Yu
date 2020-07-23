@@ -1,0 +1,473 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     22112,        465]
+NotebookOptionsPosition[     12855,        286]
+NotebookOutlinePosition[     19803,        434]
+CellTagsIndexPosition[     19732,        429]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Get the Message Across", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.7550187405549192`*^9, 3.755018745149918*^9}, {
+   3.7591638606642447`*^9, 3.759163886002613*^9}, 3.759164210011063*^9, {
+   3.759164301100876*^9, 3.7591643044495583`*^9}, {3.759164377421114*^9, 
+   3.759164377845544*^9}, {3.759167251656486*^9, 3.759167252750435*^9}, 
+   3.7594988327022038`*^9, {3.7600982572670107`*^9, 3.760098267473927*^9}, {
+   3.762883551242763*^9, 3.762883554328678*^9}, {3.76289301236588*^9, 
+   3.762893018060968*^9}, {3.766837620699256*^9, 3.766837621575862*^9}, {
+   3.7668505744375916`*^9, 3.766850577267629*^9}, 3.767005556335732*^9, 
+   3.767114411915822*^9},
+ CounterAssignments->{{"Section", 4}, {"Subsection", 0}, {
+   "Subsubsection", 0}, {
+   "Exercise", 0}},ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27"],
+
+Cell[CellGroupData[{
+
+Cell["Reproducible Research Checklist", "Subsection",
+ CellChangeTimes->{{3.76107050681248*^9, 3.761070522683797*^9}, {
+   3.76107058461234*^9, 3.7610705946430264`*^9}, {3.7628835574485292`*^9, 
+   3.7628835673684397`*^9}, {3.762883693478266*^9, 3.76288369844493*^9}, {
+   3.764006753900371*^9, 3.764006757316087*^9}, {3.766148341983994*^9, 
+   3.766148381653051*^9}, {3.766516930027422*^9, 3.7665169538264923`*^9}, {
+   3.7669220030863867`*^9, 3.766922005094008*^9}, {3.7669359684938107`*^9, 
+   3.766935971092455*^9}, 
+   3.766946517992765*^9},ExpressionUUID->"12629f59-68c7-43da-ae21-\
+a99124518852"],
+
+Cell["[00:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"a62c476c-788b-4440-a847-ac4ff95abee9"],
+
+Cell["\<\
+In this course on multiparadigm data science with the Wolfram Language, we \
+looked at developing a project workflow in stages\[LongDash]question, \
+wrangle, explore, analyze and communicate\[LongDash]and at each stage, we \
+reviewed the multiparadigm functionality offered by the Wolfram Language to \
+implement data science tasks required at that stage. \
+\>", "Text",
+ CellChangeTimes->{
+  3.76649394143646*^9, {3.766837671483061*^9, 
+   3.7668377371862426`*^9}},ExpressionUUID->"82e78de3-c331-4533-a6de-\
+1adf621bf5d1"],
+
+Cell["\<\
+As we wrap up the course, let\[CloseCurlyQuote]s briefly touch on one more \
+topic that is becoming increasingly important along with the growing \
+applications of data science.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941443441*^9, 3.7668377400265265`*^9, {3.766850675478325*^9, 
+   3.7668506758373613`*^9}},ExpressionUUID->"30d84eaa-c1e5-471b-bdaa-\
+41d6f7673eb2"],
+
+Cell["[00:35]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.7669649905842133`*^9, 
+   3.7669649908101683`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"5bd466c0-4a8c-4081-b1cf-e4258c7b972f"],
+
+Cell["\<\
+It is always exciting to report or publish the insightful results from a \
+particular data science project. 
+However, along with the results, there is a growing call for the publication \
+of the dataset itself as well as the code and other resources used for the \
+analysis so that other people can reproduce the research\[LongDash]perhaps in \
+the exact same way\[LongDash]or run similar analysis on different datasets or \
+try different approaches to analyze the same data.\
+\>", "Text",
+ CellChangeTimes->{{3.766493941520083*^9, 3.766493974298469*^9}, {
+  3.7668378019968576`*^9, 3.7668378496305833`*^9}, {3.766850705998214*^9, 
+  3.766850723048441*^9}},ExpressionUUID->"685a210d-439a-44e5-bf4e-\
+cea987425878"],
+
+Cell["[01:04]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766965026534771*^9, 
+   3.766965029257683*^9}},
+ CellTags->"Timecode",ExpressionUUID->"57a6b528-3a43-4035-9229-0da72b1fbd8f"],
+
+Cell["\<\
+Publishing data-backed, reproducible analysis makes it possible for the \
+broader community to 
+verify the results, since replication can be construed as stronger evidence. \
+Or people can build on the existing results, or combine results from \
+comparable analyses for better insight.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941528318*^9, {3.7664939776415358`*^9, 3.766494000439404*^9}, {
+   3.766850117465461*^9, 3.766850134581419*^9}, 
+   3.7668507964386005`*^9},ExpressionUUID->"b8882ba0-2529-4a73-8ab9-\
+37c36ec0ac59"],
+
+Cell["\<\
+The Wolfram Data Repository is a great global resource for publishing public \
+data, along with the code to analyze it. There is more on how the data \
+repository can be used for data-backed publications in this  blog post by \
+Stephen Wolfram.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941528318*^9, {3.7664939776415358`*^9, 3.766494009613201*^9}, {
+   3.766850149049793*^9, 3.7668501492028084`*^9}, 
+   3.7668508215451107`*^9},ExpressionUUID->"64253fd3-f5bb-419b-aa40-\
+b08d9f0166a5"],
+
+Cell["[01:41]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766965072013473*^9, 
+   3.7669650743572493`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"447665a5-1f17-445f-b751-4f70471f1405"],
+
+Cell["\<\
+How about a checklist to make the research reproducible as you plan and \
+execute your next data science project?\
+\>", "Text",
+ CellChangeTimes->{
+  3.7664939415691423`*^9, 3.766494028155553*^9, {3.766850164842372*^9, 
+   3.766850165482436*^9}},ExpressionUUID->"dfbf5828-450a-4808-9baa-\
+d718c7c0138f"],
+
+Cell["\<\
+Start by building a flexible, modular, iterative workflow in stages. Breaking \
+the work down into stages definitely helps with the organization, but the \
+modularity also makes it easier to swap out one approach or technique, and \
+swap in another one at one particular stage independent of the others. \
+Meanwhile, it is possible to go through multiple iterations of all the stages \
+in the workflow, incrementally adding to each one as the project proceeds.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941575851*^9, 3.766494042452194*^9, {3.766850172836171*^9, 
+   3.7668502165727587`*^9}},ExpressionUUID->"7bff61aa-0f0e-413e-abf4-\
+aa3b0f6e4e73"],
+
+Cell["\<\
+Plan for structured data analysis. The wrangle stage of the workflow helps in \
+achieving this goal. During the project execution and most definitely by the \
+end of it, the data should be in a structured, computable form, similar to \
+something that can be obtained by traversing the data curation hierarchy \
+suggested by Stephen Wolfram.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941602241*^9, 3.766494048963719*^9, {3.766850227947896*^9, 
+   3.766850248492662*^9}, 
+   3.7668508830592613`*^9},ExpressionUUID->"a6aa6a3d-2828-47b3-b2be-\
+f1abc5a2d9f1"],
+
+Cell["[02:43]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766965142130363*^9, 
+   3.766965146198979*^9}},
+ CellTags->"Timecode",ExpressionUUID->"7d386356-32ab-4bb7-bec2-7d8adaf41b75"],
+
+Cell["\<\
+Automate the process wherever possible. Avoid point and click or any sort of \
+manual editing. Instead, write code to implement every task in the workflow \
+and to automate the workflow itself.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941607692*^9, {3.766494053900333*^9, 3.7664940542916117`*^9}, 
+   3.7668502618216515`*^9},ExpressionUUID->"25556f74-ef24-4f0b-8e58-\
+f5f35bc6bb3b"],
+
+Cell["\<\
+No one can overemphasize the need for documenting and commenting all code. \
+This is generally true for all software projects. However, in data science \
+projects specifically, teams comprise of people from different backgrounds \
+with different expertise. To ensure clear communication between team members, \
+a documented workflow should include, along with the code, clear text \
+explanations about choice of algorithms and parameters, as well as \
+visualizations or other output generated by the code. This is where \
+notebook-based workflows become so useful.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941649123*^9, {3.766494061412344*^9, 3.766494062083651*^9}, {
+   3.766850268462315*^9, 3.7668503066555767`*^9}, {3.7668509373653517`*^9, 
+   3.7668509378934045`*^9}},ExpressionUUID->"0b48cc57-2d7a-4117-8a5a-\
+afef1429d2e0"],
+
+Cell["[03:35]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766965194590605*^9, 
+   3.766965197844255*^9}},
+ CellTags->"Timecode",ExpressionUUID->"8de387d8-803c-424a-8a81-417fe8895e34"],
+
+Cell["\<\
+The best practices for data science projects include recording and preserving \
+everything. Whether it\[CloseCurlyQuote]s raw data from original sources or \
+the initial goals of the project and the questions they morphed into, \
+references used for making decisions at each stage of the \
+workflow\[LongDash]all of it. And of course, record the process itself \
+\[LongDash]the final code used for analysis, as well as all explorations, \
+observations and comments\[LongDash]what was presented to the world as well \
+as what wasn\[CloseCurlyQuote]t. Version control is a no-brainer for storing \
+code.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941654942*^9, {3.766494073006353*^9, 3.7664940886060534`*^9}, {
+   3.766496437638845*^9, 3.7664964542337523`*^9}, {3.7668503154884605`*^9, 
+   3.7668503976426163`*^9}},ExpressionUUID->"3d285434-52b8-45a4-af85-\
+baa3ebf619c6"],
+
+Cell["\<\
+Finally at the end of the project, after sharing the exciting results, there\
+\[CloseCurlyQuote]s one more thing to be done before wrapping it all up. It\
+\[CloseCurlyQuote]s important to prepare for obsolescence. Life moves on; \
+websites get taken down; software gets upgraded. So hopefully with meticulous \
+archival, the workflow can be reused with the archived resources, but it is \
+good to have a plan B. How would the analysis be carried out with new data or \
+newer resources?\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941748863*^9, 3.766496493563631*^9, {3.7668504035602083`*^9, 
+   3.7668504304440584`*^9}, {3.76685100324778*^9, 
+   3.7668510077298536`*^9}},ExpressionUUID->"6a9cd404-e360-4274-89b4-\
+3d4f54dcb2c0"],
+
+Cell["[04:38]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766965267688672*^9, 
+   3.76696527149122*^9}},
+ CellTags->"Timecode",ExpressionUUID->"2cec2040-4615-4ad5-8baf-1a3f6f3f2c20"],
+
+Cell["\<\
+We hope you find the reproducible research checklist useful as you try out \
+the multiparadigm data science workflow for your next project.\
+\>", "Text",
+ CellChangeTimes->{3.766493941754696*^9, 
+  3.766496463667156*^9},ExpressionUUID->"8456a5da-69b2-46ee-980c-\
+32acc3eeb806"],
+
+Cell["\<\
+The Wolfram technology stack,  with more than thirty years of work building \
+an intuitive, easy-to-use computation environment with state-of-the-art \
+algorithms, ready-to-use data and automation capabilities all woven into one \
+ecosystem, provides all the resources you need to start practicing \
+multiparadigm data science.\
+\>", "Text",
+ CellChangeTimes->{
+  3.766493941754696*^9, {3.7664964659611263`*^9, 3.766496482400473*^9}, {
+   3.766850458722639*^9, 3.7668505188639927`*^9}, 
+   3.766851053360055*^9},ExpressionUUID->"39c8bb18-97be-47ff-80d9-\
+f04a8e585445"]
+}, Open  ]]
+},
+WindowSize->{914, 1035},
+WindowMargins->{{Automatic, 35}, {900, Automatic}},
+ShowCellTags->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+       StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+       CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> False, 
+       LineSpacing -> {1, 4}, LanguageCategory -> "NaturalLanguage", 
+       CounterIncrements -> "Title", 
+       CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+         "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+         "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+         "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, MenuSortingValue -> 
+       1100, MenuCommandKey -> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+       45, FontTracking -> -0.5, FontColor -> RGBColor[0.8, 0.043, 0.008]], 
+      Cell[
+       StyleData["Section"], CellFrame -> {{0, 0}, {0, 0}}, CellDingbat -> 
+       Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{67, Inherited}, {34, 54}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionDoubleDigit"], CellFrame -> {{0, 0}, {0, 0}}, 
+       CellDingbat -> Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{112, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionNumber"], CellBaseline -> Baseline, FontFamily -> 
+       "Source Sans Pro", FontSize -> 36, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionInline"], FontFamily -> "Source Sans Pro", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionNoDingbat"], 
+       CellMargins -> {{64, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 25, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Subsubsection"], CellMargins -> {{27, Inherited}, {6, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 20, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Text"], CellMargins -> {{27, 10}, {7, 8}}, 
+       LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+       "Text", MenuSortingValue -> 1400, MenuCommandKey -> "7", FontFamily -> 
+       "Source Sans Pro", FontSize -> 15], 
+      Cell[
+       StyleData["Link"], 
+       CellChangeTimes -> {{3.747057645225031*^9, 3.747057645432509*^9}, {
+        3.747057679800942*^9, 3.747057679968298*^9}}, FontFamily -> 
+       "WolframCodeSans", FontSize :> If[CurrentValue[
+           EvaluationCell[], "FontFamily"] === "Source Sans Pro", Inherited, 
+         If[CurrentValue[
+            EvaluationCell[], "FontFamily"] === "WolframCodeSans", Inherited, 
+          Inherited 0.9]], FontColor -> 
+       RGBColor[
+        0.4285191119249256, 0.45610742351415273`, 0.560845349813077]]}, 
+     Closed]]}, Visible -> False, FrontEndVersion -> 
+  "12.0 for Mac OS X x86 (64-bit) (April 8, 2019)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Timecode"->{
+  Cell[2022, 48, 360, 6, 45, "Text",ExpressionUUID->"a62c476c-788b-4440-a847-ac4ff95abee9",
+   CellTags->"Timecode"],
+  Cell[3303, 78, 414, 7, 45, "Text",ExpressionUUID->"5bd466c0-4a8c-4081-b1cf-e4258c7b972f",
+   CellTags->"Timecode"],
+  Cell[4447, 101, 410, 7, 45, "Text",ExpressionUUID->"57a6b528-3a43-4035-9229-0da72b1fbd8f",
+   CellTags->"Timecode"],
+  Cell[5901, 135, 412, 7, 45, "Text",ExpressionUUID->"447665a5-1f17-445f-b751-4f70471f1405",
+   CellTags->"Timecode"],
+  Cell[7864, 179, 410, 7, 56, "Text",ExpressionUUID->"7d386356-32ab-4bb7-bec2-7d8adaf41b75",
+   CellTags->"Timecode"],
+  Cell[9520, 214, 410, 7, 56, "Text",ExpressionUUID->"8de387d8-803c-424a-8a81-417fe8895e34",
+   CellTags->"Timecode"],
+  Cell[11558, 255, 409, 7, 56, "Text",ExpressionUUID->"2cec2040-4615-4ad5-8baf-1a3f6f3f2c20",
+   CellTags->"Timecode"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Timecode", 18876, 411}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 833, 13, 135, "Section",ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27",
+ Evaluatable->False,
+ CounterAssignments->{{"Section", 4}, {"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}}],
+Cell[CellGroupData[{
+Cell[1416, 37, 603, 9, 48, "Subsection",ExpressionUUID->"12629f59-68c7-43da-ae21-a99124518852"],
+Cell[2022, 48, 360, 6, 45, "Text",ExpressionUUID->"a62c476c-788b-4440-a847-ac4ff95abee9",
+ CellTags->"Timecode"],
+Cell[2385, 56, 533, 10, 81, "Text",ExpressionUUID->"82e78de3-c331-4533-a6de-1adf621bf5d1"],
+Cell[2921, 68, 379, 8, 58, "Text",ExpressionUUID->"30d84eaa-c1e5-471b-bdaa-41d6f7673eb2"],
+Cell[3303, 78, 414, 7, 45, "Text",ExpressionUUID->"5bd466c0-4a8c-4081-b1cf-e4258c7b972f",
+ CellTags->"Timecode"],
+Cell[3720, 87, 724, 12, 104, "Text",ExpressionUUID->"685a210d-439a-44e5-bf4e-cea987425878"],
+Cell[4447, 101, 410, 7, 45, "Text",ExpressionUUID->"57a6b528-3a43-4035-9229-0da72b1fbd8f",
+ CellTags->"Timecode"],
+Cell[4860, 110, 537, 11, 81, "Text",ExpressionUUID->"b8882ba0-2529-4a73-8ab9-37c36ec0ac59"],
+Cell[5400, 123, 498, 10, 58, "Text",ExpressionUUID->"64253fd3-f5bb-419b-aa40-b08d9f0166a5"],
+Cell[5901, 135, 412, 7, 45, "Text",ExpressionUUID->"447665a5-1f17-445f-b751-4f70471f1405",
+ CellTags->"Timecode"],
+Cell[6316, 144, 313, 7, 35, "Text",ExpressionUUID->"dfbf5828-450a-4808-9baa-d718c7c0138f"],
+Cell[6632, 153, 660, 11, 104, "Text",ExpressionUUID->"7bff61aa-0f0e-413e-abf4-aa3b0f6e4e73"],
+Cell[7295, 166, 566, 11, 81, "Text",ExpressionUUID->"a6aa6a3d-2828-47b3-b2be-f1abc5a2d9f1"],
+Cell[7864, 179, 410, 7, 56, "Text",ExpressionUUID->"7d386356-32ab-4bb7-bec2-7d8adaf41b75",
+ CellTags->"Timecode"],
+Cell[8277, 188, 395, 8, 58, "Text",ExpressionUUID->"25556f74-ef24-4f0b-8e58-f5f35bc6bb3b"],
+Cell[8675, 198, 842, 14, 127, "Text",ExpressionUUID->"0b48cc57-2d7a-4117-8a5a-afef1429d2e0"],
+Cell[9520, 214, 410, 7, 56, "Text",ExpressionUUID->"8de387d8-803c-424a-8a81-417fe8895e34",
+ CellTags->"Timecode"],
+Cell[9933, 223, 881, 15, 104, "Text",ExpressionUUID->"3d285434-52b8-45a4-af85-baa3ebf619c6"],
+Cell[10817, 240, 738, 13, 104, "Text",ExpressionUUID->"6a9cd404-e360-4274-89b4-3d4f54dcb2c0"],
+Cell[11558, 255, 409, 7, 56, "Text",ExpressionUUID->"2cec2040-4615-4ad5-8baf-1a3f6f3f2c20",
+ CellTags->"Timecode"],
+Cell[11970, 264, 287, 6, 58, "Text",ExpressionUUID->"8456a5da-69b2-46ee-980c-32acc3eeb806"],
+Cell[12260, 272, 579, 11, 81, "Text",ExpressionUUID->"39c8bb18-97be-47ff-80d9-f04a8e585445"]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,461 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23418,        453]
+NotebookOptionsPosition[     14591,        279]
+NotebookOutlinePosition[     21489,        427]
+CellTagsIndexPosition[     21418,        422]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\:6570\:636e\:6e05\:6d17", "Section",
+ Evaluatable->False,
+ CellChangeTimes->{{3.7550187405549192`*^9, 3.755018745149918*^9}, {
+   3.7591638606642447`*^9, 3.759163886002613*^9}, 3.759164210011063*^9, {
+   3.759164301100876*^9, 3.7591643044495583`*^9}, {3.759164377421114*^9, 
+   3.759164377845544*^9}, {3.759167251656486*^9, 3.759167252750435*^9}, 
+   3.7594988327022038`*^9, {3.7600982572670107`*^9, 3.760098267473927*^9}, {
+   3.8038929571021166`*^9, 3.803892959679227*^9}, {3.803895002036064*^9, 
+   3.803895006643762*^9}},
+ CounterAssignments->{{"Section", 1}, {"Subsection", 0}, {
+   "Subsubsection", 0}, {
+   "Exercise", 0}},ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27"],
+
+Cell[CellGroupData[{
+
+Cell["\:7279\:5f81\:63d0\:53d6\:548c\:964d\:7ef4", "Subsection",
+ CellChangeTimes->{{3.76107050681248*^9, 3.761070522683797*^9}, {
+   3.76107058461234*^9, 3.7610705946430264`*^9}, {3.7628835574485292`*^9, 
+   3.7628835673684397`*^9}, {3.762883693478266*^9, 3.76288369844493*^9}, {
+   3.764006753900371*^9, 3.764006757316087*^9}, {3.766148341983994*^9, 
+   3.766148381653051*^9}, {3.766516930027422*^9, 3.7665169538264923`*^9}, {
+   3.7669220030863867`*^9, 3.766922005094008*^9}, {3.76692250042992*^9, 
+   3.766922506205824*^9}, 3.766924173183235*^9, 
+   3.8038927716268716`*^9},ExpressionUUID->"afc7b843-2ec8-4f16-a944-\
+16980d1203e4"],
+
+Cell["[00:00]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"3efcfc1c-6a5a-493a-a5a3-558bba6aeb71"],
+
+Cell["\:4f7f\:7528 Wolfram \:8bed\:8a00\:7684\:591a\:8303\:5f0f\:6570\:636e\
+\:79d1\:5b66\:ff0c\:7b2c 2 \:8282\:ff1a\:6570\:636e\:6e05\:6d17\:3002", "Text",
+ CellChangeTimes->{
+  3.766923007887261*^9, 3.766934716540247*^9, {3.7670170856237087`*^9, 
+   3.7670171019142456`*^9}, 3.767029641047537*^9, {3.8038930158017316`*^9, 
+   3.803893023354488*^9}},ExpressionUUID->"526bd8d9-2a75-4b45-9b2a-\
+dd011076721a"],
+
+Cell["\<\
+\:6570\:636e\:9884\:5904\:7406\:6d89\:53ca\:4ece\:539f\:59cb\:6570\:636e\:4e2d\
+\:5bfc\:51fa\:91cd\:8981\:7684\:3001\:975e\:5197\:4f59\:7684\:7279\:5f81\:ff0c\
+\:8fd9\:4e9b\:7279\:5f81\:4e5f\:9002\:5408\:4f5c\:4e3a\:5de5\:4f5c\:6d41\:540e\
+\:671f\:9636\:6bb5\:7ecf\:5e38\:4f7f\:7528\:7684\:673a\:5668\:5b66\:4e60\:7b97\
+\:6cd5\:548c\:7edf\:8ba1\:6a21\:578b\:7684\:8f93\:5165\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230078941936`*^9, {3.7670171302868557`*^9, 3.767017152481744*^9}, {
+   3.803893104829455*^9, 
+   3.8038931173549356`*^9}},ExpressionUUID->"ef73589c-c79e-45b5-b32b-\
+fa50b66d87d6"],
+
+Cell["\<\
+\:56e0\:6b64\:7279\:5f81\:63d0\:53d6\:6210\:4e3a\:591a\:8303\:5f0f\:6570\:636e\
+\:79d1\:5b66\:5de5\:4f5c\:6d41\:7a0b\:4e2d\:975e\:5e38\:6709\:7528\:7684\:4e00\
+\:6b65\:ff0c\:56e0\:4e3a\:5b83\:53ef\:4ee5\:5c06\:5404\:79cd\:683c\:5f0f\:7684\
+\:539f\:59cb\:6570\:636e\:8f6c\:5316\:4e3a\:6570\:5b57\:5411\:91cf\:ff0c\:4ece\
+\:800c\:66f4\:65b9\:4fbf\:5730\:8fdb\:884c\:6807\:51c6\:5316\:3001\:91cd\:7f29\
+\:653e\:3001\:8fc7\:6ee4\:7b49\:53d8\:6362\:ff1b\:6216\:8005\:6267\:884c\:4e3b\
+\:6210\:5206\:5206\:6790\:7b49\:64cd\:4f5c\:ff1b\:6216\:8005\:7b80\:5355\:5730\
+\:5bfb\:627e\:6837\:672c\:4e4b\:95f4\:7684\:8ddd\:79bb\:ff0c\:751a\:81f3\:4f5c\
+\:4e3a\:795e\:7ecf\:7f51\:7edc\:4e2d\:7684\:89e6\:53d1\:4fe1\:53f7\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007930972*^9, {3.766933382572031*^9, 3.766933403203699*^9}, {
+   3.7669334969954853`*^9, 3.7669335057004337`*^9}, {3.7670171446938553`*^9, 
+   3.7670172059941072`*^9}, 3.7670296677042017`*^9, {3.8038931978197007`*^9, 
+   3.803893255720753*^9}, {3.803893289345763*^9, 3.8038932993170404`*^9}, 
+   3.8042935512479362`*^9},ExpressionUUID->"08b6ff56-580e-4ef4-b923-\
+9e5ff86bb60c"],
+
+Cell["[00:55]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934785969784*^9, 
+   3.7669347941129*^9}},
+ CellTags->"Timecode",ExpressionUUID->"3d505bc4-0a99-4114-a680-36c9dd1429db"],
+
+Cell["\<\
+\:5728\:7279\:5f81\:63d0\:53d6\:8fc7\:7a0b\:4e2d\:ff0c\:6211\:4eec\:53ef\:4ee5\
+\:5c06\:63cf\:8ff0\:5bf9\:8c61\:67d0\:4e9b\:540d\:4e49\:7279\:5f81\:7684\:6587\
+\:672c\:8f6c\:6362\:4e3a\:6570\:5b57\:3002\:6211\:4eec\:53ef\:4ee5\:5c06\:5e03\
+\:5c14\:7279\:5f81\:ff08\:662f/\:5426\:ff09\:7b49\:7b49\:8f6c\:6362\:4e3a\
+\:6570\:5b57\:3002\:800c\:4e14\:6211\:4eec\:4e5f\:53ef\:4ee5\:5c06\:56fe\:50cf\
+\:548c\:6587\:672c\:8f6c\:6362\:4e3a\:6570\:5b57\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923007937766*^9, {3.76693372908959*^9, 3.766933736168146*^9}, {
+   3.766934771562409*^9, 3.766934832480666*^9}, {3.7670172097689953`*^9, 
+   3.767017294374013*^9}, {3.767029703530655*^9, 3.7670297097707634`*^9}, {
+   3.803893387411847*^9, 3.803893447983991*^9}, {3.8038934814771757`*^9, 
+   3.803893489005988*^9}, {3.803893526829855*^9, 3.803893573688072*^9}, {
+   3.8038936237620325`*^9, 3.803893664000987*^9}, 3.803893698886664*^9, {
+   3.803893764710821*^9, 3.80389381277735*^9}, {3.8038950150083485`*^9, 
+   3.8038950349569664`*^9}},ExpressionUUID->"a06e3524-ec4b-4e17-9ee8-\
+b49aa7bd29ff"],
+
+Cell["\<\
+\:53ea\:6709\:8fd9\:4e9b\:6570\:5b57\:662f\:4e0d\:591f\:7684\:ff0c\:5982\:679c\
+\:6570\:5b57\:7279\:5f81\:6709\:4e0d\:540c\:7684\:53d6\:503c\:8303\:56f4\:ff0c\
+\:90a3\:4e48\:6211\:4eec\:5c31\:9700\:5bf9\:7279\:5f81\:8fdb\:884c\:7f29\:653e\
+\:3002\:6807\:51c6\:5316\:5c31\:662f\:5bf9\:5217\:8868\:4e2d\:7684\:5143\:7d20\
+\:8fdb\:884c\:589e\:51cf\:548c\:7f29\:653e\:ff0c\:4f7f\:5176\:5747\:503c\:4e3a\
+\:96f6\:ff0c\:65b9\:5dee\:4e3a1\:3002\:8fd9\:79cd\:6807\:51c6\:5316\:65b9\
+\:6cd5\:662f\:7279\:5f81\:7f29\:653e\:7684\:65b9\:6cd5\:4e4b\:4e00\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923008032669*^9, {3.7669337402881393`*^9, 3.766933743287817*^9}, {
+   3.7670173113477964`*^9, 3.7670173793236055`*^9}, {3.8038938217543244`*^9, 
+   3.8038938685650525`*^9}},ExpressionUUID->"d296fc6e-9782-4ff3-9aaf-\
+c7ae299899d4"],
+
+Cell["[01:40]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934785969784*^9, 
+   3.7669347941129*^9}, {3.766934860391499*^9, 3.766934862814767*^9}},
+ CellTags->"Timecode",ExpressionUUID->"439cd0a7-a952-49af-a4d6-af4b76c085a6"],
+
+Cell["\<\
+\:9664\:4e86\:7279\:5f81\:63d0\:53d6\:4e4b\:5916\:ff0c\:6211\:4eec\:8fd8\:53ef\
+\:4ee5\:4f7f\:7528\:7279\:5f81\:9009\:62e9\:6765\:83b7\:5f97\:4e00\:4e2a\:7f29\
+\:51cf\:7684\:7279\:5f81\:96c6\:3002\:6709\:65f6\:539f\:59cb\:8f93\:5165\:53ef\
+\:80fd\:5305\:542b\:5197\:4f59\:548c\:4e0d\:76f8\:5173\:7684\:7279\:5f81\:ff0c\
+\:8fd9\:4e9b\:7279\:5f81\:4f1a\:5bf9\:673a\:5668\:5b66\:4e60\:7b97\:6cd5\:7684\
+\:6027\:80fd\:4ea7\:751f\:8d1f\:9762\:5f71\:54cd\:3002\:7279\:5f81\:9009\:62e9\
+\:53ef\:4ee5\:5e2e\:52a9\:89e3\:51b3\:8fd9\:4e2a\:95ee\:9898\:3002\:5b83\:53ef\
+\:4ee5\:901a\:8fc7\:51cf\:5c11\:8fc7\:62df\:5408\:6765\:63d0\:9ad8\:6a21\:578b\
+\:7684\:6cdb\:5316\:7a0b\:5ea6\:ff0c\:540c\:65f6\:53ef\:4ee5\:51cf\:5c11\:8bad\
+\:7ec3\:65f6\:95f4\:ff0c\:751a\:81f3\:53ef\:4ee5\:7b80\:5316\:6a21\:578b\:ff0c\
+\:4f7f\:5176\:66f4\:5bb9\:6613\:88ab\:4eba\:7c7b\:89e3\:91ca\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230080393953`*^9, {3.766933747910816*^9, 3.766933770070909*^9}, {
+   3.767017382675606*^9, 3.7670174370861053`*^9}, 3.76702977002757*^9, {
+   3.8038939602634897`*^9, 3.8038939778604*^9}, {3.8038940174828024`*^9, 
+   3.8038940510200553`*^9}},ExpressionUUID->"6264e520-3aea-45a4-9eda-\
+76baede97feb"],
+
+Cell["\<\
+\:7279\:5f81\:9009\:62e9\:6709\:65f6\:4e5f\:88ab\:79f0\:4e3a\:53d8\:91cf\:9009\
+\:62e9\:3001\:5c5e\:6027\:9009\:62e9\:6216\:53d8\:91cf\:5b50\:96c6\:9009\:62e9\
+\:ff0c\:662f\:9009\:62e9\:76f8\:5173\:7279\:5f81\:5b50\:96c6\:7528\:4e8e\:6a21\
+\:578b\:6784\:5efa\:7684\:8fc7\:7a0b\:3002\:8fc7\:6ee4\:5668\:65b9\:6cd5\:7684\
+\:5de5\:4f5c\:539f\:7406\:662f\:6839\:636e\:5e94\:7528\:7edf\:8ba1\:68c0\:9a8c\
+\:8ba1\:7b97\:51fa\:7684\:4e00\:4e9b\:8bc4\:5206\:6765\:9009\:62e9\:7279\:5f81\
+\:ff0c\:4ece\:800c\:786e\:5b9a\:54ea\:4e2a\:7279\:5f81\:7684\:9884\:6d4b\:80fd\
+\:529b\:6700\:5f3a\:3002\:5c01\:88c5\:5668\:65b9\:6cd5\:9009\:62e9\:4e00\:4e2a\
+\:7279\:5f81\:5b50\:96c6\:ff0c\:7136\:540e\:8bad\:7ec3\:4e00\:4e2a\:6a21\:578b\
+\:ff0c\:6539\:53d8\:5b50\:96c6\:ff0c\:770b\:6a21\:578b\:6027\:80fd\:662f\:63d0\
+\:9ad8\:8fd8\:662f\:964d\:4f4e\:3002\:524d\:5411\:9009\:62e9\:6bcf\:6b21\:90fd\
+\:4f1a\:589e\:52a0\:4e00\:4e2a\:7279\:5f81\:3002\:53cd\:5411\:6d88\:9664\:4ece\
+\:6240\:6709\:7279\:5f81\:5f00\:59cb\:6bcf\:6b21\:5220\:9664\:4e00\:4e2a\:7279\
+\:5f81\:3002\:5d4c\:5165\:5f0f\:65b9\:6cd5\:5c06\:7279\:5f81\:9009\:62e9\:5185\
+\:7f6e\:5728\:6a21\:578b\:4e2d\:ff0c\:4f5c\:4e3a\:6a21\:578b\:8bad\:7ec3\:8fc7\
+\:7a0b\:672c\:8eab\:7684\:4e00\:90e8\:5206\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923008089473*^9, {3.7669337738425617`*^9, 3.7669337887263412`*^9}, {
+   3.766934938747645*^9, 3.766934952063446*^9}, 3.767017115133956*^9, {
+   3.7670174493761053`*^9, 3.7670174757681055`*^9}, 3.767029779004467*^9, 
+   3.8038940632606673`*^9, {3.8038942258460865`*^9, 3.8038942990483937`*^9}, {
+   3.8038943378375998`*^9, 
+   3.8038944286161304`*^9}},ExpressionUUID->"03d28ae1-619c-480f-ba74-\
+c7be3178eee8"],
+
+Cell["[03:02]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934785969784*^9, 
+   3.7669347941129*^9}, {3.766934860391499*^9, 3.766934862814767*^9}, {
+   3.7669349964774303`*^9, 3.766934999828349*^9}},
+ CellTags->"Timecode",ExpressionUUID->"d07a500c-e2a5-4883-8688-0a3b79fef173"],
+
+Cell["\<\
+DimensionReduce\:51fd\:6570\:4f1a\:6839\:636e\:6570\:636e\:81ea\:52a8\:9009\
+\:62e9\:6700\:4f73\:7684\:964d\:7ef4\:7b97\:6cd5\:ff0c\:4f46\:6211\:4eec\:4e5f\
+\:53ef\:4ee5\:6839\:636e\:9700\:8981\:6307\:5b9a\:65b9\:6cd5\:3002\:6bd4\:5982\
+\:672c\:4f8b\:4e2d\:6211\:4eec\:4f7f\:7528\:7684\:662fTSNE\:6216PCA\:3002\
+FeatureSpacePlot\:51fd\:6570\:81ea\:52a8\:4ece\:7ed9\:5b9a\:7684\:6570\:636e\
+\:4e2d\:63d0\:53d6\:7279\:5f81\:ff0c\:964d\:4f4e\:5230\:4e8c\:7ef4\:7a7a\:95f4\
+\:7136\:540e\:7ed8\:5236\:6563\:70b9\:56fe\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230080967417`*^9, {3.766933792318214*^9, 3.7669338008963337`*^9}, {
+   3.7669350140140743`*^9, 3.766935048623062*^9}, {3.7670175139401054`*^9, 
+   3.7670175660041056`*^9}, {3.803894469536967*^9, 3.8038944953987637`*^9}, {
+   3.803894529917446*^9, 
+   3.8038945444724956`*^9}},ExpressionUUID->"b9640ab1-d591-408e-ac33-\
+327ae5afa953"],
+
+Cell["[03:59]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934785969784*^9, 
+   3.7669347941129*^9}, {3.766934860391499*^9, 3.766934862814767*^9}, {
+   3.7669349964774303`*^9, 3.766934999828349*^9}, {3.766935079874627*^9, 
+   3.7669350803951283`*^9}},
+ CellTags->"Timecode",ExpressionUUID->"e639b0a9-459d-4ac0-94ce-151a3269bff5"],
+
+Cell["\<\
+\:5f53\:9762\:5bf9\:5927\:91cf\:6837\:672c\:7684\:6570\:636e\:96c6\:65f6\:ff0c\
+\:5b9e\:4f8b\:9009\:62e9\:53ef\:4ee5\:5e2e\:52a9\:5feb\:901f\:521b\:5efa\:4e00\
+\:4e2a\:7528\:4e8e\:6982\:5ff5\:9a8c\:8bc1\:7684\:6a21\:578b\:3002\:5305\:62ec\
+\:9009\:62e9\:8bad\:7ec3\:6570\:636e\:7684\:4e00\:4e2a\:5b50\:96c6\:6765\:5b9e\
+\:9645\:5efa\:7acb\:5206\:7c7b\:5668\:3002\:5b9e\:4f8b\:53ef\:4ee5\:901a\:8fc7\
+\:968f\:673a\:62bd\:6837\:6216\:5206\:5c42\:62bd\:6837\:7684\:65b9\:5f0f\:4ece\
+\:5927\:578b\:6570\:636e\:96c6\:4e2d\:62bd\:53d6\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.7669230081985483`*^9, {3.7669338428283377`*^9, 3.766933850133511*^9}, {
+   3.7670178274331055`*^9, 3.7670178322561054`*^9}, 
+   3.8038947833619137`*^9},ExpressionUUID->"d3be33ea-2716-4878-9895-\
+38ce51e462c8"],
+
+Cell["[04:21]", "Text",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellFrameColor->GrayLevel[0.7],
+ CellChangeTimes->{{3.7665075681432133`*^9, 3.766507568862628*^9}, {
+   3.7665077580949802`*^9, 3.7665077607112217`*^9}, 3.766508272253685*^9, {
+   3.766921536627124*^9, 3.7669215403148813`*^9}, {3.766934785969784*^9, 
+   3.7669347941129*^9}, {3.766934860391499*^9, 3.766934862814767*^9}, {
+   3.7669349964774303`*^9, 3.766934999828349*^9}, {3.766935079874627*^9, 
+   3.7669350803951283`*^9}, {3.766935110707851*^9, 3.766935112827784*^9}},
+ CellTags->"Timecode",ExpressionUUID->"c1b7298b-e62b-46be-8264-8e2279dd5000"],
+
+Cell["\<\
+\:7efc\:4e0a\:ff0c\:6211\:4eec\:7814\:7a76\:4e86\:5bf9\:4ece\:539f\:59cb\:6570\
+\:636e\:4e2d\:63d0\:53d6\:7279\:5f81\:548c\:964d\:4f4e\:9ad8\:7ef4\:6570\:636e\
+\:7ef4\:5ea6\:7684\:91cd\:8981\:529f\:80fd\:3002\:6211\:4eec\:8fd8\:7b80\:5355\
+\:5730\:8ba8\:8bba\:4e86\:7279\:5f81\:9009\:62e9\:548c\:5b9e\:4f8b\:9009\:62e9\
+\:3002\
+\>", "Text",
+ CellChangeTimes->{
+  3.766923008293374*^9, {3.76693385298104*^9, 3.766933857036677*^9}, 
+   3.7669339881030397`*^9, {3.7670178407591057`*^9, 3.7670178415431056`*^9}, {
+   3.8038948267958555`*^9, 3.8038948290348625`*^9}, {3.8038949509597464`*^9, 
+   3.8038949834248676`*^9}},ExpressionUUID->"ac828252-6da8-4699-b9cc-\
+5f9067b132c4"],
+
+Cell["\:8fd9\:662f\:672c\:8282\[OpenCurlyDoubleQuote]\:6570\:636e\:6e05\:6d17\
+\[CloseCurlyDoubleQuote]\:7684\:6700\:540e\:90e8\:5206\:3002", "Text",
+ CellChangeTimes->{{3.7670178536311054`*^9, 3.7670178689121056`*^9}, {
+  3.8038948331079984`*^9, 
+  3.8038948612307453`*^9}},ExpressionUUID->"5037f745-0fe5-4a16-b5c0-\
+a2f9c62f138f"]
+}, Open  ]]
+},
+WindowSize->{1056, 889},
+WindowMargins->{{115, Automatic}, {Automatic, 0}},
+ShowCellTags->True,
+Magnification:>1.5 Inherited,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (2018\:5e743\:670828\
+\:65e5)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+       StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+       CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> False, 
+       LineSpacing -> {1, 4}, LanguageCategory -> "NaturalLanguage", 
+       CounterIncrements -> "Title", 
+       CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+         "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+         "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+         "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, MenuSortingValue -> 
+       1100, MenuCommandKey -> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+       45, FontTracking -> -0.5, FontColor -> RGBColor[0.8, 0.043, 0.008]], 
+      Cell[
+       StyleData["Section"], CellFrame -> {{0, 0}, {0, 0}}, CellDingbat -> 
+       Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{67, Inherited}, {34, 54}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionDoubleDigit"], CellFrame -> {{0, 0}, {0, 0}}, 
+       CellDingbat -> Cell[
+         TextData[
+          CounterBox["Section"], 
+          StyleBox[
+          " |\[ThinSpace]", FontColor -> 
+           RGBColor[
+            0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+           FontFamily -> "Source Sans Pro", FontSize -> 38, FontWeight -> 
+           Light]], "SectionNumber"], 
+       CellMargins -> {{112, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["SectionNumber"], CellBaseline -> Baseline, FontFamily -> 
+       "Source Sans Pro", FontSize -> 36, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionInline"], FontFamily -> "Source Sans Pro", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["SectionNoDingbat"], 
+       CellMargins -> {{64, Inherited}, {12, 64}}, Evaluatable -> True, 
+       CellGroupingRules -> {"SectionGrouping", 60}, PageBreakAbove -> True, 
+       ShowCellLabel -> False, 
+       CellFrameLabelMargins -> {{2, Inherited}, {Inherited, Inherited}}, 
+       CounterIncrements -> "Section", 
+       CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+         "Exercise", 0}}, FontFamily -> "Source Sans Pro", FontSize -> 36, 
+       FontSlant -> "Plain", FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`], 
+       InterpretationBoxOptions -> {Editable -> True}], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{27, Inherited}, {12, 32}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 25, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Subsubsection"], CellMargins -> {{27, Inherited}, {6, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 20, FontColor -> 
+       RGBColor[
+        0.9019607843137255, 0.4117647058823529, 0.027450980392156862`]], 
+      Cell[
+       StyleData["Text"], CellMargins -> {{27, 10}, {7, 8}}, 
+       LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+       "Text", MenuSortingValue -> 1400, MenuCommandKey -> "7", FontFamily -> 
+       "Source Sans Pro", FontSize -> 15], 
+      Cell[
+       StyleData["Link"], 
+       CellChangeTimes -> {{3.747057645225031*^9, 3.747057645432509*^9}, {
+        3.747057679800942*^9, 3.747057679968298*^9}}, FontFamily -> 
+       "WolframCodeSans", FontSize :> If[CurrentValue[
+           EvaluationCell[], "FontFamily"] === "Source Sans Pro", Inherited, 
+         If[CurrentValue[
+            EvaluationCell[], "FontFamily"] === "WolframCodeSans", Inherited, 
+          Inherited 0.9]], FontColor -> 
+       RGBColor[
+        0.4285191119249256, 0.45610742351415273`, 0.560845349813077]]}, 
+     Closed]]}, Visible -> False, FrontEndVersion -> 
+  "11.3 for Microsoft Windows (64-bit) (2018\:5e743\:670828\:65e5)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Timecode"->{
+  Cell[1913, 46, 360, 6, 86, "Text",ExpressionUUID->"3efcfc1c-6a5a-493a-a5a3-558bba6aeb71",
+   CellTags->"Timecode"],
+  Cell[4449, 94, 408, 7, 86, "Text",ExpressionUUID->"3d505bc4-0a99-4114-a680-36c9dd1429db",
+   CellTags->"Timecode"],
+  Cell[6790, 137, 454, 7, 86, "Text",ExpressionUUID->"439cd0a7-a952-49af-a4d6-af4b76c085a6",
+   CellTags->"Timecode"],
+  Cell[10178, 193, 506, 8, 86, "Text",ExpressionUUID->"d07a500c-e2a5-4883-8688-0a3b79fef173",
+   CellTags->"Timecode"],
+  Cell[11594, 220, 558, 9, 193, "Text",ExpressionUUID->"e639b0a9-459d-4ac0-94ce-151a3269bff5",
+   CellTags->"Timecode"],
+  Cell[12950, 246, 604, 9, 193, "Text",ExpressionUUID->"c1b7298b-e62b-46be-8264-8e2279dd5000",
+   CellTags->"Timecode"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Timecode", 20677, 406}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 692, 11, 201, "Section",ExpressionUUID->"452656e9-c10f-4a30-b8e5-62b3374d1e27",
+ Evaluatable->False,
+ CounterAssignments->{{"Section", 1}, {"Subsection", 0}, {"Subsubsection", 0}, {"Exercise", 0}}],
+Cell[CellGroupData[{
+Cell[1275, 35, 635, 9, 69, "Subsection",ExpressionUUID->"afc7b843-2ec8-4f16-a944-16980d1203e4"],
+Cell[1913, 46, 360, 6, 86, "Text",ExpressionUUID->"3efcfc1c-6a5a-493a-a5a3-558bba6aeb71",
+ CellTags->"Timecode"],
+Cell[2276, 54, 408, 6, 52, "Text",ExpressionUUID->"526bd8d9-2a75-4b45-9b2a-dd011076721a"],
+Cell[2687, 62, 612, 11, 86, "Text",ExpressionUUID->"ef73589c-c79e-45b5-b32b-fa50b66d87d6"],
+Cell[3302, 75, 1144, 17, 119, "Text",ExpressionUUID->"08b6ff56-580e-4ef4-b923-9e5ff86bb60c"],
+Cell[4449, 94, 408, 7, 86, "Text",ExpressionUUID->"3d505bc4-0a99-4114-a680-36c9dd1429db",
+ CellTags->"Timecode"],
+Cell[4860, 103, 1095, 17, 86, "Text",ExpressionUUID->"a06e3524-ec4b-4e17-9ee8-b49aa7bd29ff"],
+Cell[5958, 122, 829, 13, 119, "Text",ExpressionUUID->"d296fc6e-9782-4ff3-9aaf-c7ae299899d4"],
+Cell[6790, 137, 454, 7, 86, "Text",ExpressionUUID->"439cd0a7-a952-49af-a4d6-af4b76c085a6",
+ CellTags->"Timecode"],
+Cell[7247, 146, 1217, 18, 153, "Text",ExpressionUUID->"6264e520-3aea-45a4-9eda-76baede97feb"],
+Cell[8467, 166, 1708, 25, 220, "Text",ExpressionUUID->"03d28ae1-619c-480f-ba74-c7be3178eee8"],
+Cell[10178, 193, 506, 8, 86, "Text",ExpressionUUID->"d07a500c-e2a5-4883-8688-0a3b79fef173",
+ CellTags->"Timecode"],
+Cell[10687, 203, 904, 15, 119, "Text",ExpressionUUID->"b9640ab1-d591-408e-ac33-327ae5afa953"],
+Cell[11594, 220, 558, 9, 193, "Text",ExpressionUUID->"e639b0a9-459d-4ac0-94ce-151a3269bff5",
+ CellTags->"Timecode"],
+Cell[12155, 231, 792, 13, 267, "Text",ExpressionUUID->"d3be33ea-2716-4878-9895-38ce51e462c8"],
+Cell[12950, 246, 604, 9, 193, "Text",ExpressionUUID->"c1b7298b-e62b-46be-8264-8e2279dd5000",
+ CellTags->"Timecode"],
+Cell[13557, 257, 683, 12, 193, "Text",ExpressionUUID->"ac828252-6da8-4699-b9cc-5f9067b132c4"],
+Cell[14243, 271, 332, 5, 117, "Text",ExpressionUUID->"5037f745-0fe5-4a16-b5c0-a2f9c62f138f"]
+}, Open  ]]
+}
+]
+*)
+

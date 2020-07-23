@@ -1,0 +1,501 @@
+﻿1
+00:00:00,000 --> 00:00:02,800
+In this course
+on multiparadigm data science
+
+2
+00:00:02,800 --> 00:00:04,600
+with the Wolfram Language,
+
+3
+00:00:04,600 --> 00:00:08,300
+we looked at developing
+a project workflow in stages—
+
+4
+00:00:08,300 --> 00:00:12,700
+question, wrangle, explore,
+analyze and communicate—
+
+5
+00:00:12,700 --> 00:00:17,600
+and at each stage, we reviewed
+the multiparadigm functionality
+
+6
+00:00:17,600 --> 00:00:19,500
+offered by the Wolfram Language
+
+7
+00:00:19,500 --> 00:00:23,600
+to implement data science tasks
+required at that stage.
+
+8
+00:00:23,600 --> 00:00:25,000
+As we wrap up the course,
+
+9
+00:00:25,000 --> 00:00:27,800
+let's briefly touch
+on one more topic
+
+10
+00:00:27,800 --> 00:00:30,000
+that is becoming
+increasingly important
+
+11
+00:00:30,000 --> 00:00:33,000
+along with the growing
+applications of data science.
+
+12
+00:00:34,000 --> 00:00:36,600
+It is always exciting
+to report or publish
+
+13
+00:00:36,600 --> 00:00:37,800
+the insightful results
+
+14
+00:00:37,800 --> 00:00:40,100
+from a particular
+data science project.
+
+15
+00:00:40,100 --> 00:00:43,800
+However, along with the results,
+there is a growing call
+
+16
+00:00:43,800 --> 00:00:46,200
+for the publication
+of the dataset itself
+
+17
+00:00:46,200 --> 00:00:47,900
+as well as the code
+
+18
+00:00:47,900 --> 00:00:51,000
+and other resources
+used for the analysis
+
+19
+00:00:51,000 --> 00:00:54,200
+so that other people
+can reproduce the research—
+
+20
+00:00:54,200 --> 00:00:56,000
+perhaps in the exact same way—
+
+21
+00:00:56,000 --> 00:00:59,500
+or run similar analysis
+on different datasets
+
+22
+00:00:59,500 --> 00:01:04,000
+or try different approaches
+to analyze the same data.
+
+23
+00:01:04,000 --> 00:01:06,800
+Publishing data-backed
+reproducible analysis
+
+24
+00:01:06,800 --> 00:01:09,400
+makes it possible
+for the broader community
+
+25
+00:01:09,400 --> 00:01:10,800
+to verify the results,
+
+26
+00:01:10,800 --> 00:01:14,500
+since replication can be construed
+as stronger evidence.
+
+27
+00:01:14,500 --> 00:01:17,400
+Or people can build
+on the existing results,
+
+28
+00:01:17,400 --> 00:01:21,100
+or combine results
+from comparable analyses
+
+29
+00:01:21,100 --> 00:01:22,300
+for better insight.
+
+30
+00:01:23,700 --> 00:01:27,100
+The Wolfram Data Repository
+is a great global resource
+
+31
+00:01:27,100 --> 00:01:31,000
+for publishing public data,
+along with the code to analyze it.
+
+32
+00:01:31,000 --> 00:01:33,600
+There is more on how
+the data repository can be used
+
+33
+00:01:33,600 --> 00:01:35,400
+for data-backed publications
+
+34
+00:01:35,400 --> 00:01:37,700
+in this blog post
+by Stephen Wolfram.
+
+35
+00:01:39,900 --> 00:01:42,800
+How about a checklist
+to make the research reproducible
+
+36
+00:01:42,800 --> 00:01:46,800
+as you plan and execute
+your next data science project?
+
+37
+00:01:48,400 --> 00:01:52,500
+Start by building a flexible,
+modular, iterative workflow
+
+38
+00:01:52,500 --> 00:01:53,900
+in stages.
+
+39
+00:01:53,900 --> 00:01:55,700
+Breaking the work down in stages
+
+40
+00:01:55,700 --> 00:01:58,300
+definitely helps
+with the organization,
+
+41
+00:01:58,300 --> 00:02:00,900
+but the modularity
+also makes it easier
+
+42
+00:02:00,900 --> 00:02:03,500
+to swap out one approach
+or technique,
+
+43
+00:02:03,500 --> 00:02:06,900
+and swap in another one
+at one particular stage
+
+44
+00:02:06,900 --> 00:02:09,000
+independent of the others.
+
+45
+00:02:09,000 --> 00:02:12,000
+Meanwhile, it is possible to go
+through multiple iterations
+
+46
+00:02:12,000 --> 00:02:14,500
+of all the stages in the workflow,
+
+47
+00:02:14,500 --> 00:02:18,800
+incrementally adding to each one
+as the project proceeds.
+
+48
+00:02:20,400 --> 00:02:23,200
+Plan for structured data analysis.
+
+49
+00:02:23,200 --> 00:02:26,800
+The wrangle stage of the workflow
+helps in achieving this goal.
+
+50
+00:02:26,800 --> 00:02:28,500
+During the project execution
+
+51
+00:02:28,500 --> 00:02:31,600
+and most definitely
+by the end of it,
+
+52
+00:02:31,600 --> 00:02:35,300
+the data should be
+in a structured, computable form,
+
+53
+00:02:35,300 --> 00:02:37,150
+similar to something
+that can be obtained
+
+54
+00:02:37,150 --> 00:02:39,900
+by traversing
+the data curation hierarchy
+
+55
+00:02:39,900 --> 00:02:42,600
+suggested by Stephen Wolfram.
+
+56
+00:02:42,600 --> 00:02:45,300
+Automate the process
+wherever possible.
+
+57
+00:02:45,300 --> 00:02:48,900
+Avoid point and click
+or any sort of manual editing.
+
+58
+00:02:48,900 --> 00:02:53,000
+Instead, write code to implement
+every task in the workflow
+
+59
+00:02:53,000 --> 00:02:55,600
+and to automate
+the workflow itself.
+
+60
+00:02:57,600 --> 00:02:59,700
+No one can overemphasize the need
+
+61
+00:02:59,700 --> 00:03:02,600
+for documenting
+and commenting all code.
+
+62
+00:03:02,600 --> 00:03:05,000
+This is generally true
+for all software projects.
+
+63
+00:03:05,000 --> 00:03:08,300
+However, in data science projects
+specifically,
+
+64
+00:03:08,300 --> 00:03:11,000
+teams comprise of people
+from different backgrounds
+
+65
+00:03:11,000 --> 00:03:12,600
+with different expertise.
+
+66
+00:03:12,600 --> 00:03:16,300
+To ensure clear communication
+between team members,
+
+67
+00:03:16,300 --> 00:03:20,000
+a documented workflow should
+include, along with the code,
+
+68
+00:03:20,000 --> 00:03:23,400
+clear text explanations about
+choice of algorithms
+
+69
+00:03:23,400 --> 00:03:28,000
+and parameters, as well as
+visualizations or other output
+
+70
+00:03:28,000 --> 00:03:29,900
+generated by the code.
+
+71
+00:03:29,900 --> 00:03:32,300
+This is where
+notebook-based workflows
+
+72
+00:03:32,300 --> 00:03:33,700
+become so useful.
+
+73
+00:03:34,900 --> 00:03:37,000
+The best practices
+for data science projects
+
+74
+00:03:37,000 --> 00:03:40,700
+include recording
+and preserving everything.
+
+75
+00:03:40,700 --> 00:03:43,500
+Whether it's raw data
+from original sources
+
+76
+00:03:43,500 --> 00:03:45,500
+or initial goals of the project
+
+77
+00:03:45,500 --> 00:03:47,900
+and the questions
+they morphed into,
+
+78
+00:03:47,900 --> 00:03:49,800
+references used
+for making decisions
+
+79
+00:03:49,800 --> 00:03:51,800
+at each stage of the workflow—
+
+80
+00:03:51,800 --> 00:03:53,300
+all of it.
+
+81
+00:03:53,300 --> 00:03:55,800
+And of course,
+record the process itself—
+
+82
+00:03:55,800 --> 00:03:57,800
+the final code used
+for the analysis,
+
+83
+00:03:57,800 --> 00:04:02,200
+as well as all explorations,
+observations and comments—
+
+84
+00:04:02,200 --> 00:04:06,000
+what was presented to the world
+as well as what wasn't.
+
+85
+00:04:06,000 --> 00:04:09,400
+Version control is a no-brainer
+for storing code.
+
+86
+00:04:09,400 --> 00:04:11,000
+Finally at the end of the project,
+
+87
+00:04:11,000 --> 00:04:13,300
+after sharing
+the exciting results,
+
+88
+00:04:13,300 --> 00:04:16,000
+there's one more thing to be done
+before wrapping it all up.
+
+89
+00:04:16,000 --> 00:04:19,000
+It's important to prepare
+for obsolescence.
+
+90
+00:04:19,000 --> 00:04:21,500
+Life moves on;
+websites get taken down;
+
+91
+00:04:21,500 --> 00:04:23,200
+software gets upgraded.
+
+92
+00:04:23,200 --> 00:04:26,300
+So hopefully
+with meticulous archival,
+
+93
+00:04:26,300 --> 00:04:29,800
+the workflow can be reused
+with the archived resources,
+
+94
+00:04:29,800 --> 00:04:32,400
+but it is good to have a plan B.
+
+95
+00:04:32,400 --> 00:04:35,200
+How would the analysis
+be carried out with new data
+
+96
+00:04:35,200 --> 00:04:36,700
+or newer resources?
+
+97
+00:04:38,000 --> 00:04:41,400
+We hope you find the reproducible
+research checklist useful
+
+98
+00:04:41,400 --> 00:04:44,000
+as you try out the multiparadigm
+data science workflow
+
+99
+00:04:44,000 --> 00:04:46,000
+for your next project.
+
+100
+00:04:46,000 --> 00:04:47,600
+The Wolfram technology stack,
+
+101
+00:04:47,600 --> 00:04:51,600
+with more than 30 years of work
+building an intuitive
+
+102
+00:04:51,600 --> 00:04:54,300
+easy-to-use
+computation environment
+
+103
+00:04:54,300 --> 00:04:57,500
+with state-of-the-art algorithms,
+ready-to-use data
+
+104
+00:04:57,500 --> 00:05:02,300
+and automation capabilities
+all woven into one ecosystem,
+
+105
+00:05:02,300 --> 00:05:04,600
+provides all the resources
+you would need
+
+106
+00:05:04,600 --> 00:05:08,000
+to start practicing
+multiparadigm data science.
+

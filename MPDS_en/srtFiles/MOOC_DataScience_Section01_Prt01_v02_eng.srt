@@ -1,0 +1,406 @@
+﻿1
+00:00:00,000 --> 00:00:01,300
+Hello and welcome
+
+2
+00:00:01,300 --> 00:00:04,500
+to Multiparadigm Data Science
+with the Wolfram Language,
+
+3
+00:00:04,500 --> 00:00:07,400
+Section 1: The Project Workflow.
+
+4
+00:00:07,400 --> 00:00:10,100
+Data science projects
+attempt to use data
+
+5
+00:00:10,100 --> 00:00:11,500
+to answer certain questions
+
+6
+00:00:11,500 --> 00:00:15,300
+so that you can derive some
+useful insights from the answers
+
+7
+00:00:15,300 --> 00:00:17,100
+and act on them.
+
+8
+00:00:17,100 --> 00:00:22,000
+A flexible, modular, iterative
+workflow can serve as a roadmap
+
+9
+00:00:22,000 --> 00:00:25,200
+in this quest to get
+from data-driven questions
+
+10
+00:00:25,200 --> 00:00:27,200
+to actionable insights.
+
+11
+00:00:27,200 --> 00:00:31,600
+Here are five stages in which
+we can build up such a workflow.
+
+12
+00:00:31,600 --> 00:00:33,500
+We start out with the questions,
+
+13
+00:00:33,500 --> 00:00:35,800
+then move on
+to the data-wrangling stage
+
+14
+00:00:35,800 --> 00:00:38,100
+where we import the data
+and shape it.
+
+15
+00:00:38,100 --> 00:00:40,400
+Then we do some
+exploratory analysis
+
+16
+00:00:40,400 --> 00:00:44,100
+to get an intuitive understanding
+of the data
+
+17
+00:00:44,100 --> 00:00:46,700
+before launching
+into the analysis stage
+
+18
+00:00:46,700 --> 00:00:48,700
+to try different
+models, algorithms
+
+19
+00:00:48,700 --> 00:00:50,900
+and techniques
+to dissect the data.
+
+20
+00:00:50,900 --> 00:00:53,100
+Finally, we try to communicate
+the results
+
+21
+00:00:53,100 --> 00:00:57,000
+in a clear and comprehensive way
+to our audience.
+
+22
+00:00:57,000 --> 00:00:59,000
+What the multiparadigm
+approach adds
+
+23
+00:00:59,000 --> 00:01:01,300
+to this otherwise
+straightforward path
+
+24
+00:01:01,300 --> 00:01:04,200
+is the option to work
+with different types of data:
+
+25
+00:01:04,200 --> 00:01:08,000
+flat files or databases,
+audio or images, sensor readings,
+
+26
+00:01:08,000 --> 00:01:09,900
+data scraped off the web.
+
+27
+00:01:09,900 --> 00:01:10,900
+And at the same time,
+
+28
+00:01:10,900 --> 00:01:12,700
+it provides the scope
+to branch out
+
+29
+00:01:12,700 --> 00:01:14,800
+at every stage of the workflow,
+
+30
+00:01:14,800 --> 00:01:16,700
+experimenting with and assembling
+
+31
+00:01:16,700 --> 00:01:20,000
+a broad, flexible,
+computational toolkit
+
+32
+00:01:20,000 --> 00:01:22,500
+to incorporate
+data processing, analysis
+
+33
+00:01:22,500 --> 00:01:24,800
+and visualization capabilities
+
+34
+00:01:24,800 --> 00:01:28,300
+into one
+start-to-finish workflow.
+
+35
+00:01:28,300 --> 00:01:30,200
+And you build
+this workflow iteratively,
+
+36
+00:01:30,200 --> 00:01:32,500
+in the spirit
+of agile development.
+
+37
+00:01:32,500 --> 00:01:35,400
+You keep tweaking
+and modifying different stages—
+
+38
+00:01:35,400 --> 00:01:38,900
+all the while keeping
+the original question in mind.
+
+39
+00:01:38,900 --> 00:01:40,900
+Your workflow is driven
+by the questions,
+
+40
+00:01:40,900 --> 00:01:43,900
+and it is not restricted
+to traditional techniques
+
+41
+00:01:43,900 --> 00:01:48,000
+associated with a specific kind
+of data or field of study.
+
+42
+00:01:48,000 --> 00:01:50,000
+Let's try to use
+this workflow template
+
+43
+00:01:50,000 --> 00:01:52,400
+to execute a simple
+data science project.
+
+44
+00:01:52,400 --> 00:01:54,900
+Let's do some
+social media analysis.
+
+45
+00:01:54,900 --> 00:01:58,000
+We'll look at
+the Wolfram Research Twitter feed
+
+46
+00:01:58,000 --> 00:02:02,500
+and see if we can get some
+data-driven insights out of it.
+
+47
+00:02:02,500 --> 00:02:06,900
+So here are the tweets,
+containing text, URLs, hashtags,
+
+48
+00:02:06,900 --> 00:02:09,500
+mentions of other users,
+et cetera.
+
+49
+00:02:09,500 --> 00:02:13,400
+From this data, we want to create
+a report on the Twitter activity—
+
+50
+00:02:13,400 --> 00:02:16,300
+something like this,
+which would perhaps help
+
+51
+00:02:16,300 --> 00:02:17,400
+the social media team
+
+52
+00:02:17,400 --> 00:02:20,200
+to strategize
+for a Twitter campaign.
+
+53
+00:02:20,200 --> 00:02:23,700
+The first stage of the workflow
+is where we frame the questions.
+
+54
+00:02:23,700 --> 00:02:26,000
+To get some useful conclusions
+from the data,
+
+55
+00:02:26,000 --> 00:02:28,500
+we need to start out
+with the right questions.
+
+56
+00:02:28,500 --> 00:02:31,500
+We have a list of tweets
+made by Wolfram Research.
+
+57
+00:02:31,500 --> 00:02:33,300
+What can we learn from them?
+
+58
+00:02:33,300 --> 00:02:35,300
+Now that is
+a pretty broad question.
+
+59
+00:02:35,300 --> 00:02:39,000
+It makes sense to break it down
+into few specific questions
+
+60
+00:02:39,000 --> 00:02:42,500
+that can guide our analysis—
+questions like:
+
+61
+00:02:42,500 --> 00:02:43,500
+How many tweets are sent?
+
+62
+00:02:43,500 --> 00:02:46,200
+How many of these
+are being liked or retweeted?
+
+63
+00:02:46,200 --> 00:02:49,000
+Which hashtags
+are used most often,
+
+64
+00:02:49,000 --> 00:02:51,500
+which should indicate
+what topics are being discussed?
+
+65
+00:02:51,500 --> 00:02:53,500
+Also, who were mentioned
+in these tweets,
+
+66
+00:02:53,500 --> 00:02:57,200
+to highlight the people involved
+in these conversations?
+
+67
+00:02:57,200 --> 00:02:59,600
+In addition
+to the topic-specific questions,
+
+68
+00:02:59,600 --> 00:03:02,500
+it's helpful to keep in mind
+the audience of the analysis
+
+69
+00:03:02,500 --> 00:03:04,000
+right from the start.
+
+70
+00:03:04,000 --> 00:03:06,700
+For this example project,
+the end audience could be
+
+71
+00:03:06,700 --> 00:03:10,000
+hypothetically
+Wolfram's social media team.
+
+72
+00:03:10,000 --> 00:03:12,000
+Perhaps they would like to see
+a monthly report
+
+73
+00:03:12,000 --> 00:03:16,000
+on the account's Twitter activity—
+a snapshot that presents answers
+
+74
+00:03:16,000 --> 00:03:20,900
+to questions like how many, what,
+who, with regard to the tweets.
+
+75
+00:03:20,900 --> 00:03:23,100
+Now the questions can be fuzzy
+as we start out,
+
+76
+00:03:23,100 --> 00:03:24,200
+and they can change later.
+
+77
+00:03:24,200 --> 00:03:26,700
+In fact, more interesting
+questions may surface
+
+78
+00:03:26,700 --> 00:03:28,400
+as we sift through the data.
+
+79
+00:03:28,400 --> 00:03:30,500
+However, it is important
+to set up these questions
+
+80
+00:03:30,500 --> 00:03:33,000
+at the beginning
+with the audience in mind.
+
+81
+00:03:33,000 --> 00:03:34,900
+Otherwise, with the sheer
+variety of things
+
+82
+00:03:34,900 --> 00:03:38,200
+that we can try with the data,
+we might end up wasting time
+
+83
+00:03:38,200 --> 00:03:40,800
+on unnecessary analysis.
+
+84
+00:03:40,800 --> 00:03:42,600
+Now that we have some questions,
+
+85
+00:03:42,600 --> 00:03:45,000
+let's get our hands on the data
+and see what we can find out.
+

@@ -1,0 +1,1025 @@
+﻿1
+00:00:00,000 --> 00:00:03,400
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:03,400 --> 00:00:07,500
+Section 4: Assembling
+a Multiparadigm Toolset.
+
+3
+00:00:07,500 --> 00:00:10,200
+We started the course
+with the central idea
+
+4
+00:00:10,200 --> 00:00:14,000
+of developing
+a multiparadigm project workflow,
+
+5
+00:00:14,000 --> 00:00:17,000
+incorporating ideas, algorithms
+and techniques
+
+6
+00:00:17,000 --> 00:00:21,300
+from across disciplines at
+different stages of the workflow
+
+7
+00:00:21,300 --> 00:00:25,200
+to ensure it aims to answer
+data-driven questions.
+
+8
+00:00:25,200 --> 00:00:28,000
+We've already looked
+at machine learning superfunctions
+
+9
+00:00:28,000 --> 00:00:32,500
+like Classify and Predict
+to answer classification questions
+
+10
+00:00:32,500 --> 00:00:35,100
+like is this A or B,
+
+11
+00:00:35,100 --> 00:00:39,000
+or regression questions
+like how many or how much.
+
+12
+00:00:39,000 --> 00:00:42,600
+Now let's move on
+to unsupervised machine learning
+
+13
+00:00:42,600 --> 00:00:44,200
+to answer questions like:
+
+14
+00:00:44,200 --> 00:00:46,000
+How is the data organized?
+
+15
+00:00:46,000 --> 00:00:48,500
+Does the data have
+some inherent structure?
+
+16
+00:00:48,500 --> 00:00:50,200
+Do the samples sort themselves out
+
+17
+00:00:50,200 --> 00:00:53,000
+into different groups
+and subgroups?
+
+18
+00:00:53,000 --> 00:00:55,100
+Unsupervised learning functions
+
+19
+00:00:55,100 --> 00:01:00,300
+attempt to automatically discover
+patterns in unlabeled data.
+
+20
+00:01:00,300 --> 00:01:02,900
+Clustering is one
+of the most common
+
+21
+00:01:02,900 --> 00:01:04,600
+unsupervised learning tasks,
+
+22
+00:01:04,600 --> 00:01:09,000
+which attempts to partition
+the data into groups or clusters.
+
+23
+00:01:09,000 --> 00:01:12,000
+Elements within a cluster
+are closer to each other
+
+24
+00:01:12,000 --> 00:01:15,300
+than to other elements
+outside the cluster.
+
+25
+00:01:15,300 --> 00:01:17,800
+For Fisher's iris data,
+if we cluster
+
+26
+00:01:17,800 --> 00:01:21,600
+based on the numerical features
+of petal length and petal width,
+
+27
+00:01:21,600 --> 00:01:25,900
+the clusters coincide very nicely
+with the species of the flower,
+
+28
+00:01:25,900 --> 00:01:29,200
+the blue dots being setosa
+in a two-cluster partition,
+
+29
+00:01:29,200 --> 00:01:33,000
+and in a three-cluster partition,
+the orange dots are versicolor
+
+30
+00:01:33,000 --> 00:01:35,500
+and the green dots
+are virginica—mostly.
+
+31
+00:01:37,000 --> 00:01:39,900
+In the Wolfram Language,
+FindClusters can be used
+
+32
+00:01:39,900 --> 00:01:43,000
+to partition a dataset
+into clusters of similar elements.
+
+33
+00:01:43,000 --> 00:01:44,800
+It works on all sorts of data:
+
+34
+00:01:44,800 --> 00:01:49,000
+numerical, text, image,
+as well as dates and times.
+
+35
+00:01:49,000 --> 00:01:51,800
+To cluster any type of data,
+what we need is
+
+36
+00:01:51,800 --> 00:01:56,400
+a measure of how far apart
+each sample is
+
+37
+00:01:56,400 --> 00:01:58,300
+from other samples in the data—
+
+38
+00:01:58,300 --> 00:02:01,000
+a way to measure
+the distance between.
+
+39
+00:02:01,000 --> 00:02:04,000
+For this
+we need a distance function.
+
+40
+00:02:04,000 --> 00:02:08,300
+A distance function <i>f</i> satisfies
+the following requirements.
+
+41
+00:02:08,300 --> 00:02:10,800
+So identical element pairs
+have zero distance,
+
+42
+00:02:10,800 --> 00:02:13,000
+and all others
+have positive distance.
+
+43
+00:02:13,000 --> 00:02:14,300
+The greater the distance,
+
+44
+00:02:14,300 --> 00:02:16,000
+the less the similarity
+between them.
+
+45
+00:02:17,000 --> 00:02:20,400
+FindClusters automatically
+picks up a distance function
+
+46
+00:02:20,400 --> 00:02:22,100
+depending on the type of data.
+
+47
+00:02:22,100 --> 00:02:24,900
+If the <i>e_i</I> are vectors
+of numbers,
+
+48
+00:02:24,900 --> 00:02:29,000
+FindClusters by default
+uses squared Euclidean distance.
+
+49
+00:02:29,000 --> 00:02:32,500
+If <i>e_i</i> are lists of Boolean
+true and false elements,
+
+50
+00:02:32,500 --> 00:02:35,500
+then FindClusters
+uses a dissimilarity
+
+51
+00:02:35,500 --> 00:02:39,200
+based on the normalized fraction
+of elements that disagree—
+
+52
+00:02:39,200 --> 00:02:42,000
+for example,
+Jaccard dissimilarity.
+
+53
+00:02:42,000 --> 00:02:45,800
+If the <i>e_i</i> are strings,
+then FindClusters by default
+
+54
+00:02:45,800 --> 00:02:47,100
+uses a distance function
+
+55
+00:02:47,100 --> 00:02:50,000
+based on the number
+of point changes
+
+56
+00:02:50,000 --> 00:02:52,600
+needed to get from one string
+to another—
+
+57
+00:02:52,600 --> 00:02:55,000
+for example, edit distance.
+
+58
+00:02:55,000 --> 00:02:59,500
+We can also explicitly specify
+an appropriate distance function
+
+59
+00:02:59,500 --> 00:03:01,600
+depending on the data.
+
+60
+00:03:01,600 --> 00:03:03,600
+Here are some useful
+distance functions
+
+61
+00:03:03,600 --> 00:03:08,800
+for numeric data,
+Boolean data and string data.
+
+62
+00:03:08,800 --> 00:03:11,600
+The choice of a distance function
+is definitely important
+
+63
+00:03:11,600 --> 00:03:14,000
+in finding
+the right kind of clusters.
+
+64
+00:03:14,000 --> 00:03:15,900
+Here is an example
+with synthetic data,
+
+65
+00:03:15,900 --> 00:03:17,950
+where changing
+the distance function
+
+66
+00:03:17,950 --> 00:03:19,500
+from Euclidean to cosine
+
+67
+00:03:19,500 --> 00:03:21,400
+allows the algorithm
+to find the clusters
+
+68
+00:03:21,400 --> 00:03:23,500
+which are obvious
+to the human eye.
+
+69
+00:03:24,800 --> 00:03:27,800
+The other important choice
+for identifying clusters
+
+70
+00:03:27,800 --> 00:03:30,300
+is the clustering algorithm
+itself.
+
+71
+00:03:30,300 --> 00:03:33,300
+By default, FindClusters
+tries different methods
+
+72
+00:03:33,300 --> 00:03:35,500
+and selects the best
+for clustering.
+
+73
+00:03:35,500 --> 00:03:39,000
+KMeans and KMedoids determine
+how to cluster the data
+
+74
+00:03:39,000 --> 00:03:41,800
+for a particular number
+of clusters.
+
+75
+00:03:41,800 --> 00:03:45,200
+DBSCAN, JarvisPatrick,
+MeanShift, SpanningTree,
+
+76
+00:03:45,200 --> 00:03:47,500
+NeighborhoodContraction
+and GaussianMixture
+
+77
+00:03:47,500 --> 00:03:49,600
+determine how to cluster the data
+
+78
+00:03:49,600 --> 00:03:53,500
+without assuming
+a particular number of clusters.
+
+79
+00:03:53,500 --> 00:03:57,200
+Agglomerate and Spectral
+can be used in both cases.
+
+80
+00:03:57,200 --> 00:03:59,950
+Certain clustering algorithms
+perform better than others,
+
+81
+00:03:59,950 --> 00:04:03,300
+depending on
+the natural clusters in the data.
+
+82
+00:04:03,300 --> 00:04:04,900
+In this synthetic data,
+
+83
+00:04:04,900 --> 00:04:07,400
+we humans can clearly identify
+the cluster
+
+84
+00:04:07,400 --> 00:04:08,900
+embedded in the center
+
+85
+00:04:08,900 --> 00:04:12,500
+of what appears to be
+uniformly distributed noise.
+
+86
+00:04:12,500 --> 00:04:14,200
+The KMeans clustering algorithm,
+
+87
+00:04:14,200 --> 00:04:18,000
+however, attempts to find
+two clusters,
+
+88
+00:04:18,000 --> 00:04:20,600
+and does not work very well
+in this case.
+
+89
+00:04:20,600 --> 00:04:24,000
+But the density-based spatial
+clustering algorithm DBSCAN
+
+90
+00:04:24,000 --> 00:04:26,500
+can easily identify
+the cluster in the center.
+
+91
+00:04:27,500 --> 00:04:29,800
+For more control
+on the clustering algorithm,
+
+92
+00:04:29,800 --> 00:04:31,900
+we can specify Method suboptions
+
+93
+00:04:31,900 --> 00:04:35,600
+like NeighborhoodRadius
+and NeighborsNumber for DBSCAN,
+
+94
+00:04:35,600 --> 00:04:38,300
+InitialCentroids
+for KMeans and KMediods,
+
+95
+00:04:38,300 --> 00:04:40,500
+and ClusterDissimilarityFunction,
+
+96
+00:04:40,500 --> 00:04:43,900
+which specifies
+the intercluster dissimilarity
+
+97
+00:04:43,900 --> 00:04:45,600
+for the Agglomerate method.
+
+98
+00:04:46,700 --> 00:04:48,900
+The specified CriterionFunction
+
+99
+00:04:48,900 --> 00:04:51,200
+is used to evaluate
+the clusters obtained
+
+100
+00:04:51,200 --> 00:04:53,800
+to decide on
+the best number clusters.
+
+101
+00:04:53,800 --> 00:04:54,800
+In this dataset,
+
+102
+00:04:54,800 --> 00:04:57,400
+using StandardDeviation
+as a criterion function
+
+103
+00:04:57,400 --> 00:05:01,400
+results in unnecessarily
+breaking up the outer ring cluster
+
+104
+00:05:01,400 --> 00:05:03,700
+into multiple smaller clusters.
+
+105
+00:05:03,700 --> 00:05:06,200
+However, using the RSquared
+criterion function,
+
+106
+00:05:06,200 --> 00:05:08,500
+only two clusters are established.
+
+107
+00:05:10,500 --> 00:05:12,200
+There are other
+Wolfram Language functions
+
+108
+00:05:12,200 --> 00:05:14,450
+that use the notion
+of distance function
+
+109
+00:05:14,450 --> 00:05:18,300
+and can be used to group samples
+based on their similarity.
+
+110
+00:05:18,300 --> 00:05:21,200
+Both ClusteringTree
+and Dendrogram
+
+111
+00:05:21,200 --> 00:05:25,500
+hierarchically create clusters
+and visualize them as well.
+
+112
+00:05:25,500 --> 00:05:28,900
+While FindClusters returns
+the separate lists of samples
+
+113
+00:05:28,900 --> 00:05:30,800
+corresponding to each cluster,
+
+114
+00:05:30,800 --> 00:05:33,300
+ClusteringComponents returns
+
+115
+00:05:33,300 --> 00:05:36,700
+the indices of the clusters
+to which each sample belongs.
+
+116
+00:05:37,700 --> 00:05:39,500
+The Nearest function
+uses the notion
+
+117
+00:05:39,500 --> 00:05:41,600
+of the distance function
+internally
+
+118
+00:05:41,600 --> 00:05:44,200
+to find elements
+closest to a given sample.
+
+119
+00:05:44,200 --> 00:05:46,300
+While working with samples
+in feature space,
+
+120
+00:05:46,300 --> 00:05:49,800
+FeatureNearest can be used
+to create a NearestFunction
+
+121
+00:05:49,800 --> 00:05:53,000
+that can be used to find
+a sample from the training data
+
+122
+00:05:53,000 --> 00:05:55,900
+that is the closest match
+to a new test sample.
+
+123
+00:05:58,600 --> 00:06:01,100
+We've looked at
+FeatureSpacePlot before briefly
+
+124
+00:06:01,100 --> 00:06:03,800
+during exploratory data analysis.
+
+125
+00:06:03,800 --> 00:06:05,500
+Given any collection of objects,
+
+126
+00:06:05,500 --> 00:06:07,600
+FeatureSpacePlot
+attempts to lay them out
+
+127
+00:06:07,600 --> 00:06:10,100
+in an appropriate feature space,
+
+128
+00:06:10,100 --> 00:06:12,400
+without the need
+for fine-tuning details
+
+129
+00:06:12,400 --> 00:06:15,100
+like converting data
+from one format to another,
+
+130
+00:06:15,100 --> 00:06:16,650
+projecting to lower dimensions
+
+131
+00:06:16,650 --> 00:06:19,200
+or choosing algorithms
+and parameter values.
+
+132
+00:06:19,200 --> 00:06:21,800
+FeatureSpacePlot can handle
+different types of data
+
+133
+00:06:21,800 --> 00:06:24,600
+like photographs,
+texts, et cetera,
+
+134
+00:06:24,600 --> 00:06:25,700
+and uses sophisticated
+
+135
+00:06:25,700 --> 00:06:28,700
+pre-trained feature
+extractors internally.
+
+136
+00:06:31,300 --> 00:06:33,500
+Labeled training data is expensive
+
+137
+00:06:33,500 --> 00:06:38,100
+since an expert
+has to manually label each sample.
+
+138
+00:06:38,100 --> 00:06:42,500
+However, unlabeled training data
+is abundant and easy to come by.
+
+139
+00:06:42,500 --> 00:06:46,300
+If we view clusters
+found in unlabeled data
+
+140
+00:06:46,300 --> 00:06:48,200
+as potential classes,
+
+141
+00:06:48,200 --> 00:06:52,500
+then we can use clustering
+to build a classifier
+
+142
+00:06:52,500 --> 00:06:55,300
+that will assign labels
+to new samples
+
+143
+00:06:55,300 --> 00:06:57,800
+based on the clusters
+it has identified
+
+144
+00:06:57,800 --> 00:06:59,000
+in the existing data.
+
+145
+00:07:01,500 --> 00:07:03,500
+Here is a breast cancer dataset
+
+146
+00:07:03,500 --> 00:07:06,300
+from the UCI
+Machine Learning Repository
+
+147
+00:07:06,300 --> 00:07:09,200
+consisting of benign
+and malignant samples
+
+148
+00:07:09,200 --> 00:07:13,500
+with numerical features extracted
+from original images of the cells.
+
+149
+00:07:15,700 --> 00:07:17,200
+These are
+the feature descriptions,
+
+150
+00:07:17,200 --> 00:07:19,300
+and we see that
+the first column is the ID
+
+151
+00:07:19,300 --> 00:07:21,200
+and the last column is the class.
+
+152
+00:07:22,800 --> 00:07:27,800
+There are 458 benign
+and 241 malignant samples.
+
+153
+00:07:29,900 --> 00:07:32,200
+Let's ignore the ID
+and the class columns.
+
+154
+00:07:32,200 --> 00:07:36,400
+Let's just
+focus on columns 2 to 10.
+
+155
+00:07:38,900 --> 00:07:43,500
+We can use these features
+and attempt to cluster the data,
+
+156
+00:07:43,500 --> 00:07:46,900
+and then build a classifier
+based on that clustering.
+
+157
+00:07:48,800 --> 00:07:50,700
+Now once we have the classifier,
+
+158
+00:07:50,700 --> 00:07:56,800
+we can use it on new samples to
+predict a potential class label,
+
+159
+00:07:56,800 --> 00:08:00,200
+malignant or benign,
+for a new sample.
+
+160
+00:08:00,200 --> 00:08:02,700
+Going back to the samples
+and applying our classifier,
+
+161
+00:08:02,700 --> 00:08:04,800
+we find two class assignments
+
+162
+00:08:04,800 --> 00:08:07,800
+where the first class
+has 385 samples,
+
+163
+00:08:07,800 --> 00:08:10,600
+which look mostly like
+the benign samples,
+
+164
+00:08:10,600 --> 00:08:13,700
+and the second class
+has 312 samples,
+
+165
+00:08:13,700 --> 00:08:18,600
+which has 73 benign,
+but 239 of the malignant samples.
+
+166
+00:08:18,600 --> 00:08:22,950
+So we see that sometimes
+cheaper computational methods
+
+167
+00:08:22,950 --> 00:08:26,100
+can serve as a screen
+for classifying samples
+
+168
+00:08:26,100 --> 00:08:29,000
+that otherwise require
+expensive experimental methods
+
+169
+00:08:29,000 --> 00:08:31,200
+for accurately classifying them.
+
+170
+00:08:31,200 --> 00:08:34,450
+Of course we can always use
+the experimental method
+
+171
+00:08:34,450 --> 00:08:37,700
+to confirm the classification
+
+172
+00:08:37,700 --> 00:08:40,000
+suggested by
+the computational method.
+
+173
+00:08:42,700 --> 00:08:45,900
+Given a large amount of data,
+it is possible to create
+
+174
+00:08:45,900 --> 00:08:49,600
+a simple interpretable model
+of how the data was generated.
+
+175
+00:08:49,600 --> 00:08:52,300
+The Wolfram Language function
+LearnDistribution
+
+176
+00:08:52,300 --> 00:08:54,500
+learns a distribution
+from the data
+
+177
+00:08:54,500 --> 00:08:57,500
+that attempts to represent
+an underlying process
+
+178
+00:08:57,500 --> 00:09:01,300
+from which the examples
+might have been generated.
+
+179
+00:09:01,300 --> 00:09:02,800
+Back to Fisher's iris data,
+
+180
+00:09:02,800 --> 00:09:07,000
+we can train a distribution
+directly from this dataset
+
+181
+00:09:07,000 --> 00:09:11,600
+and use it
+to generate random samples.
+
+182
+00:09:11,600 --> 00:09:12,600
+Here is a comparison
+
+183
+00:09:12,600 --> 00:09:15,500
+of the generated random samples
+in red
+
+184
+00:09:15,500 --> 00:09:18,200
+against the original samples
+in green.
+
+185
+00:09:19,500 --> 00:09:21,900
+For the simpler case
+of univariate data,
+
+186
+00:09:21,900 --> 00:09:23,800
+the related function
+FindDistribution
+
+187
+00:09:23,800 --> 00:09:26,600
+attempts to learn a continuous
+or discrete distribution
+
+188
+00:09:26,600 --> 00:09:28,000
+from the data itself.
+
+189
+00:09:28,000 --> 00:09:29,800
+Here is a histogram
+of data points
+
+190
+00:09:29,800 --> 00:09:31,350
+generated from a mixture
+
+191
+00:09:31,350 --> 00:09:34,100
+of a NormalDistribution
+and ExponentialDistribution.
+
+192
+00:09:35,400 --> 00:09:36,900
+FindDistribution suggests
+
+193
+00:09:36,900 --> 00:09:39,800
+this mixture distribution
+to fit the data,
+
+194
+00:09:39,800 --> 00:09:42,300
+and we can see
+how the fit compares
+
+195
+00:09:42,300 --> 00:09:44,200
+with the histogram itself.
+
+196
+00:09:45,300 --> 00:09:48,600
+In summary,
+we looked at FindClusters
+
+197
+00:09:48,600 --> 00:09:51,600
+as the primary function
+for cluster analysis
+
+198
+00:09:51,600 --> 00:09:52,800
+in the Wolfram Language.
+
+199
+00:09:52,800 --> 00:09:55,200
+We looked at choices
+of DistanceFunction
+
+200
+00:09:55,200 --> 00:09:58,700
+and algorithms that can be used
+with FindClusters,
+
+201
+00:09:58,700 --> 00:10:00,500
+and we also
+looked at CriterionFunction
+
+202
+00:10:00,500 --> 00:10:02,500
+as an option to evaluate clusters
+
+203
+00:10:02,500 --> 00:10:06,000
+and select the right number
+of clusters automatically.
+
+204
+00:10:06,000 --> 00:10:09,500
+Other functions that can be used
+to visualize clusters in the data
+
+205
+00:10:09,500 --> 00:10:12,900
+or to find samples
+closer to a specific data point
+
+206
+00:10:12,900 --> 00:10:16,300
+are ClusteringTree, Dendrogram,
+ClusteringComponents,
+
+207
+00:10:16,300 --> 00:10:19,000
+FeatureSpacePlot, Nearest
+and FeatureNearest.
+
+208
+00:10:19,000 --> 00:10:21,400
+In the absence
+of labeled training samples,
+
+209
+00:10:21,400 --> 00:10:24,400
+ClusterClassify can be used
+to build a classifier
+
+210
+00:10:24,400 --> 00:10:27,100
+from a clustering
+of unlabeled samples,
+
+211
+00:10:27,100 --> 00:10:29,800
+using the clusters
+as potential classes.
+
+212
+00:10:29,800 --> 00:10:32,000
+Finally we also looked at
+LearnDistribution
+
+213
+00:10:32,000 --> 00:10:35,900
+and FindDistribution as ways
+of learning a distribution
+
+214
+00:10:35,900 --> 00:10:39,000
+from the data itself to represent
+the underlying process
+
+215
+00:10:39,000 --> 00:10:41,000
+that generated the samples.
+

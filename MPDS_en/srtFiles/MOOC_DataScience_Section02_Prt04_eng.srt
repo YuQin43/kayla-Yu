@@ -1,0 +1,435 @@
+﻿1
+00:00:00,000 --> 00:00:02,900
+Multiparadigm Data Science
+with the Wolfram Language,
+
+2
+00:00:02,900 --> 00:00:06,200
+Section 2:
+Getting Your Data into Shape.
+
+3
+00:00:06,200 --> 00:00:10,800
+Data preprocessing involves
+deriving features from raw data
+
+4
+00:00:10,800 --> 00:00:14,000
+that are informative
+and non-redundant,
+
+5
+00:00:14,000 --> 00:00:17,600
+and are also suitable as input
+to machine learning algorithms
+
+6
+00:00:17,600 --> 00:00:19,000
+and statistical models
+
+7
+00:00:19,000 --> 00:00:22,800
+often used in the later stages
+of the workflow.
+
+8
+00:00:22,800 --> 00:00:26,500
+Feature extraction therefore
+becomes a very useful step
+
+9
+00:00:26,500 --> 00:00:29,000
+in the multiparadigm
+data science workflow
+
+10
+00:00:29,000 --> 00:00:33,400
+as it transforms raw data
+in a variety of formats
+
+11
+00:00:33,400 --> 00:00:35,600
+into numeric vectors,
+
+12
+00:00:35,600 --> 00:00:38,300
+which make it easier
+to do things like
+
+13
+00:00:38,300 --> 00:00:41,800
+applying transformations
+like standardization, rescaling,
+
+14
+00:00:41,800 --> 00:00:43,500
+filtering, et cereta;
+
+15
+00:00:43,500 --> 00:00:45,000
+performing operations like
+
+16
+00:00:45,000 --> 00:00:48,000
+Principal Component Analysis
+and others;
+
+17
+00:00:48,000 --> 00:00:50,500
+or simply finding
+distances between samples
+
+18
+00:00:50,500 --> 00:00:54,600
+or even triggering activations
+in neural networks.
+
+19
+00:00:54,600 --> 00:00:58,100
+During feature extraction,
+we can convert nominal features
+
+20
+00:00:58,100 --> 00:01:01,500
+that describe some
+qualitative aspects of an object,
+
+21
+00:01:01,500 --> 00:01:05,800
+usually represented as text
+or string, to numbers.
+
+22
+00:01:07,400 --> 00:01:09,800
+We can convert Boolean features—
+
+23
+00:01:09,800 --> 00:01:14,400
+true/false, yes/no and so on—
+to numbers.
+
+24
+00:01:14,400 --> 00:01:19,000
+And we can also convert
+images and text to numbers.
+
+25
+00:01:20,000 --> 00:01:23,000
+It's not sufficient to just have
+these numbers.
+
+26
+00:01:23,000 --> 00:01:27,000
+If the numeric features have
+different ranges of values,
+
+27
+00:01:27,000 --> 00:01:29,400
+then we need to have
+feature scaling.
+
+28
+00:01:29,400 --> 00:01:33,000
+Standardization—that is, shifting
+and rescaling elements of a list
+
+29
+00:01:33,000 --> 00:01:36,000
+to have zero mean
+and unit sample variance—
+
+30
+00:01:36,000 --> 00:01:38,200
+is one way to scale features.
+
+31
+00:01:39,500 --> 00:01:41,300
+In addition
+to feature extraction,
+
+32
+00:01:41,300 --> 00:01:43,300
+we can also use
+feature selection
+
+33
+00:01:43,300 --> 00:01:46,400
+to obtain a reduced set
+of features.
+
+34
+00:01:46,400 --> 00:01:48,200
+Sometimes the original input
+
+35
+00:01:48,200 --> 00:01:51,000
+may contain redundant
+and irrelevant features
+
+36
+00:01:51,000 --> 00:01:52,800
+that affect the performance
+
+37
+00:01:52,800 --> 00:01:55,000
+of a machine learning algorithm
+negatively.
+
+38
+00:01:55,000 --> 00:01:58,000
+Feature selection can help
+with this problem.
+
+39
+00:01:58,000 --> 00:02:00,500
+It can improve generalization
+of the model
+
+40
+00:02:00,500 --> 00:02:02,800
+by reducing overfitting,
+
+41
+00:02:02,800 --> 00:02:07,000
+it can reduce training times
+and it can even simplify models
+
+42
+00:02:07,000 --> 00:02:11,300
+to make them more easily
+interpretable by humans.
+
+43
+00:02:11,300 --> 00:02:14,000
+Feature selection is also
+sometimes referred to as
+
+44
+00:02:14,000 --> 00:02:16,800
+variable selection,
+attribute selection
+
+45
+00:02:16,800 --> 00:02:18,600
+or variable subset selection—
+
+46
+00:02:18,600 --> 00:02:22,000
+the process of selecting
+a subset of relevant features
+
+47
+00:02:22,000 --> 00:02:24,000
+for use in model construction.
+
+48
+00:02:25,300 --> 00:02:28,000
+Filter methods work
+by selecting features
+
+49
+00:02:28,000 --> 00:02:32,500
+based on some score calculated
+by applying a statistical test
+
+50
+00:02:32,500 --> 00:02:36,200
+to determine which feature
+has the most predictive power.
+
+51
+00:02:37,500 --> 00:02:40,500
+Wrapper methods select
+a subset of features
+
+52
+00:02:40,500 --> 00:02:42,000
+and train a model,
+
+53
+00:02:42,000 --> 00:02:43,200
+change the subset
+
+54
+00:02:43,200 --> 00:02:47,000
+and see if the model performance
+improves or degrades.
+
+55
+00:02:47,000 --> 00:02:50,000
+In forward selection,
+features are added one at a time.
+
+56
+00:02:50,000 --> 00:02:53,000
+In backward elimination,
+starting with all features,
+
+57
+00:02:53,000 --> 00:02:55,000
+they are removed one at a time.
+
+58
+00:02:56,100 --> 00:02:58,900
+Embedded methods have
+feature selection built in
+
+59
+00:02:58,900 --> 00:03:01,600
+as part of the model
+training process itself.
+
+60
+00:03:01,600 --> 00:03:05,000
+Dimensionality reduction
+can be treated as a special case
+
+61
+00:03:05,000 --> 00:03:07,400
+of feature extraction
+and selection,
+
+62
+00:03:07,400 --> 00:03:10,600
+where data is projected
+to a different dimension
+
+63
+00:03:10,600 --> 00:03:13,000
+than original feature space.
+
+64
+00:03:13,000 --> 00:03:15,000
+When faced with
+too many features,
+
+65
+00:03:15,000 --> 00:03:16,800
+projecting data
+to lower dimensions
+
+66
+00:03:16,800 --> 00:03:19,700
+helps to avoid
+the curse of dimensionality—
+
+67
+00:03:19,700 --> 00:03:24,200
+poor general performance of models
+overfitted on training data.
+
+68
+00:03:24,200 --> 00:03:26,500
+Dimensionality reduction
+also allows
+
+69
+00:03:26,500 --> 00:03:29,000
+intuitive visualization
+of data points
+
+70
+00:03:29,000 --> 00:03:33,000
+in two or three dimensions
+for exploratory analysis.
+
+71
+00:03:33,000 --> 00:03:36,000
+The DimensionReduce function
+automatically selects
+
+72
+00:03:36,000 --> 00:03:41,000
+the best dimensionality reduction
+algorithm based on the data,
+
+73
+00:03:41,000 --> 00:03:44,000
+but we can also specify
+the method we want to use.
+
+74
+00:03:44,000 --> 00:03:48,800
+For example, in this case
+we are using TSNE or PCA.
+
+75
+00:03:50,400 --> 00:03:54,000
+The FeatureSpacePlot function
+automatically extracts features
+
+76
+00:03:54,000 --> 00:03:55,200
+from the given data
+
+77
+00:03:55,200 --> 00:03:58,500
+and reduces to two dimensions
+and creates a scatter plot.
+
+78
+00:03:59,500 --> 00:04:02,000
+When faced with a large
+collection of data samples,
+
+79
+00:04:02,000 --> 00:04:05,600
+instance selection can help with
+quickly creating a model
+
+80
+00:04:05,600 --> 00:04:07,300
+for proof of concept.
+
+81
+00:04:07,300 --> 00:04:10,800
+This involves selecting a subset
+of training data
+
+82
+00:04:10,800 --> 00:04:13,000
+to actually build the classifier.
+
+83
+00:04:13,000 --> 00:04:16,000
+Instances can be sampled
+from a large dataset
+
+84
+00:04:16,000 --> 00:04:20,000
+either by random sampling
+or stratified sampling.
+
+85
+00:04:21,000 --> 00:04:23,200
+In summary,
+we looked at functionality
+
+86
+00:04:23,200 --> 00:04:26,500
+useful for extracting features
+from raw data
+
+87
+00:04:26,500 --> 00:04:30,300
+and for reducing dimensionality
+of high-dimensional data.
+
+88
+00:04:30,300 --> 00:04:33,300
+We also talked briefly
+about feature selection
+
+89
+00:04:33,300 --> 00:04:35,300
+and instance selection.
+
+90
+00:04:35,300 --> 00:04:38,000
+This brings us to the end
+of the section
+
+91
+00:04:38,000 --> 00:04:40,000
+Get Your Data into Shape.
+

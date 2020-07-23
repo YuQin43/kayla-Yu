@@ -1,0 +1,1153 @@
+﻿1
+00:00:00,000 --> 00:00:01,000
+Hello and welcome
+您好 
+2
+00:00:01,000 --> 00:00:04,500
+to Multiparadigm Data Science
+with the Wolfram Language,
+欢迎使用Wolfram语言学习多路径数据科学
+3
+00:00:04,500 --> 00:00:08,500
+Section 4: Assembling
+a Multiparadigm Toolset.
+第4节：组装多路径工具集
+4
+00:00:08,500 --> 00:00:10,000
+The very first section
+of this course,
+本课程的第一部分
+5
+00:00:10,000 --> 00:00:12,000
+Building a Project Workflow,
+构建项目工作流
+6
+00:00:12,000 --> 00:00:13,500
+provided an overview
+提供了概述
+7
+00:00:13,500 --> 00:00:16,000
+of the multiparadigm
+project workflow.
+关于多路径项目工作流
+
+8
+00:00:16,000 --> 00:00:18,000
+Sections 2 and 3 provided
+more details
+第2节和第3节提供了更多细节
+9
+00:00:18,000 --> 00:00:21,000
+on functionality useful
+for the wrangle
+在功能性和有用方面
+10
+00:00:21,000 --> 00:00:23,400
+and explore stages
+of the workflow.
+在工作流的wrangle和explore阶段
+10
+11
+00:00:23,400 --> 00:00:27,500
+In section 4, we'll continue
+with the multiparadigm approach,
+在第4节中，我们将继续使用多路径方法
+12
+00:00:27,500 --> 00:00:30,700
+and look at different algorithms
+and techniques
+并研究对分析工作流阶段
+13
+00:00:30,700 --> 00:00:34,000
+useful for the analyze stage
+of the workflow.
+有用的算法和技术
+14
+00:00:34,000 --> 00:00:36,800
+The goal is to assemble
+a multiparadigm toolset
+我们的目标是组装一个多路径工具集
+15
+00:00:36,800 --> 00:00:39,500
+that can be incorporated
+into the workflow
+该工具集可以合并到工作流中
+16
+00:00:39,500 --> 00:00:42,500
+and used to drive it
+with questions.
+并用问题驱动它
+17
+00:00:42,500 --> 00:00:45,500
+Instead of restricting ourselves
+to traditional techniques
+与其局限于传统的
+18
+00:00:45,500 --> 00:00:48,500
+associated with specific
+kinds of data,
+特定类型的数据技术
+19
+00:00:48,500 --> 00:00:50,300
+let's reach out across disciplines
+不如让我们跨学科
+20
+00:00:50,300 --> 00:00:54,800
+to use the tool that is most
+suited to answer our questions.
+使用最适合回答我们问题的工具
+21
+00:00:56,200 --> 00:00:57,000
+But before we begin,
+但在开始之前
+22
+00:00:57,000 --> 00:01:00,800
+let's quickly review
+some of the terminology
+让我们简单回顾一些术语
+23
+00:01:00,800 --> 00:01:02,800
+commonly used in data science.
+这些术语常用于数据科学中
+24
+00:01:02,800 --> 00:01:04,000
+These have been borrowed
+他们都是从统计学和
+25
+00:01:04,000 --> 00:01:06,900
+from both statistics
+and machine learning.
+机器学习中借鉴的
+26
+00:01:06,900 --> 00:01:08,500
+For a data sample <i>x</i>,
+对于一个数据样本x
+27
+00:01:08,500 --> 00:01:13,000
+<i>x</i>1, <i>x</i>2 and so on are known
+as the features of the sample
+x1、x2等被称为样本的特征
+28
+00:01:13,000 --> 00:01:16,500
+or predictor variables
+or independent variables.
+或预测变量或自变量
+29
+00:01:16,500 --> 00:01:21,000
+<i>y</i> is the dependent variable
+or the response variable
+y是因变量 或响应变量
+30
+00:01:21,000 --> 00:01:24,800
+or output value or label.
+或输出值 或标签
+31
+00:01:24,800 --> 00:01:27,600
+The model itself
+can either be a function
+模型本身可以是一个函数
+32
+00:01:27,600 --> 00:01:31,500
+with associated assumptions
+and optimization criteria
+其相关的假设和优化准则
+33
+00:01:31,500 --> 00:01:35,000
+used to approximate the behavior
+suggested by the data,
+用于取数据所建议的近似的行为
+34
+00:01:35,000 --> 00:01:40,400
+or it can refer to a blackbox
+represented by an algorithm
+模型也可以引用由算法表示的黑盒
+35
+00:01:40,400 --> 00:01:43,200
+that takes training data as input
+该算法将训练数据作为输入
+36
+00:01:43,200 --> 00:01:47,400
+and produces predictions of labels
+and values as output.
+生成的预测标签或值作为输出
+37
+00:01:47,400 --> 00:01:51,300
+Parameters are the values
+in the model that are not assumed
+参数是模型中未假定的值
+38
+00:01:51,300 --> 00:01:53,800
+by the predictor
+or response variables.
+这些值由预测变量或响应变量假定
+39
+00:01:53,800 --> 00:01:55,200
+A big part of machine learning
+机器学习的很大一部分
+40
+00:01:55,200 --> 00:01:59,300
+often involves learning
+these parameter values.
+通常涉及学习这些参数值
+41
+00:01:59,300 --> 00:02:02,200
+Training is the process
+of identifying the function
+训练是识别函数
+42
+00:02:02,200 --> 00:02:05,500
+or the algorithm
+and the corresponding parameters
+或算法以及相应的参数的过程
+43
+00:02:05,500 --> 00:02:09,400
+that best represent
+the relationship between the input
+参数最能代表输入
+44
+00:02:09,400 --> 00:02:10,400
+and the output.
+和输出之间的关系
+45
+00:02:12,000 --> 00:02:13,800
+Let's look at a few questions
+让我们看看几个问题
+46
+00:02:13,800 --> 00:02:16,400
+that data science projects
+often try to answer
+这些问题通常是数据科学项目
+47
+00:02:16,400 --> 00:02:18,600
+with the help of data.
+试图借助数据来回答的
+48
+00:02:18,600 --> 00:02:19,800
+To begin with,
+首先
+49
+00:02:19,800 --> 00:02:23,700
+we have of the most frequently
+asked questions
+我们最常问的问题
+50
+00:02:23,700 --> 00:02:27,400
+that is of the type
+is this A or B,
+类型是A或B
+51
+00:02:27,400 --> 00:02:30,800
+or even A or B or C or D or E?
+甚至是A或B或C或D或E？
+52
+00:02:30,800 --> 00:02:33,900
+In data science,
+this is known as classification—
+在数据科学中 这被称为分类—
+53
+00:02:33,900 --> 00:02:38,900
+trying to figure out if a sample
+belongs to class 1 or class 2,
+试图找出一个样本属于1类还是2类
+54
+00:02:38,900 --> 00:02:41,500
+so questions along the lines of:
+因此问题大致如下
+55
+00:02:41,500 --> 00:02:45,000
+Given an image, can we label it
+as a cat or a dog?
+给定一个图像 我们能给它贴上猫还是狗的标签？
+56
+00:02:46,400 --> 00:02:50,000
+Given text of an email,
+can we say if it's spam or not?
+给定一封邮件的文本 我们能判断它是否是垃圾邮件吗？
+57
+00:02:51,000 --> 00:02:54,350
+For text in different languages,
+can we label each piece
+对于不同语言的文本 我们能给每一篇文章贴上
+58
+00:02:54,350 --> 00:02:58,800
+as English or French
+or Arabic or something else?
+英文、法文、阿拉伯文或其他的标签吗？
+59
+00:02:58,800 --> 00:03:01,650
+Can we classify a Facebook post
+according to its topic—
+我们能根据Facebook的主题
+60
+00:03:01,650 --> 00:03:05,000
+say, technology, food, travel?
+比如科技、食物、旅游来分类吗？
+61
+00:03:05,000 --> 00:03:07,000
+Supervised machine learning
+is a technique
+监督式机器学习是一种技术
+62
+00:03:07,000 --> 00:03:08,700
+where the algorithm
+attempts to learn
+其中算法尝试去学习
+63
+00:03:08,700 --> 00:03:12,400
+from training examples
+of input-output pairs
+从输入输出对训练示例中
+64
+00:03:12,400 --> 00:03:17,200
+to predict output labels
+or values for new input.
+以预测新输入后的输出标签或值
+65
+00:03:17,200 --> 00:03:20,300
+Classification perhaps accounts
+for the widest application
+分类也许能解释为什么
+66
+00:03:20,300 --> 00:03:24,400
+of supervised machine learning
+to real-world problems.
+在现实生活问题中有监督机器学习应用最广泛
+67
+00:03:24,400 --> 00:03:25,800
+It is the algorithm of choice
+这是算法的选择
+68
+00:03:25,800 --> 00:03:28,300
+if your problem can be posed
+as the question,
+如果你的问题是
+69
+00:03:28,300 --> 00:03:31,400
+"is this A or B or C
+or D or E," and so on.
+A或B或C或D或E等问题
+70
+00:03:32,400 --> 00:03:34,900
+So it is a descriptive
+modeling task
+因此 这是一个描述性建模任务
+71
+00:03:34,900 --> 00:03:37,600
+which tries to predict
+the class label of a sample
+它试图预测样本的类标签
+72
+00:03:37,600 --> 00:03:40,500
+based on the previously
+labeled instances.
+根据先前标记的实例
+73
+00:03:40,500 --> 00:03:43,700
+Here's some training data where
+each sample has two features,
+以下是一些培训数据 每个样本都有两个特征
+74
+00:03:43,700 --> 00:03:45,300
+age and income,
+年龄和收入
+75
+00:03:45,300 --> 00:03:48,500
+and a predefined class label,
+high or low,
+以及一个预先定义的类别标签（高或低）
+76
+00:03:48,500 --> 00:03:50,000
+representing the credit risk
+代表假设由个体
+77
+00:03:50,000 --> 00:03:53,000
+posed by
+the hypothetical individual.
+所构成的信用风险
+78
+00:03:53,000 --> 00:03:57,500
+This is the target label we'd
+like to predict for new samples.
+这是我们想预测新样品的目标标签
+79
+00:03:57,500 --> 00:04:00,500
+Using this data,
+we'd like to infer a function
+使用这些数据 我们想推断出一个函数
+80
+00:04:00,500 --> 00:04:03,300
+to map from the feature values
+to a label.
+从特征值映射到标签
+81
+00:04:03,300 --> 00:04:07,000
+And once we have the function,
+we can use it to predict a label
+一旦我们有了这个函数 我们就可以用它来预测标签
+82
+00:04:07,000 --> 00:04:10,800
+when given the feature values
+of a new data point.
+当给定一个新的新数据点的特征值时
+83
+00:04:10,800 --> 00:04:13,800
+Classify is
+the machine learning superfunction
+分类是一项机器学习超功能
+84
+00:04:13,800 --> 00:04:15,600
+available in the Wolfram Language.
+在Wolfram语言中可用的
+85
+00:04:15,600 --> 00:04:18,300
+It's perfect for the multiparadigm
+project workflow
+它非常适合多路径项目工作流
+86
+00:04:18,300 --> 00:04:22,000
+as it automates
+the process of classification.
+因为它自动化了分类过程
+87
+00:04:22,000 --> 00:04:26,500
+It picks the optimum algorithm
+internally
+它在内部选择最佳算法
+88
+00:04:26,500 --> 00:04:29,100
+according to the available data,
+根据可用的数据
+89
+00:04:29,100 --> 00:04:32,000
+whether it's numeric
+or text or sound or images
+不管是数字、文本、声音或图像
+90
+00:04:32,000 --> 00:04:33,800
+or any combinations of these.
+或它们的任何组合
+91
+00:04:35,000 --> 00:04:37,000
+The labeled training examples
+带样本的训练示例
+92
+00:04:37,000 --> 00:04:40,000
+are used to learn
+a ClassifierFunction
+被用于学习ClassifierFunction(分类器函数)
+93
+00:04:40,000 --> 00:04:43,500
+that can be used
+to classify and label new samples.
+然后可用于对新样本进行分类和标记
+94
+00:04:43,500 --> 00:04:46,000
+It can also be used
+to find the probability
+它还可以用来找出样本
+95
+00:04:46,000 --> 00:04:49,000
+that the sample belongs
+to a certain class.
+属于某一类的概率
+96
+00:04:49,000 --> 00:04:52,600
+Here we see how the probability
+of the sample belonging to class A
+在这里，我们看到样本属于A类的概率
+97
+00:04:52,600 --> 00:04:56,700
+changes as the value
+of the numeric feature changes.
+是随着数值特征值的变化而变化
+98
+00:04:56,700 --> 00:04:59,800
+Let's revisit
+the famous Fisher's iris dataset
+让我们重温一下著名Fisher's Iris数据集
+99
+00:04:59,800 --> 00:05:02,700
+that we worked with in
+the Get to Know Your Data section.
+我们在"了解您的数据"部分使用过
+100
+00:05:04,000 --> 00:05:06,000
+This famous dataset
+has the recorded
+该数据集记录了
+101
+00:05:06,000 --> 00:05:08,000
+sepal length, sepal width,
+萼片长度、萼片宽度
+102
+00:05:08,000 --> 00:05:10,500
+petal length and petal width
+of the samples
+花瓣长度和花瓣宽度
+103
+00:05:10,500 --> 00:05:13,800
+from three different species
+of the iris flower.
+四种从三种不同品种鸢尾花中得到的特征
+104
+00:05:13,800 --> 00:05:16,700
+Given these four features,
+the classification task
+鉴于这四个特征 分类任务是
+105
+00:05:16,700 --> 00:05:20,700
+is to predict the species
+of a new sample.
+预测新样本的物种
+106
+00:05:20,700 --> 00:05:24,800
+Here's some training data
+for us to train the classifier
+这里有一些训练数据 我们可以训练分类器
+107
+00:05:24,800 --> 00:05:29,500
+and some test data to see how well
+the classifier is performing.
+还有一些测试数据可以看看分类器的性能如何
+108
+00:05:29,500 --> 00:05:32,000
+A quick visual exploration
+of the features
+通过对特征的快速视觉探索
+109
+00:05:32,000 --> 00:05:34,200
+shows us
+that they are well-suited
+我们发现这些特征非常适合于
+110
+00:05:34,200 --> 00:05:36,300
+for discriminating
+between the three classes
+区分三类物种
+111
+00:05:36,300 --> 00:05:37,400
+of species,
+
+112
+00:05:37,400 --> 00:05:40,400
+and can be directly used
+to build the classifier
+并且可以直接用于构建分类器
+113
+00:05:40,400 --> 00:05:43,100
+without any feature engineering.
+而无需任何特征工程
+114
+00:05:43,100 --> 00:05:46,200
+We feed the training data
+into Classify.
+我们将训练数据输入分类
+115
+00:05:46,200 --> 00:05:48,000
+Here are the predicted
+class labels
+下面是一些预测类样本
+116
+00:05:48,000 --> 00:05:51,000
+for 10 random samples
+from the test data.
+从测试数据中随机抽取的10个样本
+117
+00:05:51,000 --> 00:05:55,000
+We can find more details about
+the classifier that was created.
+我们可以找到与创建的分类器相关的更多详细信息
+118
+00:05:55,000 --> 00:05:59,200
+Along with the algorithm
+that was used, decision tree,
+随着所使用的算法，决策树
+119
+00:05:59,200 --> 00:06:02,000
+we can find out the values
+of the various parameters
+我们可以找出用于该算法的
+120
+00:06:02,000 --> 00:06:04,000
+used for this algorithm.
+各种参数的值
+121
+00:06:04,000 --> 00:06:06,400
+We can see
+how the training progressed
+我们可以看到培训的进展情况
+122
+00:06:06,400 --> 00:06:09,500
+and what was
+the performance on the test set.
+以及在测试集上的表现
+123
+00:06:09,500 --> 00:06:11,500
+Accuracy shows how many samples
+准确度显示有多少样本
+124
+00:06:11,500 --> 00:06:14,000
+had their class labels
+predicted correctly.
+他们的类标签预测正确
+125
+00:06:15,600 --> 00:06:18,000
+It's not enough
+to just build a classifier.
+仅仅建立一个分类器是不够的
+126
+00:06:18,000 --> 00:06:20,000
+We need to evaluate
+its performance
+我们需要评估它的性能
+127
+00:06:20,000 --> 00:06:23,300
+to see if it's providing
+reasonable output.
+看看它是否提供了合理的输出
+128
+00:06:23,300 --> 00:06:25,300
+This is where
+the test data is useful.
+这就是测试数据有用的地方
+129
+00:06:25,300 --> 00:06:28,000
+Since we know the labels
+of these samples,
+既然我们知道这些样本的标签
+130
+00:06:28,000 --> 00:06:31,000
+we can match them
+against the predicted labels
+所以我们可以将它们与预测的标签进行匹配
+131
+00:06:31,000 --> 00:06:33,800
+to see how well
+the classifier is doing.
+看看分类器的表现如何
+132
+00:06:33,800 --> 00:06:36,600
+Accuracy is one useful measure
+of performance,
+准确度是衡量性能的一个有用的指标
+133
+00:06:36,600 --> 00:06:40,500
+giving the fraction
+of correctly classified examples.
+通过给出正确分类示例的分数
+134
+00:06:40,500 --> 00:06:43,600
+The confusion matrix
+is another useful measure,
+混淆矩阵是另一个有用的度量
+135
+00:06:43,600 --> 00:06:47,300
+which shows at a glance
+how many samples of each class
+它可以一眼看出每个类中有多少个样本
+136
+00:06:47,300 --> 00:06:50,500
+were labeled correctly
+as belonging to that class
+被正确地标记为属于该类
+137
+00:06:50,500 --> 00:06:54,800
+or mislabeled
+as belonging to another class.
+或者错误地标记为属于另一个类
+138
+00:06:54,800 --> 00:06:58,000
+ClassifierMeasurements
+can be used to compute
+ClassifierMeasurements可以用来计算
+139
+00:06:58,000 --> 00:07:00,000
+a whole range of metrics
+一系列度量
+140
+00:07:00,000 --> 00:07:04,000
+useful for evaluating
+the performance of a classifier.
+这些度量用于评估分类器性能
+141
+00:07:04,000 --> 00:07:06,000
+We can find examples
+from one class
+我们可以找到示例
+142
+00:07:06,000 --> 00:07:08,400
+that were mislabeled
+as another class.
+它从一个类中被错误标记为另一类
+143
+00:07:08,400 --> 00:07:10,800
+Here are the probabilities
+from the classifier function,
+下面是来自分类器函数的概率
+144
+00:07:10,800 --> 00:07:13,700
+which shows why
+the mistakes were made.
+它显示了为什么会出错
+145
+00:07:13,700 --> 00:07:16,300
+The iris dataset contained
+only numeric features.
+虹膜数据集只包含数字特征
+146
+00:07:16,300 --> 00:07:19,000
+Here is an example
+where we build a classifier
+下面是一个例子 我们构建分类器
+147
+00:07:19,000 --> 00:07:22,400
+using labeled images of trees
+as input
+用树的标记图像作为输入
+148
+00:07:22,400 --> 00:07:25,700
+to predict the species
+of the tree as output.
+以预测树的种类作为输出
+149
+00:07:25,700 --> 00:07:29,000
+We see the logistic regression
+algorithm was chosen,
+我们看到逻辑回归算法被选中
+150
+00:07:29,000 --> 00:07:32,000
+and it achieved an accuracy of 89%.
+它达到了89%的准确率
+151
+00:07:32,000 --> 00:07:36,200
+All the maples in the test data
+were classified correctly,
+所有的枫树在测试数据中分类正确
+152
+00:07:36,200 --> 00:07:40,700
+but there were misclassifications
+for eucalyptus, oak and pine.
+但桉树、橡树和松树存在分类错误
+153
+00:07:40,700 --> 00:07:42,600
+These were
+the best-classified samples
+这些是最佳分类样本
+154
+00:07:42,600 --> 00:07:45,400
+with 100% certainty,
+100%确定的
+155
+00:07:45,400 --> 00:07:48,300
+and these were
+the worst-classified samples.
+而这些样本是最差的分类样本
+156
+00:07:48,300 --> 00:07:49,000
+These are the samples
+这些是被错误分类的样本
+157
+00:07:49,000 --> 00:07:53,700
+of eucalyptuses
+misclassified as oaks.
+桉树被错误分为橡树
+158
+00:07:53,700 --> 00:07:57,300
+Here's yet another example
+of building a classifier
+这是另一个构建分类器的例子
+159
+00:07:57,300 --> 00:07:58,700
+using text input.
+通过文本输入
+160
+00:07:58,700 --> 00:08:01,500
+We import the text
+from works of famous authors
+我们将著名作家作品导入文本
+161
+00:08:01,500 --> 00:08:08,000
+like Shakespeare, Jane Austen
+and Agatha Christie.
+例如莎士比亚、简奥斯丁、阿加莎克里斯蒂
+162
+00:08:08,000 --> 00:08:12,400
+Now let's try to train a classifier
+on these texts
+现在让我们试着在文本上训练一个分类器
+163
+00:08:12,400 --> 00:08:16,500
+to predict the author when given
+a sample of his or her writing.
+以便在给定写作样本时预测作者
+164
+00:08:16,500 --> 00:08:19,200
+A simple Markov model
+is able to do a good job
+一个简单的马尔可夫模型可以很好的完成这项任务
+165
+00:08:19,200 --> 00:08:22,300
+of predicting the author
+from a sample of their writing.
+从他们的写作样本中预测作者
+166
+00:08:25,300 --> 00:08:27,400
+Classify can be configured to use
+分类可以配置为
+167
+00:08:27,400 --> 00:08:30,600
+one of the many well-known
+classification algorithms
+各种著名的分类算法之一
+168
+00:08:30,600 --> 00:08:32,000
+as a method,
+作为一种方法
+169
+00:08:32,000 --> 00:08:35,300
+whether it's logistic regression,
+nearest neighbors, Naive Bayes,
+无论是逻辑回归、最近邻，朴素贝叶斯
+170
+00:08:35,300 --> 00:08:38,000
+decision trees,
+gradient-boosted trees,
+决策树、梯度增强树
+171
+00:08:38,000 --> 00:08:40,800
+random forests, Markov models,
+support vector machines
+随机森林、马尔可夫模型、支持向量
+172
+00:08:40,800 --> 00:08:43,000
+or even neural networks.
+或者甚至是神经网络
+173
+00:08:43,000 --> 00:08:45,900
+Let's compare the performance
+of two different classifiers
+让我们比较两个不同的分类器
+174
+00:08:45,900 --> 00:08:47,400
+trained on the same data.
+在同一数据上训练的不同性能
+175
+00:08:47,400 --> 00:08:50,500
+One is set to use
+logistic regression
+其中一个设置为使用逻辑回归
+176
+00:08:50,500 --> 00:08:53,400
+and the other Naive Bayes.
+另一个使用朴素贝叶斯
+177
+00:08:53,400 --> 00:08:55,500
+We see that
+the decision probability
+我们发现 对于属于a 类的样本
+178
+00:08:55,500 --> 00:08:58,900
+for a sample belonging to class A
+reduces gradually
+逻辑回归分类器的决策概率逐渐降低
+179
+00:08:58,900 --> 00:09:01,300
+for the logistic regression
+classifier,
+对于朴素贝叶斯
+180
+00:09:01,300 --> 00:09:05,200
+whereas it is a sharp change
+for the Naive Bayes classifier.
+则是一个急剧的变化
+181
+00:09:06,900 --> 00:09:09,000
+Classify can also be customized
+分类也可以通过
+182
+00:09:09,000 --> 00:09:13,000
+by setting a specific value
+as the indeterminate threshold
+设置一个特定的值作为不确定的阈值来制定
+183
+00:09:13,000 --> 00:09:14,800
+so that the classifier
+attempts to make
+因此分类器只有在样本
+184
+00:09:14,800 --> 00:09:16,000
+a confident prediction
+属于一个类的概率足够高时
+185
+00:09:16,000 --> 00:09:19,100
+only when the probability
+of the sample belonging to a class
+才会尝试进行置信预测
+186
+00:09:19,100 --> 00:09:20,600
+is high enough.
+
+187
+00:09:20,600 --> 00:09:23,200
+Since we set
+the IndeterminateThreshold
+因为在本例中
+188
+00:09:23,200 --> 00:09:26,000
+to a high value of 0.9
+in this example,
+我们将不确定状态的阈值设置为0.9
+189
+00:09:26,000 --> 00:09:29,000
+the classifier does not
+make a decision
+所以分类器不会做出决定
+190
+00:09:29,000 --> 00:09:32,500
+and instead just returns the label
+as indeterminate.
+而是将标签返回为不确定
+191
+00:09:32,500 --> 00:09:35,000
+This can be useful
+in fine-tuning the performance
+这对于微调分类器的性能
+192
+00:09:35,000 --> 00:09:37,700
+of a classifier
+to avoid false positives.
+以避免误报非常有用
+193
+00:09:39,100 --> 00:09:43,600
+Classify can also be customized
+to assign a specific utility value
+Classify还可以为每个可能的实际和预测标签
+194
+00:09:43,600 --> 00:09:47,000
+to each possible pairing
+of actual and predicted labels.
+定制为一个特定的实际程序值
+195
+00:09:47,000 --> 00:09:50,000
+For example,
+in this mushroom dataset,
+例如，在这个蘑菇数据集中
+196
+00:09:50,000 --> 00:09:53,300
+the classifier tries to predict
+分类器试图预测蘑菇
+197
+00:09:53,300 --> 00:09:56,200
+whether the mushroom
+is edible or not.
+是否可以食用
+198
+00:09:56,200 --> 00:09:59,000
+Each record is a mushroom sample
+每一个记录都是蘑菇样品
+199
+00:09:59,000 --> 00:10:02,000
+along with its label,
+edible or poisonous.
+和它的标签 食用或者有毒
+200
+00:10:02,000 --> 00:10:04,300
+Once we have trained a classifier,
+we can compare
+一旦我们训练了一个分类器 我们可以
+201
+00:10:04,300 --> 00:10:06,300
+the predicted
+versus actual class labels
+将预测的和实际的分类标签进行比较
+202
+00:10:06,300 --> 00:10:08,700
+to see how many
+poisonous mushrooms
+看看有多少有毒蘑菇
+203
+00:10:08,700 --> 00:10:11,500
+got predicted as edible.
+可被预测为可食的
+204
+00:10:11,500 --> 00:10:14,600
+In this scenario, we'd really
+like to avoid false positives,
+在这种情况下，我们真的希望避免假阳性
+205
+00:10:14,600 --> 00:10:18,000
+that is, poisonous mushrooms
+getting labeled as edible.
+也就是说，有毒蘑菇被贴上食用标签
+206
+00:10:18,000 --> 00:10:22,000
+We can set the utility function
+to penalize such predictions
+我们可以设置效用函数来惩罚这种预测
+207
+00:10:22,000 --> 00:10:24,000
+more than the false negatives,
+而不是假阴性
+208
+00:10:24,000 --> 00:10:28,000
+that is, edible mushrooms
+being classified as poisonous.
+即食用菌被归类为有毒的
+209
+00:10:28,000 --> 00:10:31,400
+We'd also like the classifier
+to declare labels as indeterminate
+我们还希望分类器为不清楚的决策声明
+210
+00:10:31,400 --> 00:10:33,500
+for decisions that are not clear,
+标签为不确定的
+211
+00:10:33,500 --> 00:10:37,000
+so we set up a utility function,
+as seen here.
+因此我们设置了一个效用函数 如下图所示
+212
+00:10:37,000 --> 00:10:39,500
+The new classifier
+trained with the utility function
+用效用函数训练的新分类器
+213
+00:10:39,500 --> 00:10:42,600
+predicts many more samples
+as indeterminate,
+可以预测更多的样本为不确定样本
+214
+00:10:42,600 --> 00:10:45,300
+but also has
+fewer false positives.
+但也有较少的误报
+215
+00:10:46,700 --> 00:10:49,400
+Lastly we can tune
+the performance of the classifier
+最后，我们可以通过设置性能目标
+216
+00:10:49,400 --> 00:10:51,400
+by setting a performance goal.
+来调整分类器的性能
+217
+00:10:51,400 --> 00:10:54,000
+A classifier's performance
+can be optimized
+分类器的性能可以根据
+218
+00:10:54,000 --> 00:10:57,000
+for training speed,
+actual runtime speed,
+训练速度、实际运行速度
+219
+00:10:57,000 --> 00:11:00,500
+memory usage
+or accuracy of predictions.
+内存使用率或预测精度进行优化
+220
+00:11:00,500 --> 00:11:02,300
+Here is a comparison
+of the training times
+这里比较了两个
+221
+00:11:02,300 --> 00:11:06,000
+of two classifiers
+with different performance goals.
+不同性能目标的分类器的训练次数
+222
+00:11:06,000 --> 00:11:08,400
+Naturally the training time
+of the classifier
+当然 为了准确度
+223
+00:11:08,400 --> 00:11:11,600
+whose performance
+is being optimized for accuracy
+而优化性能的分类器的训练时间
+224
+00:11:11,600 --> 00:11:14,000
+takes longer to train.
+需要更长的时间来训练
+225
+00:11:14,000 --> 00:11:17,000
+In summary,
+we looked at classification
+总之 我们把分类看作是一个有监督的机器学习任务
+226
+00:11:17,000 --> 00:11:19,000
+as a supervised
+machine learning task
+是一个有监督的机器学习任务
+227
+00:11:19,000 --> 00:11:21,300
+for predicting labels
+for new samples,
+在一组先前标记的训练样本的帮助下
+228
+00:11:21,300 --> 00:11:22,700
+with the help of a set
+训练样本的帮助下
+229
+00:11:22,700 --> 00:11:25,300
+of previously labeled
+training samples.
+预测新样本的标签
+230
+00:11:25,300 --> 00:11:27,900
+We applied the machine learning
+superfunction Classify
+我们将机器学习超函数应用于具有
+231
+00:11:27,900 --> 00:11:30,500
+on various datasets
+with numerical features,
+数值特征、图像、文本
+232
+00:11:30,500 --> 00:11:34,000
+images, text or even combinations
+of different types.
+甚至不同类型组合的各种数据集的分类
+233
+00:11:35,000 --> 00:11:36,700
+We used ClassifierMeasurements
+我们使用分类器度量
+234
+00:11:36,700 --> 00:11:40,000
+to evaluate the performance
+of the classifiers,
+来评估分类器的性能
+235
+00:11:40,000 --> 00:11:44,300
+and we looked at different options
+available for customizing Classify
+我们查看了定制分类的不同选项
+236
+00:11:44,300 --> 00:11:47,000
+to suit the need
+for the task at hand—
+以满足手头任务需要
+237
+00:11:47,000 --> 00:11:51,900
+among them Method to use a
+specific classification algorithm,
+其中包括使用特定分类算法的方法
+238
+00:11:51,900 --> 00:11:54,400
+UtilityFunction
+and IndeterminateThreshold
+效用函数和不确定性状态的阈值
+239
+00:11:54,400 --> 00:11:56,000
+to control predictions
+来控制预测
+240
+00:11:56,000 --> 00:11:58,500
+and PerformanceGoal
+to optimize performance
+和优化性能
+241
+00:11:58,500 --> 00:12:01,000
+according to different criteria.
+根据不同的准则

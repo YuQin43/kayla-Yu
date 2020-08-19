@@ -1,7 +1,7 @@
 ﻿1
 00:00:00,000 --> 00:00:01,000
 Hello and welcome
-您好 
+您好 欢迎您使用多功能卢静学习
 2
 00:00:01,000 --> 00:00:04,500
 to Multiparadigm Data Science
